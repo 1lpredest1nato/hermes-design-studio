@@ -6,21 +6,2188 @@
   ],
   "checks": {
     "diagnostics": {
-      "pass": false,
-      "error": "[Errno 2] No such file or directory: '/home/destino/.hermes/plugin-data/hermes-design-studio/diagnostics.json'"
+      "pass": true,
+      "evidence": {
+        "build": "design-studio-p1-20261111-studio-1",
+        "run_id": "17b738dd-93ce-4d8f-821e-f6d5f5f734a5",
+        "tools": [
+          "chromatic_aberration",
+          "dither",
+          "gradient_map",
+          "grain",
+          "halftone",
+          "levels",
+          "pixelate"
+        ],
+        "checks": [
+          {
+            "tool": "builtin/pixelate@1",
+            "pass": true,
+            "cases": [
+              {
+                "params": {
+                  "size": 2
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  48,
+                  50,
+                  54,
+                  102,
+                  48,
+                  50,
+                  54,
+                  102,
+                  110,
+                  76,
+                  148,
+                  140,
+                  110,
+                  76,
+                  148,
+                  140
+                ],
+                "actual_first_pixels": [
+                  48,
+                  50,
+                  54,
+                  102,
+                  48,
+                  50,
+                  54,
+                  102,
+                  110,
+                  76,
+                  148,
+                  140,
+                  110,
+                  76,
+                  148,
+                  140
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.47272784313725486,
+                  "std_luma": 0.22596453522963617,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.1049942857142857,
+                  "dominant_colors": [
+                    {
+                      "hex": "#333333",
+                      "fraction": 0.0625
+                    },
+                    {
+                      "hex": "#664499",
+                      "fraction": 0.0625
+                    },
+                    {
+                      "hex": "#aa66ff",
+                      "fraction": 0.0625
+                    },
+                    {
+                      "hex": "#ee8855",
+                      "fraction": 0.0625
+                    },
+                    {
+                      "hex": "#557744",
+                      "fraction": 0.0625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.16254084967320262,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              }
+            ]
+          },
+          {
+            "tool": "builtin/dither@1",
+            "pass": true,
+            "cases": [
+              {
+                "params": {
+                  "matrix": "2",
+                  "levels": 2,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.42187499999999994,
+                  "std_luma": 0.4938587696649721,
+                  "shadow_clipping_pct": 57.8125,
+                  "highlight_clipping_pct": 42.1875,
+                  "detail_density": 0.6428571428571427,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.578125
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.421875
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.4097426470588235,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "2",
+                  "levels": 5,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  64,
+                  64,
+                  64,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  64,
+                  64,
+                  64,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.4537377450980391,
+                  "std_luma": 0.24904535115458168,
+                  "shadow_clipping_pct": 9.375,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.15595238095238084,
+                  "dominant_colors": [
+                    {
+                      "hex": "#444444",
+                      "fraction": 0.3125
+                    },
+                    {
+                      "hex": "#888888",
+                      "fraction": 0.296875
+                    },
+                    {
+                      "hex": "#bbbbbb",
+                      "fraction": 0.28125
+                    },
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.09375
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.1986315359477124,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "2",
+                  "levels": 8,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  36,
+                  36,
+                  36,
+                  83,
+                  36,
+                  36,
+                  36,
+                  102,
+                  73,
+                  73,
+                  73,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  36,
+                  36,
+                  36,
+                  83,
+                  36,
+                  36,
+                  36,
+                  102,
+                  73,
+                  73,
+                  73,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.4597426470588234,
+                  "std_luma": 0.2537831235376612,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.14709383753501393,
+                  "dominant_colors": [
+                    {
+                      "hex": "#444444",
+                      "fraction": 0.21875
+                    },
+                    {
+                      "hex": "#222222",
+                      "fraction": 0.1875
+                    },
+                    {
+                      "hex": "#666666",
+                      "fraction": 0.15625
+                    },
+                    {
+                      "hex": "#999999",
+                      "fraction": 0.140625
+                    },
+                    {
+                      "hex": "#bbbbbb",
+                      "fraction": 0.140625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.1866217320261438,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "4",
+                  "levels": 2,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.43749999999999994,
+                  "std_luma": 0.49607837082461076,
+                  "shadow_clipping_pct": 56.25,
+                  "highlight_clipping_pct": 43.75,
+                  "detail_density": 0.6874999999999999,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.5625
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.4375
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.42263071895424836,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "4",
+                  "levels": 5,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  64,
+                  64,
+                  64,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  64,
+                  64,
+                  64,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.449877450980392,
+                  "std_luma": 0.24231009356738897,
+                  "shadow_clipping_pct": 7.8125,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.1626050420168066,
+                  "dominant_colors": [
+                    {
+                      "hex": "#444444",
+                      "fraction": 0.34375
+                    },
+                    {
+                      "hex": "#888888",
+                      "fraction": 0.296875
+                    },
+                    {
+                      "hex": "#bbbbbb",
+                      "fraction": 0.265625
+                    },
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.078125
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.19795751633986927,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "4",
+                  "levels": 8,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  36,
+                  36,
+                  36,
+                  83,
+                  36,
+                  36,
+                  36,
+                  102,
+                  73,
+                  73,
+                  73,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  36,
+                  36,
+                  36,
+                  83,
+                  36,
+                  36,
+                  36,
+                  102,
+                  73,
+                  73,
+                  73,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.4620098039215685,
+                  "std_luma": 0.25413239317388203,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.15087535014005593,
+                  "dominant_colors": [
+                    {
+                      "hex": "#444444",
+                      "fraction": 0.21875
+                    },
+                    {
+                      "hex": "#222222",
+                      "fraction": 0.1875
+                    },
+                    {
+                      "hex": "#999999",
+                      "fraction": 0.15625
+                    },
+                    {
+                      "hex": "#666666",
+                      "fraction": 0.140625
+                    },
+                    {
+                      "hex": "#bbbbbb",
+                      "fraction": 0.140625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.18370098039215688,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "8",
+                  "levels": 2,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.43749999999999994,
+                  "std_luma": 0.49607837082461076,
+                  "shadow_clipping_pct": 56.25,
+                  "highlight_clipping_pct": 43.75,
+                  "detail_density": 0.6874999999999999,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.5625
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.4375
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.42263071895424836,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "8",
+                  "levels": 5,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  64,
+                  64,
+                  64,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  64,
+                  64,
+                  64,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.44981617647058814,
+                  "std_luma": 0.24626358131848128,
+                  "shadow_clipping_pct": 7.8125,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.15147058823529402,
+                  "dominant_colors": [
+                    {
+                      "hex": "#444444",
+                      "fraction": 0.359375
+                    },
+                    {
+                      "hex": "#bbbbbb",
+                      "fraction": 0.28125
+                    },
+                    {
+                      "hex": "#888888",
+                      "fraction": 0.265625
+                    },
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.078125
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.19646650326797385,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "8",
+                  "levels": 8,
+                  "use_palette": false
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  36,
+                  36,
+                  36,
+                  83,
+                  36,
+                  36,
+                  36,
+                  102,
+                  73,
+                  73,
+                  73,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  36,
+                  36,
+                  36,
+                  83,
+                  36,
+                  36,
+                  36,
+                  102,
+                  73,
+                  73,
+                  73,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.46421568627450965,
+                  "std_luma": 0.25569024040590854,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.14961484593837526,
+                  "dominant_colors": [
+                    {
+                      "hex": "#444444",
+                      "fraction": 0.21875
+                    },
+                    {
+                      "hex": "#222222",
+                      "fraction": 0.1875
+                    },
+                    {
+                      "hex": "#bbbbbb",
+                      "fraction": 0.15625
+                    },
+                    {
+                      "hex": "#666666",
+                      "fraction": 0.140625
+                    },
+                    {
+                      "hex": "#999999",
+                      "fraction": 0.140625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.18443627450980393,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "matrix": "4",
+                  "levels": 3,
+                  "use_palette": true,
+                  "dark": "#204060",
+                  "light": "#e0c080"
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  32,
+                  64,
+                  96,
+                  64,
+                  32,
+                  64,
+                  96,
+                  83,
+                  32,
+                  64,
+                  96,
+                  102,
+                  32,
+                  64,
+                  96,
+                  121
+                ],
+                "actual_first_pixels": [
+                  32,
+                  64,
+                  96,
+                  64,
+                  32,
+                  64,
+                  96,
+                  83,
+                  32,
+                  64,
+                  96,
+                  102,
+                  32,
+                  64,
+                  96,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.46442196078431414,
+                  "std_luma": 0.2619978580646216,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.36309490196078414,
+                  "dominant_colors": [
+                    {
+                      "hex": "#224466",
+                      "fraction": 0.5625
+                    },
+                    {
+                      "hex": "#eecc88",
+                      "fraction": 0.4375
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.2604575163398693,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              }
+            ]
+          },
+          {
+            "tool": "builtin/halftone@1",
+            "pass": true,
+            "cases": [
+              {
+                "params": {
+                  "size": 3,
+                  "angle": 0
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  255,
+                  255,
+                  255,
+                  102,
+                  255,
+                  255,
+                  255,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  255,
+                  255,
+                  255,
+                  102,
+                  255,
+                  255,
+                  255,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.49999999999999994,
+                  "std_luma": 0.5,
+                  "shadow_clipping_pct": 50,
+                  "highlight_clipping_pct": 50,
+                  "detail_density": 0.3928571428571428,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.5
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.5
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.4245098039215686,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "size": 4,
+                  "angle": 37
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  255,
+                  255,
+                  255,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "actual_first_pixels": [
+                  255,
+                  255,
+                  255,
+                  64,
+                  0,
+                  0,
+                  0,
+                  83,
+                  0,
+                  0,
+                  0,
+                  102,
+                  0,
+                  0,
+                  0,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.5624999999999999,
+                  "std_luma": 0.49607837082461076,
+                  "shadow_clipping_pct": 43.75,
+                  "highlight_clipping_pct": 56.25,
+                  "detail_density": 0.32142857142857134,
+                  "dominant_colors": [
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.5625
+                    },
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.4375
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.4539624183006536,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              }
+            ]
+          },
+          {
+            "tool": "builtin/gradient_map@1",
+            "pass": true,
+            "cases": [
+              {
+                "params": {
+                  "three_colors": false,
+                  "dark": "#204060",
+                  "middle": "#d09030",
+                  "light": "#f0e0a0"
+                },
+                "pass": true,
+                "max_error": 1,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  32,
+                  64,
+                  96,
+                  64,
+                  80,
+                  91,
+                  103,
+                  83,
+                  106,
+                  110,
+                  109,
+                  102,
+                  126,
+                  126,
+                  115,
+                  121
+                ],
+                "actual_first_pixels": [
+                  32,
+                  64,
+                  96,
+                  64,
+                  80,
+                  91,
+                  103,
+                  83,
+                  106,
+                  110,
+                  109,
+                  102,
+                  126,
+                  126,
+                  115,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.6175502941176471,
+                  "std_luma": 0.14331542100022793,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.08641568627450978,
+                  "dominant_colors": [
+                    {
+                      "hex": "#ccbb88",
+                      "fraction": 0.125
+                    },
+                    {
+                      "hex": "#ddcc99",
+                      "fraction": 0.125
+                    },
+                    {
+                      "hex": "#888877",
+                      "fraction": 0.109375
+                    },
+                    {
+                      "hex": "#999977",
+                      "fraction": 0.109375
+                    },
+                    {
+                      "hex": "#777777",
+                      "fraction": 0.078125
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.22567401960784314,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "three_colors": true,
+                  "dark": "#204060",
+                  "middle": "#d09030",
+                  "light": "#f0e0a0"
+                },
+                "pass": true,
+                "max_error": 1,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  32,
+                  64,
+                  96,
+                  64,
+                  92,
+                  83,
+                  91,
+                  83,
+                  124,
+                  97,
+                  85,
+                  102,
+                  148,
+                  110,
+                  79,
+                  121
+                ],
+                "actual_first_pixels": [
+                  32,
+                  64,
+                  96,
+                  64,
+                  92,
+                  83,
+                  91,
+                  83,
+                  124,
+                  97,
+                  85,
+                  102,
+                  147,
+                  110,
+                  79,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.5785574142156864,
+                  "std_luma": 0.1440417588316189,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.0878209943977591,
+                  "dominant_colors": [
+                    {
+                      "hex": "#cc8833",
+                      "fraction": 0.09375
+                    },
+                    {
+                      "hex": "#ddaa55",
+                      "fraction": 0.09375
+                    },
+                    {
+                      "hex": "#aa7744",
+                      "fraction": 0.078125
+                    },
+                    {
+                      "hex": "#eecc88",
+                      "fraction": 0.0625
+                    },
+                    {
+                      "hex": "#996644",
+                      "fraction": 0.046875
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.22281454248366014,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              }
+            ]
+          },
+          {
+            "tool": "builtin/grain@1",
+            "pass": true,
+            "cases": [
+              {
+                "params": {
+                  "amount": 0
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  31,
+                  13,
+                  47,
+                  83,
+                  62,
+                  26,
+                  94,
+                  102,
+                  93,
+                  39,
+                  141,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  31,
+                  13,
+                  47,
+                  83,
+                  62,
+                  26,
+                  94,
+                  102,
+                  93,
+                  39,
+                  141,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.45898745098039223,
+                  "std_luma": 0.24108103254726615,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.1465128571428571,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#110022",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#331155",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#552288",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#7733bb",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "amount": 0.4
+                },
+                "pass": true,
+                "max_error": 1,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  8,
+                  8,
+                  8,
+                  64,
+                  39,
+                  21,
+                  55,
+                  83,
+                  50,
+                  14,
+                  82,
+                  102,
+                  102,
+                  48,
+                  150,
+                  121
+                ],
+                "actual_first_pixels": [
+                  8,
+                  8,
+                  8,
+                  64,
+                  39,
+                  21,
+                  55,
+                  83,
+                  50,
+                  14,
+                  82,
+                  102,
+                  102,
+                  48,
+                  150,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.45904821078431374,
+                  "std_luma": 0.25714892187200383,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.18264308823529402,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#221133",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#330055",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#663399",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#aa66ee",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.09133986928104575,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              }
+            ]
+          },
+          {
+            "tool": "builtin/chromatic_aberration@1",
+            "pass": true,
+            "cases": [
+              {
+                "params": {
+                  "offset": 1,
+                  "angle": 0
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  31,
+                  0,
+                  0,
+                  64,
+                  62,
+                  13,
+                  0,
+                  83,
+                  93,
+                  26,
+                  47,
+                  102,
+                  124,
+                  39,
+                  94,
+                  121
+                ],
+                "actual_first_pixels": [
+                  31,
+                  0,
+                  0,
+                  64,
+                  62,
+                  13,
+                  0,
+                  83,
+                  93,
+                  26,
+                  47,
+                  102,
+                  124,
+                  39,
+                  94,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.46234411764705885,
+                  "std_luma": 0.2370608027348084,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.1437939635854342,
+                  "dominant_colors": [
+                    {
+                      "hex": "#110000",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#330000",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#551122",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#772255",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#993388",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.13549836601307189,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "offset": 2,
+                  "angle": 90
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  34,
+                  0,
+                  0,
+                  64,
+                  65,
+                  13,
+                  47,
+                  83,
+                  96,
+                  26,
+                  94,
+                  102,
+                  127,
+                  39,
+                  141,
+                  121
+                ],
+                "actual_first_pixels": [
+                  34,
+                  0,
+                  0,
+                  64,
+                  65,
+                  13,
+                  47,
+                  83,
+                  96,
+                  26,
+                  94,
+                  102,
+                  127,
+                  39,
+                  141,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.4610541176470589,
+                  "std_luma": 0.22789929210564203,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.14382497198879554,
+                  "dominant_colors": [
+                    {
+                      "hex": "#220000",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#440022",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#661155",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#772288",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#9933bb",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.08333333333333333,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              }
+            ]
+          },
+          {
+            "tool": "builtin/levels@1",
+            "pass": true,
+            "cases": [
+              {
+                "params": {
+                  "brightness": 0,
+                  "contrast": 1,
+                  "gamma": 1,
+                  "saturation": 1
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  31,
+                  13,
+                  47,
+                  83,
+                  62,
+                  26,
+                  94,
+                  102,
+                  93,
+                  39,
+                  141,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  31,
+                  13,
+                  47,
+                  83,
+                  62,
+                  26,
+                  94,
+                  102,
+                  93,
+                  39,
+                  141,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.45898745098039223,
+                  "std_luma": 0.24108103254726615,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.1465128571428571,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#110022",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#331155",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#552288",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#7733bb",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "brightness": 0.2,
+                  "contrast": 1,
+                  "gamma": 1,
+                  "saturation": 1
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  51,
+                  51,
+                  51,
+                  64,
+                  82,
+                  64,
+                  98,
+                  83,
+                  113,
+                  77,
+                  145,
+                  102,
+                  144,
+                  90,
+                  192,
+                  121
+                ],
+                "actual_first_pixels": [
+                  51,
+                  51,
+                  51,
+                  64,
+                  82,
+                  64,
+                  98,
+                  83,
+                  113,
+                  77,
+                  145,
+                  102,
+                  144,
+                  90,
+                  192,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.642280968137255,
+                  "std_luma": 0.22087503797421343,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.1257395798319327,
+                  "dominant_colors": [
+                    {
+                      "hex": "#ffff66",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#ffffff",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#333333",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#554466",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#774499",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.1837826797385621,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "brightness": 0,
+                  "contrast": 1.5,
+                  "gamma": 1,
+                  "saturation": 1
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  7,
+                  83,
+                  29,
+                  0,
+                  77,
+                  102,
+                  76,
+                  0,
+                  148,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  0,
+                  0,
+                  7,
+                  83,
+                  29,
+                  0,
+                  77,
+                  102,
+                  76,
+                  0,
+                  148,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.44834090686274514,
+                  "std_luma": 0.3090536157632899,
+                  "shadow_clipping_pct": 7.8125,
+                  "highlight_clipping_pct": 1.5625,
+                  "detail_density": 0.16616441876750696,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.0625
+                    },
+                    {
+                      "hex": "#000011",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#002200",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#ffff00",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#110044",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.08376225490196078,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "brightness": 0,
+                  "contrast": 1,
+                  "gamma": 1.8,
+                  "saturation": 1
+                },
+                "pass": true,
+                "max_error": 1,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  79,
+                  49,
+                  100,
+                  83,
+                  116,
+                  72,
+                  146,
+                  102,
+                  146,
+                  90,
+                  183,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  79,
+                  49,
+                  100,
+                  83,
+                  116,
+                  72,
+                  146,
+                  102,
+                  146,
+                  90,
+                  183,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.6052889583333334,
+                  "std_luma": 0.21507732532275284,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.13379925770308118,
+                  "dominant_colors": [
+                    {
+                      "hex": "#000000",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#443366",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#774499",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#9955bb",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#aa66dd",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.1477328431372549,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "brightness": 0,
+                  "contrast": 1,
+                  "gamma": 1,
+                  "saturation": 0
+                },
+                "pass": true,
+                "max_error": 0,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  19,
+                  19,
+                  19,
+                  83,
+                  39,
+                  39,
+                  39,
+                  102,
+                  58,
+                  58,
+                  58,
+                  121
+                ],
+                "actual_first_pixels": [
+                  0,
+                  0,
+                  0,
+                  64,
+                  19,
+                  19,
+                  19,
+                  83,
+                  39,
+                  39,
+                  39,
+                  102,
+                  58,
+                  58,
+                  58,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.4589460784313724,
+                  "std_luma": 0.24105784659424018,
+                  "shadow_clipping_pct": 1.5625,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.14656862745098026,
+                  "dominant_colors": [
+                    {
+                      "hex": "#333333",
+                      "fraction": 0.109375
+                    },
+                    {
+                      "hex": "#666666",
+                      "fraction": 0.09375
+                    },
+                    {
+                      "hex": "#999999",
+                      "fraction": 0.09375
+                    },
+                    {
+                      "hex": "#bbbbbb",
+                      "fraction": 0.09375
+                    },
+                    {
+                      "hex": "#444444",
+                      "fraction": 0.078125
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.17593954248366014,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              },
+              {
+                "params": {
+                  "brightness": -0.1,
+                  "contrast": 0.8,
+                  "gamma": 1.4,
+                  "saturation": 1.6
+                },
+                "pass": true,
+                "max_error": 1,
+                "mismatched_channels": 0,
+                "compared_channels": 256,
+                "expected_first_pixels": [
+                  16,
+                  16,
+                  16,
+                  64,
+                  63,
+                  30,
+                  89,
+                  83,
+                  99,
+                  43,
+                  142,
+                  102,
+                  130,
+                  54,
+                  187,
+                  121
+                ],
+                "actual_first_pixels": [
+                  16,
+                  16,
+                  16,
+                  64,
+                  63,
+                  30,
+                  89,
+                  83,
+                  99,
+                  43,
+                  142,
+                  102,
+                  130,
+                  54,
+                  187,
+                  121
+                ],
+                "metrics": {
+                  "width": 8,
+                  "height": 8,
+                  "mean_luma": 0.4864860294117648,
+                  "std_luma": 0.19106132083647492,
+                  "shadow_clipping_pct": 0,
+                  "highlight_clipping_pct": 0,
+                  "detail_density": 0.11536955182072825,
+                  "dominant_colors": [
+                    {
+                      "hex": "#ff00ff",
+                      "fraction": 0.03125
+                    },
+                    {
+                      "hex": "#111111",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#331155",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#662288",
+                      "fraction": 0.015625
+                    },
+                    {
+                      "hex": "#8833bb",
+                      "fraction": 0.015625
+                    }
+                  ],
+                  "nearly_uniform": false,
+                  "difference_source": 0.07005718954248366,
+                  "difference_previous": null,
+                  "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+                }
+              }
+            ]
+          }
+        ],
+        "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/diagnostics.json"
+      }
     },
     "manual_project": {
-      "pass": false,
-      "error": "[Errno 2] No such file or directory: '/home/destino/.hermes/plugin-data/hermes-design-studio/current-project.json'"
+      "pass": true,
+      "evidence": {
+        "project_id": "75efd24dc3174b02a8668948953fe80b",
+        "revision": 28,
+        "manual_tools": [
+          {
+            "ref": "user/my-tool@1",
+            "provenance": {
+              "author": "user",
+              "created": "2026-11-11T17:53:51.342545+00:00",
+              "from_prompt": ""
+            }
+          }
+        ],
+        "ui_command_ids": [
+          "8a8f5960ea444cd1919292f0eaa76dc7",
+          "261f64f055f84de8a79f285edb907f5b",
+          "5aff2e62077549bab63bb71eb5b385ce",
+          "bde212ab24d1448da6e46fe1fa94d76d",
+          "d9b3725ca3f549dc93bedad5de26b1ee",
+          "5c8b3cf915a040d28551415db107347b",
+          "5c221df93a9d49ecb1bc10174beab488",
+          "677dfb3116f041948600f126b61d55d2",
+          "05e9006a71324e3a93a3ae6c761c18d1",
+          "b60da16c495e4a9eb1d2353d932c6b0c",
+          "854bafc18be14666bc2ef0bfa68b43dc",
+          "ec69921a03bf453f9136d905597c1027",
+          "00a59de8e2d54305a37d28086b1edb73",
+          "5d24b6d84ce6400ba24ac7fbd2814e7c",
+          "096ea51b2cc8429fb5816e12f82eaf37",
+          "29d53f194c104fbab91300a99fa9fd84",
+          "4641c809156d48b0892ee35fa0a792c6",
+          "c72f1971ea19457bb31b94b722379cbe",
+          "f00bd9931bd84e179ca6f4fdcea1ba7b",
+          "faa28b0efb114b339a32e6ffa56fadbd",
+          "3dd226d7147f4b4b9eaace45f6f28e77",
+          "75b9a397b397424b9c55924f06a3d1cd",
+          "0d3829dbd7604818b7d547e309d807c2",
+          "d4cb2f4d16a3481e98f44afde7a533b0",
+          "0eeee7188d264e11a9d65247c2069101",
+          "364c05e4bd26494c851a3ac9eed779bd",
+          "24f8708797e54c7792680e62eb10f50d",
+          "8a57c3bf788c4bf5be97445b87356797"
+        ],
+        "source": {
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/86e18e7dd0ee460c9c0d99f13d63058d92563102089bf51c098736c18fb7d120.png",
+          "sha256": "86e18e7dd0ee460c9c0d99f13d63058d92563102089bf51c098736c18fb7d120",
+          "size": [
+            1536,
+            1024
+          ],
+          "bytes": 2082853,
+          "pillow_verify_load": true
+        }
+      }
     },
     "preview": {
-      "pass": false,
-      "error": "preview from older client build"
+      "pass": true,
+      "evidence": {
+        "image": {
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642.png",
+          "sha256": "7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642",
+          "size": [
+            1536,
+            1024
+          ],
+          "bytes": 305312,
+          "pillow_verify_load": true
+        },
+        "metadata": {
+          "run_id": "17b738dd-93ce-4d8f-821e-f6d5f5f734a5",
+          "build": "design-studio-p1-20261111-studio-1",
+          "page_active": true,
+          "detached_canvas": true,
+          "at": "2026-11-11T18:00:04.868Z",
+          "kind": "preview",
+          "revision": 28,
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "via": "ui",
+          "width": 1536,
+          "height": 1024,
+          "metrics": {
+            "width": 1536,
+            "height": 1024,
+            "mean_luma": 0.7588007185189632,
+            "std_luma": 0.38861908085472674,
+            "shadow_clipping_pct": 17.570813496907554,
+            "highlight_clipping_pct": 68.03035736083984,
+            "detail_density": 0.06658345974550713,
+            "dominant_colors": [
+              {
+                "hex": "#ffffff",
+                "fraction": 0.6803035736083984
+              },
+              {
+                "hex": "#000000",
+                "fraction": 0.17570813496907553
+              },
+              {
+                "hex": "#aaaaaa",
+                "fraction": 0.09150314331054688
+              },
+              {
+                "hex": "#555555",
+                "fraction": 0.052485148111979164
+              }
+            ],
+            "nearly_uniform": false,
+            "difference_source": 0.047657333739702476,
+            "difference_previous": 0,
+            "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+          },
+          "fixture": false,
+          "u_time": 0,
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642.png",
+          "sha256": "7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642",
+          "created_at": 1794420005.829253
+        },
+        "summary_payload": "{\"at\": \"2026-11-11T18:00:04.868Z\", \"build\": \"design-studio-p1-20261111-studio-1\", \"created_at\": 1794420005.829253, \"detached_canvas\": true, \"fixture\": false, \"height\": 1024, \"kind\": \"preview\", \"metrics\": {\"detail_density\": 0.06658345974550713, \"difference_previous\": 0, \"difference_source\": 0.047657333739702476, \"dominant_colors\": [{\"fraction\": 0.6803035736083984, \"hex\": \"#ffffff\"}, {\"fraction\": 0.17570813496907553, \"hex\": \"#000000\"}, {\"fraction\": 0.09150314331054688, \"hex\": \"#aaaaaa\"}, {\"fraction\": 0.052485148111979164, \"hex\": \"#555555\"}], \"height\": 1024, \"highlight_clipping_pct\": 68.03035736083984, \"mean_luma\": 0.7588007185189632, \"metrics_scope\": \"sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null\", \"nearly_uniform\": false, \"shadow_clipping_pct\": 17.570813496907554, \"std_luma\": 0.38861908085472674, \"width\": 1536}, \"page_active\": true, \"path\": \"/home/destino/.hermes/plugin-data/hermes-design-studio/previews/7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642.png\", \"project_id\": \"75efd24dc3174b02a8668948953fe80b\", \"revision\": 28, \"run_id\": \"17b738dd-93ce-4d8f-821e-f6d5f5f734a5\", \"sha256\": \"7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642\", \"u_time\": 0, \"via\": \"ui\", \"width\": 1536}",
+        "note": "Actual UI frame metadata; not a real agent tool call. P2 verifies that separately."
+      }
     },
     "exports": {
-      "pass": false,
-      "error": "no real P1 Save to library export"
+      "pass": true,
+      "evidence": [
+        {
+          "request_id": "6d225cdcc80d41a3b64227d2b9180696",
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "revision": 28,
+          "run_id": "17b738dd-93ce-4d8f-821e-f6d5f5f734a5",
+          "image": {
+            "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/exports/7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642.png",
+            "sha256": "7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642",
+            "size": [
+              1536,
+              1024
+            ],
+            "bytes": 305312,
+            "pillow_verify_load": true
+          }
+        }
+      ]
     }
   },
-  "pass": false
+  "pass": true
 }
