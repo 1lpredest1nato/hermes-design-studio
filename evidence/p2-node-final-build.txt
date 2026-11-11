@@ -1,0 +1,202 @@
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (8.430289ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (3.433317ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (4.992746ms)
+✔ detached service answers request while page is inactive and deduplicates id (10.757935ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (1.250818ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (9.258965ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (66.401106ms)
+✔ human approval sends the exact displayed successful check fingerprints (1030.838535ms)
+✔ approval stays disabled after replacement (728.214873ms)
+✔ approval stays disabled after wrong-receipt (729.031499ms)
+✔ approval stays disabled after approval-conflict (719.969379ms)
+✖ P1 entry wires manual studio and real diagnostic runner into permanent service (12.707757ms)
+✔ measures independent source and previous RGB differences; missing is null not fake zero (4.182269ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (47.328988ms)
+✔ project render is serialized and explicit preview limit reaches core (5.000873ms)
+✔ background request loads catalogue and honestly marks a source-less fixture (2.954508ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (3.512569ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (2.149347ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (2.134619ms)
+✔ draft check sends editor fingerprints and displays only the durable validated entry (2.545946ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (1.732315ms)
+✔ diagnostics persist the supplied actual runner output with build provenance (1.53692ms)
+✔ dispose closes a bitmap decoded after unload without render or post (17.726577ms)
+✔ page preview proactively uploads ready PNG while comparison never changes cache (1.837413ms)
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (396.799511ms)
+✔ before comparison renders are excluded from project history metrics (77.284644ms)
+✔ numeric conversion never silently rounds invalid integer input (0.948777ms)
+✔ same-revision polling cannot cancel an in-flight client export (67.724938ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (60.503747ms)
+✔ a new revision invalidates exports and clears an obsolete export task (74.580222ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.205787ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (777.238219ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (172.509013ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (842.292544ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (132.152347ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.470027ms)
+✔ oversized and cancelled imports never upload or change source (2.406512ms)
+✔ manifest controls preserve all five parameter types and enum values (5.273546ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.785115ms)
+✔ command channel binds /commands identity and revision to one document snapshot (3.41974ms)
+✔ command channel binds /history/undo identity and revision to one document snapshot (0.86243ms)
+✔ command channel binds /history/redo identity and revision to one document snapshot (2.000115ms)
+✔ command channel binds /recipes/apply identity and revision to one document snapshot (2.024516ms)
+✔ equal-revision different-project HTTP409 refreshes identity and rejects queued edits without retry (4.260478ms)
+✔ queued New project rejects old-project seed and pending edits without posting or retrying (4.130118ms)
+✔ throttled job rejects a project switch during its wait without a POST (2.026907ms)
+✔ same gesture across project identities cannot replace an earlier queued payload (13.702517ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (3.320474ms)
+✔ project creation and reproducible seed are available without any agent (141.280502ms)
+✔ preview-only controls and document revisions recheck without rewriting the original snapshot (2425.690226ms)
+✔ GLSL edits save once, invalidate approval immediately, and require fresh successful fingerprints (2133.915145ms)
+✔ concurrent backend replacement is rejected rather than resaved over or approved (1420.179904ms)
+✔ a new tool still saves its initial template once after the debounce (1396.19455ms)
+✔ a superseded check cannot make an edited draft approvable (1409.874771ms)
+✔ opening an agent draft checks its original immutable snapshots without saving or auto-approval (725.914715ms)
+ℹ tests 55
+ℹ suites 0
+ℹ pass 54
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11317.686648
+
+✖ failing tests:
+
+test at tests/p1-plugin.test.mjs:4:1
+✖ P1 entry wires manual studio and real diagnostic runner into permanent service (12.707757ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /design-studio-p1/. Input:
+  
+  "import {useEffect,useRef,useState,useSyncExternalStore} from 'react';\n" +
+    "import {host,useQuery,Button,ROUTES_AREA,SIDEBAR_NAV_AREA,PALETTE_AREA,TITLEBAR_AREAS} from '@hermes/plugin-sdk';\n" +
+    "import {createRenderer} from '../core/renderer.mjs';\n" +
+    "import {createService} from './service.mjs';\n" +
+    "import {makeUploadProbe,uploadChunks} from './upload.mjs';\n" +
+    "import {StudioPage,DiagnosticsPage} from './studio-page.jsx';\n" +
+    "import {runDiagnostics} from '../core/diagnostics.mjs';\n" +
+    "export const BUILD='design-studio-p2-20261111-agent-1';\n" +
+    "const fixture={format:1,id:'p0',revision:0,source:null,stack:[],seed:1234,timeline:null};\n" +
+    "const layout={padding:24,display:'grid',gap:16,color:'var(--ui-text-primary)',overflow:'auto',height:'100%',boxSizing:'border-box'};\n" +
+    "const box={padding:16,border:'1px solid var(--ui-stroke-secondary)',borderRadius:8};\n" +
+    '\n' +
+    'function ServiceMount({service}) {\n' +
+    " useQuery({queryKey:['hermes-design-studio',service.metadata().run_id,'service-poll'],\n" +
+    '  queryFn:async()=>{\n' +
+    "   const state=await service.rest('/state');\n" +
+    "   await service.accept(state,'poll');\n" +
+    '   await service.cache(state.document);\n' +
+    '   return {revision:state.document.revision,at:Date.now()};\n' +
+    '  },refetchInterval:2500,refetchIntervalInBackground:true,retry:1});\n' +
+    ' // Documented permanent titlebar mount; no visual chrome and no route ownership.\n' +
+    ' return null;\n' +
+    '}\n' +
+    'function RiskPage({service,diagnostics=false}) {\n' +
+    ' const snapshot=useSyncExternalStore(service.subscribe,service.getSnapshot);\n' +
+    " const [image,setImage]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);\n" +
+    " const [progress,setProgress]=useState(null),[result,setResult]=useState(null),[save,setSave]=useState('not tested');\n" +
+    ' const task=useRef(null),urls=useRef(new Set());\n' +
+    ' function ownURL(blob){const url=URL.createObjectURL(blob);urls.current.add(url);return url;}\n' +
+    ' useEffect(()=>{\n' +
+    '  const controller=new AbortController();task.current=controller;service.page(true);\n' +
+    "  const abort=()=>controller.abort();service.signal.addEventListener('abort',abort,{once:true});\n" +
+    "  service.report({page:{active:true,route:diagnostics?'/design-studio/diagnostics':'/design-studio'}}).catch(()=>{});\n" +
+    '  // Queue behind the service renderer: one GPU owner, no route-local renderer.\n' +
+    '  service.render(fixture,0).then(frame=>{if(!controller.signal.aborted)setImage(ownURL(frame.blob));}).catch(e=>{if(!controller.signal.aborted)setError(String(e));});\n' +
+    '  return()=>{\n' +
+    "   controller.abort();service.signal.removeEventListener('abort',abort);service.page(false);\n" +
+    '   for(const url of urls.current)URL.revokeObjectURL(url);urls.current.clear();\n' +
+    '   if(!service.signal.aborted)service.report({page:{active:false}}).catch(()=>{});\n' +
+    '  };\n' +
+    ' },[service,diagnostics]);\n' +
+    ' async function upload(blob,label) {\n' +
+    '  const signal=task.current.signal;\n' +
+    '  const uploaded=await uploadChunks(blob,{rest:service.rest,signal,onProgress:async p=>{\n' +
+    '   if(signal.aborted)return;setProgress(p);\n' +
+    "   await service.report({upload_probe:{label,status:'uploading',...p}});\n" +
+    '  }});\n' +
+    '  if(signal.aborted)return;\n' +
+    "  const observation={...uploaded,label,status:'complete',actual_png_bytes:blob.size,at_least_20MiB:blob.size>=20*1024*1024};\n" +
+    '  await service.report({upload_probe:observation});\n' +
+    '  if(!signal.aborted)setResult(observation);\n' +
+    ' }\n' +
+    ' async function probe() {\n' +
+    "  setBusy(true);setError('');setResult(null);\n" +
+    "  try {const blob=await makeUploadProbe(document.createElement('canvas'),task.current.signal);await upload(blob,'generated-high-entropy-PNG');}\n" +
+    "  catch(e){if(!task.current.signal.aborted){setError(String(e));await service.report({upload_probe:{status:'error',error:String(e),hint:'OAuth remote uploads are unsupported; use token connection.'}}).catch(()=>{});}}\n" +
+    '  finally{if(!task.current.signal.aborted)setBusy(false);}\n' +
+    ' }\n' +
+    ' async function importFile(file) {\n' +
+    "  if(!file)return;setBusy(true);setError('');\n" +
+    '  let bitmap;\n' +
+    '  const signal=task.current.signal;\n' +
+    '  try{\n' +
+    '   bitmap=await createImageBitmap(file);if(signal.aborted)return;\n' +
+    '   if(Math.max(bitmap.width,bitmap.height)>service.renderer.maxTextureSize)throw new Error(`Image exceeds GPU texture limit ${service.renderer.maxTextureSize}px`);\n' +
+    "   const localCanvas=document.createElement('canvas');localCanvas.width=bitmap.width;localCanvas.height=bitmap.height;\n" +
+    "   localCanvas.getContext('2d').drawImage(bitmap,0,0);\n" +
+    "   const localPng=await new Promise((resolve,reject)=>localCanvas.toBlob(blob=>blob?resolve(blob):reject(new Error('Imported PNG encoding failed')),'image/png'));\n" +
+    '   if(signal.aborted)return;setImage(ownURL(localPng));\n' +
+    "   await upload(file,'user-file-on-this-computer');\n" +
+    '   if(!signal.aborted)await service.report({import:{name:file.name,width:bitmap.width,height:bitmap.height,bytes:file.size,stored:true,applied_to_project:false}});\n' +
+    "  }catch(e){if(!signal.aborted)setError(String(e)+' Upload uses this computer; server-path import is a separate agent action. OAuth remote upload requires token connection.');}\n" +
+    '  finally{bitmap?.close();if(!signal.aborted)setBusy(false);}\n' +
+    ' }\n' +
+    " function saveClicked(){setSave('clicked — native dialog awaiting your confirmation');service.report({save_as:{clicked:true,dialog_verified:false,method:'plugin-owned-anchor-download'}}).catch(()=>{});}\n" +
+    " async function verifyDialog(){setSave('dialog confirmed by user');await service.report({save_as:{clicked:true,dialog_verified:true,evidence:'explicit-user-confirmation'}});}\n" +
+    ' return <main style={layout}>\n' +
+    "  <header><h1>Hermes Design Studio · P0 {diagnostics?'diagnostics':'risk probe'}</h1>\n" +
+    '   <p>Detached WebGL2 service, chunk upload and client-side Save as. P0 renders a fixed gradient, not a shader stack.</p>\n' +
+    '   <small>Build {BUILD} · run {snapshot.run_id}</small></header>\n' +
+    '  <section style={box}><h2>Service proof</h2>\n' +
+    '   <p>Navigate to chat, then request preview/export in a fresh agent session. This page is not the renderer lifetime.</p>\n' +
+    "   <pre style={{whiteSpace:'pre-wrap'}}>{JSON.stringify(snapshot,null,2)}</pre>\n" +
+    '   <p>page_active must be false in the resulting service report. A ready label is not a pass.</p>\n' +
+    "   <Button onClick={()=>host.navigate('/design-studio/diagnostics')}>Diagnostics</Button>{' '}\n" +
+    "   <Button onClick={()=>host.navigate('/')}>Leave page for chat</Button>\n" +
+    '  </section>\n' +
+    '  <section style={box} onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();if(!busy)importFile(e.dataTransfer.files[0]);}}>\n' +
+    '   <h2>Image on this computer</h2>\n' +
+    '   <label>Upload image <input type="file" accept="image/*" disabled={busy} onChange={e=>importFile(e.target.files[0])}/></label>\n' +
+    '   <p>Drop an image here. P0 decodes and stores chunks; importing does not yet change the project.</p>\n' +
+    `   {image&&<img src={image} alt="P0 fixture or local imported image" style={{maxWidth:'100%',maxHeight:280,objectFit:'contain'}}/>}\n` +
+    '   <p>{image&&<a href={image} download="design-studio-p0.png" onClick={saveClicked}>Save as… (on this computer)</a>}</p>\n' +
+    "   <p>{save}</p><Button onClick={verifyDialog} disabled={!save.startsWith('clicked')}>I saw the native Save dialog</Button>\n" +
+    '   <p>No automatic download clicks. Backend export paths are on the gateway, not necessarily this computer.</p>\n' +
+    '  </section>\n' +
+    '  <section style={box}><h2>≥20 MiB actual PNG upload probe</h2>\n' +
+    "   <Button disabled={busy} onClick={probe}>{busy?'Working…':'Generate PNG and upload 4 MiB chunks'}</Button>\n" +
+    '   {progress&&<p>{progress.index+1}/{progress.total} receipts · {progress.bytes_received}/{progress.bytes_total} bytes</p>}\n' +
+    "   {result&&<pre style={{whiteSpace:'pre-wrap'}}>{JSON.stringify(result,null,2)}</pre>}\n" +
+    '   <p>Success requires the assembled backend SHA-256 to equal the browser digest. No generated pass before receipts.</p>\n' +
+    '  </section>\n' +
+    `  {error&&<section role="alert" style={box}><h2>Observed error</h2><pre style={{whiteSpace:'pre-wrap'}}>{error}</pre></section>}\n` +
+    ' </main>;\n' +
+    '}\n' +
+    "export default {id:'hermes-design-studio',name:'Hermes Design Studio',register(ctx){\n" +
+    " const canvas=document.createElement('canvas');\n" +
+    ' const renderer=createRenderer(canvas);\n' +
+    ' const service=createService(ctx,renderer,{runId:crypto.randomUUID(),build:BUILD,diagnosticsRunner:runDiagnostics});\n' +
+    " ctx.register({id:'service',area:TITLEBAR_AREAS.right,render:()=> <ServiceMount service={service}/>});\n" +
+    " ctx.register({id:'page',area:ROUTES_AREA,data:{path:'/design-studio'},render:()=> <StudioPage service={service} ctx={ctx}/>});\n" +
+    " ctx.register({id:'diagnostics',area:ROUTES_AREA,data:{path:'/design-studio/diagnostics'},render:()=> <DiagnosticsPage service={service} ctx={ctx}/>});\n" +
+    " ctx.register({id:'p0-risks',area:ROUTES_AREA,data:{path:'/design-studio/p0'},render:()=> <RiskPage service={service}/>});\n" +
+    " ctx.register({id:'nav',area:SIDEBAR_NAV_AREA,data:{path:'/design-studio',label:'Design Studio',codicon:'paintcan'}});\n" +
+    " ctx.register({id:'command',area:PALETTE_AREA,data:{id:'design-studio.open',label:'Design Studio: open workspace',keywords:['design','studio'],run:()=>host.navigate('/design-studio')}});\n" +
+    " ctx.onEvent('*',event=>{\n" +
+    "  if(!event.type?.startsWith('plugin.hermes-design-studio.'))return;\n" +
+    "  service.rest('/state').then(async state=>{await service.accept(state,'event');await service.cache(state.document);}).catch(()=>{});\n" +
+    ' });\n' +
+    " service.report({runtime:{user_agent:navigator.userAgent,renderer:renderer.info,max_texture_size:renderer.maxTextureSize},service:{status:'registered',page_active:false,detached_canvas:!canvas.isConnected}}).catch(()=>{});\n" +
+    '}};\n'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-plugin.test.mjs:10:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'import {useEffect,useRef,useState,useSyncExternalStore} from \'react\';\nimport {host,useQuery,Button,ROUTES_AREA,SIDEBAR_NAV_AREA,PALETTE_AREA,TITLEBAR_AREAS} from \'@hermes/plugin-sdk\';\nimport {createRenderer} from \'../core/renderer.mjs\';\nimport {createService} from \'./service.mjs\';\nimport {makeUploadProbe,uploadChunks} from \'./upload.mjs\';\nimport {StudioPage,DiagnosticsPage} from \'./studio-page.jsx\';\nimport {runDiagnostics} from \'../core/diagnostics.mjs\';\nexport const BUILD=\'design-studio-p2-20261111-agent-1\';\nconst fixture={format:1,id:\'p0\',revision:0,source:null,stack:[],seed:1234,timeline:null};\nconst layout={padding:24,display:\'grid\',gap:16,color:\'var(--ui-text-primary)\',overflow:\'auto\',height:\'100%\',boxSizing:\'border-box\'};\nconst box={padding:16,border:\'1px solid var(--ui-stroke-secondary)\',borderRadius:8};\n\nfunction ServiceMount({service}) {\n useQuery({queryKey:[\'hermes-design-studio\',service.metadata().run_id,\'service-poll\'],\n  queryFn:async()=>{\n   const state=await service.rest(\'/state\');\n   await service.accept(state,\'poll\');\n   await service.cache(state.document);\n   return {revision:state.document.revision,at:Date.now()};\n  },refetchInterval:2500,refetchIntervalInBackground:true,retry:1});\n // Documented permanent titlebar mount; no visual chrome and no route ownership.\n return null;\n}\nfunction RiskPage({service,diagnostics=false}) {\n const snapshot=useSyncExternalStore(service.subscribe,service.getSnapshot);\n const [image,setImage]=useState(null),[error,setError]=useState(\'\'),[busy,setBusy]=useState(false);\n const [progress,setProgress]=useState(null),[result,setResult]=useState(null),[save,setSave]=useState(\'not tested\');\n const task=useRef(null),urls=useRef(new Set());\n function ownURL(blob){const url=URL.createObjectURL(blob);urls.current.add(url);return url;}\n useEffect(()=>{\n  const controller=new AbortController();task.current=controller;service.page(true);\n  const abort=()=>controller.abort();service.signal.addEventListener(\'abort\',abort,{once:true});\n  service.report({page:{active:true,route:diagnostics?\'/design-studio/diagnostics\':\'/design-studio\'}}).catch(()=>{});\n  // Queue behind the service renderer: one GPU owner, no route-local renderer.\n  service.render(fixture,0).then(frame=>{if(!controller.signal.aborted)setImage(ownURL(frame.blob));}).catch(e=>{if(!controller.signal.aborted)setError(String(e));});\n  return()=>{\n   controller.abort();service.signal.removeEventListener(\'abort\',abort);service.page(false);\n   for(const url of urls.current)URL.revokeObjectURL(url);urls.current.clear();\n   if(!service.signal.aborted)service.report({page:{active:false}}).catch(()=>{});\n  };\n },[service,diagnostics]);\n async function upload(blob,label) {\n  const signal=task.current.signal;\n  const uploaded=await uploadChunks(blob,{rest:service.rest,signal,onProgress:async p=>{\n   if(signal.aborted)return;setProgress(p);\n   await service.report({upload_probe:{label,status:\'uploading\',...p}});\n  }});\n  if(signal.aborted)return;\n  const observation={...uploaded,label,status:\'complete\',actual_png_bytes:blob.size,at_least_20MiB:blob.size>=20*1024*1024};\n  await service.report({upload_probe:observation});\n  if(!signal.aborted)setResult(observation);\n }\n async function probe() {\n  setBusy(true);setError(\'\');setResult(null);\n  try {const blob=await makeUploadProbe(document.createElement(\'canvas\'),task.current.signal);await upload(blob,\'generated-high-entropy-PNG\');}\n  catch(e){if(!task.current.signal.aborted){setError(String(e));await service.report({upload_probe:{status:\'error\',error:String(e),hint:\'OAuth remote uploads are unsupported; use token connection.\'}}).catch(()=>{});}}\n  finally{if(!task.current.signal.aborted)setBusy(false);}\n }\n async function importFile(file) {\n  if(!file)return;setBusy(true);setError(\'\');\n  let bitmap;\n  const signal=task.current.signal;\n  try{\n   bitmap=await createImageBitmap(file);if(signal.aborted)return;\n   if(Math.max(bitmap.width,bitmap.height)>service.renderer.maxTextureSize)throw new Error(`Image exceeds GPU texture limit ${service.renderer.maxTextureSize}px`);\n   const localCanvas=document.createElement(\'canvas\');localCanvas.width=bitmap.width;localCanvas.height=bitmap.height;\n   localCanvas.getContext(\'2d\').drawImage(bitmap,0,0);\n   const localPng=await new Promise((resolve,reject)=>localCanvas.toBlob(blob=>blob?resolve(blob):reject(new Error(\'Imported PNG encoding failed\')),\'image/png\'));\n   if(signal.aborted)return;setImage(ownURL(localPng));\n   await upload(file,\'user-file-on-this-computer\');\n   if(!signal.aborted)await service.report({import:{name:file.name,width:bitmap.width,height:bitmap.height,bytes:file.size,stored:true,applied_to_project:false}});\n  }catch(e){if(!signal.aborted)setError(String(e)+\' Upload uses this computer; server-path import is a separate agent action. OAuth remote upload requires token connection.\');}\n  finally{bitmap?.close();if(!signal.aborted)setBusy(false);}\n }\n function saveClicked(){setSave(\'clicked — native dialog awaiting your confirmation\');service.report({save_as:{clicked:true,dialog_verified:false,method:\'plugin-owned-anchor-download\'}}).catch(()=>{});}\n async function verifyDialog(){setSave(\'dialog confirmed by user\');await service.report({save_as:{clicked:true,dialog_verified:true,evidence:\'explicit-user-confirmation\'}});}\n return <main style={layout}>\n  <header><h1>Hermes Design Studio · P0 {diagnostics?\'diagnostics\':\'risk probe\'}</h1>\n   <p>Detached WebGL2 service, chunk upload and client-side Save as. P0 renders a fixed gradient, not a shader stack.</p>\n   <small>Build {BUILD} · run {snapshot.run_id}</small></header>\n  <section style={box}><h2>Service proof</h2>\n   <p>Navigate to chat, then request preview/export in a fresh agent session. This page is not the renderer lifetime.</p>\n   <pre style={{whiteSpace:\'pre-wrap\'}}>{JSON.stringify(snapshot,null,2)}</pre>\n   <p>page_active must be false in the resulting service report. A ready label is not a pass.</p>\n   <Button onClick={()=>host.navigate(\'/design-studio/diagnostics\')}>Diagnostics</Button>{\' \'}\n   <Button onClick={()=>host.navigate(\'/\')}>Leave page for chat</Button>\n  </section>\n  <section style={box} onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();if(!busy)importFile(e.dataTransfer.files[0]);}}>\n   <h2>Image on this computer</h2>\n   <label>Upload image <input type="file" accept="image/*" disabled={busy} onChange={e=>importFile(e.target.files[0])}/></label>\n   <p>Drop an image here. P0 decodes and stores chunks; importing does not yet change the project.</p>\n   {image&&<img src={image} alt="P0 fixture or local imported image" style={{maxWidth:\'100%\',maxHeight:280,objectFit:\'contain\'}}/>}\n   <p>{image&&<a href={image} download="design-studio-p0.png" onClick={saveClicked}>Save as… (on this computer)</a>}</p>\n   <p>{save}</p><Button onClick={verifyDialog} disabled={!save.startsWith(\'clicked\')}>I saw the native Save dialog</Button>\n   <p>No automatic download clicks. Backend export paths are on the gateway, not necessarily this computer.</p>\n  </section>\n  <section style={box}><h2>≥20 MiB actual PNG upload probe</h2>\n   <Button disabled={busy} onClick={probe}>{busy?\'Working…\':\'Generate PNG and upload 4 MiB chunks\'}</Button>\n   {progress&&<p>{progress.index+1}/{progress.total} receipts · {progress.bytes_received}/{progress.bytes_total} bytes</p>}\n   {result&&<pre style={{whiteSpace:\'pre-wrap\'}}>{JSON.stringify(result,null,2)}</pre>}\n   <p>Success requires the assembled backend SHA-256 to equal the browser digest. No generated pass before receipts.</p>\n  </section>\n  {error&&<section role="alert" style={box}><h2>Observed error</h2><pre style={{whiteSpace:\'pre-wrap\'}}>{error}</pre></section>}\n </main>;\n}\nexport default {id:\'hermes-design-studio\',name:\'Hermes Design Studio\',register(ctx){\n const canvas=document.createElement(\'canvas\');\n const renderer=createRenderer(canvas);\n const service=createService(ctx,renderer,{runId:crypto.randomUUID(),build:BUILD,diagnosticsRunner:runDiagnostics});\n ctx.register({id:\'service\',area:TITLEBAR_AREAS.right,render:()=> <ServiceMount service={service}/>});\n ctx.register({id:\'page\',area:ROUTES_AREA,data:{path:\'/design-studio\'},render:()=> <StudioPage service={service} ctx={ctx}/>});\n ctx.register({id:\'diagnostics\',area:ROUTES_AREA,data:{path:\'/design-studio/diagnostics\'},render:()=> <DiagnosticsPage service={service} ctx={ctx}/>});\n ctx.register({id:\'p0-risks\',area:ROUTES_AREA,data:{path:\'/design-studio/p0\'},render:()=> <RiskPage service={service}/>});\n ctx.register({id:\'nav\',area:SIDEBAR_NAV_AREA,data:{path:\'/design-studio\',label:\'Design Studio\',codicon:\'paintcan\'}});\n ctx.register({id:\'command\',area:PALETTE_AREA,data:{id:\'design-studio.open\',label:\'Design Studio: open workspace\',keywords:[\'design\',\'studio\'],run:()=>host.navigate(\'/design-studio\')}});\n ctx.onEvent(\'*\',event=>{\n  if(!event.type?.startsWith(\'plugin.hermes-design-studio.\'))return;\n  service.rest(\'/state\').then(async state=>{await service.accept(state,\'event\');await service.cache(state.document);}).catch(()=>{});\n });\n service.report({runtime:{user_agent:navigator.userAgent,renderer:renderer.info,max_texture_size:renderer.maxTextureSize},service:{status:\'registered\',page_active:false,detached_canvas:!canvas.isConnected}}).catch(()=>{});\n}};\n',
+    expected: /design-studio-p1/,
+    operator: 'match',
+    diff: 'simple'
+  }

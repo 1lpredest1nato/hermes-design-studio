@@ -1,7 +1,13 @@
 name: hermes-design-studio
 version: 0.1.0
-description: Design Studio P0 filesystem render bridge and service renderer preview.
+description: Design Studio image projects, shader drafts, recipes and filesystem render tools.
 author: 1lpredest1nato
 license: MIT
 provides_tools:
+  - design_studio_catalog
+  - design_studio_project
+  - design_studio_apply
   - design_studio_preview
+  - design_studio_create_tool
+  - design_studio_recipe
+  - design_studio_export

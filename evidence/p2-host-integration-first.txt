@@ -1,0 +1,988 @@
+{
+  "scope": "actual registered PluginHost handlers + real Chromium WebGL; no LLM/Desktop/human approval",
+  "parent_pid": 540322,
+  "calls": [
+    {
+      "tool": "design_studio_catalog",
+      "args": {},
+      "result": {
+        "tools": [
+          {
+            "manifest": {
+              "format": 1,
+              "id": "builtin/chromatic_aberration",
+              "version": 1,
+              "name": "Chromatic Aberration",
+              "description": "Offset red and blue in opposite pixel directions, preserving green and alpha.",
+              "kind": "shader",
+              "params": [
+                {
+                  "name": "offset",
+                  "type": "float",
+                  "default": 2,
+                  "label": "Offset",
+                  "min": 0,
+                  "max": 64
+                },
+                {
+                  "name": "angle",
+                  "type": "float",
+                  "default": 0,
+                  "label": "Angle",
+                  "min": -180,
+                  "max": 180
+                }
+              ],
+              "shader": "shader.frag",
+              "provenance": {
+                "author": "builtin",
+                "created": "2026-11-11",
+                "from_prompt": "Original Hermes Design Studio implementation"
+              },
+              "license": "MIT",
+              "examples": [
+                {
+                  "params": {
+                    "offset": 2,
+                    "angle": 0
+                  }
+                }
+              ]
+            },
+            "shader": "void main(){\n float a=radians(p_angle);vec2 shift=vec2(cos(a),sin(a))*p_offset/u_resolution;vec4 c=texture(u_input,v_uv);\n outColor=vec4(texture(u_input,v_uv+shift).r,c.g,texture(u_input,v_uv-shift).b,c.a);\n}\n",
+            "status": "builtin",
+            "ref": "builtin/chromatic_aberration@1"
+          },
+          {
+            "manifest": {
+              "format": 1,
+              "id": "builtin/dither",
+              "version": 1,
+              "name": "Ordered Dither",
+              "description": "Bayer 2/4/8 ordered dither: 2\u20138 grayscale levels or exactly two palette colors. Grayscale levels are ignored in palette mode.",
+              "kind": "shader",
+              "params": [
+                {
+                  "name": "matrix",
+                  "type": "enum",
+                  "default": "4",
+                  "label": "Matrix",
+                  "options": [
+                    "2",
+                    "4",
+                    "8"
+                  ]
+                },
+                {
+                  "name": "levels",
+                  "type": "int",
+                  "default": 4,
+                  "label": "Levels",
+                  "min": 2,
+                  "max": 8
+                },
+                {
+                  "name": "use_palette",
+                  "type": "bool",
+                  "default": false,
+                  "label": "Use Palette"
+                },
+                {
+                  "name": "dark",
+                  "type": "color",
+                  "default": "#171c29",
+                  "label": "Dark"
+                },
+                {
+                  "name": "light",
+                  "type": "color",
+                  "default": "#f4e4b5",
+                  "label": "Light"
+                }
+              ],
+              "shader": "shader.frag",
+              "provenance": {
+                "author": "builtin",
+                "created": "2026-11-11",
+                "from_prompt": "Original Hermes Design Studio implementation"
+              },
+              "license": "MIT",
+              "examples": [
+                {
+                  "params": {
+                    "matrix": "4",
+                    "levels": 4,
+                    "use_palette": false,
+                    "dark": "#171c29",
+                    "light": "#f4e4b5"
+                  }
+                }
+              ]
+            },
+            "shader": "vec3 toSrgb(vec3 c){return mix(12.92*c,1.055*pow(max(c,vec3(0)),vec3(1.0/2.4))-0.055,step(vec3(0.0031308),c));}\nint rank2(ivec2 p){return ((p.x ^ p.y)&1)*2+(p.y&1);}\nvoid main(){\n ivec2 pixel=ivec2(floor(v_uv*u_resolution));int n=2<<p_matrix;\n int rank=rank2(pixel);if(n>=4)rank=rank*4+rank2(pixel>>1);if(n>=8)rank=rank*4+rank2(pixel>>2);\n vec4 c=texture(u_input,v_uv);float value=dot(c.rgb,vec3(0.2126,0.7152,0.0722));\n int levels=p_use_palette?2:p_levels;\n float q=clamp(floor(value*float(levels-1)+(float(rank)+0.5)/float(n*n))/float(levels-1),0.0,1.0);\n outColor=vec4(p_use_palette?toSrgb(mix(p_dark,p_light,q)):vec3(q),c.a);\n}\n",
+            "status": "builtin",
+            "ref": "builtin/dither@1"
+          },
+          {
+            "manifest": {
+              "format": 1,
+              "id": "builtin/gradient_map",
+              "version": 1,
+              "name": "Gradient Map",
+              "description": "Map brightness to two or three colors, interpolated in linear light.",
+              "kind": "shader",
+              "params": [
+                {
+                  "name": "dark",
+                  "type": "color",
+                  "default": "#14283f",
+                  "label": "Dark"
+                },
+                {
+                  "name": "middle",
+                  "type": "color",
+                  "default": "#cf7543",
+                  "label": "Middle"
+                },
+                {
+                  "name": "light",
+                  "type": "color",
+                  "default": "#f6e6b9",
+                  "label": "Light"
+                },
+                {
+                  "name": "three_colors",
+                  "type": "bool",
+                  "default": false,
+                  "label": "Three Colors"
+                }
+              ],
+              "shader": "shader.frag",
+              "provenance": {
+                "author": "builtin",
+                "created": "2026-11-11",
+                "from_prompt": "Original Hermes Design Studio implementation"
+              },
+              "license": "MIT",
+              "examples": [
+                {
+                  "params": {
+                    "dark": "#14283f",
+                    "middle": "#cf7543",
+                    "light": "#f6e6b9",
+                    "three_colors": false
+                  }
+                }
+              ]
+            },
+            "shader": "vec3 toSrgb(vec3 c){return mix(12.92*c,1.055*pow(max(c,vec3(0)),vec3(1.0/2.4))-0.055,step(vec3(0.0031308),c));}\nvoid main(){\n vec4 c=texture(u_input,v_uv);float t=dot(c.rgb,vec3(0.2126,0.7152,0.0722));vec3 mapped=mix(p_dark,p_light,t);\n if(p_three_colors)mapped=t<0.5?mix(p_dark,p_middle,t*2.0):mix(p_middle,p_light,t*2.0-1.0);\n outColor=vec4(toSrgb(mapped),c.a);\n}\n",
+            "status": "builtin",
+            "ref": "builtin/gradient_map@1"
+          },
+          {
+            "manifest": {
+              "format": 1,
+              "id": "builtin/grain",
+              "version": 1,
+              "name": "Grain",
+              "description": "Deterministic seed-controlled monochrome grain; never advances time.",
+              "kind": "shader",
+              "params": [
+                {
+                  "name": "amount",
+                  "type": "float",
+                  "default": 0.15,
+                  "label": "Amount",
+                  "min": 0,
+                  "max": 1
+                }
+              ],
+              "shader": "shader.frag",
+              "provenance": {
+                "author": "builtin",
+                "created": "2026-11-11",
+                "from_prompt": "Original Hermes Design Studio implementation"
+              },
+              "license": "MIT",
+              "examples": [
+                {
+                  "params": {
+                    "amount": 0.15
+                  }
+                }
+              ]
+            },
+            "shader": "void main(){\n uvec2 pixel=uvec2(floor(v_uv*u_resolution));uint seed=uint(mod(abs(u_seed),16777216.0));\n uint n=pixel.x*1973u+pixel.y*9277u+seed*26699u;n=(n^(n>>13u))*1274126177u;n=n^(n>>16u);\n float noise=float(n&65535u)/65535.0-0.5;vec4 c=texture(u_input,v_uv);\n outColor=vec4(clamp(c.rgb+vec3(noise*p_amount),0.0,1.0),c.a);\n}\n",
+            "status": "builtin",
+            "ref": "builtin/grain@1"
+          },
+          {
+            "manifest": {
+              "format": 1,
+              "id": "builtin/halftone",
+              "version": 1,
+              "name": "Halftone",
+              "description": "Rotatable circular black ink dots with area driven by source brightness.",
+              "kind": "shader",
+              "params": [
+                {
+                  "name": "size",
+                  "type": "float",
+                  "default": 6,
+                  "label": "Size",
+                  "min": 2,
+                  "max": 64
+                },
+                {
+                  "name": "angle",
+                  "type": "float",
+                  "default": 15,
+                  "label": "Angle",
+                  "min": -180,
+                  "max": 180
+                }
+              ],
+              "shader": "shader.frag",
+              "provenance": {
+                "author": "builtin",
+                "created": "2026-11-11",
+                "from_prompt": "Original Hermes Design Studio implementation"
+              },
+              "license": "MIT",
+              "examples": [
+                {
+                  "params": {
+                    "size": 6,
+                    "angle": 15
+                  }
+                }
+              ]
+            },
+            "shader": "void main(){\n vec4 c=texture(u_input,v_uv);float a=radians(p_angle);vec2 pixel=v_uv*u_resolution;\n vec2 rotated=vec2(cos(a)*pixel.x-sin(a)*pixel.y,sin(a)*pixel.x+cos(a)*pixel.y);\n vec2 d=fract(rotated/p_size)-0.5;float ink=(1.0-dot(c.rgb,vec3(0.2126,0.7152,0.0722)))*0.25;\n float paper=dot(d,d)<=ink?0.0:1.0;outColor=vec4(vec3(paper),c.a);\n}\n",
+            "status": "builtin",
+            "ref": "builtin/halftone@1"
+          },
+          {
+            "manifest": {
+              "format": 1,
+              "id": "builtin/levels",
+              "version": 1,
+              "name": "Levels",
+              "description": "Brightness, midpoint contrast, gamma and luma-preserving saturation in explicit order.",
+              "kind": "shader",
+              "params": [
+                {
+                  "name": "brightness",
+                  "type": "float",
+                  "default": 0,
+                  "label": "Brightness",
+                  "min": -1,
+                  "max": 1
+                },
+                {
+                  "name": "contrast",
+                  "type": "float",
+                  "default": 1,
+                  "label": "Contrast",
+                  "min": 0,
+                  "max": 4
+                },
+                {
+                  "name": "gamma",
+                  "type": "float",
+                  "default": 1,
+                  "label": "Gamma",
+                  "min": 0.1,
+                  "max": 4
+                },
+                {
+                  "name": "saturation",
+                  "type": "float",
+                  "default": 1,
+                  "label": "Saturation",
+                  "min": 0,
+                  "max": 3
+                }
+              ],
+              "shader": "shader.frag",
+              "provenance": {
+                "author": "builtin",
+                "created": "2026-11-11",
+                "from_prompt": "Original Hermes Design Studio implementation"
+              },
+              "license": "MIT",
+              "examples": [
+                {
+                  "params": {
+                    "brightness": 0,
+                    "contrast": 1,
+                    "gamma": 1,
+                    "saturation": 1
+                  }
+                }
+              ]
+            },
+            "shader": "void main(){\n vec4 c=texture(u_input,v_uv);vec3 rgb=clamp((c.rgb+vec3(p_brightness)-0.5)*p_contrast+0.5,0.0,1.0);\n rgb=pow(rgb,vec3(1.0/p_gamma));float gray=dot(rgb,vec3(0.2126,0.7152,0.0722));\n outColor=vec4(clamp(mix(vec3(gray),rgb,p_saturation),0.0,1.0),c.a);\n}\n",
+            "status": "builtin",
+            "ref": "builtin/levels@1"
+          },
+          {
+            "manifest": {
+              "format": 1,
+              "id": "builtin/pixelate",
+              "version": 1,
+              "name": "Pixelate",
+              "description": "Snap image samples to the center of square pixel blocks.",
+              "kind": "shader",
+              "params": [
+                {
+                  "name": "size",
+                  "type": "int",
+                  "min": 1,
+                  "max": 128,
+                  "default": 8,
+                  "label": "Block size (px)"
+                }
+              ],
+              "shader": "shader.frag",
+              "provenance": {
+                "author": "builtin",
+                "created": "2026-11-11",
+                "from_prompt": "Original Hermes Design Studio implementation"
+              },
+              "license": "MIT",
+              "examples": [
+                {
+                  "params": {
+                    "size": 8
+                  }
+                }
+              ]
+            },
+            "shader": "void main(){\n vec2 pixel=v_uv*u_resolution;\n vec2 center=(floor(pixel/float(p_size))+0.5)*float(p_size);\n outColor=texture(u_input,min(center,u_resolution-0.5)/u_resolution);\n}\n",
+            "status": "builtin",
+            "ref": "builtin/pixelate@1"
+          }
+        ],
+        "drafts": [],
+        "recipes": []
+      }
+    },
+    {
+      "tool": "design_studio_project",
+      "args": {
+        "action": "get"
+      },
+      "result": {
+        "format": 1,
+        "id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "revision": 0,
+        "source": null,
+        "stack": [],
+        "seed": 0,
+        "timeline": null
+      }
+    },
+    {
+      "tool": "design_studio_project",
+      "args": {
+        "action": "import_image",
+        "path": "/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/source.png"
+      },
+      "result": {
+        "document": {
+          "format": 1,
+          "id": "0d24a69cd79045ee89bfb6cef3c5395b",
+          "revision": 1,
+          "source": {
+            "asset": "assets/01e3e89d589fd4c0b373804f9cae7c1641c1acf0fd86215103198274b6fcf5d2.png",
+            "w": 64,
+            "h": 48
+          },
+          "stack": [],
+          "seed": 0,
+          "timeline": null,
+          "last_command_id": "0ed6567b728a4499bd6d28c5e773b5c6"
+        },
+        "command_id": "0ed6567b728a4499bd6d28c5e773b5c6",
+        "base_revision": 0,
+        "revision": 1
+      }
+    },
+    {
+      "tool": "design_studio_apply",
+      "args": {
+        "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "base_revision": 1,
+        "commands": [
+          {
+            "type": "add_node",
+            "tool": "builtin/pixelate@1",
+            "params": {
+              "size": 4
+            }
+          },
+          {
+            "type": "add_node",
+            "tool": "builtin/levels@1",
+            "params": {
+              "brightness": 0.1
+            }
+          }
+        ]
+      },
+      "result": {
+        "document": {
+          "format": 1,
+          "id": "0d24a69cd79045ee89bfb6cef3c5395b",
+          "revision": 2,
+          "source": {
+            "asset": "assets/01e3e89d589fd4c0b373804f9cae7c1641c1acf0fd86215103198274b6fcf5d2.png",
+            "w": 64,
+            "h": 48
+          },
+          "stack": [
+            {
+              "uid": "bd1418725b2c4ae1ae290d23b1311708",
+              "tool": "builtin/pixelate@1",
+              "params": {
+                "size": 4
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            },
+            {
+              "uid": "dafdb89e7828499f900675a604dc5501",
+              "tool": "builtin/levels@1",
+              "params": {
+                "brightness": 0.1,
+                "contrast": 1.0,
+                "gamma": 1.0,
+                "saturation": 1.0
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            }
+          ],
+          "seed": 0,
+          "timeline": null,
+          "last_command_id": "108789bcf6fb46bba0c521dc2adba0fe"
+        },
+        "command_id": "108789bcf6fb46bba0c521dc2adba0fe",
+        "base_revision": 1,
+        "revision": 2
+      }
+    },
+    {
+      "tool": "design_studio_preview",
+      "args": {
+        "max_size": 1600
+      },
+      "result": {
+        "run_id": "e0931473-039c-41ff-b722-b69812801feb",
+        "build": "p2-host-secondary-real-gpu",
+        "page_active": false,
+        "detached_canvas": true,
+        "at": "2026-11-11T18:57:18.612Z",
+        "request_id": "d6f23aefb867413ba1cda3e2cd5f7b4f",
+        "kind": "preview",
+        "revision": 2,
+        "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "via": "headless-host-poll",
+        "width": 64,
+        "height": 48,
+        "metrics": {
+          "width": 64,
+          "height": 48,
+          "mean_luma": 0.5704495669934643,
+          "std_luma": 0.20447746459634009,
+          "shadow_clipping_pct": 0,
+          "highlight_clipping_pct": 0,
+          "detail_density": 0.008844903521090203,
+          "dominant_colors": [
+            {
+              "hex": "#ff44ff",
+              "fraction": 0.015625
+            },
+            {
+              "hex": "#ffbbaa",
+              "fraction": 0.015625
+            },
+            {
+              "hex": "#ffffff",
+              "fraction": 0.015625
+            },
+            {
+              "hex": "#ff11cc",
+              "fraction": 0.010416666666666666
+            },
+            {
+              "hex": "#ff33ff",
+              "fraction": 0.010416666666666666
+            }
+          ],
+          "nearly_uniform": false,
+          "difference_source": 0.10683295887799564,
+          "difference_previous": 0.10683295887799564,
+          "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+        },
+        "fixture": false,
+        "u_time": 0,
+        "path": "/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/0b16ad92d8935a23749e276a7961afdf8b152410e99381114f9dfa3c81fe31a6.png",
+        "sha256": "0b16ad92d8935a23749e276a7961afdf8b152410e99381114f9dfa3c81fe31a6",
+        "created_at": 1794423438.6196015,
+        "requested_revision": 2,
+        "requested_project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "stale": false,
+        "_multimodal": true,
+        "text_summary": "{\"at\": \"2026-11-11T18:57:18.612Z\", \"build\": \"p2-host-secondary-real-gpu\", \"created_at\": 1794423438.6196015, \"detached_canvas\": true, \"fixture\": false, \"height\": 48, \"kind\": \"preview\", \"metrics\": {\"detail_density\": 0.008844903521090203, \"difference_previous\": 0.10683295887799564, \"difference_source\": 0.10683295887799564, \"dominant_colors\": [{\"fraction\": 0.015625, \"hex\": \"#ff44ff\"}, {\"fraction\": 0.015625, \"hex\": \"#ffbbaa\"}, {\"fraction\": 0.015625, \"hex\": \"#ffffff\"}, {\"fraction\": 0.010416666666666666, \"hex\": \"#ff11cc\"}, {\"fraction\": 0.010416666666666666, \"hex\": \"#ff33ff\"}], \"height\": 48, \"highlight_clipping_pct\": 0, \"mean_luma\": 0.5704495669934643, \"metrics_scope\": \"sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null\", \"nearly_uniform\": false, \"shadow_clipping_pct\": 0, \"std_luma\": 0.20447746459634009, \"width\": 64}, \"page_active\": false, \"path\": \"/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/0b16ad92d8935a23749e276a7961afdf8b152410e99381114f9dfa3c81fe31a6.png\", \"project_id\": \"0d24a69cd79045ee89bfb6cef3c5395b\", \"request_id\": \"d6f23aefb867413ba1cda3e2cd5f7b4f\", \"requested_project_id\": \"0d24a69cd79045ee89bfb6cef3c5395b\", \"requested_revision\": 2, \"revision\": 2, \"run_id\": \"e0931473-039c-41ff-b722-b69812801feb\", \"sha256\": \"0b16ad92d8935a23749e276a7961afdf8b152410e99381114f9dfa3c81fe31a6\", \"stale\": false, \"u_time\": 0, \"via\": \"headless-host-poll\", \"width\": 64}\nIf useful, call vision_analyze with this server PNG path; an auxiliary vision model may be available.",
+        "image_present": true
+      }
+    },
+    {
+      "tool": "design_studio_create_tool",
+      "args": {
+        "name": "Host transport inversion",
+        "description": "Actual GPU compile in isolated test, not human approval evidence",
+        "params": [],
+        "shader": "void main(){vec4 c=texture(u_input,v_uv);outColor=vec4(1.0-c.rgb,c.a);}"
+      },
+      "result": {
+        "run_id": "e0931473-039c-41ff-b722-b69812801feb",
+        "build": "p2-host-secondary-real-gpu",
+        "page_active": false,
+        "detached_canvas": true,
+        "at": "2026-11-11T18:57:19.370Z",
+        "request_id": "7c78957bea244bb3a496222c9b3833f7",
+        "kind": "check",
+        "revision": 2,
+        "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "via": "headless-host-poll",
+        "width": 640,
+        "height": 400,
+        "metrics": {
+          "width": 640,
+          "height": 400,
+          "mean_luma": 0.5179792156862743,
+          "std_luma": 0.21537692648661197,
+          "shadow_clipping_pct": 0,
+          "highlight_clipping_pct": 0,
+          "detail_density": 0.0010622514482542835,
+          "dominant_colors": [
+            {
+              "hex": "#bb22bb",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#4422bb",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#bbddbb",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#44ddbb",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#ee22bb",
+              "fraction": 0.0040625
+            }
+          ],
+          "nearly_uniform": false,
+          "difference_source": 0.49930882352941175,
+          "difference_previous": null,
+          "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+        },
+        "fixture": true,
+        "u_time": 0,
+        "shader_sha": "af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567",
+        "path": "/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076.png",
+        "sha256": "603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076",
+        "created_at": 1794423439.3777654,
+        "draft_id": "user/host-transport-inversion",
+        "ref": "user/host-transport-inversion@1",
+        "needs_human_approval": true,
+        "compilation": "passed",
+        "check": {
+          "run_id": "e0931473-039c-41ff-b722-b69812801feb",
+          "build": "p2-host-secondary-real-gpu",
+          "page_active": false,
+          "detached_canvas": true,
+          "at": "2026-11-11T18:57:19.370Z",
+          "request_id": "7c78957bea244bb3a496222c9b3833f7",
+          "kind": "check",
+          "revision": 2,
+          "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+          "via": "headless-host-poll",
+          "width": 640,
+          "height": 400,
+          "metrics": {
+            "width": 640,
+            "height": 400,
+            "mean_luma": 0.5179792156862743,
+            "std_luma": 0.21537692648661197,
+            "shadow_clipping_pct": 0,
+            "highlight_clipping_pct": 0,
+            "detail_density": 0.0010622514482542835,
+            "dominant_colors": [
+              {
+                "hex": "#bb22bb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#4422bb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#bbddbb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#44ddbb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#ee22bb",
+                "fraction": 0.0040625
+              }
+            ],
+            "nearly_uniform": false,
+            "difference_source": 0.49930882352941175,
+            "difference_previous": null,
+            "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+          },
+          "fixture": true,
+          "u_time": 0,
+          "shader_sha": "af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567",
+          "path": "/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076.png",
+          "sha256": "603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076",
+          "created_at": 1794423439.3777654
+        },
+        "preview": {
+          "run_id": "e0931473-039c-41ff-b722-b69812801feb",
+          "build": "p2-host-secondary-real-gpu",
+          "page_active": false,
+          "detached_canvas": true,
+          "at": "2026-11-11T18:57:19.370Z",
+          "request_id": "7c78957bea244bb3a496222c9b3833f7",
+          "kind": "check",
+          "revision": 2,
+          "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+          "via": "headless-host-poll",
+          "width": 640,
+          "height": 400,
+          "metrics": {
+            "width": 640,
+            "height": 400,
+            "mean_luma": 0.5179792156862743,
+            "std_luma": 0.21537692648661197,
+            "shadow_clipping_pct": 0,
+            "highlight_clipping_pct": 0,
+            "detail_density": 0.0010622514482542835,
+            "dominant_colors": [
+              {
+                "hex": "#bb22bb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#4422bb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#bbddbb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#44ddbb",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#ee22bb",
+                "fraction": 0.0040625
+              }
+            ],
+            "nearly_uniform": false,
+            "difference_source": 0.49930882352941175,
+            "difference_previous": null,
+            "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+          },
+          "fixture": true,
+          "u_time": 0,
+          "shader_sha": "af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567",
+          "path": "/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076.png",
+          "sha256": "603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076",
+          "created_at": 1794423439.3777654
+        },
+        "_multimodal": true,
+        "text_summary": "{\"at\": \"2026-11-11T18:57:19.370Z\", \"build\": \"p2-host-secondary-real-gpu\", \"check\": {\"at\": \"2026-11-11T18:57:19.370Z\", \"build\": \"p2-host-secondary-real-gpu\", \"created_at\": 1794423439.3777654, \"detached_canvas\": true, \"fixture\": true, \"height\": 400, \"kind\": \"check\", \"metrics\": {\"detail_density\": 0.0010622514482542835, \"difference_previous\": null, \"difference_source\": 0.49930882352941175, \"dominant_colors\": [{\"fraction\": 0.0041640625, \"hex\": \"#bb22bb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#4422bb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#bbddbb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#44ddbb\"}, {\"fraction\": 0.0040625, \"hex\": \"#ee22bb\"}], \"height\": 400, \"highlight_clipping_pct\": 0, \"mean_luma\": 0.5179792156862743, \"metrics_scope\": \"sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null\", \"nearly_uniform\": false, \"shadow_clipping_pct\": 0, \"std_luma\": 0.21537692648661197, \"width\": 640}, \"page_active\": false, \"path\": \"/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076.png\", \"project_id\": \"0d24a69cd79045ee89bfb6cef3c5395b\", \"request_id\": \"7c78957bea244bb3a496222c9b3833f7\", \"revision\": 2, \"run_id\": \"e0931473-039c-41ff-b722-b69812801feb\", \"sha256\": \"603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076\", \"shader_sha\": \"af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567\", \"u_time\": 0, \"via\": \"headless-host-poll\", \"width\": 640}, \"compilation\": \"passed\", \"created_at\": 1794423439.3777654, \"detached_canvas\": true, \"draft_id\": \"user/host-transport-inversion\", \"fixture\": true, \"height\": 400, \"kind\": \"check\", \"metrics\": {\"detail_density\": 0.0010622514482542835, \"difference_previous\": null, \"difference_source\": 0.49930882352941175, \"dominant_colors\": [{\"fraction\": 0.0041640625, \"hex\": \"#bb22bb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#4422bb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#bbddbb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#44ddbb\"}, {\"fraction\": 0.0040625, \"hex\": \"#ee22bb\"}], \"height\": 400, \"highlight_clipping_pct\": 0, \"mean_luma\": 0.5179792156862743, \"metrics_scope\": \"sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null\", \"nearly_uniform\": false, \"shadow_clipping_pct\": 0, \"std_luma\": 0.21537692648661197, \"width\": 640}, \"needs_human_approval\": true, \"page_active\": false, \"path\": \"/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076.png\", \"preview\": {\"at\": \"2026-11-11T18:57:19.370Z\", \"build\": \"p2-host-secondary-real-gpu\", \"created_at\": 1794423439.3777654, \"detached_canvas\": true, \"fixture\": true, \"height\": 400, \"kind\": \"check\", \"metrics\": {\"detail_density\": 0.0010622514482542835, \"difference_previous\": null, \"difference_source\": 0.49930882352941175, \"dominant_colors\": [{\"fraction\": 0.0041640625, \"hex\": \"#bb22bb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#4422bb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#bbddbb\"}, {\"fraction\": 0.0041640625, \"hex\": \"#44ddbb\"}, {\"fraction\": 0.0040625, \"hex\": \"#ee22bb\"}], \"height\": 400, \"highlight_clipping_pct\": 0, \"mean_luma\": 0.5179792156862743, \"metrics_scope\": \"sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null\", \"nearly_uniform\": false, \"shadow_clipping_pct\": 0, \"std_luma\": 0.21537692648661197, \"width\": 640}, \"page_active\": false, \"path\": \"/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/previews/603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076.png\", \"project_id\": \"0d24a69cd79045ee89bfb6cef3c5395b\", \"request_id\": \"7c78957bea244bb3a496222c9b3833f7\", \"revision\": 2, \"run_id\": \"e0931473-039c-41ff-b722-b69812801feb\", \"sha256\": \"603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076\", \"shader_sha\": \"af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567\", \"u_time\": 0, \"via\": \"headless-host-poll\", \"width\": 640}, \"project_id\": \"0d24a69cd79045ee89bfb6cef3c5395b\", \"ref\": \"user/host-transport-inversion@1\", \"request_id\": \"7c78957bea244bb3a496222c9b3833f7\", \"revision\": 2, \"run_id\": \"e0931473-039c-41ff-b722-b69812801feb\", \"sha256\": \"603a3a0ce31374b28fcf2747026d852dfbab3133c4a723c3377bf5fc47184076\", \"shader_sha\": \"af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567\", \"u_time\": 0, \"via\": \"headless-host-poll\", \"width\": 640}\nIf useful, call vision_analyze with this server PNG path; an auxiliary vision model may be available.",
+        "image_present": true
+      }
+    },
+    {
+      "tool": "design_studio_apply",
+      "args": {
+        "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "base_revision": 2,
+        "commands": [
+          {
+            "type": "add_node",
+            "tool": "user/host-transport-inversion@1"
+          }
+        ]
+      },
+      "result": {
+        "error": "unknown tool or version: user/host-transport-inversion@1",
+        "status": 400
+      }
+    },
+    {
+      "tool": "design_studio_recipe",
+      "args": {
+        "action": "save",
+        "name": "Host transport recipe"
+      },
+      "result": {
+        "format": 1,
+        "id": "recipe/host-transport-recipe",
+        "name": "Host transport recipe",
+        "stack": [
+          {
+            "uid": "bd1418725b2c4ae1ae290d23b1311708",
+            "tool": "builtin/pixelate@1",
+            "params": {
+              "size": 4
+            },
+            "enabled": true,
+            "opacity": 1.0,
+            "blend": "normal"
+          },
+          {
+            "uid": "dafdb89e7828499f900675a604dc5501",
+            "tool": "builtin/levels@1",
+            "params": {
+              "brightness": 0.1,
+              "contrast": 1.0,
+              "gamma": 1.0,
+              "saturation": 1.0
+            },
+            "enabled": true,
+            "opacity": 1.0,
+            "blend": "normal"
+          }
+        ],
+        "exposed": []
+      }
+    },
+    {
+      "tool": "design_studio_recipe",
+      "args": {
+        "action": "list"
+      },
+      "result": [
+        {
+          "format": 1,
+          "id": "recipe/host-transport-recipe",
+          "name": "Host transport recipe",
+          "stack": [
+            {
+              "uid": "bd1418725b2c4ae1ae290d23b1311708",
+              "tool": "builtin/pixelate@1",
+              "params": {
+                "size": 4
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            },
+            {
+              "uid": "dafdb89e7828499f900675a604dc5501",
+              "tool": "builtin/levels@1",
+              "params": {
+                "brightness": 0.1,
+                "contrast": 1.0,
+                "gamma": 1.0,
+                "saturation": 1.0
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            }
+          ],
+          "exposed": []
+        }
+      ]
+    },
+    {
+      "tool": "design_studio_recipe",
+      "args": {
+        "action": "apply",
+        "id": "recipe/host-transport-recipe",
+        "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "base_revision": 2
+      },
+      "result": {
+        "document": {
+          "format": 1,
+          "id": "0d24a69cd79045ee89bfb6cef3c5395b",
+          "revision": 3,
+          "source": {
+            "asset": "assets/01e3e89d589fd4c0b373804f9cae7c1641c1acf0fd86215103198274b6fcf5d2.png",
+            "w": 64,
+            "h": 48
+          },
+          "stack": [
+            {
+              "uid": "bd1418725b2c4ae1ae290d23b1311708",
+              "tool": "builtin/pixelate@1",
+              "params": {
+                "size": 4
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            },
+            {
+              "uid": "dafdb89e7828499f900675a604dc5501",
+              "tool": "builtin/levels@1",
+              "params": {
+                "brightness": 0.1,
+                "contrast": 1.0,
+                "gamma": 1.0,
+                "saturation": 1.0
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            },
+            {
+              "uid": "4e8300ae74fb4540a4edb2ed2e94b481",
+              "tool": "builtin/pixelate@1",
+              "params": {
+                "size": 4
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            },
+            {
+              "uid": "5dcb5fe9e91b4031bbce40939d33bed7",
+              "tool": "builtin/levels@1",
+              "params": {
+                "brightness": 0.1,
+                "contrast": 1.0,
+                "gamma": 1.0,
+                "saturation": 1.0
+              },
+              "enabled": true,
+              "opacity": 1.0,
+              "blend": "normal"
+            }
+          ],
+          "seed": 0,
+          "timeline": null,
+          "last_command_id": "6d38d370592a4103b87731528261615e"
+        },
+        "command_id": "6d38d370592a4103b87731528261615e",
+        "base_revision": 2,
+        "revision": 3
+      }
+    },
+    {
+      "tool": "design_studio_export",
+      "args": {
+        "format": "png"
+      },
+      "result": {
+        "run_id": "e0931473-039c-41ff-b722-b69812801feb",
+        "build": "p2-host-secondary-real-gpu",
+        "page_active": false,
+        "detached_canvas": true,
+        "at": "2026-11-11T18:57:20.068Z",
+        "request_id": "e083748b3d4a45e0bf23a559c4877133",
+        "kind": "export",
+        "revision": 3,
+        "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+        "via": "headless-host-poll",
+        "width": 64,
+        "height": 48,
+        "metrics": {
+          "width": 64,
+          "height": 48,
+          "mean_luma": 0.6611584681372483,
+          "std_luma": 0.1934536955292654,
+          "shadow_clipping_pct": 0,
+          "highlight_clipping_pct": 4.166666666666666,
+          "detail_density": 0.007875689395121491,
+          "dominant_colors": [
+            {
+              "hex": "#ffffff",
+              "fraction": 0.041666666666666664
+            },
+            {
+              "hex": "#ff55ff",
+              "fraction": 0.020833333333333332
+            },
+            {
+              "hex": "#ff66ff",
+              "fraction": 0.020833333333333332
+            },
+            {
+              "hex": "#ff33dd",
+              "fraction": 0.010416666666666666
+            },
+            {
+              "hex": "#ff77ff",
+              "fraction": 0.010416666666666666
+            }
+          ],
+          "nearly_uniform": false,
+          "difference_source": 0.19473124319172114,
+          "difference_previous": null,
+          "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+        },
+        "fixture": false,
+        "u_time": 0,
+        "path": "/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/exports/c37c95047d0e6ff148f953a00e9eee38018a89eb98b51d8e27582e86c1d633d5.png",
+        "sha256": "c37c95047d0e6ff148f953a00e9eee38018a89eb98b51d8e27582e86c1d633d5",
+        "created_at": 1794423440.0834932
+      }
+    }
+  ],
+  "host_pid": 540352,
+  "skill": "/home/destino/projects/hermes-design-studio/skills/usage/SKILL.md",
+  "commands": [
+    {
+      "id": "0ed6567b728a4499bd6d28c5e773b5c6",
+      "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+      "base_revision": 0,
+      "revision": 1
+    },
+    {
+      "id": "108789bcf6fb46bba0c521dc2adba0fe",
+      "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+      "base_revision": 1,
+      "revision": 2
+    },
+    {
+      "id": "6d38d370592a4103b87731528261615e",
+      "project_id": "0d24a69cd79045ee89bfb6cef3c5395b",
+      "base_revision": 2,
+      "revision": 3
+    }
+  ],
+  "export_verified": {
+    "path": "/home/destino/projects/hermes-design-studio/evidence/p2-host-home/0e84d20954514bdb894daf66d260e178/plugin-data/hermes-design-studio/exports/c37c95047d0e6ff148f953a00e9eee38018a89eb98b51d8e27582e86c1d633d5.png",
+    "sha256": "c37c95047d0e6ff148f953a00e9eee38018a89eb98b51d8e27582e86c1d633d5",
+    "dimensions": [
+      64,
+      48
+    ]
+  },
+  "draft_remains_unapproved": true,
+  "pass": false,
+  "browser_exit": -9
+}

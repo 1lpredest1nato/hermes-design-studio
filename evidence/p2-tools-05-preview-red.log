@@ -1,0 +1,75 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_preview_rejects_unknown_args_and_preserves_multimodal_seam ________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f6e9c756f90>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6e9c7dfe10>
+
+    def test_preview_rejects_unknown_args_and_preserves_multimodal_seam(adapter, monkeypatch):
+        module, app = adapter
+        app.bridge.cache_preview(PNG, 0, {'metrics': {'fixture_only': True}})
+        monkeypatch.setattr(app.bridge, 'wait', lambda request_id, timeout=10: None)
+        result = module.preview({'max_size': 12})
+        assert result['_multimodal'] is True and result['metrics'] == {'fixture_only': True}
+        assert base64.b64decode(result['content'][1]['image_url']['url'].split(',')[1]) == PNG
+        assert result['path'] in result['text_summary'] and 'vision_analyze' in result['text_summary']
+        for bad in ({'approve': True}, [], None, {'max_size': True}, {'max_size': 1601}):
+>           assert json.loads(module.preview(bad))['error']
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_agent_tools.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+s = {'metrics': {'fixture_only': True}, 'project_id': '55705c6d59004dfaa217ad3fa6f1662e', 'path': '/home/destino/.hermes/c...8833e1dbe6b6259d4b7c7746a4506c.png', 'sha256': '0a97501e18a664a7d7ee7a1aeea061759a8833e1dbe6b6259d4b7c7746a4506c', ...}
+cls = None, object_hook = None, parse_float = None, parse_int = None
+parse_constant = None, object_pairs_hook = None, kw = {}
+
+    def loads(s, *, cls=None, object_hook=None, parse_float=None,
+            parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
+        """Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance
+        containing a JSON document) to a Python object.
+    
+        ``object_hook`` is an optional function that will be called with the
+        result of any object literal decode (a ``dict``). The return value of
+        ``object_hook`` will be used instead of the ``dict``. This feature
+        can be used to implement custom decoders (e.g. JSON-RPC class hinting).
+    
+        ``object_pairs_hook`` is an optional function that will be called with
+        the result of any object literal decoded with an ordered list of pairs.
+        The return value of ``object_pairs_hook`` will be used instead of the
+        ``dict``.  This feature can be used to implement custom decoders.  If
+        ``object_hook`` is also defined, the ``object_pairs_hook`` takes
+        priority.
+    
+        ``parse_float``, if specified, will be called with the string
+        of every JSON float to be decoded. By default this is equivalent to
+        float(num_str). This can be used to use another datatype or parser
+        for JSON floats (e.g. decimal.Decimal).
+    
+        ``parse_int``, if specified, will be called with the string
+        of every JSON int to be decoded. By default this is equivalent to
+        int(num_str). This can be used to use another datatype or parser
+        for JSON integers (e.g. float).
+    
+        ``parse_constant``, if specified, will be called with one of the
+        following strings: -Infinity, Infinity, NaN.
+        This can be used to raise an exception if invalid JSON numbers
+        are encountered.
+    
+        To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``
+        kwarg; otherwise ``JSONDecoder`` is used.
+        """
+        if isinstance(s, str):
+            if s.startswith('\ufeff'):
+                raise JSONDecodeError("Unexpected UTF-8 BOM (decode using utf-8-sig)",
+                                      s, 0)
+        else:
+            if not isinstance(s, (bytes, bytearray)):
+>               raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+                                f'not {s.__class__.__name__}')
+E               TypeError: the JSON object must be str, bytes or bytearray, not dict
+
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/__init__.py:345: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_preview_rejects_unknown_args_and_preserves_multimodal_seam
+1 failed, 275 deselected in 0.85s

@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_catalog_returns_validated_entries_and_filters_case_insensitively _____
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f6a0e2fa660>)
+
+    def test_catalog_returns_validated_entries_and_filters_case_insensitively(adapter):
+        module, app = adapter
+>       result = json.loads(module.catalog({}))
+                            ^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'catalog'
+
+tests/test_agent_tools.py:24: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_catalog_returns_validated_entries_and_filters_case_insensitively
+1 failed, 254 deselected in 0.60s

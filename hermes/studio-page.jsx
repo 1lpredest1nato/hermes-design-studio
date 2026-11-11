@@ -81,6 +81,9 @@ function DraftEditor({entry,service,doc,onRefresh,onClose}) {
  const [saved,setSaved]=useState(entry||null),[values,setValues]=useState(()=>paramDefaults(entry?.manifest.params)),[status,setStatus]=useState('Waiting for edits'),[error,setError]=useState(''),[check,setCheck]=useState(null),[frames,setFrames]=useState(null),[confirmDelete,setConfirmDelete]=useState(false),[action,setAction]=useState('');
  const live=useRef(true),generation=useRef(0);
  const modelKey=JSON.stringify(model),valuesKey=JSON.stringify(values);
+ // Keep the exact source snapshot: merely reviewing an agent draft must not
+ // resave it as human-authored or reset its backend check receipts.
+ const sourceSnapshot=useRef(entry?{key:modelKey,entry}:null);
  useEffect(()=>{live.current=true;return()=>{live.current=false;generation.current++;};},[]);
  function edit(patch){generation.current++;setCheck(null);setFrames(null);setModel(previous=>({...previous,...patch}));setStatus('Edits pending — compile in 600 ms');}
  useEffect(()=>{
@@ -89,7 +92,12 @@ function DraftEditor({entry,service,doc,onRefresh,onClose}) {
   const timer=setTimeout(async()=>{
    if(!active())return;setStatus('Saving and compiling…');setError('');
    try {
-    const draft=await service.rest('/drafts',{method:'POST',body:JSON.parse(modelKey)});if(!active())return;setSaved(draft);
+    let draft=sourceSnapshot.current?.key===modelKey?sourceSnapshot.current.entry:null;
+    if(!draft){
+     draft=await service.rest('/drafts',{method:'POST',body:JSON.parse(modelKey)});if(!active())return;
+     sourceSnapshot.current={key:modelKey,entry:draft};
+    }
+    setSaved(draft);
     const params={...paramDefaults(model.params),...JSON.parse(valuesKey)};
     const currentResult=await service.checkDraft(draft,{fixture:false,params});if(!active())return;
     const testResult=await service.checkDraft(draft,{fixture:true,params});if(!active())return;

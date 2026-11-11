@@ -5,7 +5,7 @@ import {createService} from './service.mjs';
 import {makeUploadProbe,uploadChunks} from './upload.mjs';
 import {StudioPage,DiagnosticsPage} from './studio-page.jsx';
 import {runDiagnostics} from '../core/diagnostics.mjs';
-export const BUILD='design-studio-p1-20261111-studio-1';
+export const BUILD='design-studio-p2-20261111-agent-1';
 const fixture={format:1,id:'p0',revision:0,source:null,stack:[],seed:1234,timeline:null};
 const layout={padding:24,display:'grid',gap:16,color:'var(--ui-text-primary)',overflow:'auto',height:'100%',boxSizing:'border-box'};
 const box={padding:16,border:'1px solid var(--ui-stroke-secondary)',borderRadius:8};

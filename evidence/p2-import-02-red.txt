@@ -1,0 +1,372 @@
+FFFFFFFF.                                                                [100%]
+=================================== FAILURES ===================================
+________________ test_import_image_real_jpeg_with_exif[1-False] ________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi0')
+progressive = False, orientation = 1
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+________________ test_import_image_real_jpeg_with_exif[1-True] _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi1')
+progressive = True, orientation = 1
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+________________ test_import_image_real_jpeg_with_exif[3-False] ________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi2')
+progressive = False, orientation = 3
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+________________ test_import_image_real_jpeg_with_exif[3-True] _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi3')
+progressive = True, orientation = 3
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+________________ test_import_image_real_jpeg_with_exif[6-False] ________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi4')
+progressive = False, orientation = 6
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+________________ test_import_image_real_jpeg_with_exif[6-True] _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi5')
+progressive = True, orientation = 6
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+________________ test_import_image_real_jpeg_with_exif[8-False] ________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi6')
+progressive = False, orientation = 8
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+________________ test_import_image_real_jpeg_with_exif[8-True] _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-83/test_import_image_real_jpeg_wi7')
+progressive = True, orientation = 8
+
+    @pytest.mark.parametrize('progressive', [False, True])
+    @pytest.mark.parametrize('orientation', [1, 3, 6, 8])
+    def test_import_image_real_jpeg_with_exif(tmp_path, progressive, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', progressive=progressive, exif=exif)
+        original = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:25: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:63: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:33: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[1-False]
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[1-True]
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[3-False]
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[3-True]
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[6-False]
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[6-True]
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[8-False]
+FAILED tests/test_import_image.py::test_import_image_real_jpeg_with_exif[8-True]
+8 failed, 1 passed, 255 deselected in 0.75s

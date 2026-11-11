@@ -1,0 +1,106 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+____ test_create_tool_checks_exact_agent_draft_and_never_approves[pending] _____
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f88129e3380>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f88126d3e10>
+outcome = 'pending'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_create_tool_checks_exact_agent_draft_and_never_approves(adapter, monkeypatch, outcome):
+        module, app = adapter
+        original = app.check_draft
+        checked = []
+    
+        def check(id, **kwargs):
+            checked.append((id, kwargs))
+            return original(id, **kwargs)
+    
+        def wait(request_id, timeout=10):
+            assert 0 <= timeout <= 10
+            if outcome == 'pending':
+                return None
+            if outcome == 'failed':
+                return app.fail(request_id, 'fixture compiler failure')
+            return app.respond(request_id, PNG, {'metrics': {'fixture_only': True}})
+    
+        monkeypatch.setattr(app, 'check_draft', check)
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+        document = app.projects.get()
+>       value = module.create_tool({'name': 'Agent Draft', 'description': 'test shader',
+                ^^^^^^^^^^^^^^^^^^
+                                    'params': [], 'shader': 'void main(){outColor=vec4(1.0);}'})
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'create_tool'
+
+tests/test_agent_tools.py:58: AttributeError
+____ test_create_tool_checks_exact_agent_draft_and_never_approves[success] _____
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f88126442d0>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f88126d3820>
+outcome = 'success'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_create_tool_checks_exact_agent_draft_and_never_approves(adapter, monkeypatch, outcome):
+        module, app = adapter
+        original = app.check_draft
+        checked = []
+    
+        def check(id, **kwargs):
+            checked.append((id, kwargs))
+            return original(id, **kwargs)
+    
+        def wait(request_id, timeout=10):
+            assert 0 <= timeout <= 10
+            if outcome == 'pending':
+                return None
+            if outcome == 'failed':
+                return app.fail(request_id, 'fixture compiler failure')
+            return app.respond(request_id, PNG, {'metrics': {'fixture_only': True}})
+    
+        monkeypatch.setattr(app, 'check_draft', check)
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+        document = app.projects.get()
+>       value = module.create_tool({'name': 'Agent Draft', 'description': 'test shader',
+                ^^^^^^^^^^^^^^^^^^
+                                    'params': [], 'shader': 'void main(){outColor=vec4(1.0);}'})
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'create_tool'
+
+tests/test_agent_tools.py:58: AttributeError
+_____ test_create_tool_checks_exact_agent_draft_and_never_approves[failed] _____
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f8812644a50>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f88128320f0>
+outcome = 'failed'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_create_tool_checks_exact_agent_draft_and_never_approves(adapter, monkeypatch, outcome):
+        module, app = adapter
+        original = app.check_draft
+        checked = []
+    
+        def check(id, **kwargs):
+            checked.append((id, kwargs))
+            return original(id, **kwargs)
+    
+        def wait(request_id, timeout=10):
+            assert 0 <= timeout <= 10
+            if outcome == 'pending':
+                return None
+            if outcome == 'failed':
+                return app.fail(request_id, 'fixture compiler failure')
+            return app.respond(request_id, PNG, {'metrics': {'fixture_only': True}})
+    
+        monkeypatch.setattr(app, 'check_draft', check)
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+        document = app.projects.get()
+>       value = module.create_tool({'name': 'Agent Draft', 'description': 'test shader',
+                ^^^^^^^^^^^^^^^^^^
+                                    'params': [], 'shader': 'void main(){outColor=vec4(1.0);}'})
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'create_tool'
+
+tests/test_agent_tools.py:58: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_create_tool_checks_exact_agent_draft_and_never_approves[pending]
+FAILED tests/test_agent_tools.py::test_create_tool_checks_exact_agent_draft_and_never_approves[success]
+FAILED tests/test_agent_tools.py::test_create_tool_checks_exact_agent_draft_and_never_approves[failed]
+3 failed, 282 deselected in 1.19s

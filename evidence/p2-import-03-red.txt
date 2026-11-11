@@ -1,0 +1,24 @@
+F................                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_import_image_repeated_copy_preserves_existing_inode_and_source ______
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-88/test_import_image_repeated_cop0')
+
+    def test_import_image_repeated_copy_preserves_existing_inode_and_source(tmp_path):
+        source = image_file(tmp_path)
+        before = source.stat()
+        root = tmp_path / 'data'
+        first = importer(root, source)
+        destination = root / first['asset']
+        inode = destination.stat().st_ino
+        assert importer(root, source) == first
+>       assert destination.stat().st_ino == inode
+E       AssertionError: assert 1122997 == 1122996
+E        +  where 1122997 = os.stat_result(st_mode=33188, st_ino=1122997, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=91, st_atime=1794421286, st_mtime=1794421286, st_ctime=1794421286).st_ino
+E        +    where os.stat_result(st_mode=33188, st_ino=1122997, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=91, st_atime=1794421286, st_mtime=1794421286, st_ctime=1794421286) = stat()
+E        +      where stat = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-88/test_import_image_repeated_cop0/data/assets/eee1defc555584eac6012ccf757618cf7c80da555ee1473fc7250479ec92f1eb.png').stat
+
+tests/test_import_image.py:23: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_import_image.py::test_import_image_repeated_copy_preserves_existing_inode_and_source
+1 failed, 16 passed, 256 deselected in 1.88s

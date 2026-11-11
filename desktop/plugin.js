@@ -1021,6 +1021,7 @@ function DraftEditor({ entry, service, doc, onRefresh, onClose }) {
   const [saved, setSaved] = useState(entry || null), [values, setValues] = useState(() => paramDefaults(entry?.manifest.params)), [status, setStatus] = useState("Waiting for edits"), [error, setError] = useState(""), [check2, setCheck] = useState(null), [frames, setFrames] = useState(null), [confirmDelete, setConfirmDelete] = useState(false), [action, setAction] = useState("");
   const live = useRef(true), generation = useRef(0);
   const modelKey = JSON.stringify(model), valuesKey = JSON.stringify(values);
+  const sourceSnapshot = useRef(entry ? { key: modelKey, entry } : null);
   useEffect(() => {
     live.current = true;
     return () => {
@@ -1046,8 +1047,12 @@ function DraftEditor({ entry, service, doc, onRefresh, onClose }) {
       setStatus("Saving and compiling\u2026");
       setError("");
       try {
-        const draft = await service.rest("/drafts", { method: "POST", body: JSON.parse(modelKey) });
-        if (!active()) return;
+        let draft = sourceSnapshot.current?.key === modelKey ? sourceSnapshot.current.entry : null;
+        if (!draft) {
+          draft = await service.rest("/drafts", { method: "POST", body: JSON.parse(modelKey) });
+          if (!active()) return;
+          sourceSnapshot.current = { key: modelKey, entry: draft };
+        }
         setSaved(draft);
         const params = { ...paramDefaults(model.params), ...JSON.parse(valuesKey) };
         const currentResult = await service.checkDraft(draft, { fixture: false, params });
@@ -1776,7 +1781,7 @@ async function runDiagnostics(renderer, tools) {
 
 // hermes/plugin.jsx
 import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
-var BUILD = "design-studio-p1-20261111-studio-1";
+var BUILD = "design-studio-p2-20261111-agent-1";
 var fixture2 = { format: 1, id: "p0", revision: 0, source: null, stack: [], seed: 1234, timeline: null };
 var layout = { padding: 24, display: "grid", gap: 16, color: "var(--ui-text-primary)", overflow: "auto", height: "100%", boxSizing: "border-box" };
 var box = { padding: 16, border: "1px solid var(--ui-stroke-secondary)", borderRadius: 8 };

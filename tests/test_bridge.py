@@ -156,7 +156,7 @@ def test_standalone_dashboard_http_contract(tmp_path, monkeypatch):
     asyncio.run(run())
 
 
-def test_preview_adapter_registers_only_preview_and_returns_multimodal(tmp_path, monkeypatch):
+def test_preview_adapter_registers_seven_tools_and_skill_preserving_multimodal(tmp_path, monkeypatch):
     import concurrent.futures
     import json
     import threading
@@ -168,14 +168,22 @@ def test_preview_adapter_registers_only_preview_and_returns_multimodal(tmp_path,
     sys.modules[spec.name] = adapter
     spec.loader.exec_module(adapter)
     monkeypatch.setattr(adapter, 'get_store', lambda: Store(tmp_path))
-    registered = []
+    registered, skills = [], []
     class Context:
         def register_tool(self, **kwargs):
             registered.append(kwargs)
+        def register_skill(self, name, path):
+            skills.append((name, Path(path)))
     adapter.register(Context())
-    assert [tool['name'] for tool in registered] == ['design_studio_preview']
+    names = [tool['name'] for tool in registered]
+    assert len(names) == 7 and set(names) == {
+        'design_studio_catalog', 'design_studio_project', 'design_studio_apply',
+        'design_studio_preview', 'design_studio_create_tool', 'design_studio_recipe',
+        'design_studio_export'}
+    assert skills == [('usage', root / 'skills' / 'usage' / 'SKILL.md')]
+    preview_handler = next(tool['handler'] for tool in registered if tool['name'] == 'design_studio_preview')
     with concurrent.futures.ThreadPoolExecutor() as pool:
-        future = pool.submit(registered[0]['handler'], {'max_size': 800})
+        future = pool.submit(preview_handler, {'max_size': 800})
         deadline = time.monotonic() + 2
         while not Store(tmp_path).state()['pending'] and time.monotonic() < deadline:
             time.sleep(0.01)
@@ -189,7 +197,8 @@ def test_preview_adapter_registers_only_preview_and_returns_multimodal(tmp_path,
     assert Path(result['path']).read_bytes() == PNG
     import yaml
     manifest = yaml.safe_load((root / 'plugin.yaml').read_text())
-    assert manifest['provides_tools'] == ['design_studio_preview']
+    assert len(manifest['provides_tools']) == 7
+    assert set(manifest['provides_tools']) == set(names)
 
 
 def test_late_preview_never_replaces_newer_cache(tmp_path):

@@ -1,0 +1,199 @@
+{
+  "inputs": {
+    "core/metrics.mjs": {
+      "bytes": 2082,
+      "imports": [],
+      "format": "esm"
+    },
+    "core/renderer.mjs": {
+      "bytes": 11211,
+      "imports": [
+        {
+          "path": "core/metrics.mjs",
+          "kind": "import-statement",
+          "original": "./metrics.mjs"
+        }
+      ],
+      "format": "esm"
+    },
+    "hermes/assets.mjs": {
+      "bytes": 1347,
+      "imports": [],
+      "format": "esm"
+    },
+    "hermes/service.mjs": {
+      "bytes": 9674,
+      "imports": [
+        {
+          "path": "hermes/assets.mjs",
+          "kind": "import-statement",
+          "original": "./assets.mjs"
+        }
+      ],
+      "format": "esm"
+    },
+    "hermes/upload.mjs": {
+      "bytes": 2203,
+      "imports": [],
+      "format": "esm"
+    },
+    "hermes/controls.jsx": {
+      "bytes": 3914,
+      "imports": [],
+      "format": "esm"
+    },
+    "hermes/studio-page.jsx": {
+      "bytes": 45435,
+      "imports": [
+        {
+          "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@hermes/plugin-sdk",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "hermes/controls.jsx",
+          "kind": "import-statement",
+          "original": "./controls.jsx"
+        },
+        {
+          "path": "hermes/upload.mjs",
+          "kind": "import-statement",
+          "original": "./upload.mjs"
+        },
+        {
+          "path": "react/jsx-runtime",
+          "kind": "import-statement",
+          "external": true
+        }
+      ],
+      "format": "esm"
+    },
+    "core/diagnostics.mjs": {
+      "bytes": 5703,
+      "imports": [],
+      "format": "esm"
+    },
+    "hermes/plugin.jsx": {
+      "bytes": 9275,
+      "imports": [
+        {
+          "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@hermes/plugin-sdk",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "core/renderer.mjs",
+          "kind": "import-statement",
+          "original": "../core/renderer.mjs"
+        },
+        {
+          "path": "hermes/service.mjs",
+          "kind": "import-statement",
+          "original": "./service.mjs"
+        },
+        {
+          "path": "hermes/upload.mjs",
+          "kind": "import-statement",
+          "original": "./upload.mjs"
+        },
+        {
+          "path": "hermes/studio-page.jsx",
+          "kind": "import-statement",
+          "original": "./studio-page.jsx"
+        },
+        {
+          "path": "core/diagnostics.mjs",
+          "kind": "import-statement",
+          "original": "../core/diagnostics.mjs"
+        },
+        {
+          "path": "react/jsx-runtime",
+          "kind": "import-statement",
+          "external": true
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "desktop/plugin.js": {
+      "imports": [
+        {
+          "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@hermes/plugin-sdk",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@hermes/plugin-sdk",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "react/jsx-runtime",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "react/jsx-runtime",
+          "kind": "import-statement",
+          "external": true
+        }
+      ],
+      "exports": [
+        "BUILD",
+        "default"
+      ],
+      "entryPoint": "hermes/plugin.jsx",
+      "inputs": {
+        "hermes/plugin.jsx": {
+          "bytesInOutput": 11450
+        },
+        "core/metrics.mjs": {
+          "bytesInOutput": 2087
+        },
+        "core/renderer.mjs": {
+          "bytesInOutput": 12679
+        },
+        "hermes/assets.mjs": {
+          "bytesInOutput": 1411
+        },
+        "hermes/service.mjs": {
+          "bytesInOutput": 10742
+        },
+        "hermes/upload.mjs": {
+          "bytesInOutput": 2252
+        },
+        "hermes/studio-page.jsx": {
+          "bytesInOutput": 62231
+        },
+        "hermes/controls.jsx": {
+          "bytesInOutput": 4162
+        },
+        "core/diagnostics.mjs": {
+          "bytesInOutput": 6778
+        }
+      },
+      "bytes": 114097
+    }
+  }
+}

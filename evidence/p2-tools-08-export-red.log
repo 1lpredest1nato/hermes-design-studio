@@ -1,0 +1,91 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+________ test_export_is_an_export_receipt_never_cached_preview[pending] ________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7ff90fb9b770>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ff90fc78180>
+outcome = 'pending'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_export_is_an_export_receipt_never_cached_preview(adapter, monkeypatch, outcome):
+        module, app = adapter
+        app.bridge.cache_preview(PNG, 0, {'metrics': {'cached': True}})
+        seen = []
+    
+        def wait(request_id, timeout=10):
+            assert timeout <= 10
+            request = json.loads((app.root / 'requests' / (request_id + '.json')).read_text())
+            seen.append(request)
+            if outcome == 'success':
+                return app.respond(request_id, PNG, {})
+            if outcome == 'failed':
+                return app.fail(request_id, 'export GPU failure')
+            return None
+    
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+>       result = json.loads(module.export({'format': 'png'}))
+                            ^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'export'
+
+tests/test_agent_tools.py:54: AttributeError
+________ test_export_is_an_export_receipt_never_cached_preview[success] ________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7ff90fce82d0>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ff90fbbba80>
+outcome = 'success'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_export_is_an_export_receipt_never_cached_preview(adapter, monkeypatch, outcome):
+        module, app = adapter
+        app.bridge.cache_preview(PNG, 0, {'metrics': {'cached': True}})
+        seen = []
+    
+        def wait(request_id, timeout=10):
+            assert timeout <= 10
+            request = json.loads((app.root / 'requests' / (request_id + '.json')).read_text())
+            seen.append(request)
+            if outcome == 'success':
+                return app.respond(request_id, PNG, {})
+            if outcome == 'failed':
+                return app.fail(request_id, 'export GPU failure')
+            return None
+    
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+>       result = json.loads(module.export({'format': 'png'}))
+                            ^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'export'
+
+tests/test_agent_tools.py:54: AttributeError
+________ test_export_is_an_export_receipt_never_cached_preview[failed] _________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7ff90fce8a50>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ff90fdd2210>
+outcome = 'failed'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_export_is_an_export_receipt_never_cached_preview(adapter, monkeypatch, outcome):
+        module, app = adapter
+        app.bridge.cache_preview(PNG, 0, {'metrics': {'cached': True}})
+        seen = []
+    
+        def wait(request_id, timeout=10):
+            assert timeout <= 10
+            request = json.loads((app.root / 'requests' / (request_id + '.json')).read_text())
+            seen.append(request)
+            if outcome == 'success':
+                return app.respond(request_id, PNG, {})
+            if outcome == 'failed':
+                return app.fail(request_id, 'export GPU failure')
+            return None
+    
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+>       result = json.loads(module.export({'format': 'png'}))
+                            ^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'export'
+
+tests/test_agent_tools.py:54: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_export_is_an_export_receipt_never_cached_preview[pending]
+FAILED tests/test_agent_tools.py::test_export_is_an_export_receipt_never_cached_preview[success]
+FAILED tests/test_agent_tools.py::test_export_is_an_export_receipt_never_cached_preview[failed]
+3 failed, 325 deselected in 1.28s

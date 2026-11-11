@@ -1,0 +1,31 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_import_snapshots_before_io_and_never_retries_conflict __________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f7228bc2f90>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f72288b3e10>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-91/test_import_snapshots_before_i0')
+
+    def test_import_snapshots_before_io_and_never_retries_conflict(adapter, monkeypatch, tmp_path):
+        module, app = adapter
+        importer = importlib.import_module(module._core_name + '.import_image')
+        before = app.projects.get()
+        source = {'asset': 'assets/' + 'a' * 64 + '.png', 'w': 2, 'h': 3,
+                  'sha256': 'a' * 64, 'bytes': 12}
+        calls = []
+    
+        def race(root, path):
+            calls.append((root, path))
+            app.projects.apply(before['revision'], [{'type': 'set_seed', 'seed': 9}],
+                               project_id=before['id'])
+            return source
+    
+        monkeypatch.setattr(importer, 'import_image', race)
+        result = json.loads(module.project({'action': 'import_image', 'path': '/server/source.png'}))
+>       assert result['status'] == 409 and result['current'] == app.projects.get()
+E       assert (400 == 409)
+
+tests/test_agent_tools.py:38: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_import_snapshots_before_io_and_never_retries_conflict
+1 failed, 274 deselected in 0.74s

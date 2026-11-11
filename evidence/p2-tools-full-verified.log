@@ -1,0 +1,33 @@
+........................................................................ [ 20%]
+........................................................................ [ 40%]
+........................................................................ [ 60%]
+........................................................................ [ 81%]
+..................................................................F      [100%]
+=================================== FAILURES ===================================
+___________ test_bundled_usage_skill_frontmatter_and_safety_contract ___________
+
+    def test_bundled_usage_skill_frontmatter_and_safety_contract():
+        path = ROOT / 'skills' / 'usage' / 'SKILL.md'
+>       assert path.is_file(), 'P2 must ship the namespaced usage skill'
+E       AssertionError: P2 must ship the namespaced usage skill
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = PosixPath('/home/destino/projects/hermes-design-studio/skills/usage/SKILL.md').is_file
+
+tests/test_usage_skill.py:9: AssertionError
+=============================== warnings summary ===============================
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_catalog_readers_wait_for_in_flight_mutation_transaction
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+  /home/destino/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/multiprocessing/popen_fork.py:76: DeprecationWarning: This process (pid=525512) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_usage_skill.py::test_bundled_usage_skill_frontmatter_and_safety_contract
+1 failed, 354 passed, 8 warnings in 62.90s (0:01:02)

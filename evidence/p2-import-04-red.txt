@@ -1,0 +1,282 @@
+.........FFFFFF.........                                                 [100%]
+=================================== FAILURES ===================================
+________________ test_import_image_real_webp[False-False-False] ________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-95/test_import_image_real_webp_Fa0')
+lossless = False, alpha = False, extended = False
+
+    @pytest.mark.parametrize('lossless,alpha,extended', [
+        (False, False, False), (True, False, False),
+        (False, True, False), (True, True, True), (False, False, True)])
+    def test_import_image_real_webp(tmp_path, lossless, alpha, extended):
+        source = tmp_path / 'source.webp'
+        image = Image.new('RGBA' if alpha else 'RGB', (31, 19),
+                          (20, 50, 80, 100) if alpha else (20, 50, 80))
+        options = {'icc_profile': b'test-profile'} if extended else {}
+        image.save(source, format='WEBP', lossless=lossless, **options)
+        data = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:172: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:163: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+        if header.startswith(b'\xff\xd8'):
+            handle.seek(2)
+            return _jpeg_dimensions(handle)
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:37: ValueError
+________________ test_import_image_real_webp[True-False-False] _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-95/test_import_image_real_webp_Tr0')
+lossless = True, alpha = False, extended = False
+
+    @pytest.mark.parametrize('lossless,alpha,extended', [
+        (False, False, False), (True, False, False),
+        (False, True, False), (True, True, True), (False, False, True)])
+    def test_import_image_real_webp(tmp_path, lossless, alpha, extended):
+        source = tmp_path / 'source.webp'
+        image = Image.new('RGBA' if alpha else 'RGB', (31, 19),
+                          (20, 50, 80, 100) if alpha else (20, 50, 80))
+        options = {'icc_profile': b'test-profile'} if extended else {}
+        image.save(source, format='WEBP', lossless=lossless, **options)
+        data = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:172: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:163: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+        if header.startswith(b'\xff\xd8'):
+            handle.seek(2)
+            return _jpeg_dimensions(handle)
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:37: ValueError
+________________ test_import_image_real_webp[False-True-False] _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-95/test_import_image_real_webp_Fa1')
+lossless = False, alpha = True, extended = False
+
+    @pytest.mark.parametrize('lossless,alpha,extended', [
+        (False, False, False), (True, False, False),
+        (False, True, False), (True, True, True), (False, False, True)])
+    def test_import_image_real_webp(tmp_path, lossless, alpha, extended):
+        source = tmp_path / 'source.webp'
+        image = Image.new('RGBA' if alpha else 'RGB', (31, 19),
+                          (20, 50, 80, 100) if alpha else (20, 50, 80))
+        options = {'icc_profile': b'test-profile'} if extended else {}
+        image.save(source, format='WEBP', lossless=lossless, **options)
+        data = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:172: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:163: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+        if header.startswith(b'\xff\xd8'):
+            handle.seek(2)
+            return _jpeg_dimensions(handle)
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:37: ValueError
+_________________ test_import_image_real_webp[True-True-True] __________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-95/test_import_image_real_webp_Tr1')
+lossless = True, alpha = True, extended = True
+
+    @pytest.mark.parametrize('lossless,alpha,extended', [
+        (False, False, False), (True, False, False),
+        (False, True, False), (True, True, True), (False, False, True)])
+    def test_import_image_real_webp(tmp_path, lossless, alpha, extended):
+        source = tmp_path / 'source.webp'
+        image = Image.new('RGBA' if alpha else 'RGB', (31, 19),
+                          (20, 50, 80, 100) if alpha else (20, 50, 80))
+        options = {'icc_profile': b'test-profile'} if extended else {}
+        image.save(source, format='WEBP', lossless=lossless, **options)
+        data = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:172: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:163: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+        if header.startswith(b'\xff\xd8'):
+            handle.seek(2)
+            return _jpeg_dimensions(handle)
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:37: ValueError
+________________ test_import_image_real_webp[False-False-True] _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-95/test_import_image_real_webp_Fa2')
+lossless = False, alpha = False, extended = True
+
+    @pytest.mark.parametrize('lossless,alpha,extended', [
+        (False, False, False), (True, False, False),
+        (False, True, False), (True, True, True), (False, False, True)])
+    def test_import_image_real_webp(tmp_path, lossless, alpha, extended):
+        source = tmp_path / 'source.webp'
+        image = Image.new('RGBA' if alpha else 'RGB', (31, 19),
+                          (20, 50, 80, 100) if alpha else (20, 50, 80))
+        options = {'icc_profile': b'test-profile'} if extended else {}
+        image.save(source, format='WEBP', lossless=lossless, **options)
+        data = source.read_bytes()
+>       result = importer(tmp_path / 'data', source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_import_image.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_import_image.py:172: in importer
+    return importlib.import_module('studio_core.import_image').import_image(root, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/import_image.py:163: in import_image
+    w, h = _dimensions(source)
+           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+handle = <_io.BufferedReader name=11>
+
+    def _dimensions(handle):
+        header = handle.read(33)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            if len(header) != 33 or header[8:16] != b'\0\0\0\rIHDR':
+                raise ValueError('malformed PNG IHDR header')
+            if zlib.crc32(header[12:29]) != int.from_bytes(header[29:33], 'big'):
+                raise ValueError('malformed PNG IHDR checksum')
+            w, h, depth, color, compression, filtering, interlace = struct.unpack('>IIBBBBB', header[16:29])
+            depths = {0: (1, 2, 4, 8, 16), 2: (8, 16), 3: (1, 2, 4, 8), 4: (8, 16), 6: (8, 16)}
+            if not (0 < w <= 0x7fffffff and 0 < h <= 0x7fffffff):
+                raise ValueError('malformed PNG dimensions')
+            if depth not in depths.get(color, ()) or compression or filtering or interlace not in (0, 1):
+                raise ValueError('malformed PNG IHDR fields')
+            return w, h
+        if header.startswith(b'\xff\xd8'):
+            handle.seek(2)
+            return _jpeg_dimensions(handle)
+>       raise ValueError('unsupported image format; expected PNG or JPEG')
+E       ValueError: unsupported image format; expected PNG or JPEG
+
+studio_core/import_image.py:37: ValueError
+__________ test_import_image_webp_exif_and_animation_rejected_clearly __________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-95/test_import_image_webp_exif_an0')
+
+    def test_import_image_webp_exif_and_animation_rejected_clearly(tmp_path):
+        source = tmp_path / 'source.webp'
+        exif = Image.Exif()
+        exif[274] = 6
+        image = Image.new('RGB', (31, 19), 'red')
+        image.save(source, format='WEBP', exif=exif)
+>       with pytest.raises(ValueError, match='unsupported.*WebP.*EXIF'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'unsupported.*WebP.*EXIF'
+E         Actual message: 'unsupported image format; expected PNG or JPEG'
+
+tests/test_import_image.py:148: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_import_image.py::test_import_image_real_webp[False-False-False]
+FAILED tests/test_import_image.py::test_import_image_real_webp[True-False-False]
+FAILED tests/test_import_image.py::test_import_image_real_webp[False-True-False]
+FAILED tests/test_import_image.py::test_import_image_real_webp[True-True-True]
+FAILED tests/test_import_image.py::test_import_image_real_webp[False-False-True]
+FAILED tests/test_import_image.py::test_import_image_webp_exif_and_animation_rejected_clearly
+6 failed, 18 passed, 258 deselected in 2.40s

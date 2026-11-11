@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_bundled_usage_skill_frontmatter_and_safety_contract ___________
+
+    def test_bundled_usage_skill_frontmatter_and_safety_contract():
+        path = ROOT / 'skills' / 'usage' / 'SKILL.md'
+>       assert path.is_file(), 'P2 must ship the namespaced usage skill'
+E       AssertionError: P2 must ship the namespaced usage skill
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = PosixPath('/home/destino/projects/hermes-design-studio/skills/usage/SKILL.md').is_file
+
+tests/test_usage_skill.py:9: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_usage_skill.py::test_bundled_usage_skill_frontmatter_and_safety_contract
+1 failed, 354 deselected in 0.77s

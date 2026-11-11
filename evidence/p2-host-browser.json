@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "run_id": "3be5260b-ce9a-4e76-b8ce-8360a9d11eea",
+    "build": "p2-host-secondary-real-gpu",
+    "page_active": false,
+    "detached_canvas": true,
+    "at": "2026-11-11T19:05:18.047Z"
+  },
+  "errors": [],
+  "browser_version": "155.0.8059.84",
+  "scope": "Real software WebGL and real PluginHost HTTP; not Desktop SDK or agent session"
+}

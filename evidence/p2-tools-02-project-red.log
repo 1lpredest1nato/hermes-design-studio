@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________ test_project_get_new_and_action_validation __________________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f2c29af6900>)
+
+    def test_project_get_new_and_action_validation(adapter):
+        module, app = adapter
+>       first = json.loads(module.project({'action': 'get'}))
+                           ^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'project'
+
+tests/test_agent_tools.py:24: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_project_get_new_and_action_validation
+1 failed, 263 deselected in 0.71s

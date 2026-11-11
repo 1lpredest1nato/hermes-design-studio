@@ -1,0 +1,108 @@
+.FFF.................................................................... [ 21%]
+........................................................................ [ 43%]
+........................................................................ [ 65%]
+........................................................................ [ 87%]
+........................................                                 [100%]
+=================================== FAILURES ===================================
+________ test_export_is_an_export_receipt_never_cached_preview[pending] ________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f424b420050>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f424b4c3a80>
+outcome = 'pending'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_export_is_an_export_receipt_never_cached_preview(adapter, monkeypatch, outcome):
+        module, app = adapter
+        app.bridge.cache_preview(PNG, 0, {'metrics': {'cached': True}})
+        seen = []
+    
+        def wait(request_id, timeout=10):
+            assert timeout <= 10
+            request = json.loads((app.root / 'requests' / (request_id + '.json')).read_text())
+            seen.append(request)
+            if outcome == 'success':
+                return app.respond(request_id, PNG, {})
+            if outcome == 'failed':
+                return app.fail(request_id, 'export GPU failure')
+            return None
+    
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+>       result = json.loads(module.export({'format': 'png'}))
+                            ^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'export'
+
+tests/test_agent_tools.py:54: AttributeError
+________ test_export_is_an_export_receipt_never_cached_preview[success] ________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f424b420690>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f424b698710>
+outcome = 'success'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_export_is_an_export_receipt_never_cached_preview(adapter, monkeypatch, outcome):
+        module, app = adapter
+        app.bridge.cache_preview(PNG, 0, {'metrics': {'cached': True}})
+        seen = []
+    
+        def wait(request_id, timeout=10):
+            assert timeout <= 10
+            request = json.loads((app.root / 'requests' / (request_id + '.json')).read_text())
+            seen.append(request)
+            if outcome == 'success':
+                return app.respond(request_id, PNG, {})
+            if outcome == 'failed':
+                return app.fail(request_id, 'export GPU failure')
+            return None
+    
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+>       result = json.loads(module.export({'format': 'png'}))
+                            ^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'export'
+
+tests/test_agent_tools.py:54: AttributeError
+________ test_export_is_an_export_receipt_never_cached_preview[failed] _________
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f424b410c30>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f424b4f5370>
+outcome = 'failed'
+
+    @pytest.mark.parametrize('outcome', ['pending', 'success', 'failed'])
+    def test_export_is_an_export_receipt_never_cached_preview(adapter, monkeypatch, outcome):
+        module, app = adapter
+        app.bridge.cache_preview(PNG, 0, {'metrics': {'cached': True}})
+        seen = []
+    
+        def wait(request_id, timeout=10):
+            assert timeout <= 10
+            request = json.loads((app.root / 'requests' / (request_id + '.json')).read_text())
+            seen.append(request)
+            if outcome == 'success':
+                return app.respond(request_id, PNG, {})
+            if outcome == 'failed':
+                return app.fail(request_id, 'export GPU failure')
+            return None
+    
+        monkeypatch.setattr(app.bridge, 'wait', wait)
+>       result = json.loads(module.export({'format': 'png'}))
+                            ^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'export'
+
+tests/test_agent_tools.py:54: AttributeError
+=============================== warnings summary ===============================
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_catalog_readers_wait_for_in_flight_mutation_transaction
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+  /home/destino/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/multiprocessing/popen_fork.py:76: DeprecationWarning: This process (pid=518350) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_export_is_an_export_receipt_never_cached_preview[pending]
+FAILED tests/test_agent_tools.py::test_export_is_an_export_receipt_never_cached_preview[success]
+FAILED tests/test_agent_tools.py::test_export_is_an_export_receipt_never_cached_preview[failed]
+3 failed, 325 passed, 8 warnings in 63.83s (0:01:03)

@@ -1,0 +1,188 @@
+{
+  "project": {
+    "format": 1,
+    "id": "75efd24dc3174b02a8668948953fe80b",
+    "revision": 28,
+    "source": {
+      "asset": "assets/86e18e7dd0ee460c9c0d99f13d63058d92563102089bf51c098736c18fb7d120.png",
+      "w": 1536,
+      "h": 1024
+    },
+    "stack": [
+      {
+        "uid": "a7529fd6c5f14919b8d6b2b4def17372",
+        "tool": "builtin/chromatic_aberration@1",
+        "params": {
+          "offset": 2.0,
+          "angle": 0.0
+        },
+        "enabled": false,
+        "opacity": 1.0,
+        "blend": "normal"
+      },
+      {
+        "uid": "782cc5508f004a769d846b0feb02b78f",
+        "tool": "builtin/dither@1",
+        "params": {
+          "matrix": "4",
+          "levels": 4,
+          "use_palette": false,
+          "dark": "#171c29",
+          "light": "#f4e4b5"
+        },
+        "enabled": true,
+        "opacity": 1.0,
+        "blend": "normal"
+      },
+      {
+        "uid": "520fe8e0c65542a28b36119d6755ca06",
+        "tool": "user/my-tool@1",
+        "params": {
+          "amount1": 0.5
+        },
+        "enabled": true,
+        "opacity": 1.0,
+        "blend": "normal"
+      }
+    ],
+    "seed": 0,
+    "timeline": null,
+    "last_command_id": "8a57c3bf788c4bf5be97445b87356797"
+  },
+  "command_ids": [
+    "8a8f5960ea444cd1919292f0eaa76dc7",
+    "261f64f055f84de8a79f285edb907f5b",
+    "5aff2e62077549bab63bb71eb5b385ce",
+    "bde212ab24d1448da6e46fe1fa94d76d",
+    "d9b3725ca3f549dc93bedad5de26b1ee",
+    "5c8b3cf915a040d28551415db107347b",
+    "5c221df93a9d49ecb1bc10174beab488",
+    "677dfb3116f041948600f126b61d55d2",
+    "05e9006a71324e3a93a3ae6c761c18d1",
+    "b60da16c495e4a9eb1d2353d932c6b0c",
+    "854bafc18be14666bc2ef0bfa68b43dc",
+    "ec69921a03bf453f9136d905597c1027",
+    "00a59de8e2d54305a37d28086b1edb73",
+    "5d24b6d84ce6400ba24ac7fbd2814e7c",
+    "096ea51b2cc8429fb5816e12f82eaf37",
+    "29d53f194c104fbab91300a99fa9fd84",
+    "4641c809156d48b0892ee35fa0a792c6",
+    "c72f1971ea19457bb31b94b722379cbe",
+    "f00bd9931bd84e179ca6f4fdcea1ba7b",
+    "faa28b0efb114b339a32e6ffa56fadbd",
+    "3dd226d7147f4b4b9eaace45f6f28e77",
+    "75b9a397b397424b9c55924f06a3d1cd",
+    "0d3829dbd7604818b7d547e309d807c2",
+    "d4cb2f4d16a3481e98f44afde7a533b0",
+    "0eeee7188d264e11a9d65247c2069101",
+    "364c05e4bd26494c851a3ac9eed779bd",
+    "24f8708797e54c7792680e62eb10f50d",
+    "8a57c3bf788c4bf5be97445b87356797"
+  ],
+  "last_command": {
+    "format": 1,
+    "id": "8a57c3bf788c4bf5be97445b87356797",
+    "project_id": "75efd24dc3174b02a8668948953fe80b",
+    "source": "ui",
+    "base_revision": 27,
+    "revision": 28,
+    "commands": [
+      {
+        "type": "add_node",
+        "tool": "user/my-tool@1"
+      }
+    ],
+    "gesture_id": null,
+    "action": "apply",
+    "before": {
+      "format": 1,
+      "id": "75efd24dc3174b02a8668948953fe80b",
+      "revision": 27,
+      "source": {
+        "asset": "assets/86e18e7dd0ee460c9c0d99f13d63058d92563102089bf51c098736c18fb7d120.png",
+        "w": 1536,
+        "h": 1024
+      },
+      "stack": [
+        {
+          "uid": "a7529fd6c5f14919b8d6b2b4def17372",
+          "tool": "builtin/chromatic_aberration@1",
+          "params": {
+            "offset": 2.0,
+            "angle": 0.0
+          },
+          "enabled": false,
+          "opacity": 1.0,
+          "blend": "normal"
+        },
+        {
+          "uid": "782cc5508f004a769d846b0feb02b78f",
+          "tool": "builtin/dither@1",
+          "params": {
+            "matrix": "4",
+            "levels": 4,
+            "use_palette": false,
+            "dark": "#171c29",
+            "light": "#f4e4b5"
+          },
+          "enabled": true,
+          "opacity": 1.0,
+          "blend": "normal"
+        }
+      ],
+      "seed": 0,
+      "timeline": null,
+      "last_command_id": "24f8708797e54c7792680e62eb10f50d"
+    },
+    "document": {
+      "format": 1,
+      "id": "75efd24dc3174b02a8668948953fe80b",
+      "revision": 28,
+      "source": {
+        "asset": "assets/86e18e7dd0ee460c9c0d99f13d63058d92563102089bf51c098736c18fb7d120.png",
+        "w": 1536,
+        "h": 1024
+      },
+      "stack": [
+        {
+          "uid": "a7529fd6c5f14919b8d6b2b4def17372",
+          "tool": "builtin/chromatic_aberration@1",
+          "params": {
+            "offset": 2.0,
+            "angle": 0.0
+          },
+          "enabled": false,
+          "opacity": 1.0,
+          "blend": "normal"
+        },
+        {
+          "uid": "782cc5508f004a769d846b0feb02b78f",
+          "tool": "builtin/dither@1",
+          "params": {
+            "matrix": "4",
+            "levels": 4,
+            "use_palette": false,
+            "dark": "#171c29",
+            "light": "#f4e4b5"
+          },
+          "enabled": true,
+          "opacity": 1.0,
+          "blend": "normal"
+        },
+        {
+          "uid": "520fe8e0c65542a28b36119d6755ca06",
+          "tool": "user/my-tool@1",
+          "params": {
+            "amount1": 0.5
+          },
+          "enabled": true,
+          "opacity": 1.0,
+          "blend": "normal"
+        }
+      ],
+      "seed": 0,
+      "timeline": null,
+      "last_command_id": "8a57c3bf788c4bf5be97445b87356797"
+    }
+  }
+}

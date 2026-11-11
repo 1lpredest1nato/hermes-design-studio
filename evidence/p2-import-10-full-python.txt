@@ -1,0 +1,153 @@
+....FFF................................................................. [ 20%]
+........................................................................ [ 41%]
+........................................................................ [ 61%]
+........................................................................ [ 82%]
+.............................................................            [100%]
+=================================== FAILURES ===================================
+____ test_bad_outer_argument_types_fail_before_application_io[recipe-args3] ____
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f457f8d42b0>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f457fde5d00>
+handler = 'recipe'
+args = {'action': 'apply', 'id': 'recipe/test', 'project_id': 'wrong', 'base_revision': 0}
+
+    @pytest.mark.parametrize('handler,args', [
+        ('apply', {'project_id': 'not-an-id', 'base_revision': 0, 'commands': [{'type': 'set_seed', 'seed': 1}]}),
+        ('apply', {'project_id': 'a' * 32, 'base_revision': True, 'commands': [{'type': 'set_seed', 'seed': 1}]}),
+        ('apply', {'project_id': 'a' * 32, 'base_revision': 0, 'commands': []}),
+        ('recipe', {'action': 'apply', 'id': 'recipe/test', 'project_id': 'wrong', 'base_revision': 0}),
+        ('recipe', {'action': 'save', 'name': 'Test', 'stack': [], 'exposed': None}),
+        ('create_tool', {'name': 'Test', 'description': '', 'params': None, 'shader': 'void main(){}'}),
+    ])
+    def test_bad_outer_argument_types_fail_before_application_io(adapter, monkeypatch, handler, args):
+        module, app = adapter
+    
+        def forbidden():
+            raise AssertionError('invalid outer arguments must not open application storage')
+    
+        monkeypatch.setattr(module, 'get_application', forbidden)
+>       result = json.loads(getattr(module, handler)(args))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_agent_tools.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+__init__.py:166: in recipe
+    return _response(run)
+           ^^^^^^^^^^^^^^
+__init__.py:48: in _response
+    result = call()
+             ^^^^^^
+__init__.py:157: in run
+    app = get_application()
+          ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def forbidden():
+>       raise AssertionError('invalid outer arguments must not open application storage')
+E       AssertionError: invalid outer arguments must not open application storage
+
+tests/test_agent_tools.py:53: AssertionError
+____ test_bad_outer_argument_types_fail_before_application_io[recipe-args4] ____
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f457fd2ec30>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f457f8ec150>
+handler = 'recipe'
+args = {'action': 'save', 'name': 'Test', 'stack': [], 'exposed': None}
+
+    @pytest.mark.parametrize('handler,args', [
+        ('apply', {'project_id': 'not-an-id', 'base_revision': 0, 'commands': [{'type': 'set_seed', 'seed': 1}]}),
+        ('apply', {'project_id': 'a' * 32, 'base_revision': True, 'commands': [{'type': 'set_seed', 'seed': 1}]}),
+        ('apply', {'project_id': 'a' * 32, 'base_revision': 0, 'commands': []}),
+        ('recipe', {'action': 'apply', 'id': 'recipe/test', 'project_id': 'wrong', 'base_revision': 0}),
+        ('recipe', {'action': 'save', 'name': 'Test', 'stack': [], 'exposed': None}),
+        ('create_tool', {'name': 'Test', 'description': '', 'params': None, 'shader': 'void main(){}'}),
+    ])
+    def test_bad_outer_argument_types_fail_before_application_io(adapter, monkeypatch, handler, args):
+        module, app = adapter
+    
+        def forbidden():
+            raise AssertionError('invalid outer arguments must not open application storage')
+    
+        monkeypatch.setattr(module, 'get_application', forbidden)
+>       result = json.loads(getattr(module, handler)(args))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_agent_tools.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+__init__.py:166: in recipe
+    return _response(run)
+           ^^^^^^^^^^^^^^
+__init__.py:48: in _response
+    result = call()
+             ^^^^^^
+__init__.py:157: in run
+    app = get_application()
+          ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def forbidden():
+>       raise AssertionError('invalid outer arguments must not open application storage')
+E       AssertionError: invalid outer arguments must not open application storage
+
+tests/test_agent_tools.py:53: AssertionError
+_ test_bad_outer_argument_types_fail_before_application_io[create_tool-args5] __
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f457fde5f20>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f457f8edc50>
+handler = 'create_tool'
+args = {'name': 'Test', 'description': '', 'params': None, 'shader': 'void main(){}'}
+
+    @pytest.mark.parametrize('handler,args', [
+        ('apply', {'project_id': 'not-an-id', 'base_revision': 0, 'commands': [{'type': 'set_seed', 'seed': 1}]}),
+        ('apply', {'project_id': 'a' * 32, 'base_revision': True, 'commands': [{'type': 'set_seed', 'seed': 1}]}),
+        ('apply', {'project_id': 'a' * 32, 'base_revision': 0, 'commands': []}),
+        ('recipe', {'action': 'apply', 'id': 'recipe/test', 'project_id': 'wrong', 'base_revision': 0}),
+        ('recipe', {'action': 'save', 'name': 'Test', 'stack': [], 'exposed': None}),
+        ('create_tool', {'name': 'Test', 'description': '', 'params': None, 'shader': 'void main(){}'}),
+    ])
+    def test_bad_outer_argument_types_fail_before_application_io(adapter, monkeypatch, handler, args):
+        module, app = adapter
+    
+        def forbidden():
+            raise AssertionError('invalid outer arguments must not open application storage')
+    
+        monkeypatch.setattr(module, 'get_application', forbidden)
+>       result = json.loads(getattr(module, handler)(args))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_agent_tools.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+__init__.py:142: in create_tool
+    return _response(run)
+           ^^^^^^^^^^^^^^
+__init__.py:48: in _response
+    result = call()
+             ^^^^^^
+__init__.py:124: in run
+    app = get_application()
+          ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def forbidden():
+>       raise AssertionError('invalid outer arguments must not open application storage')
+E       AssertionError: invalid outer arguments must not open application storage
+
+tests/test_agent_tools.py:53: AssertionError
+=============================== warnings summary ===============================
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_catalog_readers_wait_for_in_flight_mutation_transaction
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+  /home/destino/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/multiprocessing/popen_fork.py:76: DeprecationWarning: This process (pid=522629) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_bad_outer_argument_types_fail_before_application_io[recipe-args3]
+FAILED tests/test_agent_tools.py::test_bad_outer_argument_types_fail_before_application_io[recipe-args4]
+FAILED tests/test_agent_tools.py::test_bad_outer_argument_types_fail_before_application_io[create_tool-args5]
+3 failed, 346 passed, 8 warnings in 62.68s (0:01:02)

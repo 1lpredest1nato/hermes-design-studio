@@ -1,0 +1,36 @@
+........................................................................ [ 93%]
+..F..                                                                    [100%]
+=================================== FAILURES ===================================
+_____ test_import_image_metadata_describes_copied_bytes_if_source_changes ______
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-112/test_import_image_metadata_des0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f26557d7350>
+
+    def test_import_image_metadata_describes_copied_bytes_if_source_changes(tmp_path, monkeypatch):
+        source = image_file(tmp_path)
+        replacement = tmp_path / 'replacement.png'
+        Image.new('RGB', (17, 23), 'green').save(replacement)
+        new_bytes = replacement.read_bytes()
+        module = importlib.import_module('studio_core.import_image')
+        original_dimensions = module._dimensions
+        changed = []
+    
+        def mutate_after_metadata(handle):
+            result = original_dimensions(handle)
+            if not changed:
+                changed.append(True)
+                source.write_bytes(new_bytes)  # Simulated external writer, not helper.
+            return result
+    
+        monkeypatch.setattr(module, '_dimensions', mutate_after_metadata)
+        result = importer(tmp_path / 'data', source)
+>       assert (result['w'], result['h']) == (17, 23)
+E       assert (31, 19) == (17, 23)
+E         
+E         At index 0 diff: 31 != 17
+E         Use -v to get more diff
+
+tests/test_import_image.py:384: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_import_image.py::test_import_image_metadata_describes_copied_bytes_if_source_changes
+1 failed, 76 passed, 266 deselected in 6.97s

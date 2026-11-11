@@ -1,0 +1,179 @@
+{
+  "source": "/home/destino/projects/hermes-design-studio",
+  "target": "/home/destino/.hermes/plugins/hermes-design-studio",
+  "copy_verified": true,
+  "files": {
+    "LICENSE": {
+      "sha256": "e682497db659cbe0c4bed5f1b164a6d43064d73ec3ff576b924391c7d47898b0",
+      "bytes": 1090
+    },
+    "README.md": {
+      "sha256": "48a76502cdda2d6d4733181b1ac547ae6665bdbd5be0130759a5136b75e95e29",
+      "bytes": 2597
+    },
+    "__init__.py": {
+      "sha256": "a7f22370ecdb8b5b37c909eddbc0262e32da81ea19ef0c47c7ff27dbfa2c0451",
+      "bytes": 14528
+    },
+    "core/diagnostics.mjs": {
+      "sha256": "1e60e5830529a3844cd92320fe582ca46b1cb309a8049400639ad0fbe6159b15",
+      "bytes": 5703
+    },
+    "core/metrics.mjs": {
+      "sha256": "7b6377c1b3fa26500215801e04f6962e2981071c806e0221c12213a654406a71",
+      "bytes": 2082
+    },
+    "core/renderer.mjs": {
+      "sha256": "4d15dea02210a0e4694334a2566ca8b1b92baa3cb2fe01acfe052e05a9bf2d2b",
+      "bytes": 11211
+    },
+    "dashboard/manifest.json": {
+      "sha256": "6ea880e34012e42ae43387555f48e88bf1119c940101d288caab61045a4c4027",
+      "bytes": 54
+    },
+    "dashboard/plugin_api.py": {
+      "sha256": "3ab7b60f50d14e80ea3cc71752440fa74bb3a04ceeaa6dc450934853a55eb13b",
+      "bytes": 10375
+    },
+    "desktop/plugin.js": {
+      "sha256": "0b1046ab0c5466102f1302dc247ce841bdf85bc37269dc9e75832bcfc9572e9d",
+      "bytes": 114097
+    },
+    "hermes/assets.mjs": {
+      "sha256": "62a3141db59815c782d4e241337d73053458e8ab849318f43482c0b008ebbfb9",
+      "bytes": 1347
+    },
+    "hermes/controls.jsx": {
+      "sha256": "53a401355b78d052fc4cc7de220ce75af93dae716b533128dd8831137b23a03d",
+      "bytes": 3914
+    },
+    "hermes/plugin.jsx": {
+      "sha256": "f9d071364f80b50d5f83a91f6f36d5587ac7c2e5de51c9826727c91280390795",
+      "bytes": 9275
+    },
+    "hermes/service.mjs": {
+      "sha256": "6ce20c7507904cc3b68232e22378b23ec76fabb07de9424f639b6d1b14383b34",
+      "bytes": 9674
+    },
+    "hermes/studio-page.jsx": {
+      "sha256": "d9d253422bb0ffea60b235ef11d1b6f7cb1d6e0250f4d1956c4fe335949efe8e",
+      "bytes": 45435
+    },
+    "hermes/upload.mjs": {
+      "sha256": "4aadb66496d93ed390f269028eac2461b44227b927692a0c6e74d54c9ba255eb",
+      "bytes": 2203
+    },
+    "plugin.yaml": {
+      "sha256": "e9cedfdda182e44942147710ed95512548b8292603d3ef2cb67881c0389ebc87",
+      "bytes": 371
+    },
+    "skills/usage/SKILL.md": {
+      "sha256": "1a1c35446d047ead4a5a624ad208837144d3aa90a23776495179816af74cda10",
+      "bytes": 7874
+    },
+    "studio_core/application.py": {
+      "sha256": "8683af3b39bf4510e555ef6d606d60bf1614ee8b71c93c5bd49f451e9f65d9d2",
+      "bytes": 3813
+    },
+    "studio_core/bridge.py": {
+      "sha256": "08e66aa29aa6597abae3f1016f644247ccd72930d997e065bc41dcbf05da7e0a",
+      "bytes": 13092
+    },
+    "studio_core/catalog.py": {
+      "sha256": "b25394064788190326fe7dca8c58aa6c88c9198e1c9e51ae221a078b4f1a9499",
+      "bytes": 24855
+    },
+    "studio_core/import_image.py": {
+      "sha256": "47e6a534a1409ed00d23c625e07f230847a8c421d9c81734d29e6390fc0384ae",
+      "bytes": 11838
+    },
+    "studio_core/projects.py": {
+      "sha256": "eebf8df42a16949cba4455dd6c60111657139902b98aa8aef75de0f88d17b316",
+      "bytes": 16835
+    },
+    "tools/builtin/chromatic_aberration/fixture.json": {
+      "sha256": "a2dee3ebaf706367ae474446c56a50dde83d6c1478c0a81bc5d3357fe017b24e",
+      "bytes": 1552
+    },
+    "tools/builtin/chromatic_aberration/manifest.json": {
+      "sha256": "4566e031b02bf0bf2d1c063833842a619a0e3f1ad50095ac6aaff1bd9cf5fa24",
+      "bytes": 809
+    },
+    "tools/builtin/chromatic_aberration/shader.frag": {
+      "sha256": "54146ac5523e3a1bbdab38840fbb22c0688bcf512ae1d369be93a7530a59fb10",
+      "bytes": 209
+    },
+    "tools/builtin/dither/fixture.json": {
+      "sha256": "a37f44dbe6055a8d70e6252a0ff573b004f8ce79b89f8df416248038e7bd4720",
+      "bytes": 1626
+    },
+    "tools/builtin/dither/manifest.json": {
+      "sha256": "358ed36914655a785ca5dba0a16f12ee9621fa4dfd208d55f0b16ce28a5f3cd1",
+      "bytes": 1291
+    },
+    "tools/builtin/dither/shader.frag": {
+      "sha256": "6918317c009d65b3786408dc8d930c6ba97ca88467767832d55cd17498ef55d0",
+      "bytes": 632
+    },
+    "tools/builtin/gradient_map/fixture.json": {
+      "sha256": "4c6ef4318fd3138af42c118b670c31197cf94e450e8cb9568620f070533d4db1",
+      "bytes": 1630
+    },
+    "tools/builtin/gradient_map/manifest.json": {
+      "sha256": "238d95e4c9327e9356738a355c7b232ac58bb85d4fd5f5cdac3193a0959bfd72",
+      "bytes": 1031
+    },
+    "tools/builtin/gradient_map/shader.frag": {
+      "sha256": "1343c46076fac901eac4457b8fc82445a84c33b90e0376e4818635162f5b256d",
+      "bytes": 366
+    },
+    "tools/builtin/grain/fixture.json": {
+      "sha256": "dd8f5a287548cab5fa49c430353e4095d590ebb2a93c1be47d6bba10603f9235",
+      "bytes": 1516
+    },
+    "tools/builtin/grain/manifest.json": {
+      "sha256": "079bb8c436eb7859840462713d21ee1fa025dd2e2d28b928b49e2946f3b5a4be",
+      "bytes": 616
+    },
+    "tools/builtin/grain/shader.frag": {
+      "sha256": "4c5031bc97aa2c4a4a8132b0d75770b363ef517d1575edcca647596309065f91",
+      "bytes": 328
+    },
+    "tools/builtin/halftone/fixture.json": {
+      "sha256": "c9b68b41e0b4225cd4038d9e6046105acda3128b37a43c79ab155fa2d22f9cbc",
+      "bytes": 1510
+    },
+    "tools/builtin/halftone/manifest.json": {
+      "sha256": "200ed816fb4b8d0f7bd43c6fb47cbbe10b47b8a1bc10cac41b7c0398c25b34d4",
+      "bytes": 776
+    },
+    "tools/builtin/halftone/shader.frag": {
+      "sha256": "c244710a27931856d886ddb174009c4c9705ed660c26ccb8b73f3d570b82829f",
+      "bytes": 342
+    },
+    "tools/builtin/levels/fixture.json": {
+      "sha256": "777842c5595e3718682d2ceffd6de7467cd3563385e949256d1854784277fc24",
+      "bytes": 1611
+    },
+    "tools/builtin/levels/manifest.json": {
+      "sha256": "6331d1a1cb940e5d6d9d75406eaaaec354a1c7f4cd5129652cbc40f14e01bed2",
+      "bytes": 1131
+    },
+    "tools/builtin/levels/shader.frag": {
+      "sha256": "2279473c973ccb26bc144b2d79030da6e4933d95d1779ae036fa9f633562fe49",
+      "bytes": 265
+    },
+    "tools/builtin/pixelate/fixture.json": {
+      "sha256": "2f328fc47b8e4a5f1f454526962b9a0602869d8bb93b1eb8e9ba467d1de63328",
+      "bytes": 1538
+    },
+    "tools/builtin/pixelate/manifest.json": {
+      "sha256": "d1cceec1d57041aceea308b3fa4436659b245b321690166d4f4aa50c86a8f827",
+      "bytes": 609
+    },
+    "tools/builtin/pixelate/shader.frag": {
+      "sha256": "7e938f5f5b894f39821441c5a7ec3104977aa00bf8caaf12f573a22b2f9120c4",
+      "bytes": 177
+    }
+  }
+}

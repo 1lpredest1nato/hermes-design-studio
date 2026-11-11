@@ -1,0 +1,104 @@
+...................FFFF.........                                         [100%]
+=================================== FAILURES ===================================
+________ test_import_image_jpeg_orientation_survives_unrelated_app1[5] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-99/test_import_image_jpeg_orienta4')
+orientation = 5
+
+    @pytest.mark.parametrize('orientation', range(1, 9))
+    def test_import_image_jpeg_orientation_survives_unrelated_app1(tmp_path, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', exif=exif)
+        data = source.read_bytes()
+        # Insert unrelated XMP APP1 after the existing EXIF APP1, before SOF.
+        position = data.index(b'\xff\xe1')
+        next_position = position + 2 + int.from_bytes(data[position + 2:position + 4], 'big')
+        xmp = b'http://ns.adobe.com/xap/1.0/\0test'
+        source.write_bytes(data[:next_position] + b'\xff\xe1' + struct.pack('>H', len(xmp) + 2) + xmp + data[next_position:])
+        result = importer(tmp_path / 'data', source)
+>       assert (result['w'], result['h']) == ((19, 31) if orientation >= 5 else (31, 19))
+E       assert (31, 19) == (19, 31)
+E         
+E         At index 0 diff: 31 != 19
+E         Use -v to get more diff
+
+tests/test_import_image.py:169: AssertionError
+________ test_import_image_jpeg_orientation_survives_unrelated_app1[6] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-99/test_import_image_jpeg_orienta5')
+orientation = 6
+
+    @pytest.mark.parametrize('orientation', range(1, 9))
+    def test_import_image_jpeg_orientation_survives_unrelated_app1(tmp_path, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', exif=exif)
+        data = source.read_bytes()
+        # Insert unrelated XMP APP1 after the existing EXIF APP1, before SOF.
+        position = data.index(b'\xff\xe1')
+        next_position = position + 2 + int.from_bytes(data[position + 2:position + 4], 'big')
+        xmp = b'http://ns.adobe.com/xap/1.0/\0test'
+        source.write_bytes(data[:next_position] + b'\xff\xe1' + struct.pack('>H', len(xmp) + 2) + xmp + data[next_position:])
+        result = importer(tmp_path / 'data', source)
+>       assert (result['w'], result['h']) == ((19, 31) if orientation >= 5 else (31, 19))
+E       assert (31, 19) == (19, 31)
+E         
+E         At index 0 diff: 31 != 19
+E         Use -v to get more diff
+
+tests/test_import_image.py:169: AssertionError
+________ test_import_image_jpeg_orientation_survives_unrelated_app1[7] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-99/test_import_image_jpeg_orienta6')
+orientation = 7
+
+    @pytest.mark.parametrize('orientation', range(1, 9))
+    def test_import_image_jpeg_orientation_survives_unrelated_app1(tmp_path, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', exif=exif)
+        data = source.read_bytes()
+        # Insert unrelated XMP APP1 after the existing EXIF APP1, before SOF.
+        position = data.index(b'\xff\xe1')
+        next_position = position + 2 + int.from_bytes(data[position + 2:position + 4], 'big')
+        xmp = b'http://ns.adobe.com/xap/1.0/\0test'
+        source.write_bytes(data[:next_position] + b'\xff\xe1' + struct.pack('>H', len(xmp) + 2) + xmp + data[next_position:])
+        result = importer(tmp_path / 'data', source)
+>       assert (result['w'], result['h']) == ((19, 31) if orientation >= 5 else (31, 19))
+E       assert (31, 19) == (19, 31)
+E         
+E         At index 0 diff: 31 != 19
+E         Use -v to get more diff
+
+tests/test_import_image.py:169: AssertionError
+________ test_import_image_jpeg_orientation_survives_unrelated_app1[8] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-99/test_import_image_jpeg_orienta7')
+orientation = 8
+
+    @pytest.mark.parametrize('orientation', range(1, 9))
+    def test_import_image_jpeg_orientation_survives_unrelated_app1(tmp_path, orientation):
+        exif = Image.Exif()
+        exif[274] = orientation
+        source = image_file(tmp_path, 'JPEG', exif=exif)
+        data = source.read_bytes()
+        # Insert unrelated XMP APP1 after the existing EXIF APP1, before SOF.
+        position = data.index(b'\xff\xe1')
+        next_position = position + 2 + int.from_bytes(data[position + 2:position + 4], 'big')
+        xmp = b'http://ns.adobe.com/xap/1.0/\0test'
+        source.write_bytes(data[:next_position] + b'\xff\xe1' + struct.pack('>H', len(xmp) + 2) + xmp + data[next_position:])
+        result = importer(tmp_path / 'data', source)
+>       assert (result['w'], result['h']) == ((19, 31) if orientation >= 5 else (31, 19))
+E       assert (31, 19) == (19, 31)
+E         
+E         At index 0 diff: 31 != 19
+E         Use -v to get more diff
+
+tests/test_import_image.py:169: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_import_image.py::test_import_image_jpeg_orientation_survives_unrelated_app1[5]
+FAILED tests/test_import_image.py::test_import_image_jpeg_orientation_survives_unrelated_app1[6]
+FAILED tests/test_import_image.py::test_import_image_jpeg_orientation_survives_unrelated_app1[7]
+FAILED tests/test_import_image.py::test_import_image_jpeg_orientation_survives_unrelated_app1[8]
+4 failed, 28 passed, 261 deselected in 3.41s

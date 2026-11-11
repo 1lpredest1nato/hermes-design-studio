@@ -1,0 +1,20 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_recipe_save_list_apply_reuses_core_and_preserves_descriptors _______
+
+adapter = (<module 'p2_agent_adapter' from '/home/destino/projects/hermes-design-studio/__init__.py'>, <_design_studio_core_128ebca068a1.application.Application object at 0x7f678a27b620>)
+
+    def test_recipe_save_list_apply_reuses_core_and_preserves_descriptors(adapter):
+        module, app = adapter
+        doc = app.projects.get()
+        applied = app.projects.apply(0, [{'type': 'add_node', 'tool': 'builtin/pixelate@1',
+                                          'uid': 'pixel', 'params': {}}], project_id=doc['id'])
+        exposed = [{'name': 'Scale', 'node_uid': 'pixel', 'param': 'size'}]
+>       saved = json.loads(module.recipe({'action': 'save', 'name': 'My Chain', 'exposed': exposed}))
+                           ^^^^^^^^^^^^^
+E       AttributeError: module 'p2_agent_adapter' has no attribute 'recipe'
+
+tests/test_agent_tools.py:43: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_agent_tools.py::test_recipe_save_list_apply_reuses_core_and_preserves_descriptors
+1 failed, 293 deselected in 1.15s

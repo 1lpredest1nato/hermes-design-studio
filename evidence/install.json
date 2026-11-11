@@ -12,8 +12,8 @@
       "bytes": 2597
     },
     "__init__.py": {
-      "sha256": "ca6a255bdb5497a527a411513b2dd8dbb5733a7d11320bb0ff0ad0afc945a72f",
-      "bytes": 2723
+      "sha256": "a7f22370ecdb8b5b37c909eddbc0262e32da81ea19ef0c47c7ff27dbfa2c0451",
+      "bytes": 14528
     },
     "core/diagnostics.mjs": {
       "sha256": "1e60e5830529a3844cd92320fe582ca46b1cb309a8049400639ad0fbe6159b15",
@@ -36,8 +36,8 @@
       "bytes": 10375
     },
     "desktop/plugin.js": {
-      "sha256": "f791ca76dd95037caf0a84bc106c17b6722802c70015c61bf4f0f2d6d2b16e47",
-      "bytes": 113826
+      "sha256": "0b1046ab0c5466102f1302dc247ce841bdf85bc37269dc9e75832bcfc9572e9d",
+      "bytes": 114097
     },
     "hermes/assets.mjs": {
       "sha256": "62a3141db59815c782d4e241337d73053458e8ab849318f43482c0b008ebbfb9",
@@ -48,24 +48,28 @@
       "bytes": 3914
     },
     "hermes/plugin.jsx": {
-      "sha256": "7eb0b01b43898baf602f948a3a2d0026b42b0e835a470007f67c5568dcd01ce4",
-      "bytes": 9276
+      "sha256": "f9d071364f80b50d5f83a91f6f36d5587ac7c2e5de51c9826727c91280390795",
+      "bytes": 9275
     },
     "hermes/service.mjs": {
       "sha256": "6ce20c7507904cc3b68232e22378b23ec76fabb07de9424f639b6d1b14383b34",
       "bytes": 9674
     },
     "hermes/studio-page.jsx": {
-      "sha256": "67b87ac2127ebc486de8e7c5cc1dc8c391dc7dfdd9e0ff440f4a0377f5f75b85",
-      "bytes": 45060
+      "sha256": "d9d253422bb0ffea60b235ef11d1b6f7cb1d6e0250f4d1956c4fe335949efe8e",
+      "bytes": 45435
     },
     "hermes/upload.mjs": {
       "sha256": "4aadb66496d93ed390f269028eac2461b44227b927692a0c6e74d54c9ba255eb",
       "bytes": 2203
     },
     "plugin.yaml": {
-      "sha256": "9988311d67c32720e1b698356955efd0751a0f22471f13844dfae2a83646e216",
-      "bytes": 205
+      "sha256": "e9cedfdda182e44942147710ed95512548b8292603d3ef2cb67881c0389ebc87",
+      "bytes": 371
+    },
+    "skills/usage/SKILL.md": {
+      "sha256": "1a1c35446d047ead4a5a624ad208837144d3aa90a23776495179816af74cda10",
+      "bytes": 7874
     },
     "studio_core/application.py": {
       "sha256": "8683af3b39bf4510e555ef6d606d60bf1614ee8b71c93c5bd49f451e9f65d9d2",
@@ -78,6 +82,10 @@
     "studio_core/catalog.py": {
       "sha256": "b25394064788190326fe7dca8c58aa6c88c9198e1c9e51ae221a078b4f1a9499",
       "bytes": 24855
+    },
+    "studio_core/import_image.py": {
+      "sha256": "47e6a534a1409ed00d23c625e07f230847a8c421d9c81734d29e6390fc0384ae",
+      "bytes": 11838
     },
     "studio_core/projects.py": {
       "sha256": "eebf8df42a16949cba4455dd6c60111657139902b98aa8aef75de0f88d17b316",

@@ -4,6 +4,7 @@ __pycache__/
 node_modules/
 evidence/tmp*/
 evidence/host-home/
+evidence/*-home/
 evidence/test-data/
 evidence/*-data/
 evidence/identity-repro-*/
