@@ -114,12 +114,11 @@ At code checkpoint `f3aef873e24173a28677c8f28606175762e60b55`:
 
 The parent reran the complete unchanged-runtime suite for P3 closure: **355 Python tests passed with 8 known warnings; 55 JavaScript tests passed**, exit 0 (`evidence/p3-parent-final-suite.txt`). Exact temp-installed target validation also passed with exit 0 using the existing default runtime; a previous temp-runtime bootstrap timeout remains a timeout, not a passing isolated-runtime test. Development test/build commands and evidence boundaries are in [the verification guide](docs/architecture-and-verification.md).
 
-## Real client screenshots
+## Demo
 
-User-supplied P1 captures, cropped only to remove surrounding navigation or bottom server paths. These are actual UI captures, not generated mockups. The diagnostic image shows a partial table; the complete seven-tool PASS record is in the real-client JSON evidence.
+Frame from the recorded demo, showing an agent-authored shader with manual threshold and ink-color controls. The session sidebar and video-caption strip are excluded; the editor and image are not retouched.
 
-![Manual image workspace](docs/screenshots/studio-p1.png)
-![Client diagnostics, partial table](docs/screenshots/diagnostics-p1.png)
+![Design Studio demo: shader preview and manual controls](docs/screenshots/studio-demo.png)
 
 ## Roadmap—not shipped
 

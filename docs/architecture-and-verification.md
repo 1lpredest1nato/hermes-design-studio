@@ -97,7 +97,7 @@ Relevant recorded evidence names (maintained by the parent outside this docs-onl
 - `p1-runtime-verification.json`, `p1-runtime-after-client.txt`, plus the human-provided screenshots/confirmation.
 - `p2-parent-suite.txt`, `p2-node-final.txt`, `p2-host-integration.{json,txt}`, `p2-validate-installed.txt`.
 
-Some runtime evidence files and generated test images are intentionally not distributed with the package. These names identify the development record, not promises of public download links. README screenshots are real user-provided P1 captures, cropped to omit surrounding navigation/server paths; publication still requires the author's explicit approval. See also `evidence/p2-runtime-verification.json` for the independently correlated real P2 session.
+Some runtime evidence files and generated test images are intentionally not distributed with the package. These names identify the development record, not promises of public download links. The README image is a frame from the recorded demo, excluding the session sidebar and caption strip; the earlier P1 screenshots have been removed from the current tree at the author's request. See also `evidence/p2-runtime-verification.json` for the independently correlated real P2 session.
 
 ### Reproducing development checks
 
