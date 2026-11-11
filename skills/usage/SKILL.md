@@ -64,6 +64,9 @@ Static validation rejects `while`/`do`, nonliteral or over-256 loop bounds, shad
 
 ## Pitfalls
 
+- `add_node` accepts only `type`, `tool`, optional `params`, `uid`, `index`. Set `enabled`, `opacity`, or `blend` using a separate `set_node` command; both can share one atomic batch when a new explicit uid is supplied. Unsupported fields reject the entire batch without a command-log entry.
+- This bundled skill is read-only. Image-editing workflows must not patch the installed plugin or skill files; report documentation fixes to the plugin maintainer instead.
+
 - Draft refs are not approved tools; don't add them to the project. Don't fabricate an approved version after a successful compile.
 - Keep identity with revision: unrelated projects can have the same revision number. UI queues bind identity at submission, not dispatch.
 - Inspect enabled/opacity/blend and stack order before declaring an effect broken. Grayscale dither after chromatic aberration removes its colored fringes; an unchecked operation is disabled.

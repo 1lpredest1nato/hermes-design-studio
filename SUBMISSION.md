@@ -36,9 +36,9 @@ The service renderer runs while a connected Desktop window is open, even when th
 
 Recorded code checkpoint `f3aef873e24173a28677c8f28606175762e60b55`: **355 Python tests and 55 JavaScript tests passed**, with **8 known Linux multiprocessing/fork warnings**. P0 and P1 have independently checked actual Desktop evidence, including closed-page rendering, chunked upload/hash, manual authoring/approval, diagnostics for all seven effects and a decoded gateway PNG export.
 
-P2 isolated integration exercised all seven tools through a real PluginHost and Chromium WebGL. That is not a real LLM/Desktop workflow. The user reports their new-session workflow succeeded, but **parent correlation of actual session/tool calls, command ids, project/revisions, frame receipts and export remains pending** in this draft.
+P2 isolated integration exercised all seven tools through a real PluginHost and Chromium WebGL. Separately, the parent verified actual fresh LLM session `20261111_222455_71cfd9`, source-agent command ids at revisions 28→29→30, human approval of the exact agent-authored snapshot, fresh closed-page client previews and a 1536×1024 export checked with SHA-256 and Pillow. See `evidence/p2-runtime-verification.json`.
 
-**P3 final-package validation and isolated clean installation remain pending** in this documentation snapshot. Do not describe them as passed until the parent records the exact final artifact and results. Prior installed P2 validation passed; it does not validate a later manifest or catalog change.
+P3 final-package validation and isolated local-Git installation are tracked in `BUILD-LOG.md` and `evidence/p3-final-install.json`; use the actual source commit and exit statuses there, not the older P2 checkpoint. These delivery checks do not imply publication or catalog admission.
 
 ### AI-assisted development disclosure (copy verbatim or adapt transparently)
 
@@ -50,7 +50,7 @@ P2 isolated integration exercised all seven tools through a real PluginHost and 
 - Final release/installation commit (full 40-character SHA): **parent to fill after all delivery changes**, not the older code checkpoint above.
 - Catalog PR URL: **not created yet**.
 - Exact Hermes requirement and tested build: **copy from the finalized manifest and validation record**; do not infer upstream compatibility from the developer fork's version.
-- Final validation log / isolated-install inventory: **pending**.
+- Final validation log / isolated-install inventory: see `evidence/p3-final-install.json` and `BUILD-LOG.md` for the exact record.
 - README screenshot/media: optional real user captures only, after privacy review. No invented screenshot or generated imitation of the UI.
 
 ## Draft X post
@@ -85,7 +85,7 @@ If the required genuine new-session evidence is not yet correlated, finish that 
 
 ### Before any publication
 
-- [ ] Parent independently closes P2: correlate the fresh session with tool-call ids/results, `commands.jsonl`, project identity/revisions, renderer receipts and decoded PNG export.
+- [x] Parent independently closed P2: actual session/tool calls, commands, exact approved snapshot, client receipts and decoded export correlated.
 - [ ] Finalize manifest/tool declarations, truthful Hermes compatibility and catalog draft; retain the eight known test warnings in the record.
 - [ ] Run final `hermes plugins validate` against the exact delivery artifact and preserve exit status/output.
 - [ ] Install the exact local Git commit into an isolated temporary `HERMES_HOME`; read back plugin inventory/enablement as required. Do not use the live profile to stand in for a clean install.

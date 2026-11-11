@@ -86,8 +86,8 @@ This is a documentation snapshot of checkpoint `f3aef873e24173a28677c8f286061757
 | P0 actual Desktop | Closed-page detached rendering, multimodal host result, ≥20 MiB chunk upload/hash, human-confirmed native Save as | All later UI/agent workflows |
 | P1 actual Desktop | Seven built-in diagnostics pass; human-only create/approve/apply; PNG export decoded/checked | P2 agent-to-canvas session |
 | P2 isolated integration | All seven tools through real PluginHost, Chromium WebGL, actual compilation/PNG; final browser exit 0 | An LLM session, actual client SDK or human approval |
-| P2 human session | User reports success; **parent correlation pending** | Closure until tool calls, command ids, revisions, frames and export match |
-| P3 final delivery | **Pending parent validation and clean install** | Publication or catalog acceptance |
+| P2 human session | Independently verified session `20261111_222455_71cfd9`, agent revisions 28→29→30, exact human-approved tool, current frames and decoded export | Artistic quality or all future workflows |
+| P3 final delivery | Exact final local-Git install and validation record: `BUILD-LOG.md`, `evidence/p3-final-install.json` | Publication or catalog acceptance |
 
 The eight warnings arise from `fork()` in a multithreaded Linux test process. They remain visible; do not rewrite that record as warning-free. The P2 harness initially failed cleanup because Node stdin remained open; the saved final rerun fixed stdin lifecycle and exited 0. That rerun is the passing evidence, not a relabeling of the earlier failure.
 
@@ -97,7 +97,7 @@ Relevant recorded evidence names (maintained by the parent outside this docs-onl
 - `p1-runtime-verification.json`, `p1-runtime-after-client.txt`, plus the human-provided screenshots/confirmation.
 - `p2-parent-suite.txt`, `p2-node-final.txt`, `p2-host-integration.{json,txt}`, `p2-validate-installed.txt`.
 
-Some runtime evidence files and generated test images are intentionally not distributed with the package. These names identify the development record, not promises of public download links. No README screenshot is synthesized or claimed: real user-provided captures have not been copied into this documentation change, pending publication/privacy review.
+Some runtime evidence files and generated test images are intentionally not distributed with the package. These names identify the development record, not promises of public download links. README screenshots are real user-provided P1 captures, cropped to omit surrounding navigation/server paths; publication still requires the author's explicit approval. See also `evidence/p2-runtime-verification.json` for the independently correlated real P2 session.
 
 ### Reproducing development checks
 
@@ -122,7 +122,7 @@ npx --yes esbuild@0.28.2 hermes/plugin.jsx --bundle --format=esm \
 
 Before closing P3, the parent must validate the final manifest/catalog artifact and install its exact local Git commit into an isolated temporary `HERMES_HOME`, then read back plugin inventory. Successful CLI validation is independent of actual renderer execution.
 
-Before closing P2, independently match the fresh session's real tool-call arguments/results with `commands.jsonl` command ids, project identity, predecessor/new revisions, render request/response metadata and fully decoded export. A cached frame, direct Python invocation or headless PASS is not a substitute. The user's report remains attributed until that correlation is complete.
+P2 closure matched the fresh session's real tool-call arguments/results with `commands.jsonl` command ids, project identity, predecessor/new revisions, render request/response metadata and fully decoded export. A cached frame, direct Python invocation or headless PASS is not a substitute. The read-only audit is reproducible with `python tests/verify_p2_runtime.py` against the original development data root.
 
 ## References
 

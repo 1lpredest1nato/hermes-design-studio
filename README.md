@@ -2,7 +2,7 @@
 
 A non-destructive image workshop inside **Hermes Desktop**. Build a shader stack with sliders, author a reusable shader, save a recipe, and export a PNG—entirely by hand or with a Hermes agent helping. The agent edits the same revision-checked project as the UI; it cannot approve its own tools.
 
-**Delivery status:** local, unpublished build. P0 and P1 have real-client verification. P2 automated checks pass; the user reports the new-session workflow works, but independent correlation of that session with backend commands and frames is **pending parent verification**. Catalog submission, public repository, PR, video, X post and form submission are **not yet done**. See [verification and architecture](docs/architecture-and-verification.md) and [submission drafts](SUBMISSION.md).
+**Delivery status:** local, unpublished build. P0, P1 and P2 have independent real-client verification, including actual fresh-session tool calls, human approval, command ids, rendered frames and PNG export. Final delivery records are kept in `BUILD-LOG.md` and `evidence/p3-final-install.json`. Catalog submission, public repository, PR, video, X post and form submission are **not yet done**. See [verification and architecture](docs/architecture-and-verification.md) and [submission drafts](SUBMISSION.md).
 
 ## What it does
 
@@ -23,7 +23,7 @@ A non-destructive image workshop inside **Hermes Desktop**. Build a shader stack
 
 ## Install in two steps
 
-These instructions start with an existing local Git checkout. There is **no published repository or catalog entry to fetch yet**. Run step 1 on the **gateway machine**, in the checkout, using the intended Hermes profile/environment. The CLI options below were checked against real `--help` output; the P3 clean-install gate is separate and still pending in this documentation snapshot.
+These instructions start with an existing local Git checkout. There is **no published repository or catalog entry to fetch yet**. Run step 1 on the **gateway machine**, in the checkout, using the intended Hermes profile/environment. The CLI options below were checked against real `--help` output. See the final delivery record for the exact locally installed Git commit and validation output.
 
 1. **Install the committed package and enable its backend:**
 
@@ -107,10 +107,17 @@ At code checkpoint `f3aef873e24173a28677c8f28606175762e60b55`:
 - **355 Python tests passed, 55 JavaScript tests passed** in the parent's recorded run. **8 known fork warnings** remain from Linux multiprocessing in a multithreaded test process; they are not suppressed or counted as failures.
 - P0 real Desktop evidence covers a detached renderer with the Studio page closed, chunked upload with matching SHA-256, multimodal preview through host isolation, and human-confirmed native Save as.
 - P1 real Desktop diagnostics pass for all seven built-ins. The user manually authored/approved/applied a tool without the agent. A gateway PNG export was fully decoded and checked independently.
-- P2 isolated integration exercised all seven registered handlers through a real PluginHost and separate Chromium WebGL renderer. **This is not an actual LLM session or client Desktop proof.** The user's reported P2 new-session success still awaits parent correlation of tool calls, command ids, project/revisions, frames and export.
-- P3 clean installation and final manifest/catalog validation are **pending** in this documentation snapshot. Prior installed P2 validation passed; it is not substituted for the final P3 artifact's validation.
+- P2 isolated integration exercised all seven registered handlers through a real PluginHost and separate Chromium WebGL renderer. **That alone is not actual LLM/client proof.** Separately, fresh session `20261111_222455_71cfd9` was correlated with real command ids at revisions 28→29→30, the exact agent-authored/human-approved shader snapshot, current client frames and a SHA/Pillow-verified 1536×1024 export. See `evidence/p2-runtime-verification.json`.
+- P3 is recorded separately against its exact local Git installation commit; consult `BUILD-LOG.md` and `evidence/p3-final-install.json`. A draft catalog file is not a submitted/admitted entry, and validation is not publication.
 
 No full suite was rerun for this documentation-only change. Development test/build commands and evidence boundaries are in [the verification guide](docs/architecture-and-verification.md).
+
+## Real client screenshots
+
+User-supplied P1 captures, cropped only to remove surrounding navigation or bottom server paths. These are actual UI captures, not generated mockups. The diagnostic image shows a partial table; the complete seven-tool PASS record is in the real-client JSON evidence.
+
+![Manual image workspace](docs/screenshots/studio-p1.png)
+![Client diagnostics, partial table](docs/screenshots/diagnostics-p1.png)
 
 ## Roadmap—not shipped
 

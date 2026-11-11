@@ -23,7 +23,7 @@ version: "0.1.0"
 image: ""
 screenshots: []
 readme: true
-platforms: []
+platforms: [linux]
 onboarding: false
 known_issues:
   - "DRAFT: repository and pinned commit not yet published or verified."
