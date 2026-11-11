@@ -3,6 +3,7 @@ version: 0.1.0
 description: Design Studio image projects, shader drafts, recipes and filesystem render tools.
 author: 1lpredest1nato
 license: MIT
+requires_hermes: ">=0.22.5"
 provides_tools:
   - design_studio_catalog
   - design_studio_project

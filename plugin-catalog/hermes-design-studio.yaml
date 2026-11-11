@@ -1,0 +1,41 @@
+# DRAFT — NOT A CATALOG ENTRY. DO NOT SUBMIT OR INSTALL FROM THIS FILE.
+#
+# This draft records the *intended* upstream repository and the capability
+# manifest for hermes-design-studio. The repository
+# https://github.com/1lpredest1nato/hermes-design-studio is the planned home and
+# has NOT been published, verified, or reviewed. Its remote revision is
+# therefore unknown and is intentionally left as a comment below instead of a
+# fabricated SHA. Per the catalog admission policy (exact 40-hex SHA pin is
+# mandatory), this file is not admissible until the repository exists and a
+# reviewed commit is pinned.
+name: hermes-design-studio
+repo: https://github.com/1lpredest1nato/hermes-design-studio
+# sha: <40-hex commit SHA — intentionally omitted; the intended repo is not published or verified>
+subdir: ""
+title: Hermes Design Studio
+description: "Design Studio image projects, shader drafts, recipes and filesystem render tools. DRAFT catalog entry: the intended repository is not yet published or verified, so no commit pin is declared."
+maintainer: 1lpredest1nato
+tier: community
+category: desktop
+requires_hermes: ">=0.22.5"
+docs_url: ""
+version: "0.1.0"
+image: ""
+screenshots: []
+readme: true
+platforms: []
+onboarding: false
+known_issues:
+  - "DRAFT: repository and pinned commit not yet published or verified."
+capabilities:
+  provides_tools:
+    - design_studio_catalog
+    - design_studio_project
+    - design_studio_apply
+    - design_studio_preview
+    - design_studio_create_tool
+    - design_studio_recipe
+    - design_studio_export
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
