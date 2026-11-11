@@ -1,0 +1,17 @@
+{
+  "before": {
+    "size": [
+      1551,
+      833
+    ],
+    "sha256": "6cbad4c83d2b8a18caf5ad37c9d2c7f62a8f71fb5fc8cc96adf9f002a51d0619"
+  },
+  "after": {
+    "size": [
+      1551,
+      779
+    ],
+    "sha256": "599d402623adcc36457d3f26646c35b76ed7c8d9466cb2977f0fbf145641d71a"
+  },
+  "operation": "Bottom crop removes absolute gateway path; no pixels in image canvas or approval UI changed."
+}

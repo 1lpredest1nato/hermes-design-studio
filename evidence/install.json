@@ -8,8 +8,8 @@
       "bytes": 1090
     },
     "README.md": {
-      "sha256": "48a76502cdda2d6d4733181b1ac547ae6665bdbd5be0130759a5136b75e95e29",
-      "bytes": 2597
+      "sha256": "6b28014f3a34859d31e2d6e725fdf1104366b288424672bda851e87279c45d79",
+      "bytes": 15804
     },
     "__init__.py": {
       "sha256": "a7f22370ecdb8b5b37c909eddbc0262e32da81ea19ef0c47c7ff27dbfa2c0451",
@@ -64,12 +64,12 @@
       "bytes": 2203
     },
     "plugin.yaml": {
-      "sha256": "e9cedfdda182e44942147710ed95512548b8292603d3ef2cb67881c0389ebc87",
-      "bytes": 371
+      "sha256": "ed2f285ba4608158d5c463759b63b0e1ef0c24754c9fe6163fec49c426e129d2",
+      "bytes": 399
     },
     "skills/usage/SKILL.md": {
-      "sha256": "1a1c35446d047ead4a5a624ad208837144d3aa90a23776495179816af74cda10",
-      "bytes": 7874
+      "sha256": "3bdbef539b2eda8ac3e6b388ebb8c31592a22082df3783f86a4c2fe30ecf19a4",
+      "bytes": 8339
     },
     "studio_core/application.py": {
       "sha256": "8683af3b39bf4510e555ef6d606d60bf1614ee8b71c93c5bd49f451e9f65d9d2",

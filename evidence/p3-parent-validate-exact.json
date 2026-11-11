@@ -1,0 +1,9 @@
+{
+  "target": "/home/destino/projects/hermes-design-studio/evidence/tmp-p3-final-home/plugins/hermes-design-studio",
+  "source_commit": "610f92e7c8e1a697b909de22c357856b0ed191fc",
+  "runtime_home": "/home/destino/.hermes",
+  "exit_code": 0,
+  "elapsed_seconds": 50.27814337499876,
+  "validation_passed": true,
+  "caution": true
+}

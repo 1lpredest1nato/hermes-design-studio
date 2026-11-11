@@ -32,13 +32,13 @@ The service renderer runs while a connected Desktop window is open, even when th
 - Server-path import supports PNG/JPEG/static WebP **header/metadata checking only**, not full decoding. Client browser decoding remains required. OAuth remote multipart Upload currently requires switching to a gateway-token connection.
 - Remote Upload/Save as operate on the client; agent import paths, plugin-data and library exports are on the gateway.
 
-### Verification text — retain the pending items until closed
+### Verified local delivery — publication remains pending
 
 Recorded code checkpoint `f3aef873e24173a28677c8f28606175762e60b55`: **355 Python tests and 55 JavaScript tests passed**, with **8 known Linux multiprocessing/fork warnings**. P0 and P1 have independently checked actual Desktop evidence, including closed-page rendering, chunked upload/hash, manual authoring/approval, diagnostics for all seven effects and a decoded gateway PNG export.
 
 P2 isolated integration exercised all seven tools through a real PluginHost and Chromium WebGL. Separately, the parent verified actual fresh LLM session `20261111_222455_71cfd9`, source-agent command ids at revisions 28→29→30, human approval of the exact agent-authored snapshot, fresh closed-page client previews and a 1536×1024 export checked with SHA-256 and Pillow. See `evidence/p2-runtime-verification.json`.
 
-P3 final-package validation and isolated local-Git installation are tracked in `BUILD-LOG.md` and `evidence/p3-final-install.json`; use the actual source commit and exit statuses there, not the older P2 checkpoint. These delivery checks do not imply publication or catalog admission.
+P3 independently verified local-Git installation of `610f92e7c8e1a697b909de22c357856b0ed191fc`: install exit 0 with disclosed `--force --no-enable --no-deps`; all 43 payload files matched their pinned Git blobs. Parent repeated native validation of that exact temp-installed target: exit 0, `Validation passed.`, with CAUTION on a development-evidence string, not SAFE. Validation used the existing default runtime; the earlier temporary-runtime bootstrap timeout is not relabeled as a pass. Parent also reran **355 Python tests / 8 warnings + 55 JavaScript tests**, exit 0. Later documentation, screenshot privacy and evidence changes do not modify runtime. See `BUILD-LOG.md`, `evidence/p3-final-install.json`, `evidence/p3-parent-integrity.json` and `evidence/p3-parent-validate-exact.json`. These checks do not imply publication or catalog admission.
 
 ### AI-assisted development disclosure (copy verbatim or adapt transparently)
 
@@ -47,9 +47,9 @@ P3 final-package validation and isolated local-Git installation are tracked in `
 ### PR metadata to fill only after publication authorization
 
 - Public source URL: **not created/verified yet**.
-- Final release/installation commit (full 40-character SHA): **parent to fill after all delivery changes**, not the older code checkpoint above.
+- Verified local installation commit: **`610f92e7c8e1a697b909de22c357856b0ed191fc`**. The eventual public catalog SHA must identify the separately authorized published snapshot; do not substitute a later evidence-only HEAD for this historical tested ref.
 - Catalog PR URL: **not created yet**.
-- Exact Hermes requirement and tested build: **copy from the finalized manifest and validation record**; do not infer upstream compatibility from the developer fork's version.
+- Declared Hermes requirement: **`>=0.22.5`**, validated syntactically and exercised on the developer fork. Other upstream builds are not independently certified by the version string.
 - Final validation log / isolated-install inventory: see `evidence/p3-final-install.json` and `BUILD-LOG.md` for the exact record.
 - README screenshot/media: optional real user captures only, after privacy review. No invented screenshot or generated imitation of the UI.
 
@@ -86,11 +86,11 @@ If the required genuine new-session evidence is not yet correlated, finish that 
 ### Before any publication
 
 - [x] Parent independently closed P2: actual session/tool calls, commands, exact approved snapshot, client receipts and decoded export correlated.
-- [ ] Finalize manifest/tool declarations, truthful Hermes compatibility and catalog draft; retain the eight known test warnings in the record.
-- [ ] Run final `hermes plugins validate` against the exact delivery artifact and preserve exit status/output.
-- [ ] Install the exact local Git commit into an isolated temporary `HERMES_HOME`; read back plugin inventory/enablement as required. Do not use the live profile to stand in for a clean install.
-- [ ] Replace pending verification text only with recorded facts. Fill the final full commit SHA after all changes; do not accidentally submit the pre-P3 checkpoint.
-- [ ] Inspect README/links/license/disclosure; review any real screenshots/video for private paths, personal images, chats and credentials.
+- [x] Finalized manifest/tool declarations, truthful Hermes compatibility and explicitly unpublished catalog draft; eight known test warnings retained.
+- [x] Exact temp-installed target independently validated, exit 0 with CAUTION; full stdout and scope retained.
+- [x] Exact local Git commit installed into an isolated temporary `HERMES_HOME`; 43 files read back against Git, pinned metadata verified, not enabled. Local scan override disclosed.
+- [x] Local tested full SHA and actual evidence recorded without replacing it with an evidence-only HEAD. Public release SHA remains a separate publication gate.
+- [x] README/links/license/disclosure and both real screenshots inspected; bottom server path cropped from workspace screenshot. No final video exists to inspect yet.
 - [ ] Obtain explicit author authorization for public repository creation, push and catalog PR. Local commits are not publication.
 
 ### Publication and form (human/authorized parent, not performed here)
@@ -106,4 +106,4 @@ If the required genuine new-session evidence is not yet correlated, finish that 
 
 ## Handoff
 
-This file belongs in the delivery checkout as `SUBMISSION.md`. The build brief also requests a companion submission document in the orchestration directory; this docs-only worker is not authorized to write there. The parent may copy this reviewed draft to that location. No installation, restart, merge, push, repository creation, PR, post, video upload or form submission is performed by this documentation task.
+The parent maintains this file in the delivery checkout and copies it to the orchestration directory requested by the brief. Local installation, validation and evidence integration are complete within the scopes recorded above. No Desktop/gateway restart, push, public repository creation, PR, post, video upload or form submission was performed by the P3 closeout.

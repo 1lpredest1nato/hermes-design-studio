@@ -1,0 +1,20 @@
+{
+  "source_commit": "610f92e7c8e1a697b909de22c357856b0ed191fc",
+  "source": "file:///home/destino/projects/hermes-design-studio",
+  "target": "/home/destino/projects/hermes-design-studio/evidence/tmp-p3-final-home/plugins/hermes-design-studio",
+  "install_exit": 0,
+  "install_options": [
+    "--ref",
+    "610f92e7c8e1a697b909de22c357856b0ed191fc",
+    "--force",
+    "--no-enable",
+    "--no-deps"
+  ],
+  "scan_override_disclosed": true,
+  "verified_payload_files": 43,
+  "payload_hash_mismatches": [],
+  "installed_manifest": "name: hermes-design-studio\nversion: 0.1.0\ndescription: Design Studio image projects, shader drafts, recipes and filesystem render tools.\nauthor: 1lpredest1nato\nlicense: MIT\nrequires_hermes: \">=0.22.5\"\nprovides_tools:\n  - design_studio_catalog\n  - design_studio_project\n  - design_studio_apply\n  - design_studio_preview\n  - design_studio_create_tool\n  - design_studio_recipe\n  - design_studio_export\n",
+  "installed_skill_exists": true,
+  "separate_clean_validation_timeout": true,
+  "readback_note": "Initial audit incorrectly required nonexistent optional development package.json. Corrected audit includes existing payload files only; no product code changed."
+}

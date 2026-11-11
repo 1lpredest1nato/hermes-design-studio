@@ -1,0 +1,1182 @@
+⚠ install out of sync (ffmpeg: not installed or outdated; node: not installed or outdated; npm: not installed or outdated; ripgrep: not installed or outdated) — this unknown-managed install must rebuild the artifact to fix
+Warning: custom (unreviewed) source — not from the Hermes catalog.
+Warning: Using insecure/local URL scheme. Consider using https:// or git@ for 
+production installs.
+Cloning file:///home/destino/projects/hermes-design-studio...
+
+⚠ Security scan flagged this plugin:
+Scan: plugin (file:///home/destino/projects/hermes-design-studio/community)  
+Verdict: CAUTION
+  HIGH     obfuscation    evidence/p1-static-security.json:8 ""match": "exec(","
+  MEDIUM   structural     evidence/p0-backend-tests.txt:0 "16518KB"
+  MEDIUM   structural     (directory):0                  "20148KB"
+  MEDIUM   persistence    BUILD-LOG.md:10                "- Сервис gateway 
+обнаружен read-only: `hermes-gateway.servic"
+  MEDIUM   obfuscation    desktop/plugin.js:1140         ""u_input \xB7 
+u_resolution \xB7 u_time (0) \xB7 u_seed \xB7 "
+  MEDIUM   obfuscation    desktop/plugin.js:1569         "/* @__PURE__ */ 
+jsx("span", { children: doc?.source ? `${doc"
+  MEDIUM   obfuscation    desktop/plugin.js:80           "h ^= 
+text.charCodeAt(i);"
+  MEDIUM   obfuscation    desktop/plugin.js:338          "const bytes = 
+Uint8Array.from(atob(part.base64), (c) => c.ch"
+  MEDIUM   obfuscation    desktop/plugin.js:338          "const bytes = 
+Uint8Array.from(atob(part.base64), (c) => c.ch"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:121 "_ 
+test_chunk_rejects_unsafe_parameters[../oops-0-1-aaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:126 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:141 "_ 
+test_chunk_rejects_unsafe_parameters[abc--1-1-aaaaaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:146 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:161 "_ 
+test_chunk_rejects_unsafe_parameters[abc-1-1-aaaaaaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:166 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:181 "_ 
+test_chunk_rejects_unsafe_parameters[abc-0-0-aaaaaaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:186 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:201 "_ 
+test_chunk_rejects_unsafe_parameters[abc-0-1-zzzzzzzzzzzzz"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:206 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:243 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:244 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:245 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:246 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:247 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1097 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[../"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1248 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1399 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1550 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1701 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2461 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2462 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2463 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2464 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2465 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:55 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:57 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:60 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:63 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:76 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:290 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:292 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:294 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:296 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:298 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:300 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:302 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:304 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:306 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:342 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:362 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:364 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:366 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:368 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:370 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:372 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:374 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:376 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:378 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:414 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:520 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:563 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:565 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:568 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:570 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:573 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:575 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:578 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:580 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:582 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:636 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:643 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:669 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:712 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:714 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:717 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:719 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:722 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:724 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:727 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:729 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:731 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:733 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:787 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:794 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:820 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:863 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:865 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:868 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:870 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:873 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:875 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:878 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:880 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:882 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:884 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:938 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:945 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:971 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1014 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1016 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1019 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1021 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1024 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1026 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1029 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1031 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1033 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1035 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1089 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1096 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1122 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1165 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1167 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1170 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1172 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1175 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1177 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1180 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1182 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1184 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1186 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1240 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1247 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1273 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1316 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1318 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1321 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1323 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1326 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1328 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1331 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1333 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1335 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1337 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1391 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1398 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1424 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1467 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1469 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1472 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1474 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1477 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1479 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1482 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1484 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1486 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1488 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1542 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1549 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1575 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1618 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1620 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1623 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1625 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1628 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1630 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1633 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1635 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1637 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1639 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1693 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1700 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1726 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1769 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1771 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1774 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1776 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1779 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1781 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1784 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1786 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1788 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1790 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1844 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1851 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1877 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1920 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1922 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1925 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1927 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1930 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1932 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1935 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1937 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1939 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1941 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1995 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2002 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2028 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2071 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2073 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2076 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2078 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2081 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2083 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2086 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2088 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2090 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2092 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2146 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2153 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2179 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2222 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2224 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2227 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2229 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2232 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2234 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2237 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2239 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2241 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2243 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2297 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2304 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2330 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2373 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2375 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2378 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2380 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2383 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2385 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2388 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2390 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2392 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2394 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2448 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2455 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:88   
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:91   
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:94   
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:220  
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:223  
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:226  
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:935 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:938 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:941 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:1133 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:300 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:303 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:306 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:370 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:373 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:376 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:440 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:443 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:446 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:510 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:513 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:516 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:588 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:591 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:594 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:665 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:668 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:671 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:742 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:745 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:748 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:41 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:44 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:47 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:84 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:87 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:90 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:16 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:830 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:833 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:863 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:866 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:869 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:1061 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:1064 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:1067 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p2-import-01-red.txt:19 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   execution      scripts/run_tests.py:35        "result = 
+subprocess.run(command, cwd=ROOT, env=env)"
+  MEDIUM   execution      scripts/run_tests.py:42        "raise 
+SystemExit(subprocess.run(['node', '--test', *js_tests"
+  MEDIUM   obfuscation    studio_core/bridge.py:240      "'image/jpeg' if 
+header.startswith(b'\xff\xd8\xff') else"
+  MEDIUM   obfuscation    studio_core/import_image.py:75 "if length < 10 or 
+data[0] & 1 or data[3:6] != b'\x9d\x01\x2a"
+  MEDIUM   execution      tests/p1_service_integration.py:38 
+"result=subprocess.run(['node',str(ROOT/'tests/p1-service-hea"
+  MEDIUM   execution      tests/probe_p2_host.py:112     "browser = 
+subprocess.Popen(['node', str(ROOT / 'tests/p2-hos"
+  MEDIUM   traversal      tests/test_catalog.py:163      
+"cat.delete_draft('user/../../two')"
+  MEDIUM   obfuscation    tests/test_import_image.py:225 "b'\xff\xd8', 
+b'\xff\xd8\xff\xd9', b'\xff\xd8\xff\xe0\0\1',"
+  MEDIUM   obfuscation    tests/test_import_image.py:226 
+"b'\xff\xd8\xff\xe0\xff\xffabc', b'\xff\xd8not-markers',"
+  MEDIUM   obfuscation    tests/test_import_image.py:227 
+"b'\xff\xd8\xff\xda\0\x08\x01\x01\0\0\x3f\0',"
+  MEDIUM   obfuscation    tests/test_import_image.py:228 
+"b'RIFF\xff\xff\xff\xffWEBPVP8 ',"
+  MEDIUM   obfuscation    tests/test_import_image.py:320 
+"b'Exif\0\0MM\0\x2a\xff\xff\xff\xff',"
+  MEDIUM   obfuscation    tests/test_import_image.py:321 
+"b'Exif\0\0II\x2a\0\x08\0\0\0\xff\xff',"
+  MEDIUM   traversal      tests/test_install.py:40       "(src / 
+'plugin.yaml').symlink_to('/etc/passwd')"
+  LOW      obfuscation    evidence/p1-catalog-tests.txt:329 "_ 
+test_shader_rejects_unsafe_or_ambiguous_forms[void main(){"
+  LOW      obfuscation    evidence/p1-catalog-tests.txt:394 "FAILED 
+tests/test_catalog.py::test_shader_rejects_unsafe_or_"
+  LOW      obfuscation    studio_core/import_image.py:163 "return 
+dimensions[::-1] if orientation in (5, 6, 7, 8) else "
+
+Decision: BLOCKED — Blocked (community source + caution verdict, 291 findings). 
+Use --force to override.
+Blocked: Security scan blocked plugin install: Requires confirmation (caution 
+verdict, 291 findings)
+
+Scan: plugin (file:///home/destino/projects/hermes-design-studio/community)  
+Verdict: CAUTION
+  HIGH     obfuscation    evidence/p1-static-security.json:8 ""match": "exec(","
+  MEDIUM   structural     evidence/p0-backend-tests.txt:0 "16518KB"
+  MEDIUM   structural     (directory):0                  "20148KB"
+  MEDIUM   persistence    BUILD-LOG.md:10                "- Сервис gateway 
+обнаружен read-only: `hermes-gateway.servic"
+  MEDIUM   obfuscation    desktop/plugin.js:1140         ""u_input \xB7 
+u_resolution \xB7 u_time (0) \xB7 u_seed \xB7 "
+  MEDIUM   obfuscation    desktop/plugin.js:1569         "/* @__PURE__ */ 
+jsx("span", { children: doc?.source ? `${doc"
+  MEDIUM   obfuscation    desktop/plugin.js:80           "h ^= 
+text.charCodeAt(i);"
+  MEDIUM   obfuscation    desktop/plugin.js:338          "const bytes = 
+Uint8Array.from(atob(part.base64), (c) => c.ch"
+  MEDIUM   obfuscation    desktop/plugin.js:338          "const bytes = 
+Uint8Array.from(atob(part.base64), (c) => c.ch"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:121 "_ 
+test_chunk_rejects_unsafe_parameters[../oops-0-1-aaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:126 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:141 "_ 
+test_chunk_rejects_unsafe_parameters[abc--1-1-aaaaaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:146 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:161 "_ 
+test_chunk_rejects_unsafe_parameters[abc-1-1-aaaaaaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:166 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:181 "_ 
+test_chunk_rejects_unsafe_parameters[abc-0-0-aaaaaaaaaaaaa"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:186 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:201 "_ 
+test_chunk_rejects_unsafe_parameters[abc-0-1-zzzzzzzzzzzzz"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:206 "data = 
+b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:243 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:244 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:245 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:246 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:247 "FAILED 
+tests/test_bridge.py::test_chunk_rejects_unsafe_param"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1097 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[../"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1248 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1399 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1550 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:1701 "_ ERROR at setup 
+of test_chunk_rejects_unsafe_parameters[abc"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2461 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2462 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2463 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2464 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   obfuscation    evidence/p0-backend-tests.txt:2465 "ERROR 
+tests/test_bridge.py::test_chunk_rejects_unsafe_parame"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:55 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:57 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:60 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:63 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:76 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:290 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:292 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:294 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:296 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:298 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:300 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:302 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:304 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:306 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:342 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:362 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:364 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:366 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:368 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:370 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:372 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:374 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:376 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:378 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:414 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:520 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:563 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:565 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:568 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:570 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:573 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:575 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:578 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:580 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:582 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:636 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:643 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:669 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:712 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:714 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:717 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:719 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:722 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:724 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:727 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:729 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:731 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:733 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:787 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:794 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:820 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:863 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:865 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:868 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:870 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:873 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:875 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:878 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:880 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:882 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:884 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:938 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:945 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:971 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1014 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1016 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1019 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1021 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1024 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1026 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1029 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1031 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1033 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1035 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1089 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1096 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1122 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1165 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1167 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1170 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1172 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1175 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1177 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1180 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1182 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1184 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1186 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1240 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1247 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1273 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1316 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1318 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1321 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1323 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1326 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1328 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1331 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1333 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1335 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1337 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1391 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1398 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1424 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1467 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1469 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1472 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1474 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1477 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1479 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1482 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1484 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1486 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1488 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1542 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1549 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1575 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1618 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1620 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1623 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1625 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1628 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1630 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1633 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1635 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1637 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1639 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1693 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1700 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1726 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1769 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1771 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1774 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1776 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1779 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1781 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1784 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1786 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1788 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1790 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1844 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1851 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1877 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1920 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1922 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1925 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1927 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1930 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1932 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1935 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1937 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1939 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1941 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:1995 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2002 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2028 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2071 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2073 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2076 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2078 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2081 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2083 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2086 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2088 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2090 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2092 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2146 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2153 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2179 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2222 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2224 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2227 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2229 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2232 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2234 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2237 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2239 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2241 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2243 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2297 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2304 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2330 
+"../../.local/share/uv/python/cpython-3.11.17-linux-x86_64-gn"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2373 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2375 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2378 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2380 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2383 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2385 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2388 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2390 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2392 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2394 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2448 "E           
+../../.local/share/uv/python/cpython-3.11.17-lin"
+  MEDIUM   traversal      evidence/p0-backend-tests.txt:2455 
+"../../.hermes/installs/b04bc4dedf3a41fc/test-environment/gen"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:88   
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:91   
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:94   
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:220  
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:223  
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-api-tests.txt:226  
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:935 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:938 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:941 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-catalog-tests.txt:1133 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:300 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:303 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:306 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:370 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:373 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:376 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:440 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:443 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:446 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:510 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:513 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:516 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:588 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:591 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:594 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:665 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:668 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:671 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:742 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:745 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-identity-fix.txt:748 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:41 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:44 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:47 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:84 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:87 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-parent-suite-first.txt:90 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:16 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:830 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:833 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:863 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:866 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:869 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:1061 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:1064 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p1-project-tests.txt:1067 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   traversal      evidence/p2-import-01-red.txt:19 
+"../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/pyt"
+  MEDIUM   execution      scripts/run_tests.py:35        "result = 
+subprocess.run(command, cwd=ROOT, env=env)"
+  MEDIUM   execution      scripts/run_tests.py:42        "raise 
+SystemExit(subprocess.run(['node', '--test', *js_tests"
+  MEDIUM   obfuscation    studio_core/bridge.py:240      "'image/jpeg' if 
+header.startswith(b'\xff\xd8\xff') else"
+  MEDIUM   obfuscation    studio_core/import_image.py:75 "if length < 10 or 
+data[0] & 1 or data[3:6] != b'\x9d\x01\x2a"
+  MEDIUM   execution      tests/p1_service_integration.py:38 
+"result=subprocess.run(['node',str(ROOT/'tests/p1-service-hea"
+  MEDIUM   execution      tests/probe_p2_host.py:112     "browser = 
+subprocess.Popen(['node', str(ROOT / 'tests/p2-hos"
+  MEDIUM   traversal      tests/test_catalog.py:163      
+"cat.delete_draft('user/../../two')"
+  MEDIUM   obfuscation    tests/test_import_image.py:225 "b'\xff\xd8', 
+b'\xff\xd8\xff\xd9', b'\xff\xd8\xff\xe0\0\1',"
+  MEDIUM   obfuscation    tests/test_import_image.py:226 
+"b'\xff\xd8\xff\xe0\xff\xffabc', b'\xff\xd8not-markers',"
+  MEDIUM   obfuscation    tests/test_import_image.py:227 
+"b'\xff\xd8\xff\xda\0\x08\x01\x01\0\0\x3f\0',"
+  MEDIUM   obfuscation    tests/test_import_image.py:228 
+"b'RIFF\xff\xff\xff\xffWEBPVP8 ',"
+  MEDIUM   obfuscation    tests/test_import_image.py:320 
+"b'Exif\0\0MM\0\x2a\xff\xff\xff\xff',"
+  MEDIUM   obfuscation    tests/test_import_image.py:321 
+"b'Exif\0\0II\x2a\0\x08\0\0\0\xff\xff',"
+  MEDIUM   traversal      tests/test_install.py:40       "(src / 
+'plugin.yaml').symlink_to('/etc/passwd')"
+  LOW      obfuscation    evidence/p1-catalog-tests.txt:329 "_ 
+test_shader_rejects_unsafe_or_ambiguous_forms[void main(){"
+  LOW      obfuscation    evidence/p1-catalog-tests.txt:394 "FAILED 
+tests/test_catalog.py::test_shader_rejects_unsafe_or_"
+  LOW      obfuscation    studio_core/import_image.py:163 "return 
+dimensions[::-1] if orientation in (5, 6, 7, 8) else "
+
+Decision: BLOCKED — Blocked (community source + caution verdict, 291 findings). 
+Use --force to override.
+Review the findings above. Install only plugins from sources you trust. 
+(Scanning can be configured via plugins.scan_on_install in config.yaml.)
+
+exit_code=1

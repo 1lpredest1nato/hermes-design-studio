@@ -120,7 +120,7 @@ npx --yes esbuild@0.28.2 hermes/plugin.jsx --bundle --format=esm \
   --external:react/jsx-runtime --outfile=desktop/plugin.js
 ```
 
-Before closing P3, the parent must validate the final manifest/catalog artifact and install its exact local Git commit into an isolated temporary `HERMES_HOME`, then read back plugin inventory. Successful CLI validation is independent of actual renderer execution.
+P3 closure verified local commit `610f92e7c8e1a697b909de22c357856b0ed191fc` installed into an isolated temporary `HERMES_HOME`, with 43 payload files read back against Git and pinned installation metadata. Parent repeated exact-target native validation: exit 0 with CAUTION on a development-evidence string, using the existing default runtime. A prior temp-runtime bootstrap timeout is not an isolated-runtime PASS. Parent also reran the complete unchanged-runtime suite: 355 Python tests / 8 known warnings and 55 JavaScript tests passed (`evidence/p3-parent-final-suite.txt`). Later changes are documentation/privacy/evidence only. Successful CLI validation remains independent of actual renderer execution and publication.
 
 P2 closure matched the fresh session's real tool-call arguments/results with `commands.jsonl` command ids, project identity, predecessor/new revisions, render request/response metadata and fully decoded export. A cached frame, direct Python invocation or headless PASS is not a substitute. The read-only audit is reproducible with `python tests/verify_p2_runtime.py` against the original development data root.
 

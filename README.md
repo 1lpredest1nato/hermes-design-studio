@@ -2,7 +2,7 @@
 
 A non-destructive image workshop inside **Hermes Desktop**. Build a shader stack with sliders, author a reusable shader, save a recipe, and export a PNG—entirely by hand or with a Hermes agent helping. The agent edits the same revision-checked project as the UI; it cannot approve its own tools.
 
-**Delivery status:** local, unpublished build. P0, P1 and P2 have independent real-client verification, including actual fresh-session tool calls, human approval, command ids, rendered frames and PNG export. Final delivery records are kept in `BUILD-LOG.md` and `evidence/p3-final-install.json`. Catalog submission, public repository, PR, video, X post and form submission are **not yet done**. See [verification and architecture](docs/architecture-and-verification.md) and [submission drafts](SUBMISSION.md).
+**Delivery status:** P0–P3 verified locally; unpublished. Actual fresh-session tool calls, human approval, command ids, rendered frames and PNG export are independently correlated. The exact local Git installation tested was `610f92e7c8e1a697b909de22c357856b0ed191fc`; later evidence/docs/privacy corrections do not change runtime code. Records are in `BUILD-LOG.md`, `evidence/p3-final-install.json` and `evidence/p3-parent-validate-exact.json`. Installation used the disclosed local scan override; exact-target validation passed with CAUTION, not SAFE. Catalog submission, public repository, PR, video, X post and form submission are **not yet done**. See [verification and architecture](docs/architecture-and-verification.md) and [submission drafts](SUBMISSION.md).
 
 ## What it does
 
@@ -112,7 +112,7 @@ At code checkpoint `f3aef873e24173a28677c8f28606175762e60b55`:
 - P2 isolated integration exercised all seven registered handlers through a real PluginHost and separate Chromium WebGL renderer. **That alone is not actual LLM/client proof.** Separately, fresh session `20261111_222455_71cfd9` was correlated with real command ids at revisions 28→29→30, the exact agent-authored/human-approved shader snapshot, current client frames and a SHA/Pillow-verified 1536×1024 export. See `evidence/p2-runtime-verification.json`.
 - P3 is recorded separately against its exact local Git installation commit; consult `BUILD-LOG.md` and `evidence/p3-final-install.json`. A draft catalog file is not a submitted/admitted entry, and validation is not publication.
 
-No full suite was rerun for this documentation-only change. Development test/build commands and evidence boundaries are in [the verification guide](docs/architecture-and-verification.md).
+The parent reran the complete unchanged-runtime suite for P3 closure: **355 Python tests passed with 8 known warnings; 55 JavaScript tests passed**, exit 0 (`evidence/p3-parent-final-suite.txt`). Exact temp-installed target validation also passed with exit 0 using the existing default runtime; a previous temp-runtime bootstrap timeout remains a timeout, not a passing isolated-runtime test. Development test/build commands and evidence boundaries are in [the verification guide](docs/architecture-and-verification.md).
 
 ## Real client screenshots
 

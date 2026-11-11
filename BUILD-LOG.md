@@ -166,3 +166,64 @@ Workflow выполнен клиентом **22:24–22:29 МСК**, до отс
 
 **P2 закрыта реальными доказательствами; никаких cached/host-only результатов вместо LLM→Desktop не использовано.** P3 выполняется параллельно в отдельных worktrees. Экспериментальная оптимизация изолирована, не входит автоматически в поставку.
 
+## P3 — локальная поставка закрыта; публикация не выполнена
+
+Закрытие оформлено после возобновления пользователем, фактическая отметка проверки времени **12.11.2026 00:02:30 МСК**. Отсечка 23:15 пропущена: это не сдача в срок. После freeze исполняемый код и bundle не менялись; доделаны доказательства, документация и privacy crop. Пользователь отдельно разрешил продолжить работу. Ничего не опубликовано, Desktop/gateway агент не перезапускал.
+
+### Точная локальная установка и независимая проверка
+
+- Tested source: **`610f92e7c8e1a697b909de22c357856b0ed191fc`**, `file:///home/destino/projects/hermes-design-studio`.
+- Реальная установка в отдельный `evidence/tmp-p3-final-home` завершилась **exit 0** с `--ref <полный SHA> --force --no-enable --no-deps`. Предыдущий обычный install без override был **BLOCKED/CAUTION, exit 1**. Override относится только к проверенному собственному локальному пакету и раскрыт в README; глобальный scanner не отключался. `evidence/p3-final-install.json`, `p3-final-install-forced.txt`, исходный `p3-final-install.txt`.
+- Родитель повторно прочитал **43 payload-файла**, сравнил их с **Git blobs именно этого SHA**, а не с плавающим HEAD: **0 mismatches**, clone HEAD и pinned metadata совпадают. `evidence/p3-parent-integrity.json`. README в последующей документационной версии изменён отдельно; остальные payload-файлы на момент повторного сравнения идентичны. Отчёт/doco-commit не выдаётся за исторически установленный SHA.
+- Worker проверил неизменность metadata **714 записей** временного home до/после validate, без чтения секретов/config contents. Родитель сам повторил native validate exact temp-installed target, а не принял самоотчёт: **exit 0, Validation passed., security CAUTION, не SAFE**. Полный stdout ниже и `evidence/p3-parent-validate-exact.stdout.txt`; metadata — `evidence/p3-parent-validate-exact.json`.
+- Валидация exact target использовала существующий рабочий default runtime (`HERMES_HOME=/home/destino/.hermes`). Это не свежая provisioning/isolated-interpreter проверка. Более ранний CLI запуск с временным HERMES_HOME завершился timeout; он сохранён как timeout и не переименован в PASS. Контракт установки в отдельный home и проверки установленного пакета выполнен; независимая загрузка нового Hermes runtime не заявляется.
+
+### Полный вывод родительской проверки exact installed target
+
+Команда: `HERMES_HOME=/home/destino/.hermes HERMES_DISABLE_LAZY_INSTALLS=1 PYTHONDONTWRITEBYTECODE=1 python -m hermes_cli.main plugins validate /home/destino/projects/hermes-design-studio/evidence/tmp-p3-final-home/plugins/hermes-design-studio`, **exit 0**.
+
+```text
+✓ manifest — plugin.yaml parses
+✓ manifest fields — name, version, description present
+✓ requires_hermes — spec '>=0.22.5' parses
+✓ config schema — not declared
+✓ requires_env — all entries UPPER_SNAKE
+✓ oauth — not declared
+✓ loadable — entry: __init__.py, desktop/plugin.js
+✓ python dependencies — none declared
+✓ capability probe — register() ran in isolation
+✓ declared tools — matches registrations
+✓ declared hooks — matches registrations
+✓ declared middleware — matches registrations
+✓ built-in tool collisions — no collisions
+✓ security scan — caution
+✓ no core override — no runtime rebinds of Hermes core
+✓ desktop surface — stays inside the plugin SDK surface
+⚠ security scan caution: exec_string (p1-static-security.json:8)
+◆ Isolation — runs in the plugin host (plugins.isolation: host)
+  · dashboard backend API is served through the plugin host (buffered responses)
+
+Validation passed.
+```
+
+### Финальная проверка и артефакты
+
+- Родитель заново выполнил `python scripts/run_tests.py -p no:cacheprovider`: **355 passed, 8 warnings in 60.13s**, Node **55 tests / 55 pass / 0 fail**, **exit 0**. Полный сырой лог `evidence/p3-parent-final-suite.txt`. Известные fork warnings не подавлены.
+- `plugin.yaml`: версия 0.1.0, MIT, ровно 7 declared tools, `requires_hermes: >=0.22.5`. Требование синтаксически проверено и испробовано на developer fork; совместимость со всеми upstream builds не заявлена.
+- README содержит локальную установку в два шага, remote/local различия, ограничения, MIT/AI disclosure и настоящие screenshot. Найден и убран оставшийся нижний абсолютный Gateway path: выполнен только bottom crop **1551×833 → 1551×779**, без изменения холста/одобрения/стека. Оба изображения просмотрены родителем; diagnostics capture честно назван partial table. `evidence/p3-screenshot-privacy-crop.json`.
+- `plugin-catalog/hermes-design-studio.yaml` существует как **явный draft**: public repository не создан, фиктивный public SHA не записан, admission не заявляется.
+- `SUBMISSION.md` содержит PR/disclosure, пост **217 Unicode symbols**, сценарий **74 секунды**, checklist. Это подсчёт сценария, не измерение готового видео. Companion-копия подготовлена по пути этого брифа `../hermes-design-plugin/SUBMISSION.md`; журнал копируется в репозиторий для локальных ссылок.
+- P0/P1/P2 реальные client/session/PNG proof сохранены и связаны в соответствующих разделах; headless и host-only не заменяют их.
+
+### Параллельные работы после возобновления (не изменение поставки)
+
+Четыре отдельные CLI-сессии запущены явно с `--provider openai-codex --model gpt-6.1-sol --reasoning xhigh`, все завершились exit 0. По state.db проверены model/provider; флаг xhigh зафиксирован в командах запуска, отдельного provider-side effort receipt в session metadata нет. MoA-маршруты существующего delegate_task не менялись; вложенной делегации не было.
+
+- `grill-me` установлен именно из `mattpocock/skills` pinned `4ae2317ddb22b046e26455e4f9c9b3aaaf62212d`: native alias collision обойдён полным data-only копированием уже проверенного pinned каталога, не scanner bypass. Native skills-guard-v10 SAFE/0 findings. Родитель сам перечитал все **39 skills / 109 files**, включая оба Git blobs нового skill: **0 mismatches**, старые 38 навыков не изменены. Нет hooks, выполнения скриптов или поддельного native lock. Отчёт `research/grill-me-xhigh-install-report.json`.
+- **Standards:** отдельный review PASS, 0 blocking/security/logic errors; одно low замечание о Git/base-object dependency экспериментальных тестов. **Spec:** отдельный review PASS, строгая parity, 68 Node tests, secondary diagnostics 7/7. Они не заменяют друг друга.
+- Родитель самостоятельно воспроизвёл **5717 exact comparisons**, **720 tie permutations**, все **4096 bins**, 3 ошибочных dimensions; исходные тесты и bundle не изменены. `research/metrics-parent-parity.json`.
+- Родитель пересчитал результаты из raw counterbalanced A/B: по **160 timed outputs** на engine, hashes совпадают; large fixtures **8**. CPU `frameMetrics`: Node **9.066–11.868×**, Chromium **7.314–10.841×** по отношениям медиан. Это не GPU/Desktop/whole-app ускорение и не переносимый коэффициент. `research/metrics-parent-raw-audit.json`. Кандидат `08406f6...` **не merged, не rebuilt, не deployed**, остаётся отдельным экспериментом после feature freeze.
+- Реальный GUI capture через computer-use driver выполнен на ПК: managed 0.21 показывал 0 окон; отдельный read-only процесс с уже имеющимся driver **0.37.0** и native Wayland opt-in получил **1448×794** screenshot Hermes, который просмотрен основной моделью. Открыта текущая чат-сессия, не Studio. Это доказывает capture/vision, **не клики, не новый полный GUI workflow плагина**. config не менялся, обновлений/перезапусков не было.
+
+**P3 локально закрыта с раскрытыми CAUTION/timeout/schedule limitations. Обязательный STOP перед P4:** для public repo, push и PR требуется отдельное явное разрешение пользователя. Видео, X и отправка формы остаются человеческими шагами. Новый runtime-код/оптимизация в замороженную поставку не включены.
+

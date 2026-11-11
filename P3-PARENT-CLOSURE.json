@@ -1,0 +1,43 @@
+{
+  "status": "P3-local-closed-not-published",
+  "closed_at": "2026-11-12T00:06:51.678450+03:00",
+  "installed_source_commit": "610f92e7c8e1a697b909de22c357856b0ed191fc",
+  "install_exit": 0,
+  "install_scan_override_disclosed": true,
+  "exact_target_validation_exit": 0,
+  "validation_runtime": "existing-default-runtime-not-fresh-isolated-runtime",
+  "security_scan": "CAUTION",
+  "payload_readback_files": 43,
+  "payload_mismatches": [],
+  "parent_suite": {
+    "python_pass": 355,
+    "python_warnings": 8,
+    "js_pass": 55,
+    "exit_code": 0
+  },
+  "runtime_changed": false,
+  "screenshot_privacy_crop_verified": true,
+  "copies": [
+    {
+      "source": "/home/destino/projects/hermes-design-plugin/BUILD-LOG.md",
+      "target": "/home/destino/projects/hermes-design-studio/BUILD-LOG.md",
+      "sha256": "2abd1b4c4d91abd0551dc846c460ad8ffa91d4897d27217905ed0653175c9e24"
+    },
+    {
+      "source": "/home/destino/projects/hermes-design-studio/SUBMISSION.md",
+      "target": "/home/destino/projects/hermes-design-plugin/SUBMISSION.md",
+      "sha256": "803176f849ee0b0b8a893a7a51d3ebe406ae7d76ddcd53c6196510fad34b4e10"
+    }
+  ],
+  "outstanding": [
+    "explicit publication authorization",
+    "public repository and catalog PR",
+    "real video, X post, form receipt"
+  ],
+  "known_limits": [
+    "P3 deadline missed; only docs/privacy/evidence after freeze",
+    "ordinary local install blocked by scanner CAUTION; reviewed local --force install passed",
+    "prior temp-runtime bootstrap validation timeout preserved; exact target passed under existing default runtime",
+    "P3 independent report retains pre-parent-closure findings as historical evidence"
+  ]
+}

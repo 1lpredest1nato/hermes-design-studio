@@ -1,0 +1,22 @@
+⚠ install out of sync (ffmpeg: not installed or outdated; node: not installed or outdated; npm: not installed or outdated; ripgrep: not installed or outdated) — this unknown-managed install must rebuild the artifact to fix
+Warning: custom (unreviewed) source — not from the Hermes catalog.
+Warning: Using insecure/local URL scheme. Consider using https:// or git@ for 
+production installs.
+Cloning file:///home/destino/projects/hermes-design-studio...
+Preparing the isolated Hermes runtime…
+  → Installing Python dependencies…
+  ✓ Installing Python dependencies
+--no-deps: skipping dependency consent; the plugin stays disabled.
+
+╭──────────────────────────────── ✓ Installed ─────────────────────────────────╮
+│ Plugin installed: file:///home/destino/projects/hermes-design-studio         │
+│ Location:                                                                    │
+│ /home/destino/projects/hermes-design-studio/evidence/tmp-p3-final-home/plugi │
+│ ns/hermes-design-studio                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Plugin installed but not enabled. Run `hermes plugins enable 
+hermes-design-studio` to activate.
+
+
+exit_code=0
