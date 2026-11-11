@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/home/destino/.hermes/installs/b04bc4dedf3a41fc/environments/8f400b13ee164c028a4f11d4c3ee38d6/venv/bin/python",
+    "-m",
+    "hermes_cli.main",
+    "plugins",
+    "validate",
+    "/home/destino/projects/hermes-design-studio/evidence/tmp-p3-final-home/plugins/hermes-design-studio"
+  ],
+  "cwd": "/home/destino/projects/hermes-design-plugin/worktrees/p3-close",
+  "started_utc": "2026-11-11T20:45:23.948703+00:00",
+  "elapsed_seconds": 62.75561767099862,
+  "environment_overrides": {
+    "HERMES_HOME": "/home/destino/.hermes",
+    "HERMES_DISABLE_LAZY_INSTALLS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "exit_code": 0,
+  "timed_out": false,
+  "validation_passed_text": true,
+  "stdout": "evidence/p3-close-validate.stdout.txt",
+  "stderr": "evidence/p3-close-validate.stderr.txt",
+  "isolated_home_entries_before": 714,
+  "isolated_home_entries_after": 714,
+  "isolated_home_metadata_unchanged": true,
+  "changed_isolated_home_paths": [],
+  "snapshot_scope": "All isolated-home path modes/sizes/mtime_ns, no access-time comparison; payload SHA-256 checked separately.",
+  "validation_scope": "Exact existing isolated installed clone, using default working Hermes runtime. This is not a new temp-HERMES_HOME bootstrap or an isolated-runtime validation."
+}

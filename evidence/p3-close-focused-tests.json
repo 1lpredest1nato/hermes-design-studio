@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/destino/.hermes/installs/b04bc4dedf3a41fc/environments/8f400b13ee164c028a4f11d4c3ee38d6/venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_usage_skill.py",
+    "tests/test_install.py"
+  ],
+  "exit_code": 0,
+  "environment": "child-only overrides; existing pure-Python cache, no installs",
+  "full_suite_rerun": false
+}

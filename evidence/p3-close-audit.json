@@ -1,0 +1,423 @@
+{
+  "checked_utc": "2026-11-11T20:49:04.379644+00:00",
+  "source_commit": "610f92e7c8e1a697b909de22c357856b0ed191fc",
+  "code_baseline": "f3aef873e24173a28677c8f28606175762e60b55",
+  "changed_since_baseline": [
+    "BUILD-LOG.md",
+    "README.md",
+    "SUBMISSION.md",
+    "docs/architecture-and-verification.md",
+    "docs/screenshots/diagnostics-p1.png",
+    "docs/screenshots/studio-p1.png",
+    "evidence/p2-runtime-verification.json",
+    "evidence/p2-runtime-verification.txt",
+    "evidence/p3-package-cli-help.txt",
+    "evidence/p3-package-install.txt",
+    "evidence/p3-package-list-show.txt",
+    "evidence/p3-package-readback.txt",
+    "evidence/p3-package-validate.txt",
+    "plugin-catalog/hermes-design-studio.yaml",
+    "plugin.yaml",
+    "skills/usage/SKILL.md",
+    "tests/verify_p2_runtime.py"
+  ],
+  "executable_changes_since_baseline": [],
+  "prior_full_suite_record": {
+    "python_summary": [
+      "355 passed, 8 warnings in 56.09s"
+    ],
+    "node_pass": [
+      "55"
+    ],
+    "node_fail": [
+      "0"
+    ]
+  },
+  "manifest": {
+    "name": "hermes-design-studio",
+    "version": "0.1.0",
+    "description": "Design Studio image projects, shader drafts, recipes and filesystem render tools.",
+    "author": "1lpredest1nato",
+    "license": "MIT",
+    "requires_hermes": ">=0.22.5",
+    "provides_tools": [
+      "design_studio_catalog",
+      "design_studio_project",
+      "design_studio_apply",
+      "design_studio_preview",
+      "design_studio_create_tool",
+      "design_studio_recipe",
+      "design_studio_export"
+    ]
+  },
+  "catalog": {
+    "parsed": {
+      "name": "hermes-design-studio",
+      "repo": "https://github.com/1lpredest1nato/hermes-design-studio",
+      "subdir": "",
+      "title": "Hermes Design Studio",
+      "description": "Design Studio image projects, shader drafts, recipes and filesystem render tools. DRAFT catalog entry: the intended repository is not yet published or verified, so no commit pin is declared.",
+      "maintainer": "1lpredest1nato",
+      "tier": "community",
+      "category": "desktop",
+      "requires_hermes": ">=0.22.5",
+      "docs_url": "",
+      "version": "0.1.0",
+      "image": "",
+      "screenshots": [],
+      "readme": true,
+      "platforms": [
+        "linux"
+      ],
+      "onboarding": false,
+      "known_issues": [
+        "DRAFT: repository and pinned commit not yet published or verified."
+      ],
+      "capabilities": {
+        "provides_tools": [
+          "design_studio_catalog",
+          "design_studio_project",
+          "design_studio_apply",
+          "design_studio_preview",
+          "design_studio_create_tool",
+          "design_studio_recipe",
+          "design_studio_export"
+        ],
+        "provides_hooks": [],
+        "provides_middleware": [],
+        "requires_env": []
+      }
+    },
+    "tools_match_manifest": true,
+    "requires_matches": true,
+    "version_matches": true,
+    "sha_present": false,
+    "admission_ready": false,
+    "reason": "Explicit unpublished draft, intentionally missing mandatory exact SHA; public repo not verified."
+  },
+  "submission": {
+    "post_text": "Hermes Design Studio: a shader workshop inside Hermes Desktop. Edit images by hand or with an agent, approve new tools yourself, save recipes, export PNGs. Built by 1lpredest1nato with Hermes Agent. MIT. @NousResearch",
+    "post_unicode_length": 217,
+    "post_within_280": true,
+    "mentions_nous": true,
+    "video_intervals": [
+      {
+        "from": "00:00",
+        "to": "00:08",
+        "start": 0,
+        "end": 8,
+        "declared_seconds": 8
+      },
+      {
+        "from": "00:08",
+        "to": "00:20",
+        "start": 8,
+        "end": 20,
+        "declared_seconds": 12
+      },
+      {
+        "from": "00:20",
+        "to": "00:30",
+        "start": 20,
+        "end": 30,
+        "declared_seconds": 10
+      },
+      {
+        "from": "00:30",
+        "to": "00:44",
+        "start": 30,
+        "end": 44,
+        "declared_seconds": 14
+      },
+      {
+        "from": "00:44",
+        "to": "00:56",
+        "start": 44,
+        "end": 56,
+        "declared_seconds": 12
+      },
+      {
+        "from": "00:56",
+        "to": "01:06",
+        "start": 56,
+        "end": 66,
+        "declared_seconds": 10
+      },
+      {
+        "from": "01:06",
+        "to": "01:14",
+        "start": 66,
+        "end": 74,
+        "declared_seconds": 8
+      }
+    ],
+    "script_seconds": 74,
+    "interval_durations_match": true,
+    "intervals_continuous": true,
+    "actual_video_measured": false,
+    "publication_performed": false
+  },
+  "local_markdown_links": [
+    {
+      "document": "README.md",
+      "label": "verification and architecture",
+      "href": "docs/architecture-and-verification.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "label": "submission drafts",
+      "href": "SUBMISSION.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "label": "architecture and verification",
+      "href": "docs/architecture-and-verification.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "label": "the verification guide",
+      "href": "docs/architecture-and-verification.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "label": "Manual image workspace",
+      "href": "docs/screenshots/studio-p1.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "label": "Client diagnostics, partial table",
+      "href": "docs/screenshots/diagnostics-p1.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "label": "MIT",
+      "href": "LICENSE",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "label": "SUBMISSION.md",
+      "href": "SUBMISSION.md",
+      "exists": true
+    }
+  ],
+  "broken_markdown_links": [],
+  "literal_delivery_evidence_ref": {
+    "path": "evidence/p3-final-install.json",
+    "exists_in_worktree": false,
+    "parent_path_exists": true
+  },
+  "remote_reference_reads": [
+    {
+      "url": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/plugin-catalog/README.md",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/plugin-catalog/README.md",
+      "sha256": "5d9ab744164bfc1c48c99d0f3051e4cc9d203cebf355287727eebe7fb176a5f3",
+      "saved": "evidence/p3-close-catalog-schema-source.md",
+      "mandatory_sha_rule_found": true
+    },
+    {
+      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/desktop-plugin-sdk/",
+      "status": 200,
+      "final_url": "https://hermes-agent.nousresearch.com/docs/developer-guide/desktop-plugin-sdk",
+      "sha256": "f8bc38eef632bc5ce5701c53b39eb253c8e2a26a57e4a0bb26122574f0d54fb6"
+    },
+    {
+      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/",
+      "status": 200,
+      "final_url": "https://hermes-agent.nousresearch.com/docs/developer-guide/plugins",
+      "sha256": "f0a09abc2d73f7b8cf5640ce18fa6ace93f857a2d0eac6bb846a55e3bf0bd5e6"
+    }
+  ],
+  "prior_acceptance_records": {
+    "p0": {
+      "path": "evidence/p0-runtime-verification.json",
+      "bytes": 9998,
+      "sha256": "c98d0c166f9e96d5e1e38a4eeeb13bc35ce3da412ff50ec2141aea1dbbc1c59b",
+      "recorded_pass": true,
+      "scope": "actual client Desktop + fresh agent session, independently correlated",
+      "live_verifier_rerun": false,
+      "session": "20261111_191301_ea4a4b",
+      "request_id": "64434194c10f4c59b30030bf191a2e80",
+      "detached_closed_page": true,
+      "upload_bytes": 24673192,
+      "upload_hash_match": true,
+      "save_as": {
+        "clicked": true,
+        "dialog_verified": true,
+        "method": "plugin-owned-anchor-download",
+        "evidence": "explicit-user-confirmation"
+      },
+      "recorded_pngs": [
+        {
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+          "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+          "bytes": 6927,
+          "dimensions": [
+            640,
+            400
+          ],
+          "pillow_verify_and_load": true
+        },
+        {
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+          "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+          "bytes": 24673192,
+          "dimensions": [
+            2560,
+            2400
+          ],
+          "pillow_verify_and_load": true
+        }
+      ]
+    },
+    "p1": {
+      "path": "evidence/p1-runtime-verification.json",
+      "bytes": 68557,
+      "sha256": "cb6687a2d0e33708c4b7d59458f04dcb15258ba0e7073da9a70e2975788ca5da",
+      "recorded_pass": true,
+      "scope": "real client persisted P1 evidence; read-only audit",
+      "live_verifier_rerun": false,
+      "gates": {
+        "diagnostics": true,
+        "manual_project": true,
+        "preview": true,
+        "exports": true
+      },
+      "diagnostics_tools": [
+        "builtin/pixelate@1",
+        "builtin/dither@1",
+        "builtin/halftone@1",
+        "builtin/gradient_map@1",
+        "builtin/grain@1",
+        "builtin/chromatic_aberration@1",
+        "builtin/levels@1"
+      ],
+      "diagnostics_cases": 25,
+      "project_id": "75efd24dc3174b02a8668948953fe80b",
+      "ui_commands": 28,
+      "exports": [
+        {
+          "request_id": "6d225cdcc80d41a3b64227d2b9180696",
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "revision": 28,
+          "run_id": "17b738dd-93ce-4d8f-821e-f6d5f5f734a5",
+          "image": {
+            "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/exports/7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642.png",
+            "sha256": "7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642",
+            "size": [
+              1536,
+              1024
+            ],
+            "bytes": 305312,
+            "pillow_verify_load": true
+          }
+        }
+      ]
+    },
+    "p2": {
+      "path": "evidence/p2-runtime-verification.json",
+      "bytes": 65770,
+      "sha256": "25268f81b884639197613c5f530b77d0062d028b55745fdf34769b89cf709330",
+      "recorded_pass": true,
+      "scope": "real fresh LLM session + human approval + connected client Desktop, read-only audit",
+      "live_verifier_rerun": false,
+      "session": "20261111_222455_71cfd9",
+      "approval_message_id": 7091,
+      "commands": [
+        {
+          "id": "215cbfd2d131485da1a8f232356d12ff",
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "source": "agent",
+          "base_revision": 28,
+          "revision": 29
+        },
+        {
+          "id": "27ec025b902347df8669fe404ec1b858",
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "source": "agent",
+          "base_revision": 29,
+          "revision": 30
+        }
+      ],
+      "approved_tool": "user/duotone-ink-screen",
+      "approved_provenance": {
+        "author": "agent",
+        "created": "2026-11-11T19:26:04.356056+00:00",
+        "from_prompt": ""
+      },
+      "source_shader_matches_checked_request": true,
+      "approved_manifest_matches_checked_request": true,
+      "frames": [
+        {
+          "tool": "design_studio_preview",
+          "request_id": "d67aeba793534bf38cfd7f0ead52c703",
+          "revision": 29,
+          "command_id": "215cbfd2d131485da1a8f232356d12ff",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "7d72f7a2f0c36900e634ec8a7e9b78e9d39737ab2f6ea6d72e0bbd7f5308cb7b",
+          "dimensions": [
+            1200,
+            800
+          ],
+          "recorded_pillow_pass": true
+        },
+        {
+          "tool": "design_studio_create_tool",
+          "request_id": "dc69125682a348239793b5ccbd89dcd8",
+          "revision": 29,
+          "command_id": "215cbfd2d131485da1a8f232356d12ff",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "6c13fb3fa1298dd0de9eacc8bef5bc7806c8df7226a415c68a8e5a670c14d519",
+          "dimensions": [
+            640,
+            400
+          ],
+          "recorded_pillow_pass": true
+        },
+        {
+          "tool": "design_studio_preview",
+          "request_id": "e132694a004c4a7a8c9ef5c6724c5b8f",
+          "revision": 30,
+          "command_id": "27ec025b902347df8669fe404ec1b858",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "cdad5e4ad307628ee3189dabdf857bfda1b7c4afc6f42d7935993c38b55a8520",
+          "dimensions": [
+            1200,
+            800
+          ],
+          "recorded_pillow_pass": true
+        },
+        {
+          "tool": "design_studio_export",
+          "request_id": "9e1df25e32a647d09b92992ffb19f122",
+          "revision": 30,
+          "command_id": "27ec025b902347df8669fe404ec1b858",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "94d28cd071732fdfa49e79cf84313d8e126f3bfeeb2d6b5c6014a1c3ca1569eb",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "recorded_pillow_pass": true
+        }
+      ]
+    }
+  },
+  "focused_tests_exit_code": 0,
+  "limits": [
+    "Prior runtime evidence records inspected in full; live user projects, histories and PNGs not re-exercised.",
+    "No new isolated runtime bootstrap attempted; prior temp-home validate timeout remains in the parent evidence.",
+    "Catalog schema checked against canonical documented entry schema, not claimed accepted or published."
+  ]
+}

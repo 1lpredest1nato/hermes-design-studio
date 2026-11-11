@@ -1,0 +1,480 @@
+{
+  "schema_version": 1,
+  "status": "verification_handoff_not_whole_task_completion",
+  "summary_ru": "Exact isolated installed clone прошёл native plugins validate через default working runtime; package readback совпал. Общий P3/проект не закрыт: нужны privacy correction, интеграция evidence и дальнейшие parent/human gates.",
+  "worktree": "/home/destino/projects/hermes-design-plugin/worktrees/p3-close",
+  "branch": "verify/p3-close",
+  "source_commit": "610f92e7c8e1a697b909de22c357856b0ed191fc",
+  "human_report": "P3-CLOSE-REPORT.md",
+  "validation": {
+    "command": [
+      "/home/destino/.hermes/installs/b04bc4dedf3a41fc/environments/8f400b13ee164c028a4f11d4c3ee38d6/venv/bin/python",
+      "-m",
+      "hermes_cli.main",
+      "plugins",
+      "validate",
+      "/home/destino/projects/hermes-design-studio/evidence/tmp-p3-final-home/plugins/hermes-design-studio"
+    ],
+    "cwd": "/home/destino/projects/hermes-design-plugin/worktrees/p3-close",
+    "started_utc": "2026-11-11T20:45:23.948703+00:00",
+    "elapsed_seconds": 62.75561767099862,
+    "environment_overrides": {
+      "HERMES_HOME": "/home/destino/.hermes",
+      "HERMES_DISABLE_LAZY_INSTALLS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "GIT_OPTIONAL_LOCKS": "0"
+    },
+    "exit_code": 0,
+    "timed_out": false,
+    "validation_passed_text": true,
+    "stdout": "evidence/p3-close-validate.stdout.txt",
+    "stderr": "evidence/p3-close-validate.stderr.txt",
+    "isolated_home_entries_before": 714,
+    "isolated_home_entries_after": 714,
+    "isolated_home_metadata_unchanged": true,
+    "changed_isolated_home_paths": [],
+    "snapshot_scope": "All isolated-home path modes/sizes/mtime_ns, no access-time comparison; payload SHA-256 checked separately.",
+    "validation_scope": "Exact existing isolated installed clone, using default working Hermes runtime. This is not a new temp-HERMES_HOME bootstrap or an isolated-runtime validation."
+  },
+  "install_readback": {
+    "target": "/home/destino/projects/hermes-design-studio/evidence/tmp-p3-final-home/plugins/hermes-design-studio",
+    "clone_head": "610f92e7c8e1a697b909de22c357856b0ed191fc",
+    "metadata": {
+      "pinned": true,
+      "revision": "610f92e7c8e1a697b909de22c357856b0ed191fc",
+      "source": "file:///home/destino/projects/hermes-design-studio"
+    },
+    "payload_count": 43,
+    "mismatches": [],
+    "optional_package_json_exists": false,
+    "post_validation_readback": "evidence/p3-close-final-integrity.json"
+  },
+  "prior_install": {
+    "ordinary_install_exit_code": 1,
+    "ordinary_scan_verdict": "CAUTION",
+    "ordinary_scan_decision": "BLOCKED",
+    "forced_install_exit_code": 0,
+    "force_scope": "Reviewed self-authored local exact Git commit only; disclosed README:31-36.",
+    "enabled": false,
+    "plugin_dependencies_requested": false,
+    "original_install_log_reports_hermes_runtime_preparation": true,
+    "new_install_or_provision_by_this_worker": false,
+    "parent_evidence": [
+      {
+        "original": "/home/destino/projects/hermes-design-studio/evidence/p3-final-install.json",
+        "copy": "evidence/p3-close-parent-p3-final-install.json",
+        "sha256": "c122dc70889f7ce255cbc3e9aa40ba0bc0319cfbaecd8ff1a3dfaa7e75af4b82"
+      },
+      {
+        "original": "/home/destino/projects/hermes-design-studio/evidence/p3-final-install.txt",
+        "copy": "evidence/p3-close-parent-p3-final-install.txt",
+        "sha256": "f05ad2d240b598368ddd80ebe5b274c6c6b2a60700f51e585fef76be85c24c0f"
+      },
+      {
+        "original": "/home/destino/projects/hermes-design-studio/evidence/p3-final-install-forced.txt",
+        "copy": "evidence/p3-close-parent-p3-final-install-forced.txt",
+        "sha256": "9a4f0b6deb18f76b48cc21c21ddea073f9b13c5de1f9400fac8f4b299b06dd09"
+      },
+      {
+        "original": "/home/destino/projects/hermes-design-studio/evidence/p3-clean-validate.txt",
+        "copy": "evidence/p3-close-parent-p3-clean-validate.txt",
+        "sha256": "0c6db4fe108f00e8f87af0ce8b34df45047fc53a5057fe8038c650fa69606e3f"
+      },
+      {
+        "original": "/home/destino/projects/hermes-design-studio/evidence/p3-validate-installed.txt",
+        "copy": "evidence/p3-close-parent-p3-validate-installed.txt",
+        "sha256": "bbaa39ca2b9bf29f695fb758a92f66974035beb20e8669905888966e6b557bd7"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "exact_clone_validation",
+      "status": "pass_with_caution",
+      "evidence": "evidence/p3-close-validate.json"
+    },
+    {
+      "id": "43_payload_sha256_readback",
+      "status": "pass",
+      "evidence": "evidence/p3-close-payload-readback.json"
+    },
+    {
+      "id": "isolated_home_unchanged",
+      "status": "pass_metadata_snapshot",
+      "entries": 714,
+      "scope": "All path modes/sizes/mtime_ns before and after validate; excludes atime. No credential/config contents read."
+    },
+    {
+      "id": "manifest_skill_focused_tests",
+      "status": "pass",
+      "tests": 3,
+      "exit_code": 0,
+      "evidence": "evidence/p3-close-focused-tests.stdout.txt"
+    },
+    {
+      "id": "catalog_preparation",
+      "status": "pass_as_explicit_draft_only",
+      "schema_source": "evidence/p3-close-catalog-schema-source.md",
+      "admission_status": "not_ready_missing_sha_unverified_public_repo"
+    },
+    {
+      "id": "readme_submission_disclosure_links",
+      "status": "pass_except_screenshot_privacy_and_parent_evidence_integration",
+      "broken_explicit_local_markdown_links": []
+    },
+    {
+      "id": "prior_P0_P1_P2_acceptance_records",
+      "status": "inspected_in_full_read_only",
+      "evidence": "evidence/p3-close-audit.json",
+      "live_project_commands": false,
+      "new_live_history_or_png_verification": false
+    },
+    {
+      "id": "runtime_unchanged_since_355plus55",
+      "status": "pass",
+      "baseline": "f3aef873e24173a28677c8f28606175762e60b55",
+      "runtime_changed_paths": [],
+      "full_suite_rerun": false
+    }
+  ],
+  "submission_counts": {
+    "post_text": "Hermes Design Studio: a shader workshop inside Hermes Desktop. Edit images by hand or with an agent, approve new tools yourself, save recipes, export PNGs. Built by 1lpredest1nato with Hermes Agent. MIT. @NousResearch",
+    "post_unicode_length": 217,
+    "post_within_280": true,
+    "mentions_nous": true,
+    "video_intervals": [
+      {
+        "from": "00:00",
+        "to": "00:08",
+        "start": 0,
+        "end": 8,
+        "declared_seconds": 8
+      },
+      {
+        "from": "00:08",
+        "to": "00:20",
+        "start": 8,
+        "end": 20,
+        "declared_seconds": 12
+      },
+      {
+        "from": "00:20",
+        "to": "00:30",
+        "start": 20,
+        "end": 30,
+        "declared_seconds": 10
+      },
+      {
+        "from": "00:30",
+        "to": "00:44",
+        "start": 30,
+        "end": 44,
+        "declared_seconds": 14
+      },
+      {
+        "from": "00:44",
+        "to": "00:56",
+        "start": 44,
+        "end": 56,
+        "declared_seconds": 12
+      },
+      {
+        "from": "00:56",
+        "to": "01:06",
+        "start": 56,
+        "end": 66,
+        "declared_seconds": 10
+      },
+      {
+        "from": "01:06",
+        "to": "01:14",
+        "start": 66,
+        "end": 74,
+        "declared_seconds": 8
+      }
+    ],
+    "script_seconds": 74,
+    "interval_durations_match": true,
+    "intervals_continuous": true,
+    "actual_video_measured": false,
+    "publication_performed": false
+  },
+  "prior_acceptance_records": {
+    "p0": {
+      "path": "evidence/p0-runtime-verification.json",
+      "bytes": 9998,
+      "sha256": "c98d0c166f9e96d5e1e38a4eeeb13bc35ce3da412ff50ec2141aea1dbbc1c59b",
+      "recorded_pass": true,
+      "scope": "actual client Desktop + fresh agent session, independently correlated",
+      "live_verifier_rerun": false,
+      "session": "20261111_191301_ea4a4b",
+      "request_id": "64434194c10f4c59b30030bf191a2e80",
+      "detached_closed_page": true,
+      "upload_bytes": 24673192,
+      "upload_hash_match": true,
+      "save_as": {
+        "clicked": true,
+        "dialog_verified": true,
+        "method": "plugin-owned-anchor-download",
+        "evidence": "explicit-user-confirmation"
+      },
+      "recorded_pngs": [
+        {
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+          "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+          "bytes": 6927,
+          "dimensions": [
+            640,
+            400
+          ],
+          "pillow_verify_and_load": true
+        },
+        {
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+          "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+          "bytes": 24673192,
+          "dimensions": [
+            2560,
+            2400
+          ],
+          "pillow_verify_and_load": true
+        }
+      ]
+    },
+    "p1": {
+      "path": "evidence/p1-runtime-verification.json",
+      "bytes": 68557,
+      "sha256": "cb6687a2d0e33708c4b7d59458f04dcb15258ba0e7073da9a70e2975788ca5da",
+      "recorded_pass": true,
+      "scope": "real client persisted P1 evidence; read-only audit",
+      "live_verifier_rerun": false,
+      "gates": {
+        "diagnostics": true,
+        "manual_project": true,
+        "preview": true,
+        "exports": true
+      },
+      "diagnostics_tools": [
+        "builtin/pixelate@1",
+        "builtin/dither@1",
+        "builtin/halftone@1",
+        "builtin/gradient_map@1",
+        "builtin/grain@1",
+        "builtin/chromatic_aberration@1",
+        "builtin/levels@1"
+      ],
+      "diagnostics_cases": 25,
+      "project_id": "75efd24dc3174b02a8668948953fe80b",
+      "ui_commands": 28,
+      "exports": [
+        {
+          "request_id": "6d225cdcc80d41a3b64227d2b9180696",
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "revision": 28,
+          "run_id": "17b738dd-93ce-4d8f-821e-f6d5f5f734a5",
+          "image": {
+            "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/exports/7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642.png",
+            "sha256": "7fa86cbf6aab1925cfc439e47aff4b3c38ac115f12c80c44c1dd62a601e49642",
+            "size": [
+              1536,
+              1024
+            ],
+            "bytes": 305312,
+            "pillow_verify_load": true
+          }
+        }
+      ]
+    },
+    "p2": {
+      "path": "evidence/p2-runtime-verification.json",
+      "bytes": 65770,
+      "sha256": "25268f81b884639197613c5f530b77d0062d028b55745fdf34769b89cf709330",
+      "recorded_pass": true,
+      "scope": "real fresh LLM session + human approval + connected client Desktop, read-only audit",
+      "live_verifier_rerun": false,
+      "session": "20261111_222455_71cfd9",
+      "approval_message_id": 7091,
+      "commands": [
+        {
+          "id": "215cbfd2d131485da1a8f232356d12ff",
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "source": "agent",
+          "base_revision": 28,
+          "revision": 29
+        },
+        {
+          "id": "27ec025b902347df8669fe404ec1b858",
+          "project_id": "75efd24dc3174b02a8668948953fe80b",
+          "source": "agent",
+          "base_revision": 29,
+          "revision": 30
+        }
+      ],
+      "approved_tool": "user/duotone-ink-screen",
+      "approved_provenance": {
+        "author": "agent",
+        "created": "2026-11-11T19:26:04.356056+00:00",
+        "from_prompt": ""
+      },
+      "source_shader_matches_checked_request": true,
+      "approved_manifest_matches_checked_request": true,
+      "frames": [
+        {
+          "tool": "design_studio_preview",
+          "request_id": "d67aeba793534bf38cfd7f0ead52c703",
+          "revision": 29,
+          "command_id": "215cbfd2d131485da1a8f232356d12ff",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "7d72f7a2f0c36900e634ec8a7e9b78e9d39737ab2f6ea6d72e0bbd7f5308cb7b",
+          "dimensions": [
+            1200,
+            800
+          ],
+          "recorded_pillow_pass": true
+        },
+        {
+          "tool": "design_studio_create_tool",
+          "request_id": "dc69125682a348239793b5ccbd89dcd8",
+          "revision": 29,
+          "command_id": "215cbfd2d131485da1a8f232356d12ff",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "6c13fb3fa1298dd0de9eacc8bef5bc7806c8df7226a415c68a8e5a670c14d519",
+          "dimensions": [
+            640,
+            400
+          ],
+          "recorded_pillow_pass": true
+        },
+        {
+          "tool": "design_studio_preview",
+          "request_id": "e132694a004c4a7a8c9ef5c6724c5b8f",
+          "revision": 30,
+          "command_id": "27ec025b902347df8669fe404ec1b858",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "cdad5e4ad307628ee3189dabdf857bfda1b7c4afc6f42d7935993c38b55a8520",
+          "dimensions": [
+            1200,
+            800
+          ],
+          "recorded_pillow_pass": true
+        },
+        {
+          "tool": "design_studio_export",
+          "request_id": "9e1df25e32a647d09b92992ffb19f122",
+          "revision": 30,
+          "command_id": "27ec025b902347df8669fe404ec1b858",
+          "closed_page": true,
+          "detached": true,
+          "sha256": "94d28cd071732fdfa49e79cf84313d8e126f3bfeeb2d6b5c6014a1c3ca1569eb",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "recorded_pillow_pass": true
+        }
+      ]
+    }
+  },
+  "remote_reference_reads": [
+    {
+      "url": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/plugin-catalog/README.md",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/plugin-catalog/README.md",
+      "sha256": "5d9ab744164bfc1c48c99d0f3051e4cc9d203cebf355287727eebe7fb176a5f3",
+      "saved": "evidence/p3-close-catalog-schema-source.md",
+      "mandatory_sha_rule_found": true
+    },
+    {
+      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/desktop-plugin-sdk/",
+      "status": 200,
+      "final_url": "https://hermes-agent.nousresearch.com/docs/developer-guide/desktop-plugin-sdk",
+      "sha256": "f8bc38eef632bc5ce5701c53b39eb253c8e2a26a57e4a0bb26122574f0d54fb6"
+    },
+    {
+      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/",
+      "status": 200,
+      "final_url": "https://hermes-agent.nousresearch.com/docs/developer-guide/plugins",
+      "sha256": "f0a09abc2d73f7b8cf5640ce18fa6ace93f857a2d0eac6bb846a55e3bf0bd5e6"
+    }
+  ],
+  "remaining_gates": [
+    {
+      "id": "screenshot_privacy",
+      "owner": "parent/author",
+      "blocks": "publication_readiness",
+      "refs": [
+        "README.md:119",
+        "docs/architecture-and-verification.md:100",
+        "docs/screenshots/studio-p1.png"
+      ],
+      "finding_ru": "При реальном просмотре screenshot внизу видны username и абсолютный Gateway path, вопреки заявлению об удалённых server paths. Credentials/приватных чатов не видно. Нужны crop/redaction либо явное согласование публикации пути и исправление подписи.",
+      "image_sha256": "6cbad4c83d2b8a18caf5ad37c9d2c7f62a8f71fb5fc8cc96adf9f002a51d0619"
+    },
+    {
+      "id": "delivery_evidence_integration",
+      "owner": "parent",
+      "blocks": "tracked_delivery_completeness",
+      "refs": [
+        "README.md:5",
+        "README.md:113",
+        "SUBMISSION.md:41",
+        "SUBMISSION.md:53",
+        "BUILD-LOG.md"
+      ],
+      "finding_ru": "evidence/p3-final-install.json существует uncommitted у родителя, но отсутствует в этом delivery tree; prefixed неизменённая копия сохранена. Включить final evidence/logs, обновить BUILD-LOG/pending checklist, скопировать SUBMISSION в orchestration directory. Не подменять исторический tested SHA новым reports-only commit."
+    },
+    {
+      "id": "fully_isolated_runtime_validation",
+      "owner": "parent",
+      "status": "prior_timeout_not_retried",
+      "blocks": "only_if_separate_interpreter_runtime_validation_is_required",
+      "finding_ru": "Успешная проверка использовала default working runtime для exact temp-installed target. Прежний CLI запуск с temp HERMES_HOME timeout не объявляется PASS; rebuild/provisioning не делались.",
+      "refs": [
+        "evidence/p3-close-parent-p3-final-install.json:18",
+        "evidence/p3-close-parent-p3-clean-validate.txt"
+      ]
+    },
+    {
+      "id": "P4_and_human_submission",
+      "owner": "authorized_parent/author",
+      "status": "not_performed",
+      "finding_ru": "Нужны отдельное разрешение, public repo/remote final SHA/catalog PR/CI/review, реальное видео с измеренной длительностью, post и form receipt. Нет вымышленных URL или заявлений о публикации."
+    }
+  ],
+  "constraints": {
+    "source_feature_edits": false,
+    "main_or_deployed_copy_writes": false,
+    "config_changes": false,
+    "global_scan_bypass": false,
+    "delegation": false,
+    "desktop_gateway_restart": false,
+    "publishing": false,
+    "shared_environment_exports": false,
+    "whole_task_marked_complete": false
+  },
+  "artifact_refs": [
+    "evidence/p3-close-audit.json",
+    "evidence/p3-close-audit.py",
+    "evidence/p3-close-catalog-schema-source.md",
+    "evidence/p3-close-final-integrity.json",
+    "evidence/p3-close-finalize.py",
+    "evidence/p3-close-focused-tests.json",
+    "evidence/p3-close-focused-tests.stderr.txt",
+    "evidence/p3-close-focused-tests.stdout.txt",
+    "evidence/p3-close-parent-p3-clean-validate.txt",
+    "evidence/p3-close-parent-p3-final-install-forced.txt",
+    "evidence/p3-close-parent-p3-final-install.json",
+    "evidence/p3-close-parent-p3-final-install.txt",
+    "evidence/p3-close-parent-p3-validate-installed.txt",
+    "evidence/p3-close-payload-readback.json",
+    "evidence/p3-close-provenance.json",
+    "evidence/p3-close-validate.json",
+    "evidence/p3-close-validate.py",
+    "evidence/p3-close-validate.stderr.txt",
+    "evidence/p3-close-validate.stdout.txt"
+  ],
+  "checked_utc": "2026-11-11T20:52:51.834185+00:00"
+}

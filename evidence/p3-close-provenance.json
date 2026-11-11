@@ -1,0 +1,48 @@
+{
+  "captured_utc": "2026-11-11T20:49:51.769459+00:00",
+  "parent_evidence_copies": [
+    {
+      "original": "/home/destino/projects/hermes-design-studio/evidence/p3-final-install.json",
+      "copy": "evidence/p3-close-parent-p3-final-install.json",
+      "sha256": "c122dc70889f7ce255cbc3e9aa40ba0bc0319cfbaecd8ff1a3dfaa7e75af4b82"
+    },
+    {
+      "original": "/home/destino/projects/hermes-design-studio/evidence/p3-final-install.txt",
+      "copy": "evidence/p3-close-parent-p3-final-install.txt",
+      "sha256": "f05ad2d240b598368ddd80ebe5b274c6c6b2a60700f51e585fef76be85c24c0f"
+    },
+    {
+      "original": "/home/destino/projects/hermes-design-studio/evidence/p3-final-install-forced.txt",
+      "copy": "evidence/p3-close-parent-p3-final-install-forced.txt",
+      "sha256": "9a4f0b6deb18f76b48cc21c21ddea073f9b13c5de1f9400fac8f4b299b06dd09"
+    },
+    {
+      "original": "/home/destino/projects/hermes-design-studio/evidence/p3-clean-validate.txt",
+      "copy": "evidence/p3-close-parent-p3-clean-validate.txt",
+      "sha256": "0c6db4fe108f00e8f87af0ce8b34df45047fc53a5057fe8038c650fa69606e3f"
+    },
+    {
+      "original": "/home/destino/projects/hermes-design-studio/evidence/p3-validate-installed.txt",
+      "copy": "evidence/p3-close-parent-p3-validate-installed.txt",
+      "sha256": "bbaa39ca2b9bf29f695fb758a92f66974035beb20e8669905888966e6b557bd7"
+    }
+  ],
+  "screenshot_inventory": [
+    {
+      "path": "docs/screenshots/diagnostics-p1.png",
+      "dimensions": [
+        1616,
+        992
+      ],
+      "sha256": "eafb85ef5906a680295d5f9ac8e2b76d5f18c3f574a7e71ee6225033a41ea556"
+    },
+    {
+      "path": "docs/screenshots/studio-p1.png",
+      "dimensions": [
+        1551,
+        833
+      ],
+      "sha256": "6cbad4c83d2b8a18caf5ad37c9d2c7f62a8f71fb5fc8cc96adf9f002a51d0619"
+    }
+  ]
+}
