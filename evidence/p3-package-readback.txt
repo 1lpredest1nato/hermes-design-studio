@@ -1,0 +1,355 @@
+### installed plugin.yaml
+name: hermes-design-studio
+version: 0.1.0
+description: Design Studio image projects, shader drafts, recipes and filesystem render tools.
+author: 1lpredest1nato
+license: MIT
+requires_hermes: ">=0.22.5"
+provides_tools:
+  - design_studio_catalog
+  - design_studio_project
+  - design_studio_apply
+  - design_studio_preview
+  - design_studio_create_tool
+  - design_studio_recipe
+  - design_studio_export
+
+### installed tree (files)
+BUILD-LOG.md
+core/diagnostics.mjs
+core/metrics.mjs
+core/renderer.mjs
+dashboard/manifest.json
+dashboard/plugin_api.py
+desktop/plugin.js
+evidence/esbuild-meta.json
+evidence/esbuild-meta-p1.json
+evidence/esbuild-meta-p2.json
+evidence/install.json
+evidence/p0-backend-tests.txt
+evidence/p0-build.txt
+evidence/p0-client-report.json
+evidence/p0-enable.txt
+evidence/p0-host-integration.json
+evidence/p0-host-integration.txt
+evidence/p0-host-launch-imports.txt
+evidence/p0-host-launch-stdout.txt
+evidence/p0-host-preflight.json
+evidence/p0-install-green.txt
+evidence/p0-install-red.txt
+evidence/p0-js-tests.txt
+evidence/p0-parent-headless.json
+evidence/p0-parent-headless-stderr.txt
+evidence/p0-parent-tests.txt
+evidence/p0-runtime-verification.json
+evidence/p0-runtime-verification.txt
+evidence/p0-validate-installed.txt
+evidence/p0-validate-source.txt
+evidence/p1-api-final.txt
+evidence/p1-api-tests.txt
+evidence/p1-approval-identity-fix.txt
+evidence/p1-build-final.txt
+evidence/p1-build.txt
+evidence/p1-bundle-final.json
+evidence/p1-catalog-tests.txt
+evidence/p1-client-diagnostics.json
+evidence/p1-client-project.json
+evidence/p1-core-independence.json
+evidence/p1-entry-green.txt
+evidence/p1-entry-red.txt
+evidence/p1-identity-fix.txt
+evidence/p1-install.json
+evidence/p1-integration-green-1.txt
+evidence/p1-integration-green-2.txt
+evidence/p1-integration-green-3.txt
+evidence/p1-integration-green-4.txt
+evidence/p1-integration-green-5.txt
+evidence/p1-integration-red-1.txt
+evidence/p1-integration-red-2.txt
+evidence/p1-integration-red-3.txt
+evidence/p1-integration-red-4.txt
+evidence/p1-integration-red-5.txt
+evidence/p1-manual-controls-green.txt
+evidence/p1-manual-controls-red.txt
+evidence/p1-parent-diagnostics.json
+evidence/p1-parent-diagnostics-stderr.txt
+evidence/p1-parent-node-first.txt
+evidence/p1-parent-queued-identity.txt
+evidence/p1-parent-queued-repro.json
+evidence/p1-parent-renderer.json
+evidence/p1-parent-renderer-stderr.txt
+evidence/p1-parent-service-approved-snapshot.txt
+evidence/p1-parent-service-browser.json
+evidence/p1-parent-service-browser.txt
+evidence/p1-parent-service-final.txt
+evidence/p1-parent-service-first.txt
+evidence/p1-parent-service-integration.json
+evidence/p1-parent-suite-approved-snapshot.txt
+evidence/p1-parent-suite-final.txt
+evidence/p1-parent-suite-first.txt
+evidence/p1-parent-suite-second.txt
+evidence/p1-precommit-review-final.json
+evidence/p1-precommit-review.json
+evidence/p1-prehandoff-diagnostics.json
+evidence/p1-prehandoff-diagnostics.txt
+evidence/p1-project-tests.txt
+evidence/p1-queued-identity-fix.txt
+evidence/p1-render-final-diagnostics.json
+evidence/p1-render-final-renderer.json
+evidence/p1-render-green-chromatic_aberration.json
+evidence/p1-render-green-diagnostics.json
+evidence/p1-render-green-dither.json
+evidence/p1-render-green-fixed-fixtures.json
+evidence/p1-render-green-gradient_map.json
+evidence/p1-render-green-grain.json
+evidence/p1-render-green-halftone.json
+evidence/p1-render-green-lifecycle.json
+evidence/p1-render-green-metrics.json
+evidence/p1-render-green-palette-two.json
+evidence/p1-render-green-pixelate.json
+evidence/p1-render-green-source.json
+evidence/p1-render-green-stack.json
+evidence/p1-render-p0-regression.json
+evidence/p1-render-red-chromatic_aberration.json
+evidence/p1-render-red-dither.json
+evidence/p1-render-red-fixed-fixtures.json
+evidence/p1-render-red-gradient_map.json
+evidence/p1-render-red-grain.json
+evidence/p1-render-red-halftone.json
+evidence/p1-render-red-levels.json
+evidence/p1-render-red-lifecycle.json
+evidence/p1-render-red-metrics.json
+evidence/p1-render-red-palette-two.json
+evidence/p1-render-red-pixelate.json
+evidence/p1-render-red-source.json
+evidence/p1-render-red-stack.json
+evidence/p1-review-core.md
+evidence/p1-runtime-after-client.txt
+evidence/p1-runtime-before-client.txt
+evidence/p1-runtime-verification.json
+evidence/p1-service-fixture-green.txt
+evidence/p1-service-fixture-red.txt
+evidence/p1-service-green-1.txt
+evidence/p1-service-green-2.txt
+evidence/p1-service-green-3.txt
+evidence/p1-service-green-4.txt
+evidence/p1-service-green-5.txt
+evidence/p1-service-green-6.txt
+evidence/p1-service-green-7.txt
+evidence/p1-service-green-8.txt
+evidence/p1-service-green-9.txt
+evidence/p1-service-red-1.txt
+evidence/p1-service-red-2.txt
+evidence/p1-service-red-3.txt
+evidence/p1-service-red-4.txt
+evidence/p1-service-red-5.txt
+evidence/p1-service-red-6.txt
+evidence/p1-service-red-7.txt
+evidence/p1-service-red-8.txt
+evidence/p1-service-red-9.txt
+evidence/p1-static-security.json
+evidence/p1-ui-tests.txt
+evidence/p1-validate-installed.txt
+evidence/p1-validate-source.txt
+evidence/p2-build-final.txt
+evidence/p2-build.txt
+evidence/p2-draft-review-01-red.txt
+evidence/p2-draft-review-02-green.txt
+evidence/p2-draft-review-03-full-node.txt
+evidence/p2-host-browser.json
+evidence/p2-host-browser-stderr.txt
+evidence/p2-host-integration-first.json
+evidence/p2-host-integration-first.txt
+evidence/p2-host-integration.json
+evidence/p2-host-integration.txt
+evidence/p2-import-01-green.txt
+evidence/p2-import-01-red.txt
+evidence/p2-import-02-green.txt
+evidence/p2-import-02-red.txt
+evidence/p2-import-03b-red.txt
+evidence/p2-import-03-green.txt
+evidence/p2-import-03-red.txt
+evidence/p2-import-04-green.txt
+evidence/p2-import-04-red.txt
+evidence/p2-import-05-green.txt
+evidence/p2-import-05-red.txt
+evidence/p2-import-06-coverage.txt
+evidence/p2-import-07-full-python.txt
+evidence/p2-import-08-final.txt
+evidence/p2-import-09-green.txt
+evidence/p2-import-09-red.txt
+evidence/p2-import-10-full-python.txt
+evidence/p2-import-report.md
+evidence/p2-install.json
+evidence/p2-live-baseline.json
+evidence/p2-node-final-build.txt
+evidence/p2-node-final.txt
+evidence/p2-parent-suite.txt
+evidence/p2-precommit-review.json
+evidence/p2-registration-baseline.txt
+evidence/p2-skill-green.txt
+evidence/p2-skill-red.txt
+evidence/p2-tools-01-catalog-green.log
+evidence/p2-tools-01-catalog-red.log
+evidence/p2-tools-02-project-green.log
+evidence/p2-tools-02-project-red.log
+evidence/p2-tools-03-apply-green.log
+evidence/p2-tools-03-apply-red.log
+evidence/p2-tools-04-import-green.log
+evidence/p2-tools-04-import-red.log
+evidence/p2-tools-05-preview-green.log
+evidence/p2-tools-05-preview-red.log
+evidence/p2-tools-06-create-green.log
+evidence/p2-tools-06-create-red.log
+evidence/p2-tools-07-recipe-green.log
+evidence/p2-tools-07-recipe-red.log
+evidence/p2-tools-08-export-green.log
+evidence/p2-tools-08-export-red.log
+evidence/p2-tools-09-registration-green.log
+evidence/p2-tools-09-registration-red.log
+evidence/p2-tools-10-validation-green.log
+evidence/p2-tools-10-validation-red.log
+evidence/p2-tools-adapter-final.log
+evidence/p2-tools-full-final.log
+evidence/p2-tools-full-initial.log
+evidence/p2-tools-full-verified.log
+evidence/p2-tools-report.md
+evidence/p2-validate-installed.txt
+.git/config
+.git/description
+.git/FETCH_HEAD
+.git/HEAD
+.git/hooks/applypatch-msg.sample
+.git/hooks/commit-msg.sample
+.git/hooks/fsmonitor-watchman.sample
+.git/hooks/post-update.sample
+.git/hooks/pre-applypatch.sample
+.git/hooks/pre-commit.sample
+.git/hooks/pre-merge-commit.sample
+.git/hooks/prepare-commit-msg.sample
+.git/hooks/pre-push.sample
+.git/hooks/pre-rebase.sample
+.git/hooks/pre-receive.sample
+.git/hooks/push-to-checkout.sample
+.git/hooks/sendemail-validate.sample
+.git/hooks/update.sample
+.gitignore
+.git/index
+.git/info/exclude
+.git/logs/HEAD
+.git/logs/refs/heads/build/p3-package
+.git/logs/refs/remotes/origin/HEAD
+.git/objects/pack/pack-61727e3a354f3b163a9f25c8a58dbef069c9238d.idx
+.git/objects/pack/pack-61727e3a354f3b163a9f25c8a58dbef069c9238d.pack
+.git/objects/pack/pack-61727e3a354f3b163a9f25c8a58dbef069c9238d.rev
+.git/packed-refs
+.git/refs/heads/build/p3-package
+.git/refs/remotes/origin/HEAD
+.git/shallow
+hermes/assets.mjs
+hermes/controls.jsx
+hermes/plugin.jsx
+hermes/service.mjs
+hermes/studio-page.jsx
+hermes/upload.mjs
+__init__.py
+LICENSE
+P1-CONTRACT.md
+P2-CONTRACT.md
+plugin-catalog/hermes-design-studio.yaml
+plugin.yaml
+README.md
+scripts/install_dev.py
+scripts/run_tests.py
+skills/usage/SKILL.md
+studio_core/application.py
+studio_core/bridge.py
+studio_core/catalog.py
+studio_core/import_image.py
+studio_core/projects.py
+tests/p0-adapter.test.mjs
+tests/p0-core.test.mjs
+tests/p0-headless.mjs
+tests/p0-renderer.test.mjs
+tests/p0-service.test.mjs
+tests/p0-upload.test.mjs
+tests/p1-approval-ui.test.mjs
+tests/p1-diagnostics-headless.mjs
+tests/p1-plugin.test.mjs
+tests/p1-render-headless.mjs
+tests/p1-render-metrics.test.mjs
+tests/p1-service-headless.mjs
+tests/p1_service_integration.py
+tests/p1-service.test.mjs
+tests/p1-ui.test.mjs
+tests/p2-draft-review.test.mjs
+tests/p2-host-renderer.mjs
+tests/probe_host.py
+tests/probe_p2_host.py
+tests/test_agent_tools.py
+tests/test_api.py
+tests/test_bridge.py
+tests/test_catalog.py
+tests/test_import_image.py
+tests/test_install.py
+tests/test_integration.py
+tests/test_projects.py
+tests/test_usage_skill.py
+tests/verify_p0_runtime.py
+tests/verify_p1_runtime.py
+tools/builtin/chromatic_aberration/fixture.json
+tools/builtin/chromatic_aberration/manifest.json
+tools/builtin/chromatic_aberration/shader.frag
+tools/builtin/dither/fixture.json
+tools/builtin/dither/manifest.json
+tools/builtin/dither/shader.frag
+tools/builtin/gradient_map/fixture.json
+tools/builtin/gradient_map/manifest.json
+tools/builtin/gradient_map/shader.frag
+tools/builtin/grain/fixture.json
+tools/builtin/grain/manifest.json
+tools/builtin/grain/shader.frag
+tools/builtin/halftone/fixture.json
+tools/builtin/halftone/manifest.json
+tools/builtin/halftone/shader.frag
+tools/builtin/levels/fixture.json
+tools/builtin/levels/manifest.json
+tools/builtin/levels/shader.frag
+tools/builtin/pixelate/fixture.json
+tools/builtin/pixelate/manifest.json
+tools/builtin/pixelate/shader.frag
+
+### sha256: source vs installed (plugin.yaml, skill, builtin tool files)
+plugin.yaml                                             MATCH
+skills/usage/SKILL.md                                   MATCH
+tools/builtin/chromatic_aberration/fixture.json         MATCH
+tools/builtin/chromatic_aberration/manifest.json        MATCH
+tools/builtin/chromatic_aberration/shader.frag          MATCH
+tools/builtin/dither/fixture.json                       MATCH
+tools/builtin/dither/manifest.json                      MATCH
+tools/builtin/dither/shader.frag                        MATCH
+tools/builtin/gradient_map/fixture.json                 MATCH
+tools/builtin/gradient_map/manifest.json                MATCH
+tools/builtin/gradient_map/shader.frag                  MATCH
+tools/builtin/grain/fixture.json                        MATCH
+tools/builtin/grain/manifest.json                       MATCH
+tools/builtin/grain/shader.frag                         MATCH
+tools/builtin/halftone/fixture.json                     MATCH
+tools/builtin/halftone/manifest.json                    MATCH
+tools/builtin/halftone/shader.frag                      MATCH
+tools/builtin/levels/fixture.json                       MATCH
+tools/builtin/levels/manifest.json                      MATCH
+tools/builtin/levels/shader.frag                        MATCH
+tools/builtin/pixelate/fixture.json                     MATCH
+tools/builtin/pixelate/manifest.json                    MATCH
+tools/builtin/pixelate/shader.frag                      MATCH
+
+### 7 tool names from installed plugin.yaml
+provides_tools:
+  - design_studio_catalog
+  - design_studio_project
+  - design_studio_apply
+  - design_studio_preview
+  - design_studio_create_tool
+  - design_studio_recipe
+  - design_studio_export

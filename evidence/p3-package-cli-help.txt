@@ -1,0 +1,85 @@
+### hermes --version
+Hermes Agent v0.22.5+671.g1c0cd66 (2026.9.24) · stable · local 1c0cd667746d
+Install directory: /home/destino/.hermes/hermes-agent
+Install method: git
+Python: 3.14.9
+OpenAI SDK: 2.54.0
+### hermes plugins --help
+⚠ install out of sync (ffmpeg: not installed or outdated; node: not installed or outdated; npm: not installed or outdated; ripgrep: not installed or outdated) — run `hermes pm install`
+usage: hermes plugins [-h]
+                      {install,search,browse,validate,update,adopt,trust-update-url,check-updates,check,remove,rm,uninstall,list,ls,enable,disable,capabilities,doctor,pack,show,info} ...
+
+Install, update, remove, list, or validate native Hermes plugins and portable
+Agent Plugins v1 packages. Portable packages install disabled.
+
+positional arguments:
+  {install,search,browse,validate,update,adopt,trust-update-url,check-updates,check,remove,rm,uninstall,list,ls,enable,disable,capabilities,doctor,pack,show,info}
+    install             Install a plugin from the curated catalog, a Git URL,
+                        or owner/repo
+    search              Search the curated Hermes plugin catalog
+    browse              List every curated plugin catalog entry
+    validate            Validate a plugin directory for catalog admission (CI
+                        gate)
+    update              Update an installed plugin, or with no name every
+                        plugin that has an update
+    adopt               Adopt a self-cloned plugin dir into provenance
+                        tracking
+    trust-update-url    Confirm a changed plugin update_url into the saved tag
+    check-updates (check)
+                        Check whether installed plugins have updates (read-
+                        only)
+    remove (rm, uninstall)
+                        Remove an installed plugin
+    list (ls)           List installed plugins
+    enable              Enable a disabled plugin
+    disable             Disable a plugin without removing it
+    capabilities        Show declared vs granted capabilities per plugin
+    doctor              Validate a plugin with the real runtime contracts
+    pack                Declarative, shareable plugin sets (hermes-pack.yaml)
+    show (info)         Show details for a single plugin (including
+                        emits/listens)
+
+options:
+  -h, --help            show this help message and exit
+### hermes plugins install --help
+⚠ install out of sync (ffmpeg: not installed or outdated; node: not installed or outdated; npm: not installed or outdated; ripgrep: not installed or outdated) — run `hermes pm install`
+usage: hermes plugins install [-h] [--force] [--ref COMMIT_SHA]
+                              [--allow-removed] [--no-deps | --yes-deps]
+                              [--enable | --no-enable]
+                              identifier
+
+positional arguments:
+  identifier        Bare plugin catalog entry name (see `hermes plugins
+                    search`), Git URL, or owner/repo shorthand (e.g.
+                    anpicasso/hermes-plugin-chrome-profiles)
+
+options:
+  -h, --help        show this help message and exit
+  --force, -f       Reinstall over an existing plugin (from the same source,
+                    your untracked files are kept)
+  --ref COMMIT_SHA  Install exactly one immutable 40-character Git commit SHA
+  --allow-removed   DANGEROUS: bypass the catalog removed-plugin blocklist
+                    check
+  --no-deps         Download without dependency consent and leave disabled;
+                    cannot replace an active plugin
+  --yes-deps        Answer the Python dependency consent question yourself, so
+                    non-interactive installs (SSH automation, CI, Docker
+                    entrypoints) finish in one run instead of being refused
+  --enable          Auto-enable the plugin after install (skip confirmation
+                    prompt)
+  --no-enable       Install disabled (skip confirmation prompt); enable later
+                    with `hermes plugins enable <name>`
+### hermes plugins validate --help
+⚠ install out of sync (ffmpeg: not installed or outdated; node: not installed or outdated; npm: not installed or outdated; ripgrep: not installed or outdated) — run `hermes pm install`
+usage: hermes plugins validate [-h] [--install-deps] [--json] path
+
+positional arguments:
+  path            Path to the plugin directory
+
+options:
+  -h, --help      show this help message and exit
+  --install-deps  Install the plugin's declared Python dependencies
+                  (pyproject/python_dependencies) into this venv before the
+                  capability probe, exactly as `plugins install` would — the
+                  catalog CI gate
+  --json          Print machine-readable JSON (for CI)

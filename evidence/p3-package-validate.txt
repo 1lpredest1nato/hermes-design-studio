@@ -1,0 +1,28 @@
+### argv: /home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tmp-p3-home/venv/bin/python -I -c <hermes_bootstrap+main> plugins validate /home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tmp-p3-home/plugins/hermes-design-studio
+### HERMES_HOME=/home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tmp-p3-home
+### target=/home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tmp-p3-home/plugins/hermes-design-studio
+
+⚠ install out of sync (ffmpeg: not installed or outdated; node: not installed or outdated; npm: not installed or outdated; ripgrep: not installed or outdated) — run `hermes pm install`
+
+✓ manifest — plugin.yaml parses
+✓ manifest fields — name, version, description present
+✓ requires_hermes — spec '>=0.22.5' parses
+✓ config schema — not declared
+✓ requires_env — all entries UPPER_SNAKE
+✓ oauth — not declared
+✓ loadable — entry: __init__.py, desktop/plugin.js
+✓ python dependencies — none declared
+✓ capability probe — register() ran in isolation
+✓ declared tools — matches registrations
+✓ declared hooks — matches registrations
+✓ declared middleware — matches registrations
+✓ built-in tool collisions — no collisions
+✓ security scan — caution
+✓ no core override — no runtime rebinds of Hermes core
+✓ desktop surface — stays inside the plugin SDK surface
+⚠ security scan caution: exec_string (p1-static-security.json:8)
+◆ Isolation — runs in the plugin host (plugins.isolation: host)
+  · dashboard backend API is served through the plugin host (buffered responses)
+
+Validation passed.
+### validate_exit=0

@@ -1,0 +1,26 @@
+### argv: /home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tmp-p3-home/venv/bin/python -I -c <hermes_bootstrap+main> plugins install file:///home/destino/projects/hermes-design-plugin/worktrees/p3-package --ref 458d748e5fbee766442fa78ef3416f796d2b322e --force --no-enable
+### HERMES_HOME=/home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tmp-p3-home
+### HERMES_DISABLE_LAZY_INSTALLS=1
+### note: venv shim at /home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tmp-p3-home/venv (site-packages symlinked to real PM venv) satisfies PM boot dependency check without a committed env
+
+Warning: custom (unreviewed) source — not from the Hermes catalog.
+Warning: Using insecure/local URL scheme. Consider using https:// or git@ for 
+production installs.
+Cloning 
+file:///home/destino/projects/hermes-design-plugin/worktrees/p3-package...
+Preparing the isolated Hermes runtime…
+  → Installing Python dependencies…
+  ✓ Installing Python dependencies
+
+╭──────────────────────────────── ✓ Installed ─────────────────────────────────╮
+│ Plugin installed:                                                            │
+│ file:///home/destino/projects/hermes-design-plugin/worktrees/p3-package      │
+│ Location:                                                                    │
+│ /home/destino/projects/hermes-design-plugin/worktrees/p3-package/evidence/tm │
+│ p-p3-home/plugins/hermes-design-studio                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Plugin installed but not enabled. Run `hermes plugins enable 
+hermes-design-studio` to activate.
+
+### install_exit=0
