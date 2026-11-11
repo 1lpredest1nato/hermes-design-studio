@@ -1,0 +1,110 @@
+{
+  "inputs": {
+    "core/metrics.mjs": {
+      "bytes": 1583,
+      "imports": [],
+      "format": "esm"
+    },
+    "core/renderer.mjs": {
+      "bytes": 3607,
+      "imports": [
+        {
+          "path": "core/metrics.mjs",
+          "kind": "import-statement",
+          "original": "./metrics.mjs"
+        }
+      ],
+      "format": "esm"
+    },
+    "hermes/service.mjs": {
+      "bytes": 3926,
+      "imports": [],
+      "format": "esm"
+    },
+    "hermes/upload.mjs": {
+      "bytes": 2203,
+      "imports": [],
+      "format": "esm"
+    },
+    "hermes/plugin.jsx": {
+      "bytes": 8986,
+      "imports": [
+        {
+          "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@hermes/plugin-sdk",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "core/renderer.mjs",
+          "kind": "import-statement",
+          "original": "../core/renderer.mjs"
+        },
+        {
+          "path": "hermes/service.mjs",
+          "kind": "import-statement",
+          "original": "./service.mjs"
+        },
+        {
+          "path": "hermes/upload.mjs",
+          "kind": "import-statement",
+          "original": "./upload.mjs"
+        },
+        {
+          "path": "react/jsx-runtime",
+          "kind": "import-statement",
+          "external": true
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "desktop/plugin.js": {
+      "imports": [
+        {
+          "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@hermes/plugin-sdk",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "react/jsx-runtime",
+          "kind": "import-statement",
+          "external": true
+        }
+      ],
+      "exports": [
+        "BUILD",
+        "default"
+      ],
+      "entryPoint": "hermes/plugin.jsx",
+      "inputs": {
+        "hermes/plugin.jsx": {
+          "bytesInOutput": 11124
+        },
+        "core/metrics.mjs": {
+          "bytesInOutput": 1627
+        },
+        "core/renderer.mjs": {
+          "bytesInOutput": 3807
+        },
+        "hermes/service.mjs": {
+          "bytesInOutput": 4326
+        },
+        "hermes/upload.mjs": {
+          "bytesInOutput": 2252
+        }
+      },
+      "bytes": 23316
+    }
+  }
+}

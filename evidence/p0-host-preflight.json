@@ -1,0 +1,12 @@
+{
+  "parent_pid": 382309,
+  "kind": "PluginHost launch preflight, no plugin loaded",
+  "lazy_installs_disabled": true,
+  "host_pid": 382373,
+  "hello": {
+    "protocol": 1,
+    "pid": 382373,
+    "python": "3.14.9"
+  },
+  "pass_distinct_process": true
+}

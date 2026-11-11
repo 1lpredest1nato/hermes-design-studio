@@ -1,0 +1,4 @@
+✓ Plugin hermes-design-studio enabled.
+Gateway reloaded plugins — deferred: tools (next session).
+hermes-design-studio may not override built-in tools. Re-run `hermes plugins 
+enable hermes-design-studio --allow-tool-override` to grant this later.

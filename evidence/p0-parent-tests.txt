@@ -1,0 +1,17 @@
+.................                                                        [100%]
+17 passed in 1.79s
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (7.084118ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (3.454101ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (4.188166ms)
+✔ detached service answers request while page is inactive and deduplicates id (5.05531ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (4.787208ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (7.6237ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (33.929206ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 242.614323

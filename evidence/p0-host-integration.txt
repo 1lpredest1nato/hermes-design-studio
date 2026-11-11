@@ -1,0 +1,49 @@
+{
+  "kind": "real-plugin-host-integration-secondary-not-desktop",
+  "parent_pid": 383145,
+  "host_pid": 383148,
+  "wait_and_multimodal": {
+    "pass": true,
+    "elapsed_seconds": 0.1414468160000979,
+    "request_id": "9a51fae48dd94c1ea25db3fce7e03bfa",
+    "text_summary": "{\"created_at\": 1794412615.6652565, \"height\": 48, \"metrics\": {\"fixture\": true, \"height\": 48, \"width\": 64}, \"path\": \"/home/destino/projects/hermes-design-studio/evidence/host-home/plugin-data/hermes-design-studio/previews/532da9481dc0a25b8316e5b9a4efb10edab17d564491379f8e20c98284a7b82a.png\", \"request_id\": \"9a51fae48dd94c1ea25db3fce7e03bfa\", \"requested_revision\": 0, \"revision\": 0, \"sha256\": \"532da9481dc0a25b8316e5b9a4efb10edab17d564491379f8e20c98284a7b82a\", \"stale\": false, \"width\": 64}\nIf useful, call vision_analyze with this server PNG path; an auxiliary vision model may be available.",
+    "image_present": true,
+    "same_host_asgi_response": {
+      "revision": 0,
+      "metrics": {
+        "width": 64,
+        "height": 48,
+        "fixture": true
+      },
+      "path": "/home/destino/projects/hermes-design-studio/evidence/host-home/plugin-data/hermes-design-studio/previews/532da9481dc0a25b8316e5b9a4efb10edab17d564491379f8e20c98284a7b82a.png",
+      "sha256": "532da9481dc0a25b8316e5b9a4efb10edab17d564491379f8e20c98284a7b82a",
+      "width": 64,
+      "height": 48,
+      "created_at": 1794412615.6652565,
+      "request_id": "9a51fae48dd94c1ea25db3fce7e03bfa"
+    }
+  },
+  "chunk_upload": {
+    "pass": true,
+    "bytes": 23049735,
+    "chunks": 6,
+    "sha256": "7004566e60daff67ac2bd0a981a955346c43992bd90d24c0a9bd23db54bdc71e",
+    "stored_path": "/home/destino/projects/hermes-design-studio/evidence/host-home/plugin-data/hermes-design-studio/assets/7004566e60daff67ac2bd0a981a955346c43992bd90d24c0a9bd23db54bdc71e.png",
+    "dimensions": [
+      2400,
+      2400
+    ],
+    "receipt": {
+      "complete": true,
+      "path": "/home/destino/projects/hermes-design-studio/evidence/host-home/plugin-data/hermes-design-studio/assets/7004566e60daff67ac2bd0a981a955346c43992bd90d24c0a9bd23db54bdc71e.png",
+      "asset": "assets/7004566e60daff67ac2bd0a981a955346c43992bd90d24c0a9bd23db54bdc71e.png",
+      "sha256": "7004566e60daff67ac2bd0a981a955346c43992bd90d24c0a9bd23db54bdc71e",
+      "width": 2400,
+      "height": 2400,
+      "w": 2400,
+      "h": 2400
+    },
+    "transport": "real PluginHost ASGI multipart; NOT client ctx.rest"
+  },
+  "pass": true
+}

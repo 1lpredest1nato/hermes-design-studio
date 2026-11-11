@@ -1,0 +1,59 @@
+{
+  "source": "/home/destino/projects/hermes-design-studio",
+  "target": "/home/destino/.hermes/plugins/hermes-design-studio",
+  "copy_verified": true,
+  "files": {
+    "LICENSE": {
+      "sha256": "e682497db659cbe0c4bed5f1b164a6d43064d73ec3ff576b924391c7d47898b0",
+      "bytes": 1090
+    },
+    "README.md": {
+      "sha256": "48a76502cdda2d6d4733181b1ac547ae6665bdbd5be0130759a5136b75e95e29",
+      "bytes": 2597
+    },
+    "__init__.py": {
+      "sha256": "26246961f8ed7eb3cc371350184af090f9b5b75de01ef190d8ae372a790ea237",
+      "bytes": 2565
+    },
+    "core/metrics.mjs": {
+      "sha256": "74e95c48ef499f32be2bcbcc5176abfe28e32463c27547903067eb6e6e28aa43",
+      "bytes": 1583
+    },
+    "core/renderer.mjs": {
+      "sha256": "bf3b10b3a371df30828d55e97f4f3751056ddb6de83048e8a83ed40b41e6756f",
+      "bytes": 3607
+    },
+    "dashboard/manifest.json": {
+      "sha256": "6ea880e34012e42ae43387555f48e88bf1119c940101d288caab61045a4c4027",
+      "bytes": 54
+    },
+    "dashboard/plugin_api.py": {
+      "sha256": "282bb33e59934474f9514d88822cdde6fa73decaee751d2032066dda1643fd10",
+      "bytes": 4762
+    },
+    "desktop/plugin.js": {
+      "sha256": "03a3af46856fc9c277a8ca609786ebd36782ad82985f4e00a2df22e8b1f7754e",
+      "bytes": 23316
+    },
+    "hermes/plugin.jsx": {
+      "sha256": "d1575d08249c41cb9a47eba9b7bad9814fda143b1fd8a81b82c9ed68243cf0dc",
+      "bytes": 8986
+    },
+    "hermes/service.mjs": {
+      "sha256": "d520532abae35b194199656ea9b39e63021ab317041ead4877e8edd68b004e15",
+      "bytes": 3926
+    },
+    "hermes/upload.mjs": {
+      "sha256": "4aadb66496d93ed390f269028eac2461b44227b927692a0c6e74d54c9ba255eb",
+      "bytes": 2203
+    },
+    "plugin.yaml": {
+      "sha256": "9988311d67c32720e1b698356955efd0751a0f22471f13844dfae2a83646e216",
+      "bytes": 205
+    },
+    "studio_core/bridge.py": {
+      "sha256": "a58e178972d175b16a60880bc4963e7cccd8cf09e8678f316087e3767cfac9be",
+      "bytes": 10174
+    }
+  }
+}
