@@ -1,0 +1,56 @@
+{
+  "pass": true,
+  "session": "20261111_222455_71cfd9",
+  "commands": [
+    "215cbfd2d131485da1a8f232356d12ff",
+    "27ec025b902347df8669fe404ec1b858"
+  ],
+  "revisions": [
+    29,
+    30
+  ],
+  "draft": "user/duotone-ink-screen",
+  "export": {
+    "run_id": "108395e5-8c60-4ab5-ad7d-34a0dc1cb933",
+    "build": "design-studio-p2-20261111-agent-1",
+    "page_active": false,
+    "detached_canvas": true,
+    "at": "2026-11-11T19:29:29.399Z",
+    "request_id": "9e1df25e32a647d09b92992ffb19f122",
+    "kind": "export",
+    "revision": 30,
+    "project_id": "75efd24dc3174b02a8668948953fe80b",
+    "via": "poll",
+    "width": 1536,
+    "height": 1024,
+    "metrics": {
+      "width": 1536,
+      "height": 1024,
+      "mean_luma": 0.7446817989125408,
+      "std_luma": 0.32371625945012833,
+      "shadow_clipping_pct": 0,
+      "highlight_clipping_pct": 0,
+      "detail_density": 0.020835583417330862,
+      "dominant_colors": [
+        {
+          "hex": "#ffeedd",
+          "fraction": 0.7708988189697266
+        },
+        {
+          "hex": "#112233",
+          "fraction": 0.22910118103027344
+        }
+      ],
+      "nearly_uniform": false,
+      "difference_source": 0.10438936852681611,
+      "difference_previous": null,
+      "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+    },
+    "fixture": false,
+    "u_time": 0,
+    "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/exports/94d28cd071732fdfa49e79cf84313d8e126f3bfeeb2d6b5c6014a1c3ca1569eb.png",
+    "sha256": "94d28cd071732fdfa49e79cf84313d8e126f3bfeeb2d6b5c6014a1c3ca1569eb",
+    "created_at": 1794425370.2355509
+  },
+  "files_pillow_verified": 4
+}
