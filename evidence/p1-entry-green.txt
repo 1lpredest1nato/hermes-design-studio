@@ -1,0 +1,10 @@
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (4.447144ms)
+✔ P1 entry wires manual studio and real diagnostic runner into permanent service (4.615239ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 95.831979

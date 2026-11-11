@@ -1,0 +1,1076 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_new_project_is_persisted_and_get_returns_detached_document ________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_new_project_is_persisted_0')
+
+    def test_new_project_is_persisted_and_get_returns_detached_document(tmp_path):
+>       projects = store(tmp_path)
+                   ^^^^^^^^^^^^^^^
+
+tests/test_projects.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_projects.py:30: in store
+    module = importlib.import_module("studio_core.projects")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1406: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1371: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'studio_core.projects'
+import_ = <function _gcd_import at 0x7f8fd958be20>
+
+>   ???
+E   ModuleNotFoundError: No module named 'studio_core.projects'
+
+<frozen importlib._bootstrap>:1335: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_new_project_is_persisted_and_get_returns_detached_document
+1 failed in 0.03s
+.                                                                        [100%]
+1 passed in 0.63s
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+_________ test_add_node_resolves_defaults_and_persists_correlated_logs _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_add_node_resolves_default0')
+
+    def test_add_node_resolves_defaults_and_persists_correlated_logs(tmp_path):
+        projects = store(tmp_path)
+        doc = projects.new()
+        command = {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "n1"}
+>       result = projects.apply(0, [command], source="agent")
+                 ^^^^^^^^^^^^^^
+E       AttributeError: 'ProjectStore' object has no attribute 'apply'
+
+tests/test_projects.py:58: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_add_node_resolves_defaults_and_persists_correlated_logs
+1 failed, 1 passed in 0.73s
+..                                                                       [100%]
+2 passed in 1.14s
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+__________ test_cross_process_writers_get_one_commit_and_one_conflict __________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_cross_process_writers_get0')
+
+    def test_cross_process_writers_get_one_commit_and_one_conflict(tmp_path):
+        projects = store(tmp_path)
+        projects.new()
+        context = multiprocessing.get_context("fork")
+        ready, results, start = context.Queue(), context.Queue(), context.Event()
+        workers = [context.Process(target=_compete, args=(tmp_path, ready, start, results))
+                   for _ in range(2)]
+        for worker in workers:
+            worker.start()
+        try:
+            for _ in workers:
+                assert ready.get(timeout=10)
+            start.set()
+            outcomes = [results.get(timeout=10) for _ in workers]
+        finally:
+            for worker in workers:
+                worker.join(10)
+                if worker.is_alive():
+                    worker.kill()
+                    worker.join()
+>       assert sorted(kind for kind, _ in outcomes) == ["Conflict", "ok"]
+E       AssertionError: assert ['ok', 'ok'] == ['Conflict', 'ok']
+E         
+E         At index 0 diff: 'ok' != 'Conflict'
+E         Use -v to get more diff
+
+tests/test_projects.py:112: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+1 failed, 2 passed in 1.01s
+...                                                                      [100%]
+3 passed in 1.19s
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+______ test_edit_batch_moves_removes_and_updates_nodes_and_project_fields ______
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_edit_batch_moves_removes_0')
+
+    def test_edit_batch_moves_removes_and_updates_nodes_and_project_fields(tmp_path):
+        projects = store(tmp_path)
+        projects.new()
+        first = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": uid}
+                                   for uid in ("a", "b", "c")])
+        source = {"asset": "assets/" + "a" * 64 + ".png", "w": 1600, "h": 1000}
+>       result = projects.apply(first["revision"], [
+            {"type": "move_node", "uid": "c", "index": 0},
+            {"type": "remove_node", "uid": "b"},
+            {"type": "set_params", "uid": "a", "params": {"size": 12}},
+            {"type": "set_node", "uid": "c", "enabled": False, "opacity": 0.4, "blend": "screen"},
+            {"type": "set_source", "source": source},
+            {"type": "set_seed", "seed": 1234},
+        ])
+
+tests/test_projects.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+studio_core/projects.py:78: in apply
+    self._command(document, command)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <studio_core.projects.ProjectStore object at 0x7fb8d93bb0b0>
+document = {'format': 1, 'id': 'd70aa151aea34f60b325be25bf184178', 'revision': 1, 'source': None, ...}
+command = {'type': 'move_node', 'uid': 'c', 'index': 0}
+
+    def _command(self, document, command):
+        if command['type'] == 'add_node':
+            ref = command['tool']
+            self.catalog.resolve(ref)
+            params = self.catalog.validate_params(ref, command.get('params', {}))
+            document['stack'].insert(command.get('index', len(document['stack'])), {
+                'uid': command.get('uid', uuid.uuid4().hex), 'tool': ref,
+                'params': params, 'enabled': True, 'opacity': 1.0, 'blend': 'normal'})
+        else:
+>           raise ValueError('unknown command type')
+E           ValueError: unknown command type
+
+studio_core/projects.py:101: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_edit_batch_moves_removes_and_updates_nodes_and_project_fields
+1 failed, 3 passed in 1.70s
+....                                                                     [100%]
+4 passed in 1.59s
+.....FF....FFFFF.FFFFF.FF                                                [100%]
+=================================== FAILURES ===================================
+_________ test_invalid_second_command_rolls_back_whole_batch[invalid1] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro1')
+invalid = {'type': 'add_node', 'tool': 'builtin/pixelate@1', 'uid': 'a'}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+_________ test_invalid_second_command_rolls_back_whole_batch[invalid2] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro2')
+invalid = {'type': 'add_node', 'tool': 'builtin/pixelate@1', 'index': -1}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+_________ test_invalid_second_command_rolls_back_whole_batch[invalid7] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro7')
+invalid = {'type': 'set_node', 'uid': 'a', 'opacity': 1.1}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+_________ test_invalid_second_command_rolls_back_whole_batch[invalid8] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro8')
+invalid = {'type': 'set_node', 'uid': 'a', 'enabled': 1}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+_________ test_invalid_second_command_rolls_back_whole_batch[invalid9] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro9')
+invalid = {'type': 'set_node', 'uid': 'a', 'blend': 'invalid'}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+________ test_invalid_second_command_rolls_back_whole_batch[invalid10] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro10')
+invalid = {'type': 'set_node', 'uid': 'a', 'tool': 'other'}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+________ test_invalid_second_command_rolls_back_whole_batch[invalid11] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro11')
+invalid = {'type': 'move_node', 'uid': 'a', 'index': 5}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+________ test_invalid_second_command_rolls_back_whole_batch[invalid13] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro13')
+invalid = {'type': 'set_source', 'source': {'asset': '../escape.png', 'w': 1, 'h': 1}}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+________ test_invalid_second_command_rolls_back_whole_batch[invalid14] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro14')
+invalid = {'type': 'set_source', 'source': {'asset': 'assets/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.png', 'w': 0, 'h': 1}}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+________ test_invalid_second_command_rolls_back_whole_batch[invalid15] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro15')
+invalid = {'type': 'set_seed', 'seed': True}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+________ test_invalid_second_command_rolls_back_whole_batch[invalid16] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro16')
+invalid = {'type': 'set_seed', 'seed': 1.5}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_projects.py:172: Failed
+________ test_invalid_second_command_rolls_back_whole_batch[invalid17] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro17')
+invalid = {'type': 'set_seed'}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+        with pytest.raises(ValueError):
+>           projects.apply(1, [{"type": "set_seed", "seed": 999}, invalid])
+
+tests/test_projects.py:173: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+studio_core/projects.py:78: in apply
+    self._command(document, command)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <studio_core.projects.ProjectStore object at 0x7f869fd4b410>
+document = {'format': 1, 'id': 'b4687c87536a479385988b77ea2150fd', 'revision': 1, 'source': None, ...}
+command = {'type': 'set_seed'}
+
+    def _command(self, document, command):
+        if command['type'] == 'add_node':
+            ref = command['tool']
+            self.catalog.resolve(ref)
+            params = self.catalog.validate_params(ref, command.get('params', {}))
+            document['stack'].insert(command.get('index', len(document['stack'])), {
+                'uid': command.get('uid', uuid.uuid4().hex), 'tool': ref,
+                'params': params, 'enabled': True, 'opacity': 1.0, 'blend': 'normal'})
+        elif command['type'] in {'remove_node', 'move_node', 'set_params', 'set_node'}:
+            stack = document['stack']
+            node = next((n for n in stack if n['uid'] == command['uid']), None)
+            if node is None:
+                raise ValueError('unknown node uid')
+            if command['type'] == 'remove_node':
+                stack.remove(node)
+            elif command['type'] == 'move_node':
+                stack.remove(node)
+                stack.insert(command['index'], node)
+            elif command['type'] == 'set_params':
+                node['params'] = self.catalog.validate_params(
+                    node['tool'], {**node['params'], **command['params']})
+            else:
+                for key in ('enabled', 'opacity', 'blend'):
+                    if key in command:
+                        node[key] = command[key]
+        elif command['type'] == 'set_source':
+            document['source'] = deepcopy(command['source'])
+        elif command['type'] == 'set_seed':
+>           document['seed'] = command['seed']
+                               ^^^^^^^^^^^^^^^
+E           KeyError: 'seed'
+
+studio_core/projects.py:120: KeyError
+________ test_invalid_second_command_rolls_back_whole_batch[invalid19] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro19')
+invalid = {}
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+        with pytest.raises(ValueError):
+>           projects.apply(1, [{"type": "set_seed", "seed": 999}, invalid])
+
+tests/test_projects.py:173: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+studio_core/projects.py:78: in apply
+    self._command(document, command)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <studio_core.projects.ProjectStore object at 0x7f869fbc0d70>
+document = {'format': 1, 'id': '25f4f51c3e5a4524a91994fca1a2c22d', 'revision': 1, 'source': None, ...}
+command = {}
+
+    def _command(self, document, command):
+>       if command['type'] == 'add_node':
+           ^^^^^^^^^^^^^^^
+E       KeyError: 'type'
+
+studio_core/projects.py:93: KeyError
+___________ test_invalid_second_command_rolls_back_whole_batch[None] ___________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_invalid_second_command_ro20')
+invalid = None
+
+    @pytest.mark.parametrize("invalid", [
+        {"type": "add_node", "tool": "draft/not-approved@1"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "index": -1},
+        {"type": "add_node", "tool": "builtin/pixelate@1", "params": {"size": True}},
+        {"type": "set_params", "uid": "a", "params": {"size": 99}},
+        {"type": "set_params", "uid": "a", "params": {"nonsense": 1}},
+        {"type": "set_node", "uid": "a", "opacity": float("nan")},
+        {"type": "set_node", "uid": "a", "opacity": 1.1},
+        {"type": "set_node", "uid": "a", "enabled": 1},
+        {"type": "set_node", "uid": "a", "blend": "invalid"},
+        {"type": "set_node", "uid": "a", "tool": "other"},
+        {"type": "move_node", "uid": "a", "index": 5},
+        {"type": "remove_node", "uid": "missing"},
+        {"type": "set_source", "source": {"asset": "../escape.png", "w": 1, "h": 1}},
+        {"type": "set_source", "source": {"asset": "assets/" + "a"*64 + ".png", "w": 0, "h": 1}},
+        {"type": "set_seed", "seed": True},
+        {"type": "set_seed", "seed": 1.5},
+        {"type": "set_seed"},
+        {"type": "unknown"},
+        {},
+        None,
+    ])
+    def test_invalid_second_command_rolls_back_whole_batch(tmp_path, invalid):
+        projects = store(tmp_path)
+        projects.new()
+        before = projects.apply(0, [{"type": "add_node", "tool": "builtin/pixelate@1", "uid": "a"}])["document"]
+        logs = (tmp_path / "commands.jsonl").read_bytes()
+        with pytest.raises(ValueError):
+>           projects.apply(1, [{"type": "set_seed", "seed": 999}, invalid])
+
+tests/test_projects.py:173: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+studio_core/projects.py:78: in apply
+    self._command(document, command)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <studio_core.projects.ProjectStore object at 0x7f869fbc0890>
+document = {'format': 1, 'id': '45e3682e5d0d44bfb631880f5889cceb', 'revision': 1, 'source': None, ...}
+command = None
+
+    def _command(self, document, command):
+>       if command['type'] == 'add_node':
+           ^^^^^^^^^^^^^^^
+E       TypeError: 'NoneType' object is not subscriptable
+
+studio_core/projects.py:93: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid1]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid2]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid7]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid8]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid9]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid10]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid11]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid13]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid14]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid15]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid16]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid17]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[invalid19]
+FAILED tests/test_projects.py::test_invalid_second_command_rolls_back_whole_batch[None]
+14 failed, 11 passed in 12.04s
+.........................                                                [100%]
+25 passed in 7.03s
+.........................F                                               [100%]
+=================================== FAILURES ===================================
+____ test_undo_redo_reopen_restore_whole_batches_with_increasing_revisions _____
+tests/test_projects.py:186: in test_undo_redo_reopen_restore_whole_batches_with_increasing_revisions
+    undone = store(tmp_path).undo(1, source="agent")
+             ^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ProjectStore' object has no attribute 'undo'
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_undo_redo_reopen_restore_whole_batches_with_increasing_revisions
+1 failed, 25 passed in 8.14s
+..........................                                               [100%]
+26 passed in 8.40s
+..........................F                                              [100%]
+=================================== FAILURES ===================================
+___ test_only_contiguous_same_source_gestures_merge_and_new_edit_clears_redo ___
+tests/test_projects.py:217: in test_only_contiguous_same_source_gestures_merge_and_new_edit_clears_redo
+    assert projects.undo(2)["document"]["seed"] == 0
+E   assert 1 == 0
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_only_contiguous_same_source_gestures_merge_and_new_edit_clears_redo
+1 failed, 26 passed in 7.98s
+...........................                                              [100%]
+27 passed in 10.19s
+...........................F                                             [100%]
+=================================== FAILURES ===================================
+_____ test_recipe_expands_frozen_nodes_with_fresh_uids_as_one_history_step _____
+tests/test_projects.py:244: in test_recipe_expands_frozen_nodes_with_fresh_uids_as_one_history_step
+    first = projects.apply(0, [command])["document"]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+studio_core/projects.py:80: in apply
+    self._command(document, command)
+studio_core/projects.py:177: in _command
+    raise ValueError('unknown command type')
+E   ValueError: unknown command type
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_recipe_expands_frozen_nodes_with_fresh_uids_as_one_history_step
+1 failed, 27 passed in 13.80s
+............................                                             [100%]
+28 passed in 14.18s
+............................FFFF                                         [100%]
+=================================== FAILURES ===================================
+___ test_unknown_storage_formats_are_rejected_without_deleting_data[project] ___
+tests/test_projects.py:277: in test_unknown_storage_formats_are_rejected_without_deleting_data
+    with pytest.raises(ValueError, match="format"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+___ test_unknown_storage_formats_are_rejected_without_deleting_data[pointer] ___
+tests/test_projects.py:277: in test_unknown_storage_formats_are_rejected_without_deleting_data
+    with pytest.raises(ValueError, match="format"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+___ test_unknown_storage_formats_are_rejected_without_deleting_data[journal] ___
+tests/test_projects.py:277: in test_unknown_storage_formats_are_rejected_without_deleting_data
+    with pytest.raises(ValueError, match="format"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+___________________ test_pointer_cannot_escape_project_root ____________________
+tests/test_projects.py:288: in test_pointer_cannot_escape_project_root
+    projects.get()
+studio_core/projects.py:238: in get
+    return self._load()
+           ^^^^^^^^^^^^
+studio_core/projects.py:245: in _load
+    return json.loads((self._directory(project_id) / 'project.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py:787: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py:771: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/home/destino/.hermes/cache/scratch/p1-project-tests/test_pointer_cannot_escape_pro0/projects/../outside/project.json'
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_unknown_storage_formats_are_rejected_without_deleting_data[project]
+FAILED tests/test_projects.py::test_unknown_storage_formats_are_rejected_without_deleting_data[pointer]
+FAILED tests/test_projects.py::test_unknown_storage_formats_are_rejected_without_deleting_data[journal]
+FAILED tests/test_projects.py::test_pointer_cannot_escape_project_root - File...
+4 failed, 28 passed in 15.58s
+................................                                         [100%]
+32 passed in 17.71s
+................................FF                                       [100%]
+=================================== FAILURES ===================================
+__ test_global_journal_recovers_process_death_before_project_materialization ___
+tests/test_projects.py:312: in test_global_journal_recovers_process_death_before_project_materialization
+    assert recovered["revision"] == 1
+E   assert 0 == 1
+__ test_uncommitted_partial_journal_tail_is_discarded_before_next_transaction __
+tests/test_projects.py:329: in test_uncommitted_partial_journal_tail_is_discarded_before_next_transaction
+    assert store(tmp_path).get()["seed"] == 1
+           ^^^^^^^^^^^^^^^^^^^^^
+studio_core/projects.py:247: in get
+    return self._load()
+           ^^^^^^^^^^^^
+studio_core/projects.py:255: in _load
+    self._records()
+studio_core/projects.py:109: in _records
+    return [self._format(json.loads(line), 'command journal')
+                         ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py:361: in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+E   json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 21 (char 20)
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+FAILED tests/test_projects.py::test_uncommitted_partial_journal_tail_is_discarded_before_next_transaction
+2 failed, 32 passed in 16.98s
+..................................                                       [100%]
+34 passed in 17.23s
+..................................FFFFFFFFF                              [100%]
+=================================== FAILURES ===================================
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs0] _______
+tests/test_projects.py:345: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    projects.apply(**arguments)
+studio_core/projects.py:89: in apply
+    raise Conflict(before)
+E   studio_core.projects.Conflict: project revision conflict
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs1] _______
+tests/test_projects.py:345: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    projects.apply(**arguments)
+studio_core/projects.py:89: in apply
+    raise Conflict(before)
+E   studio_core.projects.Conflict: project revision conflict
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs2] _______
+tests/test_projects.py:344: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs3] _______
+tests/test_projects.py:344: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs4] _______
+tests/test_projects.py:344: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs5] _______
+tests/test_projects.py:344: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs6] _______
+tests/test_projects.py:344: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs7] _______
+tests/test_projects.py:345: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    projects.apply(**arguments)
+studio_core/projects.py:91: in apply
+    for command in commands:
+                   ^^^^^^^^
+E   TypeError: 'NoneType' object is not iterable
+______ test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs8] _______
+tests/test_projects.py:344: in test_invalid_batch_metadata_is_rejected_without_a_commit
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs0]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs1]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs2]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs3]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs4]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs5]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs6]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs7]
+FAILED tests/test_projects.py::test_invalid_batch_metadata_is_rejected_without_a_commit[kwargs8]
+9 failed, 34 passed in 18.23s
+...........................................                              [100%]
+43 passed in 18.00s
+............................................                             [100%]
+44 passed in 17.63s
+............................................FFFFFFFFF                    [100%]
+=================================== FAILURES ===================================
+________ test_symlinked_storage_cannot_read_or_write_outside_root[root] ________
+tests/test_projects.py:379: in test_symlinked_storage_cannot_read_or_write_outside_root
+    with pytest.raises(ValueError, match="symlink"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+________ test_symlinked_storage_cannot_read_or_write_outside_root[lock] ________
+tests/test_projects.py:399: in test_symlinked_storage_cannot_read_or_write_outside_root
+    with pytest.raises(ValueError, match="symlink"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_symlinked_storage_cannot_read_or_write_outside_root[projects] ______
+tests/test_projects.py:399: in test_symlinked_storage_cannot_read_or_write_outside_root
+    with pytest.raises(ValueError, match="symlink"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_symlinked_storage_cannot_read_or_write_outside_root[pointer] _______
+tests/test_projects.py:399: in test_symlinked_storage_cannot_read_or_write_outside_root
+    with pytest.raises(ValueError, match="symlink"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+_____ test_symlinked_storage_cannot_read_or_write_outside_root[global_log] _____
+tests/test_projects.py:399: in test_symlinked_storage_cannot_read_or_write_outside_root
+    with pytest.raises(ValueError, match="symlink"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+______ test_symlinked_storage_cannot_read_or_write_outside_root[project] _______
+tests/test_projects.py:399: in test_symlinked_storage_cannot_read_or_write_outside_root
+    with pytest.raises(ValueError, match="symlink"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+____ test_symlinked_storage_cannot_read_or_write_outside_root[project_log] _____
+tests/test_projects.py:399: in test_symlinked_storage_cannot_read_or_write_outside_root
+    with pytest.raises(ValueError, match="symlink"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+_ test_node_validation_handles_catalog_incompatible_uids_and_huge_numbers[command0] _
+tests/test_projects.py:413: in test_node_validation_handles_catalog_incompatible_uids_and_huge_numbers
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+_ test_node_validation_handles_catalog_incompatible_uids_and_huge_numbers[command1] _
+tests/test_projects.py:414: in test_node_validation_handles_catalog_incompatible_uids_and_huge_numbers
+    projects.apply(1, [command])
+studio_core/projects.py:104: in apply
+    self._command(document, command)
+studio_core/projects.py:272: in _command
+    self._node_fields(command)
+studio_core/projects.py:225: in _node_fields
+    if type(opacity) not in (int, float) or not math.isfinite(opacity) or not 0 <= opacity <= 1:
+                                                ^^^^^^^^^^^^^^^^^^^^^^
+E   OverflowError: int too large to convert to float
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_symlinked_storage_cannot_read_or_write_outside_root[root]
+FAILED tests/test_projects.py::test_symlinked_storage_cannot_read_or_write_outside_root[lock]
+FAILED tests/test_projects.py::test_symlinked_storage_cannot_read_or_write_outside_root[projects]
+FAILED tests/test_projects.py::test_symlinked_storage_cannot_read_or_write_outside_root[pointer]
+FAILED tests/test_projects.py::test_symlinked_storage_cannot_read_or_write_outside_root[global_log]
+FAILED tests/test_projects.py::test_symlinked_storage_cannot_read_or_write_outside_root[project]
+FAILED tests/test_projects.py::test_symlinked_storage_cannot_read_or_write_outside_root[project_log]
+FAILED tests/test_projects.py::test_node_validation_handles_catalog_incompatible_uids_and_huge_numbers[command0]
+FAILED tests/test_projects.py::test_node_validation_handles_catalog_incompatible_uids_and_huge_numbers[command1]
+9 failed, 44 passed in 20.57s
+.....................................................                    [100%]
+53 passed in 19.66s
+........................................................................ [ 35%]
+........................................................................ [ 70%]
+...........................................................              [100%]
+203 passed in 24.49s
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_commit_fsyncs_global_journal_directory_entry _______________
+tests/test_projects.py:429: in test_commit_fsyncs_global_journal_directory_entry
+    assert tmp_path.stat().st_ino in synced
+E   AssertionError: assert 1074554 in [1074561, 1074563, 1074565, 1074558]
+E    +  where 1074554 = os.stat_result(st_mode=16832, st_ino=1074554, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=112, st_atime=1794415229, st_mtime=1794415229, st_ctime=1794415229).st_ino
+E    +    where os.stat_result(st_mode=16832, st_ino=1074554, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=112, st_atime=1794415229, st_mtime=1794415229, st_ctime=1794415229) = stat()
+E    +      where stat = PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_commit_fsyncs_global_jour0').stat
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_commit_fsyncs_global_journal_directory_entry
+1 failed in 0.83s
+......................................................                   [100%]
+54 passed in 28.21s
+......................................................FF.                [100%]
+=================================== FAILURES ===================================
+_____ test_new_project_fsyncs_project_directory_before_publishing_pointer ______
+tests/test_projects.py:441: in test_new_project_fsyncs_project_directory_before_publishing_pointer
+    assert (tmp_path / "projects").stat().st_ino in synced
+E   AssertionError: assert 1079973 in [1079975, 1079974, 1079976, 1079970]
+E    +  where 1079973 = os.stat_result(st_mode=16877, st_ino=1079973, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=64, st_atime=1794415387, st_mtime=1794415387, st_ctime=1794415387).st_ino
+E    +    where os.stat_result(st_mode=16877, st_ino=1079973, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=64, st_atime=1794415387, st_mtime=1794415387, st_ctime=1794415387) = stat()
+E    +      where stat = (PosixPath('/home/destino/.hermes/cache/scratch/p1-project-tests/test_new_project_fsyncs_projec0') / 'projects').stat
+______ test_malformed_format_one_pointer_raises_readable_validation_error ______
+tests/test_projects.py:450: in test_malformed_format_one_pointer_raises_readable_validation_error
+    projects.get()
+studio_core/projects.py:323: in get
+    return self._load()
+           ^^^^^^^^^^^^
+studio_core/projects.py:329: in _load
+    project_id = self._format(json.loads(pointer.read_text()), 'project pointer')['id']
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'id'
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_new_project_fsyncs_project_directory_before_publishing_pointer
+FAILED tests/test_projects.py::test_malformed_format_one_pointer_raises_readable_validation_error
+2 failed, 55 passed in 25.74s
+.........................................................                [100%]
+57 passed in 45.49s
+.F...................................................................... [ 33%]
+........................................................................ [ 67%]
+....................................................................     [100%]
+=================================== FAILURES ===================================
+________________ test_http_draft_check_png_approval_and_delete _________________
+tests/test_api.py:113: in test_http_draft_check_png_approval_and_delete
+    asyncio.run(run())
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests/test_api.py:102: in run
+    assert stored['check']['result']['ok'] is True
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: 'NoneType' object is not subscriptable
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_http_draft_check_png_approval_and_delete - Typ...
+1 failed, 211 passed in 36.64s

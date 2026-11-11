@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "id": "builtin/halftone",
+  "version": 1,
+  "name": "Halftone",
+  "description": "Rotatable circular black ink dots with area driven by source brightness.",
+  "kind": "shader",
+  "params": [
+    {
+      "name": "size",
+      "type": "float",
+      "default": 6,
+      "label": "Size",
+      "min": 2,
+      "max": 64
+    },
+    {
+      "name": "angle",
+      "type": "float",
+      "default": 15,
+      "label": "Angle",
+      "min": -180,
+      "max": 180
+    }
+  ],
+  "shader": "shader.frag",
+  "provenance": {
+    "author": "builtin",
+    "created": "2026-11-11",
+    "from_prompt": "Original Hermes Design Studio implementation"
+  },
+  "license": "MIT",
+  "examples": [
+    {
+      "params": {
+        "size": 6,
+        "angle": 15
+      }
+    }
+  ]
+}

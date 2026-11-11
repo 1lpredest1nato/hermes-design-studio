@@ -1,0 +1,263 @@
+{
+  "checks": [
+    {
+      "name": "typed source retains top-down orientation and straight alpha",
+      "pass": true,
+      "detail": [
+        255,
+        0,
+        0,
+        128,
+        0,
+        255,
+        0,
+        255,
+        0,
+        0,
+        255,
+        0,
+        128,
+        64,
+        32,
+        200
+      ]
+    },
+    {
+      "name": "render metrics compare sampled source",
+      "pass": true,
+      "detail": {
+        "width": 2,
+        "height": 2,
+        "mean_luma": 0.32381960784313724,
+        "std_luma": 0.2396223269747105,
+        "shadow_clipping_pct": 0,
+        "highlight_clipping_pct": 0,
+        "detail_density": 0.3215,
+        "dominant_colors": [
+          {
+            "hex": "#ff0000",
+            "fraction": 0.25
+          },
+          {
+            "hex": "#00ff00",
+            "fraction": 0.25
+          },
+          {
+            "hex": "#0000ff",
+            "fraction": 0.25
+          },
+          {
+            "hex": "#884422",
+            "fraction": 0.25
+          }
+        ],
+        "nearly_uniform": false,
+        "difference_source": 0,
+        "difference_previous": null,
+        "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+      }
+    },
+    {
+      "name": "render metrics accept previous frame",
+      "pass": true,
+      "detail": {
+        "width": 2,
+        "height": 2,
+        "mean_luma": 0.32381960784313724,
+        "std_luma": 0.2396223269747105,
+        "shadow_clipping_pct": 0,
+        "highlight_clipping_pct": 0,
+        "detail_density": 0.3215,
+        "dominant_colors": [
+          {
+            "hex": "#ff0000",
+            "fraction": 0.25
+          },
+          {
+            "hex": "#00ff00",
+            "fraction": 0.25
+          },
+          {
+            "hex": "#0000ff",
+            "fraction": 0.25
+          },
+          {
+            "hex": "#884422",
+            "fraction": 0.25
+          }
+        ],
+        "nearly_uniform": false,
+        "difference_source": 0,
+        "difference_previous": 0,
+        "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+      }
+    },
+    {
+      "name": "PNG top-down orientation and alpha",
+      "pass": true,
+      "detail": [
+        255,
+        0,
+        0,
+        128,
+        0,
+        255,
+        0,
+        255,
+        0,
+        0,
+        0,
+        0,
+        128,
+        64,
+        32,
+        200
+      ]
+    },
+    {
+      "name": "CanvasImageSource orientation and straight alpha",
+      "pass": true,
+      "detail": [
+        255,
+        0,
+        0,
+        128,
+        0,
+        255,
+        0,
+        255,
+        0,
+        0,
+        0,
+        0,
+        128,
+        64,
+        32,
+        200
+      ]
+    },
+    {
+      "name": "five uniform types with linear color conversion",
+      "pass": true,
+      "detail": [
+        128,
+        128,
+        55,
+        255
+      ]
+    },
+    {
+      "name": "straight-alpha normal blend opacity",
+      "pass": true,
+      "detail": {
+        "actual": [
+          80,
+          128,
+          158,
+          160
+        ],
+        "expected": [
+          80,
+          128,
+          158,
+          160
+        ]
+      }
+    },
+    {
+      "name": "straight-alpha multiply blend opacity",
+      "pass": true,
+      "detail": {
+        "actual": [
+          56,
+          112,
+          154,
+          160
+        ],
+        "expected": [
+          56,
+          112,
+          154,
+          160
+        ]
+      }
+    },
+    {
+      "name": "straight-alpha screen blend opacity",
+      "pass": true,
+      "detail": {
+        "actual": [
+          88,
+          144,
+          195,
+          160
+        ],
+        "expected": [
+          88,
+          144,
+          195,
+          160
+        ]
+      }
+    },
+    {
+      "name": "straight-alpha overlay blend opacity",
+      "pass": true,
+      "detail": {
+        "actual": [
+          64,
+          128,
+          183,
+          160
+        ],
+        "expected": [
+          64,
+          128,
+          183,
+          160
+        ]
+      }
+    },
+    {
+      "name": "pingpong ordered stack skips disabled",
+      "pass": true,
+      "detail": [
+        116,
+        128,
+        192,
+        128
+      ]
+    },
+    {
+      "name": "cache invalidates on shader contents",
+      "pass": true,
+      "detail": [
+        0,
+        255,
+        0,
+        255
+      ]
+    },
+    {
+      "name": "checkTool readable GLSL error",
+      "pass": true,
+      "detail": "Error: GLSL compile: ERROR: 0:1: 'BROKEN' : undeclared identifier\n"
+    },
+    {
+      "name": "nonstatic time rejected",
+      "pass": true
+    },
+    {
+      "name": "oversize export rejected",
+      "pass": true
+    },
+    {
+      "name": "preview aspect and max_size",
+      "pass": true
+    },
+    {
+      "name": "disposed render rejected",
+      "pass": true
+    }
+  ]
+}

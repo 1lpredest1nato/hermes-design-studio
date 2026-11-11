@@ -1,0 +1,40 @@
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (5.96319ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (2.943197ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (4.363152ms)
+✔ detached service answers request while page is inactive and deduplicates id (11.165641ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (1.087845ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (10.240177ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (39.953917ms)
+✔ measures independent source and previous RGB differences; missing is null not fake zero (2.426723ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (15.877563ms)
+✔ project render is serialized and explicit preview limit reaches core (4.800272ms)
+✔ background request loads catalogue and reports actual project not fixture (2.660353ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (1.858535ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (1.543087ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (1.455458ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (0.977905ms)
+✔ diagnostics persist the supplied actual runner output with build provenance (0.636943ms)
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (343.478736ms)
+✔ before comparison renders are excluded from project history metrics (67.381584ms)
+✔ numeric conversion never silently rounds invalid integer input (0.902135ms)
+✔ same-revision polling cannot cancel an in-flight client export (77.272915ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (56.066519ms)
+✔ a new revision invalidates exports and clears an obsolete export task (65.904325ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.394012ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (807.051746ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (211.857118ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (842.390748ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (123.72539ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.450886ms)
+✔ oversized and cancelled imports never upload or change source (1.475246ms)
+✔ manifest controls preserve all five parameter types and enum values (0.856964ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.154658ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.878011ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3557.914802

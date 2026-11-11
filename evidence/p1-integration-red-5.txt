@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_preview_adapter_uses_authoritative_project_provider ___________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-55/test_preview_adapter_uses_auth0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fbdf32e4d60>
+
+    def test_preview_adapter_uses_authoritative_project_provider(tmp_path, monkeypatch):
+        import importlib.util
+        import plugins.plugin_storage
+        monkeypatch.setattr(plugins.plugin_storage, 'plugin_data_dir', lambda id: tmp_path)
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location('p1_preview_adapter', root / '__init__.py')
+        adapter = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(adapter)
+        store = adapter.get_store()
+>       assert store.document_provider is not None, 'Agent preview still reads the P0 fixture document'
+E       AssertionError: Agent preview still reads the P0 fixture document
+E       assert None is not None
+E        +  where None = <_design_studio_tool_bridge.Store object at 0x7fbdf32d92b0>.document_provider
+
+tests/test_integration.py:77: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_integration.py::test_preview_adapter_uses_authoritative_project_provider
+1 failed, 217 deselected in 0.56s

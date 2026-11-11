@@ -1,0 +1,110 @@
+..FF.................................................................... [ 33%]
+........................................................................ [ 67%]
+......................................................................   [100%]
+=================================== FAILURES ===================================
+__________ test_http_compile_error_is_durable_and_first_response_wins __________
+
+client = <httpx.AsyncClient object at 0x7ffb9dc46e90>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-45/test_http_compile_error_is_dur0')
+
+    def test_http_compile_error_is_durable_and_first_response_wins(client, tmp_path):
+        async def run():
+            async with client as c:
+                draft = (await c.post('/drafts', json={'name': 'Broken', 'description': '',
+                                                      'params': [], 'shader': SHADER})).json()
+                ident = draft['manifest']['id']
+                req = (await c.post('/drafts/check', json={'id': ident})).json()
+                rid = req['request_id']
+                error = await c.post('/render/error', params={'id': rid}, json={
+                    'error': 'ERROR: 0:3: bad symbol', 'shader_sha': 'f'*64, 'draft_id': 'user/forged'})
+                assert error.status_code == 200, error.text
+                assert error.json()['error'] == 'ERROR: 0:3: bad symbol'
+                assert (await c.get('/render/result', params={'id': rid})).json() == error.json()
+                stored = (await c.get('/catalog')).json()['drafts'][0]
+                assert stored['check']['result']['ok'] is False
+                assert stored['check']['shader_sha'] == req['shader_sha']
+                assert (await c.post('/drafts/approve', json={'id': ident})).status_code == 400
+                later = await c.post('/render/response', params={'id': rid}, files={'file': ('r.png', PNG)})
+                assert later.status_code == 200 and later.json() == error.json()
+                assert application(tmp_path).catalog.list()['drafts'][0]['check']['result']['ok'] is False
+                good_req = (await c.post('/drafts/check', json={'id': ident})).json()
+                good = await c.post('/render/response', params={'id': good_req['request_id']},
+                                    files={'file': ('r.png', PNG)})
+                duplicate = await c.post('/render/error', params={'id': good_req['request_id']},
+                                         json={'error': 'late failure'})
+                assert duplicate.json() == good.json()
+                assert (await c.get('/catalog')).json()['drafts'][0]['check']['result']['ok'] is True
+>       asyncio.run(run())
+
+tests/test_api.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            draft = (await c.post('/drafts', json={'name': 'Broken', 'description': '',
+                                                  'params': [], 'shader': SHADER})).json()
+            ident = draft['manifest']['id']
+            req = (await c.post('/drafts/check', json={'id': ident})).json()
+            rid = req['request_id']
+            error = await c.post('/render/error', params={'id': rid}, json={
+                'error': 'ERROR: 0:3: bad symbol', 'shader_sha': 'f'*64, 'draft_id': 'user/forged'})
+>           assert error.status_code == 200, error.text
+E           AssertionError: {"detail":"Not Found"}
+E           assert 404 == 200
+E            +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_api.py:126: AssertionError
+____________ test_raw_render_request_cannot_forge_compile_approval _____________
+
+client = <httpx.AsyncClient object at 0x7ffb9d8a3ce0>
+
+    def test_raw_render_request_cannot_forge_compile_approval(client):
+        async def run():
+            async with client as c:
+                draft = (await c.post('/drafts', json={'name': 'Target', 'description': '',
+                                                      'params': [], 'shader': SHADER})).json()
+                forged = await c.post('/render/request', json={'kind': 'check', 'draft_id': 'user/target',
+                    'entry': draft, 'shader_sha': hashlib.sha256(SHADER.encode()).hexdigest()})
+                assert forged.status_code == 400, 'Raw client payload can impersonate a trusted check request'
+                assert (await c.post('/drafts/approve', json={'id': 'user/target'})).status_code == 400
+>       asyncio.run(run())
+
+tests/test_api.py:155: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            draft = (await c.post('/drafts', json={'name': 'Target', 'description': '',
+                                                  'params': [], 'shader': SHADER})).json()
+            forged = await c.post('/render/request', json={'kind': 'check', 'draft_id': 'user/target',
+                'entry': draft, 'shader_sha': hashlib.sha256(SHADER.encode()).hexdigest()})
+>           assert forged.status_code == 400, 'Raw client payload can impersonate a trusted check request'
+E           AssertionError: Raw client payload can impersonate a trusted check request
+E           assert 200 == 400
+E            +  where 200 = <Response [200 OK]>.status_code
+
+tests/test_api.py:153: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_http_compile_error_is_durable_and_first_response_wins
+FAILED tests/test_api.py::test_raw_render_request_cannot_forge_compile_approval
+2 failed, 212 passed in 32.30s

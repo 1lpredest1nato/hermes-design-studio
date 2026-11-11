@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "suggestions": [],
+  "summary": "Independent scoped re-review finds all three previously reproduced defects fixed. Queue jobs retain enqueue-time project identity, reject project switches after throttle waits, and do not replay stale intent. Check requests and human approvals require both editor snapshot fingerprints at the API; catalog comparisons and approval run under the catalog lock. Both preview renders use the durable checked entry, and the editor rejects mismatched snapshot or receipt identity. Independently executed regressions confirm a checked replacement B cannot be approved with A's fingerprints, including shader-only and manifest-only replacements, and missing fingerprints return HTTP 400. Deferred bitmap decode after disposal closes exactly once with AbortError, no renderer call, and no POST. Independently ran 40 service/UI/approval JavaScript tests and 156 Python API/catalog-selected tests: all passed (97 Python tests deselected; three pre-existing-style multiprocessing fork deprecation warnings). No GPU/browser integration or full build claim. Only this evidence file was created; no production source, configuration, installation, restart, commit, or publication changes.",
+  "hashes": {
+    "hermes/controls.jsx": "53a401355b78d052fc4cc7de220ce75af93dae716b533128dd8831137b23a03d",
+    "hermes/service.mjs": "6ce20c7507904cc3b68232e22378b23ec76fabb07de9424f639b6d1b14383b34",
+    "hermes/studio-page.jsx": "67b87ac2127ebc486de8e7c5cc1dc8c391dc7dfdd9e0ff440f4a0377f5f75b85",
+    "studio_core/application.py": "8683af3b39bf4510e555ef6d606d60bf1614ee8b71c93c5bd49f451e9f65d9d2",
+    "studio_core/catalog.py": "b25394064788190326fe7dca8c58aa6c88c9198e1c9e51ae221a078b4f1a9499",
+    "dashboard/plugin_api.py": "3ab7b60f50d14e80ea3cc71752440fa74bb3a04ceeaa6dc450934853a55eb13b"
+  }
+}

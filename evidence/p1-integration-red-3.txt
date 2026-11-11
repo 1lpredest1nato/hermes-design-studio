@@ -1,0 +1,24 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_asset_reader_is_bounded_and_checks_names _________________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-32/test_asset_reader_is_bounded_a0')
+
+    def test_asset_reader_is_bounded_and_checks_names(tmp_path):
+        import base64
+        import hashlib
+        import pytest
+        from studio_core.bridge import Store
+        store = Store(tmp_path)
+        payload = b'\x89PNG\r\n\x1a\nfixture-bytes'
+        sha = hashlib.sha256(payload).hexdigest()
+        store.upload_chunk('a1', 0, 1, sha, payload)
+>       assert hasattr(store, 'read_asset'), 'SDK asset read bridge missing'
+E       AssertionError: SDK asset read bridge missing
+E       assert False
+E        +  where False = hasattr(<studio_core.bridge.Store object at 0x7f1300fa8050>, 'read_asset')
+
+tests/test_integration.py:43: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_integration.py::test_asset_reader_is_bounded_and_checks_names
+1 failed, 118 deselected in 0.22s

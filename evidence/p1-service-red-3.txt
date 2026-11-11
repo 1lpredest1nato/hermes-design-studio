@@ -1,0 +1,41 @@
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (13.372386ms)
+✔ project render is serialized and explicit preview limit reaches core (1.97041ms)
+✖ background request loads catalogue and reports actual project not fixture (2.885366ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.212882
+
+✖ failing tests:
+
+test at tests/p1-service.test.mjs:37:1
+✖ background request loads catalogue and reports actual project not fixture (2.885366ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + undefined
+  - [
+  -   {
+  -     manifest: {
+  -       id: 'builtin/levels',
+  -       version: 1
+  -     },
+  -     ref: 'builtin/levels@1',
+  -     shader: 'void main(){}'
+  -   }
+  - ]
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:45:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: [ { ref: 'builtin/levels@1', manifest: [Object], shader: 'void main(){}' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

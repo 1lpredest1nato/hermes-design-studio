@@ -1,0 +1,169 @@
+ ],
+      "nearly_uniform": false,
+      "difference_source": 0.5019607843137255,
+      "difference_previous": null,
+      "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+    }
+  },
+  "fixture_draft_preview": {
+    "width": 640,
+    "height": 400
+  },
+  "compilationError": "Error: Error: GLSL compile: ERROR: 0:1: 'BROKEN_TOKEN' : undeclared identifier\nERROR: 0:1: '=' : dimension mismatch\nERROR: 0:1: 'assign' : cannot convert from 'const highp float' to 'out highp 4-component vector of float'\n",
+  "diagnostics": {
+    "pass": true,
+    "checks": [
+      {
+        "tool": "builtin/pixelate@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/dither@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/halftone@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/gradient_map@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/grain@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/chromatic_aberration@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/levels@1",
+        "pass": true
+      }
+    ]
+  },
+  "requests": [
+    {
+      "path": "/project/new",
+      "status": 200
+    },
+    {
+      "path": "/assets/upload?id=941a0746335f4a3c9a81a0aa929e575e&index=0&total=1&sha256=ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000",
+      "status": 200
+    },
+    {
+      "path": "/commands",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/assets/read?sha=ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000&offset=0&length=1048576",
+      "status": 200
+    },
+    {
+      "path": "/commands",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/render/request",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=d75e23fe98354ac296c3ad4c8f6a00a4&meta=%7B%22run_id%22%3A%22a7c61858-c2b2-42cc-8c4e-afce6b03bc78%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T16%3A54%3A41.288Z%22%2C%22request_id%22%3A%22d75e23fe98354ac296c3ad4c8f6a00a4%22%2C%22kind%22%3A%22export%22%2C%22revision%22%3A2%2C%22project_id%22%3A%22b3fd7e40cd974198a2c84d4db7376c79%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.6631604248366036%2C%22std_luma%22%3A0.19633250118047174%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.03676840276694254%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%2377ff88%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%2377ffcc%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%237733ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%238855ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%23887755%22%2C%22fraction%22%3A0.041666666666666664%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.33037513616557734%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=d75e23fe98354ac296c3ad4c8f6a00a4",
+      "status": 200
+    },
+    {
+      "path": "/drafts",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=0c9737fbf3ce44b598ad3986b8a0d980&meta=%7B%22run_id%22%3A%22a7c61858-c2b2-42cc-8c4e-afce6b03bc78%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T16%3A54%3A41.650Z%22%2C%22request_id%22%3A%220c9737fbf3ce44b598ad3986b8a0d980%22%2C%22kind%22%3A%22check%22%2C%22revision%22%3A2%2C%22project_id%22%3A%22b3fd7e40cd974198a2c84d4db7376c79%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.5000000000000003%2C%22std_luma%22%3A0.22599268715989268%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0.390625%2C%22detail_density%22%3A0.15999605554688917%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%23ffffff%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ffddbb%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ffbb77%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ee8822%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ee66ee%22%2C%22fraction%22%3A0.0078125%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.5019607843137255%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%2C%22shader_sha%22%3A%22af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567%22%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=0c9737fbf3ce44b598ad3986b8a0d980",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=14d3830858424fdf819417382d7192d2&meta=%7B%22run_id%22%3A%22a7c61858-c2b2-42cc-8c4e-afce6b03bc78%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T16%3A54%3A42.112Z%22%2C%22request_id%22%3A%2214d3830858424fdf819417382d7192d2%22%2C%22kind%22%3A%22check%22%2C%22revision%22%3A2%2C%22project_id%22%3A%22b3fd7e40cd974198a2c84d4db7376c79%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A640%2C%22height%22%3A400%2C%22metrics%22%3A%7B%22width%22%3A640%2C%22height%22%3A400%2C%22mean_luma%22%3A0.5179792156862743%2C%22std_luma%22%3A0.21537692648661197%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.0010622514482542835%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%23bb22bb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%234422bb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%23bbddbb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%2344ddbb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%23ee22bb%22%2C%22fraction%22%3A0.0040625%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.49930882352941175%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%2C%22shader_sha%22%3A%22af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567%22%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=14d3830858424fdf819417382d7192d2",
+      "status": 200
+    },
+    {
+      "path": "/drafts",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/error?id=9ec709bb769d40e1837ae9794d24fd75",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=9ec709bb769d40e1837ae9794d24fd75",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200
+    }
+  ],
+  "browser_version": "155.0.8059.84",
+  "uncaught_errors": []
+}
+
+
+Actual HTTP service/GPU integration and exported PNG: PASS (secondary, not Desktop).

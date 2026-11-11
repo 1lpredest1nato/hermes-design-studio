@@ -1,0 +1,31 @@
+{
+  "passed": false,
+  "security_concerns": [],
+  "logic_errors": [
+    {
+      "severity": "high",
+      "location": "hermes/controls.jsx:39-43,57-64",
+      "issue": "Queued commands acquire project identity at dispatch, not when the user submits them. If polling or another client switches projects during the throttle wait, an edit entered against project A is silently sent with project B's identity and revision. The backend's corrected identity guard cannot reject this because the client has rewritten the identity to B.",
+      "repro": "Executed the actual createCommandChannel source with a controlled throttle promise: submitted set_seed=99 while A was current, changed getDocument() to B revision 0 before releasing the wait, and observed the outgoing body contain project_id=B and base_revision=0. No conflict occurred.",
+      "recommendation": "Capture project identity when enqueuing and reject/drop queued jobs if identity changes before dispatch. Preserve serialization of revisions for the same project without rebinding old user intent to a different project."
+    },
+    {
+      "severity": "high",
+      "location": "hermes/service.mjs:117-122; hermes/studio-page.jsx:94-106; dashboard/plugin_api.py:180-184",
+      "issue": "A stale editor entry can display shader A while validating and approving shader B. checkDraft submits only the draft ID, so the backend snapshots the current draft B, renders and records its check, but the second render uses the caller's stale entry A. The result combines A's preview with B's successful receipt. Approval also submits only ID, so it can approve the unseen B rather than the source the human reviewed. Exact backend shader/schema checks correctly correlate B's receipt to B, but do not correlate it to the human editor snapshot.",
+      "repro": "Executed actual createService with mocked transport/renderer: caller supplied entry A; /drafts/check returned a durable-request-shaped entry B. Renderer inputs were [B,A], and checkDraft returned the successful check-B/hash-B receipt alongside A's frame. This is a boundary unit reproduction, not an actual GPU/client integration claim.",
+      "recommendation": "Send and enforce the editor's shader and manifest snapshot hashes when requesting checks and approving. Reject changed drafts, and generate returned previews from the validated request entry rather than independently pairing a stale caller entry with another snapshot's receipt."
+    },
+    {
+      "severity": "medium",
+      "location": "hermes/service.mjs:59-62,140",
+      "issue": "Disposal during createImageBitmap leaks the bitmap returned after disposal. alive() throws immediately after decode, before the bitmap enters the assets map, so neither this path nor dispose() closes it. Large decoded sources can retain native image memory across unloads until implementation-dependent garbage collection.",
+      "repro": "Executed actual createService with a deferred createImageBitmap result. Disposed the service while decode was pending, then resolved the bitmap: promise rejected with AbortError, renderer calls=0, bitmap.close calls=0.",
+      "recommendation": "Close newly decoded bitmaps on every failure/abort before transferring ownership into the assets cache."
+    }
+  ],
+  "suggestions": [
+    "Add regression tests for project switches during command throttling, a concurrent draft replacement between editor save and check/approval, and disposal during asynchronous bitmap decoding."
+  ],
+  "summary": "Review failed on three reproduced boundary/lifecycle defects; no security concern identified. Independently exercised Python guards: equal-revision cross-project mutation raises Conflict, and a late response for an old manifest leaves the replacement draft unchecked. Backend stale-schema correlation and absence of an agent approval tool are intact, but UI snapshot-to-approval correlation remains incomplete. No implementation files changed; only this review evidence was written."
+}

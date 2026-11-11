@@ -2,14 +2,19 @@
 import base64
 import json
 
-import importlib.util
+import importlib
+import hashlib
+import sys
+import types
 from pathlib import Path
 
-_spec = importlib.util.spec_from_file_location('_design_studio_tool_bridge', Path(__file__).resolve().parent / 'studio_core' / 'bridge.py')
-assert _spec is not None and _spec.loader is not None
-_bridge = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_bridge)
-Store = _bridge.Store
+_core_path = Path(__file__).resolve().parent / 'studio_core'
+_core_name = '_design_studio_core_' + hashlib.sha256(str(_core_path).encode()).hexdigest()[:12]
+if _core_name not in sys.modules:
+    _core_package = types.ModuleType(_core_name)
+    _core_package.__path__ = [str(_core_path)]
+    sys.modules[_core_name] = _core_package
+Application = importlib.import_module(_core_name + '.application').Application
 
 PLUGIN_ID = 'hermes-design-studio'
 TOOL_NAME = 'design_studio_preview'
@@ -25,7 +30,7 @@ SCHEMA = {
 
 def get_store():
     from plugins.plugin_storage import plugin_data_dir
-    return Store(plugin_data_dir(PLUGIN_ID))
+    return Application(plugin_data_dir(PLUGIN_ID)).bridge
 
 
 def preview(args, **kwargs):

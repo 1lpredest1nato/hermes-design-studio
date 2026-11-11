@@ -12,8 +12,9 @@ import uuid
 DEFAULT_DOCUMENT = dict(format=1, id='p0', revision=0, source=None, stack=[], seed=1234, timeline=None)
 
 class Store:
-    def __init__(self, root):
+    def __init__(self, root, document_provider=None):
         self.root = Path(root).absolute()
+        self.document_provider = document_provider
         if any(p.is_symlink() for p in (self.root, *self.root.parents)):
             raise ValueError('symlink root is forbidden')
         self.root.mkdir(parents=True, exist_ok=True)
@@ -65,7 +66,8 @@ class Store:
             return default
 
     def state(self):
-        document = self._read(self.root / 'document.json', DEFAULT_DOCUMENT.copy())
+        document = (self.document_provider() if self.document_provider is not None
+                    else self._read(self.root / 'document.json', DEFAULT_DOCUMENT.copy()))
         pending = [self._read(p) for p in sorted((self.root / 'requests').glob('*.json'))
                    if not (self.root / 'responses' / p.name).exists()]
         return dict(document=document, pending=pending, latest=self._read(self.root / 'latest.json'))
@@ -98,14 +100,34 @@ class Store:
             request = self._read(self.root / 'requests' / (request_id + '.json'))
             if request is None:
                 raise ValueError('unknown request')
+            meta = {**meta, 'project_id': request['document']['id']}
             result = self._save_png(png, meta, request['document']['revision'],
                                     'exports' if request['kind'] == 'export' else 'previews')
             result['request_id'] = request_id
             self._write(target, result)
             if request['kind'] == 'preview':
                 previous = self._read(self.root / 'latest.json')
-                if previous is None or previous['revision'] <= result['revision']:
+                current = self.state()['document']
+                if result['project_id'] == current['id'] and (previous is None or
+                        previous.get('project_id') != current['id'] or previous['revision'] <= result['revision']):
                     self._write(self.root / 'latest.json', result)
+            return result
+
+    def fail(self, request_id, error, meta=None):
+        self._id(request_id)
+        if not isinstance(error, str) or not error or len(error) > 32768:
+            raise ValueError('invalid renderer error')
+        with self._lock():
+            target = self.root / 'responses' / (request_id + '.json')
+            existing = self._read(target)
+            if existing is not None:
+                return existing
+            request = self._read(self.root / 'requests' / (request_id + '.json'))
+            if request is None:
+                raise ValueError('unknown request')
+            result = {**(meta or {}), 'error': error, 'request_id': request_id,
+                      'revision': request['document']['revision'], 'created_at': time.time()}
+            self._write(target, result)
             return result
 
     def _save_png(self, png, meta, revision, directory):
@@ -130,9 +152,12 @@ class Store:
 
     def cache_preview(self, png, revision, meta):
         with self._lock():
+            current = self.state()['document']
+            meta = {**meta, 'project_id': meta.get('project_id', current['id'])}
             result = self._save_png(png, meta, revision, 'previews')
             previous = self._read(self.root / 'latest.json')
-            if previous is None or previous['revision'] <= revision:
+            if result['project_id'] == current['id'] and (previous is None or
+                    previous.get('project_id') != current['id'] or previous['revision'] <= revision):
                 self._write(self.root / 'latest.json', result)
             return result
 
@@ -142,9 +167,13 @@ class Store:
         response = response or self._read(self.root / 'latest.json')
         if response is None:
             raise TimeoutError('No renderer response or cached preview. Open Hermes Desktop with the plugin enabled.')
+        if response.get('error'):
+            raise ValueError(response['error'])
         return {**response, 'request_id': request['request_id'],
                 'requested_revision': request['document']['revision'],
-                'stale': response['revision'] != request['document']['revision']}
+                'requested_project_id': request['document']['id'],
+                'stale': (response['revision'] != request['document']['revision'] or
+                          response.get('project_id') != request['document']['id'])}
 
     def upload_chunk(self, id, index, total, sha256, data):
         import re
@@ -191,6 +220,28 @@ class Store:
                 dimensions = {'width': w, 'height': h, 'w': w, 'h': h}
             return {'complete': True, 'path': str(target), 'asset': 'assets/' + target.name,
                     'sha256': sha256, **dimensions}
+
+    def read_asset(self, sha, offset=0, length=1048576):
+        import base64
+        import re
+        if not isinstance(sha, str) or not re.fullmatch('[a-f0-9]{64}', sha):
+            raise ValueError('invalid asset hash')
+        if type(offset) is not int or type(length) is not int or offset < 0 or not 1 <= length <= 1048576:
+            raise ValueError('invalid asset read range')
+        path = self._safe(self.root / 'assets' / (sha + '.png'))
+        with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW), 'rb') as handle:
+            total = os.fstat(handle.fileno()).st_size
+            if offset >= total:
+                raise ValueError('asset read offset outside file')
+            header = handle.read(12)
+            handle.seek(offset)
+            data = handle.read(length)
+        mime = ('image/png' if header.startswith(b'\x89PNG') else
+                'image/jpeg' if header.startswith(b'\xff\xd8\xff') else
+                'image/webp' if header[:4] == b'RIFF' and header[8:12] == b'WEBP' else
+                'application/octet-stream')
+        return {'offset': offset, 'total': total, 'bytes': len(data), 'mime': mime,
+                'base64': base64.b64encode(data).decode('ascii')}
 
     def report(self, update=None):
         with self._lock():

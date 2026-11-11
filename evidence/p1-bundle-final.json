@@ -1,0 +1,14 @@
+{
+  "sha256": "f791ca76dd95037caf0a84bc106c17b6722802c70015c61bf4f0f2d6d2b16e47",
+  "bytes": 113826,
+  "imports": [
+    "react",
+    "@hermes/plugin-sdk",
+    "react",
+    "@hermes/plugin-sdk",
+    "react/jsx-runtime",
+    "react/jsx-runtime"
+  ],
+  "only_allowed_imports": true,
+  "forbidden_literals": []
+}

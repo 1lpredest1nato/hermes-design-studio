@@ -1,0 +1,13 @@
+{
+  "files_scanned": 15,
+  "findings": [
+    {
+      "file": "hermes/assets.mjs",
+      "check": "eval_exec",
+      "line": 3,
+      "match": "exec(",
+      "disposition": "Reviewed false positive: JavaScript RegExp.exec parses a fixed asset-reference regex; it does not execute code."
+    }
+  ],
+  "scope": "production source only; no test fixtures/evidence; whole source including untracked files"
+}

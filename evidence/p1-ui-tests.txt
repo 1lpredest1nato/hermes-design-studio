@@ -1,0 +1,639 @@
+✖ manifest controls preserve all five parameter types and enum values (6.63172ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.498117
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:9:1
+✖ manifest controls preserve all five parameter types and enum values (6.63172ms)
+  AssertionError [ERR_ASSERTION]: manifest parameter conversion is missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:11:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+✔ manifest controls preserve all five parameter types and enum values (5.31382ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.634734
+✔ manifest controls preserve all five parameter types and enum values (7.459799ms)
+✖ command channel serializes backend revisions, rate limits, and merges only pending gestures (3.05562ms)
+✖ revision conflicts refresh the authoritative document and never silently retry (2.334226ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 100.159684
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:20:1
+✖ command channel serializes backend revisions, rate limits, and merges only pending gestures (3.05562ms)
+  AssertionError [ERR_ASSERTION]: command transport missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:21:34)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:34:1
+✖ revision conflicts refresh the authoritative document and never silently retry (2.334226ms)
+  AssertionError [ERR_ASSERTION]: command transport missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:35:34)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+✔ manifest controls preserve all five parameter types and enum values (10.264551ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (2.437121ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.557611ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.690781
+✖ manual studio renders useful empty states, sends backend add, and retires route keybinds (291.680015ms)
+✔ manifest controls preserve all five parameter types and enum values (3.73721ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (2.392366ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.663284ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4375.213035
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:44:1
+✖ manual studio renders useful empty states, sends backend add, and retires route keybinds (291.680015ms)
+  AssertionError [ERR_ASSERTION]: StudioPage feature missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at mountStudio (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:31:48)
+      at async TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:45:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (351.369941ms)
+✔ manifest controls preserve all five parameter types and enum values (2.304282ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.960229ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.770276ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1089.995903
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (323.283396ms)
+✖ image import shows the decoded file before PNG chunk upload and sets backend source (3.052008ms)
+✖ oversized and cancelled imports never upload or change source (2.141569ms)
+✔ manifest controls preserve all five parameter types and enum values (2.256177ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.508835ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.209663ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1048.93815
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ image import shows the decoded file before PNG chunk upload and sets backend source (3.052008ms)
+  AssertionError [ERR_ASSERTION]: manual import missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:64:34)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:77:1
+✖ oversized and cancelled imports never upload or change source (2.141569ms)
+  AssertionError [ERR_ASSERTION]: manual import missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:78:34)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (322.297155ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (2.277753ms)
+✔ oversized and cancelled imports never upload or change source (1.837304ms)
+✔ manifest controls preserve all five parameter types and enum values (1.58143ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.829761ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.110198ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1084.091588
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (351.15997ms)
+✖ file input drives real chunk transport and full-resolution export is client download only (128.293082ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (2.999263ms)
+✔ oversized and cancelled imports never upload or change source (2.58621ms)
+✔ manifest controls preserve all five parameter types and enum values (1.542844ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.391553ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.169497ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1268.032298
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ file input drives real chunk transport and full-resolution export is client download only (128.293082ms)
+  AssertionError [ERR_ASSERTION]: real uploadChunks must send two chunks
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:74:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (327.694269ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (160.780894ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.773517ms)
+✔ oversized and cancelled imports never upload or change source (1.63464ms)
+✔ manifest controls preserve all five parameter types and enum values (1.301895ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.104233ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.085209ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1230.072558
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (430.035838ms)
+✖ manual shader editor checks both fixtures after debounce and approves only on a human click (102.97347ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (185.868754ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.736826ms)
+✔ oversized and cancelled imports never upload or change source (1.88029ms)
+✔ manifest controls preserve all five parameter types and enum values (1.28554ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.30765ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.960863ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1908.951517
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ manual shader editor checks both fixtures after debounce and approves only on a human click (102.97347ms)
+  AssertionError [ERR_ASSERTION]: manual shader creation
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:71:100)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (329.454522ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (896.706545ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (145.118473ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (2.676108ms)
+✔ oversized and cancelled imports never upload or change source (3.27972ms)
+✔ manifest controls preserve all five parameter types and enum values (1.459676ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.724299ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.388758ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2126.906027
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (345.383923ms)
+✖ recipe saving sends the selected stack and explicit exposed descriptors through the API (91.829415ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (881.450504ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (125.688093ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.492418ms)
+✔ oversized and cancelled imports never upload or change source (1.882362ms)
+✔ manifest controls preserve all five parameter types and enum values (1.10963ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.319847ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.958791ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2502.871531
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ recipe saving sends the selected stack and explicit exposed descriptors through the API (91.829415ms)
+  AssertionError [ERR_ASSERTION]: user-selectable exposed parameter
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:69:102)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (354.972833ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (195.4664ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (886.644825ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (227.934254ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (2.020355ms)
+✔ oversized and cancelled imports never upload or change source (2.037027ms)
+✔ manifest controls preserve all five parameter types and enum values (1.382709ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (3.649836ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.335539ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2440.769817
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (338.397853ms)
+✖ a new revision invalidates exports and clears an obsolete export task (88.931887ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (2.374687ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (792.726737ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (159.345234ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (851.515646ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (126.001951ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.391541ms)
+✔ oversized and cancelled imports never upload or change source (1.961869ms)
+✔ manifest controls preserve all five parameter types and enum values (1.134178ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.281311ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.085153ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3100.228071
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ a new revision invalidates exports and clears an obsolete export task (88.931887ms)
+  AssertionError [ERR_ASSERTION]: obsolete preparation must not leave export permanently busy
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:71:104)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (350.681594ms)
+✔ a new revision invalidates exports and clears an obsolete export task (96.789408ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.277902ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (779.785623ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (175.451165ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (852.92461ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (134.889228ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.420307ms)
+✔ oversized and cancelled imports never upload or change source (1.871218ms)
+✔ manifest controls preserve all five parameter types and enum values (1.024945ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.202365ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.975493ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3154.378716
+✖ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (6.008138ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 743.904612
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (6.008138ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /#[0-9a-f]{3,8}\b|rgba?\(|\b(?:black|white)\b/i. Input:
+  
+  '\n' +
+    '.hds{height:100%;min-height:420px;display:flex;flex-direction:column;overflow:hidden;color:var(--ui-text-primary);font-size:12px;background:var(--ui-bg-editor);--hds-border:var(--ui-stroke-secondary)}\n' +
+    '.hds *{box-sizing:border-box}.hds h1,.hds h2,.hds h3,.hds p{margin:0}.hds h1{font-size:14px;font-weight:600;letter-spacing:-.025em}.hds h2{font-size:12px;font-weight:600}.hds h3{font-size:12px;font-weight:500}.hds button,.hds input,.hds select,.hds textarea{font:inherit}.hds button{cursor:pointer}.hds button:disabled{cursor:default;opacity:.45}.hds :focus-visible{outline:2px solid var(--ui-accent);outline-offset:2px}.hds input[type=range],.hds input[type=checkbox]{accent-color:var(--ui-accent)}\n' +
+    '.hds .ds-top{display:flex;align-items:center;gap:16px;min-height:60px;padding:12px 18px;border-bottom:1px solid var(--hds-border);flex-wrap:wrap}.hds .ds-brand{margin-right:auto;display:grid;gap:4px}.hds .ds-eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ui-text-tertiary)}.hds .ds-muted{color:var(--ui-text-tertiary);line-height:1.55}.hds .ds-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.hds .ds-space{justify-content:space-between}.hds .ds-columns{display:grid;grid-template-columns:232px minmax(240px,1fr) 320px;flex:1;min-height:0;overflow:auto}.hds .ds-panel{min-height:0;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:16px}.hds .ds-left{border-right:1px solid var(--hds-border)}.hds .ds-right{border-left:1px solid var(--hds-border)}.hds .ds-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}.hds .ds-count{font-variant-numeric:tabular-nums;color:var(--ui-text-tertiary)}\n' +
+    '.hds .ds-empty{padding:24px 10px;display:grid;gap:8px;text-align:center;line-height:1.6;color:var(--ui-text-tertiary);border:1px dashed var(--hds-border);border-radius:6px}.hds .ds-stack{display:grid;gap:6px}.hds .ds-node{padding:10px;border:1px solid var(--hds-border);border-radius:5px;display:grid;gap:8px;background:var(--ui-bg-editor)}.hds .ds-node[data-selected=true]{border-color:var(--ui-accent);background:var(--ui-bg-card)}.hds .ds-node-title{border:0;padding:0;background:none;color:var(--ui-text-primary);text-align:left;flex:1;min-width:0}.hds .ds-node-title span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hds .ds-number{font-size:10px;color:var(--ui-text-tertiary);font-variant-numeric:tabular-nums}.hds .ds-select{border:1px solid var(--hds-border);background:var(--ui-bg-input);color:var(--ui-text-primary);padding:5px 7px;border-radius:4px;min-width:0;max-width:100%}.hds .ds-field{display:grid;gap:7px;min-width:0}.hds .ds-field-head{display:flex;justify-content:space-between;gap:8px}.hds .ds-value{color:var(--ui-text-secondary);font-variant-numeric:tabular-nums}.hds .ds-divider{height:1px;background:var(--hds-border);flex-shrink:0}.hds .ds-fields{display:grid;gap:18px}.hds .ds-canvas-column{display:flex;flex-direction:column;min-width:0;min-height:360px}.hds .ds-canvas-toolbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--hds-border);flex-wrap:wrap}.hds .ds-viewport{flex:1;min-height:260px;position:relative;overflow:auto;background:var(--ui-bg-secondary);display:grid;place-items:center;padding:24px}.hds .ds-viewport[data-drag=true]{outline:2px dashed var(--ui-accent);outline-offset:-8px}.hds .ds-canvas-wrap{width:100%;height:100%;min-height:200px;position:relative;display:grid;place-items:center}.hds canvas{display:block}.hds .ds-canvas-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:10px;pointer-events:none;color:var(--ui-text-tertiary)}.hds .ds-canvas-foot{padding:10px 14px;border-top:1px solid var(--hds-border);display:flex;justify-content:space-between;gap:10px;font-size:11px;color:var(--ui-text-tertiary)}.hds .ds-alert{padding:10px 16px;border-bottom:1px solid var(--hds-border);color:var(--ui-text-primary);background:var(--ui-bg-card);white-space:pre-wrap;line-height:1.6}.hds .ds-alert button{float:right}.hds .ds-card{padding:12px;border:1px solid var(--hds-border);border-radius:5px;display:grid;gap:8px}.hds .ds-tabs{display:flex;gap:4px;border-bottom:1px solid var(--hds-border);padding-bottom:8px}.hds .ds-tabs button[aria-selected=true]{color:var(--ui-accent);background:var(--ui-bg-card)}.hds .ds-bottom{margin-top:auto;padding-top:16px;border-top:1px solid var(--hds-border)}.hds .ds-mono{font-family:ui-monospace,SFMono-Regular,monospace;font-size:11px;line-height:1.6}.hds .ds-code{display:flex;min-height:200px}.hds .ds-lines{padding:8px 8px 8px 0;text-align:right;color:var(--ui-text-quaternary);user-select:none;white-space:pre;line-height:1.6;font:11px/1.6 ui-monospace,monospace}.hds .ds-code textarea{width:100%;min-height:200px;white-space:pre;tab-size:2;resize:vertical;font:11px/1.6 ui-monospace,monospace}.hds .ds-table-wrap{overflow:auto}.hds table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}.hds th,.hds td{padding:6px 4px;border-bottom:1px solid var(--hds-border);vertical-align:top}.hds th{font-weight:500;color:var(--ui-text-tertiary)}.hds td input{min-width:65px;width:100%}.hds .ds-mini-preview{height:150px;overflow:hidden;position:relative}.hds .ds-upload{display:grid;gap:6px}.hds progress{width:100%;accent-color:var(--ui-accent)}\n' +
+    '\n' +
+    '@media(max-width:1050px){.hds .ds-columns{grid-template-columns:195px minmax(220px,1fr) 285px}.hds .ds-panel{padding:12px}.hds .ds-top{gap:10px}}@media(max-width:760px){.hds .ds-columns{grid-template-columns:180px minmax(300px,1fr) 280px}.hds .ds-top{padding:10px}.hds .ds-viewport{padding:12px}}\n'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:66:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '\n.hds{height:100%;min-height:420px;display:flex;flex-direction:column;overflow:hidden;color:var(--ui-text-primary);font-size:12px;background:var(--ui-bg-editor);--hds-border:var(--ui-stroke-secondary)}\n.hds *{box-sizing:border-box}.hds h1,.hds h2,.hds h3,.hds p{margin:0}.hds h1{font-size:14px;font-weight:600;letter-spacing:-.025em}.hds h2{font-size:12px;font-weight:600}.hds h3{font-size:12px;font-weight:500}.hds button,.hds input,.hds select,.hds textarea{font:inherit}.hds button{cursor:pointer}.hds button:disabled{cursor:default;opacity:.45}.hds :focus-visible{outline:2px solid var(--ui-accent);outline-offset:2px}.hds input[type=range],.hds input[type=checkbox]{accent-color:var(--ui-accent)}\n.hds .ds-top{display:flex;align-items:center;gap:16px;min-height:60px;padding:12px 18px;border-bottom:1px solid var(--hds-border);flex-wrap:wrap}.hds .ds-brand{margin-right:auto;display:grid;gap:4px}.hds .ds-eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ui-text-tertiary)}.hds .ds-muted{color:var(--ui-text-tertiary);line-height:1.55}.hds .ds-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.hds .ds-space{justify-content:space-between}.hds .ds-columns{display:grid;grid-template-columns:232px minmax(240px,1fr) 320px;flex:1;min-height:0;overflow:auto}.hds .ds-panel{min-height:0;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:16px}.hds .ds-left{border-right:1px solid var(--hds-border)}.hds .ds-right{border-left:1px solid var(--hds-border)}.hds .ds-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}.hds .ds-count{font-variant-numeric:tabular-nums;color:var(--ui-text-tertiary)}\n.hds .ds-empty{padding:24px 10px;display:grid;gap:8px;text-align:center;line-height:1.6;color:var(--ui-text-tertiary);border:1px dashed var(--hds-border);border-radius:6px}.hds .ds-stack{display:grid;gap:6px}.hds .ds-node{padding:10px;border:1px solid var(--hds-border);border-radius:5px;display:grid;gap:8px;background:var(--ui-bg-editor)}.hds .ds-node[data-selected=true]{border-color:var(--ui-accent);background:var(--ui-bg-card)}.hds .ds-node-title{border:0;padding:0;background:none;color:var(--ui-text-primary);text-align:left;flex:1;min-width:0}.hds .ds-node-title span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hds .ds-number{font-size:10px;color:var(--ui-text-tertiary);font-variant-numeric:tabular-nums}.hds .ds-select{border:1px solid var(--hds-border);background:var(--ui-bg-input);color:var(--ui-text-primary);padding:5px 7px;border-radius:4px;min-width:0;max-width:100%}.hds .ds-field{display:grid;gap:7px;min-width:0}.hds .ds-field-head{display:flex;justify-content:space-between;gap:8px}.hds .ds-value{color:var(--ui-text-secondary);font-variant-numeric:tabular-nums}.hds .ds-divider{height:1px;background:var(--hds-border);flex-shrink:0}.hds .ds-fields{display:grid;gap:18px}.hds .ds-canvas-column{display:flex;flex-direction:column;min-width:0;min-height:360px}.hds .ds-canvas-toolbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--hds-border);flex-wrap:wrap}.hds .ds-viewport{flex:1;min-height:260px;position:relative;overflow:auto;background:var(--ui-bg-secondary);display:grid;place-items:center;padding:24px}.hds .ds-viewport[data-drag=true]{outline:2px dashed var(--ui-accent);outline-offset:-8px}.hds .ds-canvas-wrap{width:100%;height:100%;min-height:200px;position:relative;display:grid;place-items:center}.hds canvas{display:block}.hds .ds-canvas-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:10px;pointer-events:none;color:var(--ui-text-tertiary)}.hds .ds-canvas-foot{padding:10px 14px;border-top:1px solid var(--hds-border);display:flex;justify-content:space-between;gap:10px;font-size:11px;color:var(--ui-text-tertiary)}.hds .ds-alert{padding:10px 16px;border-bottom:1px solid var(--hds-border);color:var(--ui-text-primary);background:var(--ui-bg-card);white-space:pre-wrap;line-height:1.6}.hds .ds-alert button{float:right}.hds .ds-card{padding:12px;border:1px solid var(--hds-border);border-radius:5px;display:grid;gap:8px}.hds .ds-tabs{display:flex;gap:4px;border-bottom:1px solid var(--hds-border);padding-bottom:8px}.hds .ds-tabs button[aria-selected=true]{color:var(--ui-accent);background:var(--ui-bg-card)}.hds .ds-bottom{margin-top:auto;padding-top:16px;border-top:1px solid var(--hds-border)}.hds .ds-mono{font-family:ui-monospace,SFMono-Regular,monospace;font-size:11px;line-height:1.6}.hds .ds-code{display:flex;min-height:200px}.hds .ds-lines{padding:8px 8px 8px 0;text-align:right;color:var(--ui-text-quaternary);user-select:none;white-space:pre;line-height:1.6;font:11px/1.6 ui-monospace,monospace}.hds .ds-code textarea{width:100%;min-height:200px;white-space:pre;tab-size:2;resize:vertical;font:11px/1.6 ui-monospace,monospace}.hds .ds-table-wrap{overflow:auto}.hds table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}.hds th,.hds td{padding:6px 4px;border-bottom:1px solid var(--hds-border);vertical-align:top}.hds th{font-weight:500;color:var(--ui-text-tertiary)}.hds td input{min-width:65px;width:100%}.hds .ds-mini-preview{height:150px;overflow:hidden;position:relative}.hds .ds-upload{display:grid;gap:6px}.hds progress{width:100%;accent-color:var(--ui-accent)}\n\n@media(max-width:1050px){.hds .ds-columns{grid-template-columns:195px minmax(220px,1fr) 285px}.hds .ds-panel{padding:12px}.hds .ds-top{gap:10px}}@media(max-width:760px){.hds .ds-columns{grid-template-columns:180px minmax(300px,1fr) 280px}.hds .ds-top{padding:10px}.hds .ds-viewport{padding:12px}}\n',
+    expected: /#[0-9a-f]{3,8}\b|rgba?\(|\b(?:black|white)\b/i,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+✖ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (11.403558ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 857.858488
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (11.403558ms)
+  AssertionError [ERR_ASSERTION]: Native references only SDK --ui-* tokens
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:67:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '\n.hds{height:100%;min-height:420px;display:flex;flex-direction:column;overflow:hidden;color:var(--ui-text-primary);font-size:12px;background:var(--ui-bg-editor);--hds-border:var(--ui-stroke-secondary)}\n.hds *{box-sizing:border-box}.hds h1,.hds h2,.hds h3,.hds p{margin:0}.hds h1{font-size:14px;font-weight:600;letter-spacing:-.025em}.hds h2{font-size:12px;font-weight:600}.hds h3{font-size:12px;font-weight:500}.hds button,.hds input,.hds select,.hds textarea{font:inherit}.hds button{cursor:pointer}.hds button:disabled{cursor:default;opacity:.45}.hds :focus-visible{outline:2px solid var(--ui-accent);outline-offset:2px}.hds input[type=range],.hds input[type=checkbox]{accent-color:var(--ui-accent)}\n.hds .ds-top{display:flex;align-items:center;gap:16px;min-height:60px;padding:12px 18px;border-bottom:1px solid var(--hds-border);flex-wrap:wrap}.hds .ds-brand{margin-right:auto;display:grid;gap:4px}.hds .ds-eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ui-text-tertiary)}.hds .ds-muted{color:var(--ui-text-tertiary);line-height:1.55}.hds .ds-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.hds .ds-space{justify-content:space-between}.hds .ds-columns{display:grid;grid-template-columns:232px minmax(240px,1fr) 320px;flex:1;min-height:0;overflow:auto}.hds .ds-panel{min-height:0;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:16px}.hds .ds-left{border-right:1px solid var(--hds-border)}.hds .ds-right{border-left:1px solid var(--hds-border)}.hds .ds-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}.hds .ds-count{font-variant-numeric:tabular-nums;color:var(--ui-text-tertiary)}\n.hds .ds-empty{padding:24px 10px;display:grid;gap:8px;text-align:center;line-height:1.6;color:var(--ui-text-tertiary);border:1px dashed var(--hds-border);border-radius:6px}.hds .ds-stack{display:grid;gap:6px}.hds .ds-node{padding:10px;border:1px solid var(--hds-border);border-radius:5px;display:grid;gap:8px;background:var(--ui-bg-editor)}.hds .ds-node[data-selected=true]{border-color:var(--ui-accent);background:var(--ui-bg-card)}.hds .ds-node-title{border:0;padding:0;background:none;color:var(--ui-text-primary);text-align:left;flex:1;min-width:0}.hds .ds-node-title span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hds .ds-number{font-size:10px;color:var(--ui-text-tertiary);font-variant-numeric:tabular-nums}.hds .ds-select{border:1px solid var(--hds-border);background:var(--ui-bg-input);color:var(--ui-text-primary);padding:5px 7px;border-radius:4px;min-width:0;max-width:100%}.hds .ds-field{display:grid;gap:7px;min-width:0}.hds .ds-field-head{display:flex;justify-content:space-between;gap:8px}.hds .ds-value{color:var(--ui-text-secondary);font-variant-numeric:tabular-nums}.hds .ds-divider{height:1px;background:var(--hds-border);flex-shrink:0}.hds .ds-fields{display:grid;gap:18px}.hds .ds-canvas-column{display:flex;flex-direction:column;min-width:0;min-height:360px}.hds .ds-canvas-toolbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--hds-border);flex-wrap:wrap}.hds .ds-viewport{flex:1;min-height:260px;position:relative;overflow:auto;background:var(--ui-bg-secondary);display:grid;place-items:center;padding:24px}.hds .ds-viewport[data-drag=true]{outline:2px dashed var(--ui-accent);outline-offset:-8px}.hds .ds-canvas-wrap{width:100%;height:100%;min-height:200px;position:relative;display:grid;place-items:center}.hds canvas{display:block}.hds .ds-canvas-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:10px;pointer-events:none;color:var(--ui-text-tertiary)}.hds .ds-canvas-foot{padding:10px 14px;border-top:1px solid var(--hds-border);display:flex;justify-content:space-between;gap:10px;font-size:11px;color:var(--ui-text-tertiary)}.hds .ds-alert{padding:10px 16px;border-bottom:1px solid var(--hds-border);color:var(--ui-text-primary);background:var(--ui-bg-card);white-space:pre-wrap;line-height:1.6}.hds .ds-alert button{float:right}.hds .ds-card{padding:12px;border:1px solid var(--hds-border);border-radius:5px;display:grid;gap:8px}.hds .ds-tabs{display:flex;gap:4px;border-bottom:1px solid var(--hds-border);padding-bottom:8px}.hds .ds-tabs button[aria-selected=true]{color:var(--ui-accent);background:var(--ui-bg-card)}.hds .ds-bottom{margin-top:auto;padding-top:16px;border-top:1px solid var(--hds-border)}.hds .ds-mono{font-family:ui-monospace,SFMono-Regular,monospace;font-size:11px;line-height:1.6}.hds .ds-code{display:flex;min-height:200px}.hds .ds-lines{padding:8px 8px 8px 0;text-align:right;color:var(--ui-text-quaternary);user-select:none;white-space:pre;line-height:1.6;font:11px/1.6 ui-monospace,monospace}.hds .ds-code textarea{width:100%;min-height:200px;white-space:pre;tab-size:2;resize:vertical;font:11px/1.6 ui-monospace,monospace}.hds .ds-table-wrap{overflow:auto}.hds table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}.hds th,.hds td{padding:6px 4px;border-bottom:1px solid var(--hds-border);vertical-align:top}.hds th{font-weight:500;color:var(--ui-text-tertiary)}.hds td input{min-width:65px;width:100%}.hds .ds-mini-preview{height:150px;overflow:hidden;position:relative}.hds .ds-upload{display:grid;gap:6px}.hds progress{width:100%;accent-color:var(--ui-accent)}\n\n@media(max-width:1050px){.hds .ds-columns{grid-template-columns:195px minmax(220px,1fr) 285px}.hds .ds-panel{padding:12px}.hds .ds-top{gap:10px}}@media(max-width:760px){.hds .ds-columns{grid-template-columns:180px minmax(300px,1fr) 280px}.hds .ds-top{padding:10px}.hds .ds-viewport{padding:12px}}\n',
+    expected: /var\(--(?!ui-)[a-z-]+\)/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (341.315506ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (79.169085ms)
+✔ a new revision invalidates exports and clears an obsolete export task (72.997966ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.058047ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (777.68872ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (165.204359ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (841.594292ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (127.228798ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.437788ms)
+✔ oversized and cancelled imports never upload or change source (1.733755ms)
+✔ manifest controls preserve all five parameter types and enum values (1.013312ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.099866ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.00479ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3145.997081
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (338.387084ms)
+✖ same-revision polling cannot cancel an in-flight client export (87.844835ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (60.385695ms)
+✔ a new revision invalidates exports and clears an obsolete export task (74.345328ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.171128ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (782.355323ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (186.993032ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (861.674227ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (127.978972ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (2.463472ms)
+✔ oversized and cancelled imports never upload or change source (3.072937ms)
+✔ manifest controls preserve all five parameter types and enum values (1.991003ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (3.623744ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (3.72127ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3316.939967
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ same-revision polling cannot cancel an in-flight client export (87.844835ms)
+  AssertionError [ERR_ASSERTION]: same revision must preserve document identity for in-flight work
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:70:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (342.51251ms)
+✔ same-revision polling cannot cancel an in-flight client export (83.227768ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (72.168767ms)
+✔ a new revision invalidates exports and clears an obsolete export task (70.095588ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.184758ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (777.264408ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (167.780539ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (840.533342ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (135.870226ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.876782ms)
+✔ oversized and cancelled imports never upload or change source (1.694405ms)
+✔ manifest controls preserve all five parameter types and enum values (0.832493ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.141908ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.880173ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3262.689969
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (334.660453ms)
+✖ before comparison renders are excluded from project history metrics (79.293708ms)
+✖ numeric conversion never silently rounds invalid integer input (2.748081ms)
+✔ same-revision polling cannot cancel an in-flight client export (72.533073ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (62.526924ms)
+✔ a new revision invalidates exports and clears an obsolete export task (76.72859ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.283806ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (779.463933ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (157.886092ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (869.432671ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (124.981721ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.321529ms)
+✔ oversized and cancelled imports never upload or change source (1.58331ms)
+✔ manifest controls preserve all five parameter types and enum values (1.073478ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.140648ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.982995ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 14
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3303.218858
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:63:1
+✖ before comparison renders are excluded from project history metrics (79.293708ms)
+  AssertionError [ERR_ASSERTION]: before-frame render must not overwrite previous-revision metrics
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:64:41)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:66:1
+✖ numeric conversion never silently rounds invalid integer input (2.748081ms)
+  AssertionError [ERR_ASSERTION]: backend validates integer semantics; UI must preserve the submitted number
+  
+  2 !== 1.5
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:67:34)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (384.13263ms)
+✔ before comparison renders are excluded from project history metrics (74.17772ms)
+✔ numeric conversion never silently rounds invalid integer input (1.125573ms)
+✔ same-revision polling cannot cancel an in-flight client export (65.331268ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (58.216012ms)
+✔ a new revision invalidates exports and clears an obsolete export task (75.44581ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.279175ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (774.093555ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (159.698916ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (842.15087ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (159.977659ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.467536ms)
+✔ oversized and cancelled imports never upload or change source (1.7616ms)
+✔ manifest controls preserve all five parameter types and enum values (0.782199ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.291016ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.352975ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3337.112363

@@ -1,0 +1,92 @@
+Final approval identity + bitmap fix cycle (automated boundary evidence only)
+
+Strict RED -> GREEN observed:
+- HTTP editor snapshot regression: 2 failures, missing fingerprints accepted with 200; then 2 passed after backend fix.
+- Service A/B reproduction: renderer inputs [shader B, shader A], expected [shader B, shader B]; then passed after rendering request.entry and returning owned request/entry.
+- New approval UI regressions: 4 failed (missing approval hashes, replacement accepted, wrong receipt accepted, stale approval remained enabled); then 4 passed.
+- Deferred bitmap decode: close count 0 != 1 before fix; then close=1, render=0, POST=0 passed.
+- Existing manual editor UI fixture initially failed due missing validated identities; fixture updated without weakening readiness assertions after ownership release.
+
+Targeted final: 153 Python passed (100 deselected, 3 existing fork deprecation warnings); 40 Node passed, 0 failed.
+Coverage: shader and manifest-param replacement before check and after successful check before human approval; old intent rejected even when replacement has its own successful check; exact snapshot approval succeeds; catalog read/compare/write lock assertions; request/receipt identity and stale UI readiness; disposal during pending image decode.
+
+No dependencies installed, no commit/restart/config/publication, no controls.jsx modification. No actual Desktop or GPU proof claimed.
+Inspected tests/p1-service-headless.mjs: it uses service.checkDraft with backend-created entries and has no direct /drafts/check or /drafts/approve payload to update. Left untouched.
+
+Full final suite output:
+........................................................................ [ 28%]
+........................................................................ [ 56%]
+........................................................................ [ 85%]
+.....................................                                    [100%]
+=============================== warnings summary ===============================
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_catalog_readers_wait_for_in_flight_mutation_transaction
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+  /home/destino/.hermes/tools/python-3.14.9+202****1021-linux-x64/lib/python3.14/multiprocessing/popen_fork.py:76: DeprecationWarning: This process (pid=474306) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+253 passed, 8 warnings in 51.14s
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (5.933182ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (3.224036ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (4.804794ms)
+✔ detached service answers request while page is inactive and deduplicates id (11.843801ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (1.269602ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (12.330421ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (49.70901ms)
+✔ human approval sends the exact displayed successful check fingerprints (943.065729ms)
+✔ approval stays disabled after replacement (724.942828ms)
+✔ approval stays disabled after wrong-receipt (718.503605ms)
+✔ approval stays disabled after approval-conflict (725.54056ms)
+✔ P1 entry wires manual studio and real diagnostic runner into permanent service (7.2752ms)
+✔ measures independent source and previous RGB differences; missing is null not fake zero (3.71879ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (26.441632ms)
+✔ project render is serialized and explicit preview limit reaches core (4.841607ms)
+✔ background request loads catalogue and honestly marks a source-less fixture (2.538153ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (2.724672ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (2.061656ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (2.234078ms)
+✔ draft check sends editor fingerprints and displays only the durable validated entry (2.472594ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (1.774661ms)
+✔ diagnostics persist the supplied actual runner output with build provenance (1.618118ms)
+✔ dispose closes a bitmap decoded after unload without render or post (23.596396ms)
+✔ page preview proactively uploads ready PNG while comparison never changes cache (1.45214ms)
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (364.553688ms)
+✔ before comparison renders are excluded from project history metrics (75.051024ms)
+✔ numeric conversion never silently rounds invalid integer input (1.021686ms)
+✔ same-revision polling cannot cancel an in-flight client export (83.065837ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (59.932701ms)
+✔ a new revision invalidates exports and clears an obsolete export task (69.961983ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.509743ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (781.325239ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (154.10595ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (841.073802ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (123.184561ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.357735ms)
+✔ oversized and cancelled imports never upload or change source (1.401826ms)
+✔ manifest controls preserve all five parameter types and enum values (0.738758ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.006769ms)
+✔ command channel binds /commands identity and revision to one document snapshot (0.849075ms)
+✔ command channel binds /history/undo identity and revision to one document snapshot (0.666713ms)
+✔ command channel binds /history/redo identity and revision to one document snapshot (0.635606ms)
+✔ command channel binds /recipes/apply identity and revision to one document snapshot (0.636778ms)
+✔ equal-revision different-project HTTP409 refreshes identity and rejects queued edits without retry (1.253098ms)
+✔ queued New project rejects old-project seed and pending edits without posting or retrying (1.159037ms)
+✔ throttled job rejects a project switch during its wait without a POST (1.025475ms)
+✔ same gesture across project identities cannot replace an earlier queued payload (1.169319ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.874171ms)
+✔ project creation and reproducible seed are available without any agent (140.831017ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4297.25383
+Exit code: 0

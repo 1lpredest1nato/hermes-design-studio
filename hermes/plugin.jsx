@@ -3,7 +3,9 @@ import {host,useQuery,Button,ROUTES_AREA,SIDEBAR_NAV_AREA,PALETTE_AREA,TITLEBAR_
 import {createRenderer} from '../core/renderer.mjs';
 import {createService} from './service.mjs';
 import {makeUploadProbe,uploadChunks} from './upload.mjs';
-export const BUILD='design-studio-p0-20261111-detached-1';
+import {StudioPage,DiagnosticsPage} from './studio-page.jsx';
+import {runDiagnostics} from '../core/diagnostics.mjs';
+export const BUILD='design-studio-p1-20261111-studio-1';
 const fixture={format:1,id:'p0',revision:0,source:null,stack:[],seed:1234,timeline:null};
 const layout={padding:24,display:'grid',gap:16,color:'var(--ui-text-primary)',overflow:'auto',height:'100%',boxSizing:'border-box'};
 const box={padding:16,border:'1px solid var(--ui-stroke-secondary)',borderRadius:8};
@@ -104,12 +106,13 @@ function RiskPage({service,diagnostics=false}) {
 export default {id:'hermes-design-studio',name:'Hermes Design Studio',register(ctx){
  const canvas=document.createElement('canvas');
  const renderer=createRenderer(canvas);
- const service=createService(ctx,renderer,{runId:crypto.randomUUID(),build:BUILD});
+ const service=createService(ctx,renderer,{runId:crypto.randomUUID(),build:BUILD,diagnosticsRunner:runDiagnostics});
  ctx.register({id:'service',area:TITLEBAR_AREAS.right,render:()=> <ServiceMount service={service}/>});
- ctx.register({id:'page',area:ROUTES_AREA,data:{path:'/design-studio'},render:()=> <RiskPage service={service}/>});
- ctx.register({id:'diagnostics',area:ROUTES_AREA,data:{path:'/design-studio/diagnostics'},render:()=> <RiskPage service={service} diagnostics/>});
+ ctx.register({id:'page',area:ROUTES_AREA,data:{path:'/design-studio'},render:()=> <StudioPage service={service} ctx={ctx}/>});
+ ctx.register({id:'diagnostics',area:ROUTES_AREA,data:{path:'/design-studio/diagnostics'},render:()=> <DiagnosticsPage service={service} ctx={ctx}/>});
+ ctx.register({id:'p0-risks',area:ROUTES_AREA,data:{path:'/design-studio/p0'},render:()=> <RiskPage service={service}/>});
  ctx.register({id:'nav',area:SIDEBAR_NAV_AREA,data:{path:'/design-studio',label:'Design Studio',codicon:'paintcan'}});
- ctx.register({id:'command',area:PALETTE_AREA,data:{id:'design-studio.open',label:'Design Studio: open P0 risks',keywords:['design','studio'],run:()=>host.navigate('/design-studio')}});
+ ctx.register({id:'command',area:PALETTE_AREA,data:{id:'design-studio.open',label:'Design Studio: open workspace',keywords:['design','studio'],run:()=>host.navigate('/design-studio')}});
  ctx.onEvent('*',event=>{
   if(!event.type?.startsWith('plugin.hermes-design-studio.'))return;
   service.rest('/state').then(async state=>{await service.accept(state,'event');await service.cache(state.document);}).catch(()=>{});

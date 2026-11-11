@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "id": "builtin/chromatic_aberration",
+  "version": 1,
+  "name": "Chromatic Aberration",
+  "description": "Offset red and blue in opposite pixel directions, preserving green and alpha.",
+  "kind": "shader",
+  "params": [
+    {
+      "name": "offset",
+      "type": "float",
+      "default": 2,
+      "label": "Offset",
+      "min": 0,
+      "max": 64
+    },
+    {
+      "name": "angle",
+      "type": "float",
+      "default": 0,
+      "label": "Angle",
+      "min": -180,
+      "max": 180
+    }
+  ],
+  "shader": "shader.frag",
+  "provenance": {
+    "author": "builtin",
+    "created": "2026-11-11",
+    "from_prompt": "Original Hermes Design Studio implementation"
+  },
+  "license": "MIT",
+  "examples": [
+    {
+      "params": {
+        "offset": 2,
+        "angle": 0
+      }
+    }
+  ]
+}

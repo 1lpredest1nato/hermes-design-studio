@@ -1,0 +1,132 @@
+{
+  "format": 1,
+  "pass": false,
+  "checks": [
+    {
+      "tool": "builtin/pixelate@1",
+      "pass": true,
+      "cases": [
+        {
+          "params": {
+            "size": 2
+          },
+          "pass": true,
+          "max_error": 0,
+          "mismatched_channels": 0,
+          "compared_channels": 256,
+          "expected_first_pixels": [
+            48,
+            50,
+            54,
+            102,
+            48,
+            50,
+            54,
+            102,
+            110,
+            76,
+            148,
+            140,
+            110,
+            76,
+            148,
+            140
+          ],
+          "actual_first_pixels": [
+            48,
+            50,
+            54,
+            102,
+            48,
+            50,
+            54,
+            102,
+            110,
+            76,
+            148,
+            140,
+            110,
+            76,
+            148,
+            140
+          ],
+          "metrics": {
+            "width": 8,
+            "height": 8,
+            "mean_luma": 0.47272784313725486,
+            "std_luma": 0.22596453522963617,
+            "shadow_clipping_pct": 0,
+            "highlight_clipping_pct": 0,
+            "detail_density": 0.1049942857142857,
+            "dominant_colors": [
+              {
+                "hex": "#333333",
+                "fraction": 0.0625
+              },
+              {
+                "hex": "#664499",
+                "fraction": 0.0625
+              },
+              {
+                "hex": "#aa66ff",
+                "fraction": 0.0625
+              },
+              {
+                "hex": "#ee8855",
+                "fraction": 0.0625
+              },
+              {
+                "hex": "#557744",
+                "fraction": 0.0625
+              }
+            ],
+            "nearly_uniform": false,
+            "difference_source": 0.16254084967320262,
+            "difference_previous": null,
+            "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "builtin/dither@1",
+      "pass": false,
+      "error": "Builtin missing"
+    },
+    {
+      "tool": "builtin/halftone@1",
+      "pass": false,
+      "error": "Builtin missing"
+    },
+    {
+      "tool": "builtin/gradient_map@1",
+      "pass": false,
+      "error": "Builtin missing"
+    },
+    {
+      "tool": "builtin/grain@1",
+      "pass": false,
+      "error": "Builtin missing"
+    },
+    {
+      "tool": "builtin/chromatic_aberration@1",
+      "pass": false,
+      "error": "Builtin missing"
+    },
+    {
+      "tool": "builtin/levels@1",
+      "pass": false,
+      "error": "Builtin missing"
+    }
+  ],
+  "fixture": {
+    "width": 8,
+    "height": 8,
+    "description": "deterministic asymmetric RGBA8 pattern; top-down straight alpha"
+  },
+  "comparison": "all channels against independent CPU references; RGBA8 tolerance 1 byte unless stated",
+  "renderer": {
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "WebKit WebGL"
+  }
+}

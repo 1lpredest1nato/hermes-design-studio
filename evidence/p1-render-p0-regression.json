@@ -1,0 +1,66 @@
+{
+  "evidence_scope": "secondary standalone Chromium software-WebGL, no SDK/gateway transport",
+  "detached_canvas": true,
+  "pixels": [
+    64,
+    191,
+    64,
+    255,
+    191,
+    191,
+    64,
+    255,
+    64,
+    64,
+    64,
+    255,
+    191,
+    64,
+    64,
+    255
+  ],
+  "signature": [
+    137,
+    80,
+    78,
+    71,
+    13,
+    10,
+    26,
+    10
+  ],
+  "metrics": {
+    "width": 2,
+    "height": 2,
+    "mean_luma": 0.48202078431372547,
+    "std_luma": 0.18580097047996183,
+    "shadow_clipping_pct": 0,
+    "highlight_clipping_pct": 0,
+    "detail_density": 0.23104039215686267,
+    "dominant_colors": [
+      {
+        "hex": "#44bb44",
+        "fraction": 0.25
+      },
+      {
+        "hex": "#bbbb44",
+        "fraction": 0.25
+      },
+      {
+        "hex": "#444444",
+        "fraction": 0.25
+      },
+      {
+        "hex": "#bb4444",
+        "fraction": 0.25
+      }
+    ],
+    "nearly_uniform": false,
+    "difference_source": 0,
+    "difference_previous": null,
+    "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+  },
+  "disposedError": "Error: Renderer disposed",
+  "probe_png_bytes": 24673217,
+  "probe_sha256": "f962008cd477fef2e574c0dada363b44e49bfd7f60b5ab16f43d7f45a4b25ee4"
+}

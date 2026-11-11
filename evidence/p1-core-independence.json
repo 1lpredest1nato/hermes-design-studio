@@ -1,0 +1,52 @@
+{
+  "pass": true,
+  "python_core_imports": {
+    "studio_core/application.py": [
+      "hashlib",
+      "pathlib"
+    ],
+    "studio_core/bridge.py": [
+      "base64",
+      "contextlib",
+      "fcntl",
+      "hashlib",
+      "json",
+      "math",
+      "os",
+      "pathlib",
+      "re",
+      "struct",
+      "time",
+      "uuid"
+    ],
+    "studio_core/catalog.py": [
+      "contextlib",
+      "copy",
+      "datetime",
+      "fcntl",
+      "hashlib",
+      "json",
+      "math",
+      "os",
+      "pathlib",
+      "re",
+      "shutil",
+      "typing",
+      "unicodedata",
+      "uuid"
+    ],
+    "studio_core/projects.py": [
+      "contextlib",
+      "copy",
+      "fcntl",
+      "json",
+      "math",
+      "os",
+      "pathlib",
+      "re",
+      "uuid"
+    ]
+  },
+  "violations": [],
+  "scope": "Hermes-independent Python and WebGL cores"
+}

@@ -1,0 +1,21 @@
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (18.035751ms)
+✔ project render is serialized and explicit preview limit reaches core (2.089615ms)
+✔ background request loads catalogue and reports actual project not fixture (1.941421ms)
+✖ cache keys include project identity and metrics compare previous revision not repeated frame (0.926717ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 111.209842
+
+✖ failing tests:
+
+test at tests/p1-service.test.mjs:52:1
+✖ cache keys include project identity and metrics compare previous revision not repeated frame (0.926717ms)
+  TypeError [Error]: Cannot read properties of undefined (reading 'rgba')
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:59:32)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)

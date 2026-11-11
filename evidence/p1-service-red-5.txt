@@ -1,0 +1,35 @@
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (26.787154ms)
+✔ project render is serialized and explicit preview limit reaches core (3.446684ms)
+✔ background request loads catalogue and reports actual project not fixture (3.837964ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (2.720222ms)
+✖ compiler errors finish checks as errors once instead of leaving requests pending (3.954778ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.989201
+
+✖ failing tests:
+
+test at tests/p1-service.test.mjs:65:1
+✖ compiler errors finish checks as errors once instead of leaving requests pending (3.954778ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted rejection.
+  Actual message: "ERROR: 0:5: syntax error"
+      at async TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:71:2)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: Error: ERROR: 0:5: syntax error
+        at Object.render (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:68:51)
+        at projectFrame (file:///home/destino/projects/hermes-design-studio/hermes/service.mjs:57:32)
+        at renderOne (file:///home/destino/projects/hermes-design-studio/hermes/service.mjs:25:25)
+        at file:///home/destino/projects/hermes-design-studio/hermes/service.mjs:70:31
+        at file:///home/destino/projects/hermes-design-studio/hermes/service.mjs:37:73,
+    expected: undefined,
+    operator: 'doesNotReject',
+    diff: 'simple'
+  }

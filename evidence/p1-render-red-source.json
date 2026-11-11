@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "name": "typed source retains top-down orientation and straight alpha",
+      "pass": false,
+      "detail": [
+        64,
+        64,
+        64,
+        255,
+        191,
+        64,
+        64,
+        255,
+        64,
+        191,
+        64,
+        255,
+        191,
+        191,
+        64,
+        255
+      ]
+    }
+  ]
+}

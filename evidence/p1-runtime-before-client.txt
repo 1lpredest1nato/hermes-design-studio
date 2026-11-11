@@ -1,0 +1,26 @@
+{
+  "scope": "real client persisted P1 evidence; read-only audit",
+  "requires_human_attestation": [
+    "manual creation/approval without agent",
+    "native Save as dialog and saved local PNG"
+  ],
+  "checks": {
+    "diagnostics": {
+      "pass": false,
+      "error": "[Errno 2] No such file or directory: '/home/destino/.hermes/plugin-data/hermes-design-studio/diagnostics.json'"
+    },
+    "manual_project": {
+      "pass": false,
+      "error": "[Errno 2] No such file or directory: '/home/destino/.hermes/plugin-data/hermes-design-studio/current-project.json'"
+    },
+    "preview": {
+      "pass": false,
+      "error": "preview from older client build"
+    },
+    "exports": {
+      "pass": false,
+      "error": "no real P1 Save to library export"
+    }
+  },
+  "pass": false
+}

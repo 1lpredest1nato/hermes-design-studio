@@ -1,0 +1,19 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+____ test_renderer_error_completes_request_without_poisoning_preview_cache _____
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-30/test_renderer_error_completes_0')
+
+    def test_renderer_error_completes_request_without_poisoning_preview_cache(tmp_path):
+        from studio_core.bridge import Store
+        store = Store(tmp_path)
+        request = store.request('check', shader_sha='a' * 64)
+>       assert hasattr(store, 'fail'), 'render bridge cannot persist compiler errors'
+E       AssertionError: render bridge cannot persist compiler errors
+E       assert False
+E        +  where False = hasattr(<studio_core.bridge.Store object at 0x7fd6aa840550>, 'fail')
+
+tests/test_integration.py:25: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_integration.py::test_renderer_error_completes_request_without_poisoning_preview_cache
+1 failed, 1 passed in 0.12s

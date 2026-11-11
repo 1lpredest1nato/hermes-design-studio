@@ -1,0 +1,28 @@
+✖ background request loads catalogue and honestly marks a source-less fixture (14.262854ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 152.511536
+
+✖ failing tests:
+
+test at tests/p1-service.test.mjs:37:1
+✖ background request loads catalogue and honestly marks a source-less fixture (14.262854ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:48:51)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

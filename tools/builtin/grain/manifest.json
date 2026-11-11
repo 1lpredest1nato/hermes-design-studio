@@ -1,0 +1,32 @@
+{
+  "format": 1,
+  "id": "builtin/grain",
+  "version": 1,
+  "name": "Grain",
+  "description": "Deterministic seed-controlled monochrome grain; never advances time.",
+  "kind": "shader",
+  "params": [
+    {
+      "name": "amount",
+      "type": "float",
+      "default": 0.15,
+      "label": "Amount",
+      "min": 0,
+      "max": 1
+    }
+  ],
+  "shader": "shader.frag",
+  "provenance": {
+    "author": "builtin",
+    "created": "2026-11-11",
+    "from_prompt": "Original Hermes Design Studio implementation"
+  },
+  "license": "MIT",
+  "examples": [
+    {
+      "params": {
+        "amount": 0.15
+      }
+    }
+  ]
+}

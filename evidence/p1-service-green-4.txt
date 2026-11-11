@@ -1,0 +1,15 @@
+✔ detached service answers request while page is inactive and deduplicates id (6.283814ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (0.833385ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (6.007953ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (19.327343ms)
+✔ project render is serialized and explicit preview limit reaches core (2.10648ms)
+✔ background request loads catalogue and reports actual project not fixture (1.870605ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (1.359684ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.555989

@@ -1,0 +1,368 @@
+{
+  "pass": true,
+  "evidence_scope": "isolated real HTTP Application + browser service/core; not Hermes Desktop/SDK or human-approval evidence",
+  "document": {
+    "format": 1,
+    "id": "4ecb1280df2d4bfbbb67f7f0aead85df",
+    "revision": 2,
+    "source": {
+      "asset": "assets/ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000.png",
+      "w": 64,
+      "h": 48
+    },
+    "stack": [
+      {
+        "uid": "pixels",
+        "tool": "builtin/pixelate@1",
+        "params": {
+          "size": 4
+        },
+        "enabled": true,
+        "opacity": 1,
+        "blend": "normal"
+      },
+      {
+        "uid": "8bd9cfa3af3e42b4aae38af9a533f43c",
+        "tool": "builtin/levels@1",
+        "params": {
+          "brightness": 0.2,
+          "contrast": 1,
+          "gamma": 1,
+          "saturation": 1
+        },
+        "enabled": true,
+        "opacity": 1,
+        "blend": "normal"
+      }
+    ],
+    "seed": 0,
+    "timeline": null,
+    "last_command_id": "15282b84384340088a896cd5a6d67e6d"
+  },
+  "command_id": "15282b84384340088a896cd5a6d67e6d",
+  "upload": {
+    "id": "5f4ff8ab9a914e92bac0898271851249",
+    "sha256": "ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000",
+    "sha256_match": true,
+    "bytes": 518,
+    "total": 1,
+    "receipt": {
+      "complete": true,
+      "path": "/home/destino/projects/hermes-design-studio/evidence/p1-service-data/assets/ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000.png",
+      "asset": "assets/ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000.png",
+      "sha256": "ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000",
+      "width": 64,
+      "height": 48,
+      "w": 64,
+      "h": 48
+    }
+  },
+  "metrics": {
+    "width": 64,
+    "height": 48,
+    "mean_luma": 0.6631604248366036,
+    "std_luma": 0.19633250118047174,
+    "shadow_clipping_pct": 0,
+    "highlight_clipping_pct": 0,
+    "detail_density": 0.03676840276694254,
+    "dominant_colors": [
+      {
+        "hex": "#77ff88",
+        "fraction": 0.041666666666666664
+      },
+      {
+        "hex": "#77ffcc",
+        "fraction": 0.041666666666666664
+      },
+      {
+        "hex": "#7733ff",
+        "fraction": 0.041666666666666664
+      },
+      {
+        "hex": "#8855ff",
+        "fraction": 0.041666666666666664
+      },
+      {
+        "hex": "#887755",
+        "fraction": 0.041666666666666664
+      }
+    ],
+    "nearly_uniform": false,
+    "difference_source": 0.33037513616557734,
+    "difference_previous": 0.18513071895424837,
+    "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+  },
+  "export": {
+    "run_id": "36289a45-3b27-413d-8e30-771ab3c69bc2",
+    "build": "P1-secondary-full-service",
+    "page_active": false,
+    "detached_canvas": true,
+    "at": "2026-11-11T17:37:01.877Z",
+    "request_id": "0ccce7575a4d499d97f790be54667994",
+    "kind": "export",
+    "revision": 2,
+    "project_id": "4ecb1280df2d4bfbbb67f7f0aead85df",
+    "via": "manual",
+    "width": 64,
+    "height": 48,
+    "metrics": {
+      "width": 64,
+      "height": 48,
+      "mean_luma": 0.6631604248366036,
+      "std_luma": 0.19633250118047174,
+      "shadow_clipping_pct": 0,
+      "highlight_clipping_pct": 0,
+      "detail_density": 0.03676840276694254,
+      "dominant_colors": [
+        {
+          "hex": "#77ff88",
+          "fraction": 0.041666666666666664
+        },
+        {
+          "hex": "#77ffcc",
+          "fraction": 0.041666666666666664
+        },
+        {
+          "hex": "#7733ff",
+          "fraction": 0.041666666666666664
+        },
+        {
+          "hex": "#8855ff",
+          "fraction": 0.041666666666666664
+        },
+        {
+          "hex": "#887755",
+          "fraction": 0.041666666666666664
+        }
+      ],
+      "nearly_uniform": false,
+      "difference_source": 0.33037513616557734,
+      "difference_previous": null,
+      "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+    },
+    "fixture": false,
+    "u_time": 0,
+    "path": "/home/destino/projects/hermes-design-studio/evidence/p1-service-data/exports/eb34922b590647cce0438385f5d859add1aeddc1149bc14c07a7096e89ec4a75.png",
+    "sha256": "eb34922b590647cce0438385f5d859add1aeddc1149bc14c07a7096e89ec4a75",
+    "created_at": 1794418621.8828576
+  },
+  "current_draft_preview": {
+    "width": 64,
+    "height": 48,
+    "metrics": {
+      "width": 64,
+      "height": 48,
+      "mean_luma": 0.5000000000000003,
+      "std_luma": 0.22599268715989268,
+      "shadow_clipping_pct": 0,
+      "highlight_clipping_pct": 0.390625,
+      "detail_density": 0.15999605554688917,
+      "dominant_colors": [
+        {
+          "hex": "#ffffff",
+          "fraction": 0.0078125
+        },
+        {
+          "hex": "#ffddbb",
+          "fraction": 0.0078125
+        },
+        {
+          "hex": "#ffbb77",
+          "fraction": 0.0078125
+        },
+        {
+          "hex": "#ee8822",
+          "fraction": 0.0078125
+        },
+        {
+          "hex": "#ee66ee",
+          "fraction": 0.0078125
+        }
+      ],
+      "nearly_uniform": false,
+      "difference_source": 0.5019607843137255,
+      "difference_previous": null,
+      "metrics_scope": "sRGB uncomposited RGB; differences mean absolute RGB /255; unavailable or mismatched comparison is null"
+    }
+  },
+  "fixture_draft_preview": {
+    "width": 640,
+    "height": 400
+  },
+  "compilationError": "Error: Error: GLSL compile: ERROR: 0:1: 'BROKEN_TOKEN' : undeclared identifier\nERROR: 0:1: '=' : dimension mismatch\nERROR: 0:1: 'assign' : cannot convert from 'const highp float' to 'out highp 4-component vector of float'\n",
+  "diagnostics": {
+    "pass": true,
+    "checks": [
+      {
+        "tool": "builtin/pixelate@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/dither@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/halftone@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/gradient_map@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/grain@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/chromatic_aberration@1",
+        "pass": true
+      },
+      {
+        "tool": "builtin/levels@1",
+        "pass": true
+      }
+    ]
+  },
+  "requests": [
+    {
+      "path": "/project/new",
+      "status": 200
+    },
+    {
+      "path": "/assets/upload?id=5f4ff8ab9a914e92bac0898271851249&index=0&total=1&sha256=ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000",
+      "status": 200
+    },
+    {
+      "path": "/commands",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/assets/read?sha=ce8e6a79185d028c19d0e1e99c05da4006da1448937a2dbbb9a4ac7804812000&offset=0&length=1048576",
+      "status": 200
+    },
+    {
+      "path": "/preview/cache?revision=1&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A01.161Z%22%2C%22kind%22%3A%22preview%22%2C%22revision%22%3A1%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22ui%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.479619346405229%2C%22std_luma%22%3A0.21587246475530442%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.042529026889270724%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%2344cc55%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%2344ee88%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%234400cc%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%234422ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%23553322%22%2C%22fraction%22%3A0.041666666666666664%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.30800653594771243%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/commands",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/preview/cache?revision=2&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A01.699Z%22%2C%22kind%22%3A%22preview%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22ui%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.6631604248366036%2C%22std_luma%22%3A0.19633250118047174%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.03676840276694254%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%2377ff88%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%2377ffcc%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%237733ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%238855ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%23887755%22%2C%22fraction%22%3A0.041666666666666664%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.33037513616557734%2C%22difference_previous%22%3A0.18513071895424837%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/request",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=0ccce7575a4d499d97f790be54667994&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A01.877Z%22%2C%22request_id%22%3A%220ccce7575a4d499d97f790be54667994%22%2C%22kind%22%3A%22export%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.6631604248366036%2C%22std_luma%22%3A0.19633250118047174%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.03676840276694254%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%2377ff88%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%2377ffcc%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%237733ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%238855ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%23887755%22%2C%22fraction%22%3A0.041666666666666664%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.33037513616557734%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=0ccce7575a4d499d97f790be54667994",
+      "status": 200
+    },
+    {
+      "path": "/drafts",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=a6b86adbe8a34f2eb6739cf548980025&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A02.073Z%22%2C%22request_id%22%3A%22a6b86adbe8a34f2eb6739cf548980025%22%2C%22kind%22%3A%22check%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.5000000000000003%2C%22std_luma%22%3A0.22599268715989268%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0.390625%2C%22detail_density%22%3A0.15999605554688917%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%23ffffff%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ffddbb%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ffbb77%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ee8822%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ee66ee%22%2C%22fraction%22%3A0.0078125%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.5019607843137255%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%2C%22shader_sha%22%3A%22af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567%22%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=a6b86adbe8a34f2eb6739cf548980025",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=075a807881ca48b781b1e8fae607dc71&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A02.376Z%22%2C%22request_id%22%3A%22075a807881ca48b781b1e8fae607dc71%22%2C%22kind%22%3A%22check%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A640%2C%22height%22%3A400%2C%22metrics%22%3A%7B%22width%22%3A640%2C%22height%22%3A400%2C%22mean_luma%22%3A0.5179792156862743%2C%22std_luma%22%3A0.21537692648661197%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.0010622514482542835%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%23bb22bb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%234422bb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%23bbddbb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%2344ddbb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%23ee22bb%22%2C%22fraction%22%3A0.0040625%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.49930882352941175%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Atrue%2C%22u_time%22%3A0%2C%22shader_sha%22%3A%22af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567%22%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=075a807881ca48b781b1e8fae607dc71",
+      "status": 200
+    },
+    {
+      "path": "/drafts",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/error?id=cfda2b21689a4c5aa16eab4bcda64d59",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=cfda2b21689a4c5aa16eab4bcda64d59",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200
+    }
+  ],
+  "browser_version": "155.0.8059.84",
+  "uncaught_errors": [],
+  "pillow": {
+    "verify": true,
+    "load": true,
+    "sha256": "eb34922b590647cce0438385f5d859add1aeddc1149bc14c07a7096e89ec4a75",
+    "path": "/home/destino/projects/hermes-design-studio/evidence/p1-service-data/exports/eb34922b590647cce0438385f5d859add1aeddc1149bc14c07a7096e89ec4a75.png"
+  }
+}

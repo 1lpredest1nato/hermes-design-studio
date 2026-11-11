@@ -1,0 +1,1032 @@
+FFFFFFFFFFFFF                                                            [100%]
+=================================== FAILURES ===================================
+___ test_stale_project_same_revision_is_rejected_without_any_mutation[apply] ___
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_stale_project_same_revisi0')
+action = 'apply'
+
+    @pytest.mark.parametrize("action", ["apply", "undo", "redo", "recipe"])
+    def test_stale_project_same_revision_is_rejected_without_any_mutation(tmp_path, action):
+        from studio_core.projects import Conflict
+        first, second = store(tmp_path), store(tmp_path)
+        old = first.new()
+        current = second.new()
+        assert old['revision'] == current['revision'] == 0
+        before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                  for p in tmp_path.rglob('*') if p.is_file()}
+        with pytest.raises(Conflict) as exc:
+            if action in ('apply', 'recipe'):
+                command = ({'type': 'add_node', 'tool': 'builtin/pixelate@1', 'uid': 'stale'}
+                           if action == 'apply' else {'type': 'apply_recipe', 'stack': [
+                               {'tool': 'builtin/pixelate@1'}]})
+>               first.apply(old['revision'], [command], project_id=old['id'])
+E               TypeError: ProjectStore.apply() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:51: TypeError
+___ test_stale_project_same_revision_is_rejected_without_any_mutation[undo] ____
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_stale_project_same_revisi1')
+action = 'undo'
+
+    @pytest.mark.parametrize("action", ["apply", "undo", "redo", "recipe"])
+    def test_stale_project_same_revision_is_rejected_without_any_mutation(tmp_path, action):
+        from studio_core.projects import Conflict
+        first, second = store(tmp_path), store(tmp_path)
+        old = first.new()
+        current = second.new()
+        assert old['revision'] == current['revision'] == 0
+        before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                  for p in tmp_path.rglob('*') if p.is_file()}
+        with pytest.raises(Conflict) as exc:
+            if action in ('apply', 'recipe'):
+                command = ({'type': 'add_node', 'tool': 'builtin/pixelate@1', 'uid': 'stale'}
+                           if action == 'apply' else {'type': 'apply_recipe', 'stack': [
+                               {'tool': 'builtin/pixelate@1'}]})
+                first.apply(old['revision'], [command], project_id=old['id'])
+            else:
+>               getattr(first, action)(old['revision'], project_id=old['id'])
+E               TypeError: ProjectStore.undo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:53: TypeError
+___ test_stale_project_same_revision_is_rejected_without_any_mutation[redo] ____
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_stale_project_same_revisi2')
+action = 'redo'
+
+    @pytest.mark.parametrize("action", ["apply", "undo", "redo", "recipe"])
+    def test_stale_project_same_revision_is_rejected_without_any_mutation(tmp_path, action):
+        from studio_core.projects import Conflict
+        first, second = store(tmp_path), store(tmp_path)
+        old = first.new()
+        current = second.new()
+        assert old['revision'] == current['revision'] == 0
+        before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                  for p in tmp_path.rglob('*') if p.is_file()}
+        with pytest.raises(Conflict) as exc:
+            if action in ('apply', 'recipe'):
+                command = ({'type': 'add_node', 'tool': 'builtin/pixelate@1', 'uid': 'stale'}
+                           if action == 'apply' else {'type': 'apply_recipe', 'stack': [
+                               {'tool': 'builtin/pixelate@1'}]})
+                first.apply(old['revision'], [command], project_id=old['id'])
+            else:
+>               getattr(first, action)(old['revision'], project_id=old['id'])
+E               TypeError: ProjectStore.redo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:53: TypeError
+__ test_stale_project_same_revision_is_rejected_without_any_mutation[recipe] ___
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_stale_project_same_revisi3')
+action = 'recipe'
+
+    @pytest.mark.parametrize("action", ["apply", "undo", "redo", "recipe"])
+    def test_stale_project_same_revision_is_rejected_without_any_mutation(tmp_path, action):
+        from studio_core.projects import Conflict
+        first, second = store(tmp_path), store(tmp_path)
+        old = first.new()
+        current = second.new()
+        assert old['revision'] == current['revision'] == 0
+        before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                  for p in tmp_path.rglob('*') if p.is_file()}
+        with pytest.raises(Conflict) as exc:
+            if action in ('apply', 'recipe'):
+                command = ({'type': 'add_node', 'tool': 'builtin/pixelate@1', 'uid': 'stale'}
+                           if action == 'apply' else {'type': 'apply_recipe', 'stack': [
+                               {'tool': 'builtin/pixelate@1'}]})
+>               first.apply(old['revision'], [command], project_id=old['id'])
+E               TypeError: ProjectStore.apply() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:51: TypeError
+_________ test_mutations_require_explicit_project_identity[None-apply] _________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici0')
+action = 'apply', identity = None
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.apply() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+_________ test_mutations_require_explicit_project_identity[None-undo] __________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici1')
+action = 'undo', identity = None
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.undo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+_________ test_mutations_require_explicit_project_identity[None-redo] __________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici2')
+action = 'redo', identity = None
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.redo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+___________ test_mutations_require_explicit_project_identity[-apply] ___________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici3')
+action = 'apply', identity = ''
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.apply() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+___________ test_mutations_require_explicit_project_identity[-undo] ____________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici4')
+action = 'undo', identity = ''
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.undo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+___________ test_mutations_require_explicit_project_identity[-redo] ____________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici5')
+action = 'redo', identity = ''
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.redo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+__________ test_mutations_require_explicit_project_identity[7-apply] ___________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici6')
+action = 'apply', identity = 7
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.apply() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+___________ test_mutations_require_explicit_project_identity[7-undo] ___________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici7')
+action = 'undo', identity = 7
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.undo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+___________ test_mutations_require_explicit_project_identity[7-redo] ___________
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-64/test_mutations_require_explici8')
+action = 'redo', identity = 7
+
+    @pytest.mark.parametrize('action', ['apply', 'undo', 'redo'])
+    @pytest.mark.parametrize('identity', [None, '', 7])
+    def test_mutations_require_explicit_project_identity(tmp_path, action, identity):
+        projects = store(tmp_path)
+        doc = projects.new()
+        args = (0, [{'type': 'set_seed', 'seed': 1}]) if action == 'apply' else (0,)
+        with pytest.raises(ValueError, match='project_id'):
+>           getattr(projects, action)(*args, project_id=identity)
+E           TypeError: ProjectStore.redo() got an unexpected keyword argument 'project_id'
+
+tests/test_projects.py:67: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_stale_project_same_revision_is_rejected_without_any_mutation[apply]
+FAILED tests/test_projects.py::test_stale_project_same_revision_is_rejected_without_any_mutation[undo]
+FAILED tests/test_projects.py::test_stale_project_same_revision_is_rejected_without_any_mutation[redo]
+FAILED tests/test_projects.py::test_stale_project_same_revision_is_rejected_without_any_mutation[recipe]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[None-apply]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[None-undo]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[None-redo]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[-apply]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[-undo]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[-redo]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[7-apply]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[7-undo]
+FAILED tests/test_projects.py::test_mutations_require_explicit_project_identity[7-redo]
+13 failed, 224 deselected in 3.65s
+......................................................................   [100%]
+70 passed, 167 deselected in 28.78s
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___ test_http_stale_project_identity_conflicts_at_equal_revision[/commands] ____
+
+client = <httpx.AsyncClient object at 0x7f6d2c7a8c20>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-66/test_http_stale_project_identi0')
+path = '/commands'
+
+    @pytest.mark.parametrize('path', ['/commands', '/history/undo', '/history/redo', '/recipes/apply'])
+    def test_http_stale_project_identity_conflicts_at_equal_revision(client, tmp_path, path):
+        async def run():
+            async with client as c:
+                old = (await c.post('/project/new', json={})).json()['document']
+                current = (await c.post('/project/new', json={})).json()['document']
+                payload = {'project_id': old['id'], 'base_revision': old['revision']}
+                if path == '/commands':
+                    payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+                if path == '/recipes/apply':
+                    saved = await c.post('/recipes', json={'name': 'Identity regression',
+                        'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                    assert saved.status_code == 200, saved.text
+                    payload['id'] = saved.json()['id']
+                before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                          for p in tmp_path.rglob('*') if p.is_file()}
+                response = await c.post(path, json=payload)
+                assert response.status_code == 409, response.text
+                assert response.json()['document'] == current
+                assert (await c.get('/state')).json()['document'] == current
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+                payload.pop('project_id')
+                missing = await c.post(path, json=payload)
+                assert missing.status_code == 400, missing.text
+                assert 'project_id' in missing.json()['detail']
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+>       asyncio.run(run())
+
+tests/test_api.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            old = (await c.post('/project/new', json={})).json()['document']
+            current = (await c.post('/project/new', json={})).json()['document']
+            payload = {'project_id': old['id'], 'base_revision': old['revision']}
+            if path == '/commands':
+                payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+            if path == '/recipes/apply':
+                saved = await c.post('/recipes', json={'name': 'Identity regression',
+                    'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                assert saved.status_code == 200, saved.text
+                payload['id'] = saved.json()['id']
+            before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                      for p in tmp_path.rglob('*') if p.is_file()}
+            response = await c.post(path, json=payload)
+>           assert response.status_code == 409, response.text
+E           AssertionError: {"detail":"project_id must be explicit nonempty text"}
+E           assert 400 == 409
+E            +  where 400 = <Response [400 Bad Request]>.status_code
+
+tests/test_api.py:58: AssertionError
+_ test_http_stale_project_identity_conflicts_at_equal_revision[/history/undo] __
+
+client = <httpx.AsyncClient object at 0x7f6d28a16d50>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-66/test_http_stale_project_identi1')
+path = '/history/undo'
+
+    @pytest.mark.parametrize('path', ['/commands', '/history/undo', '/history/redo', '/recipes/apply'])
+    def test_http_stale_project_identity_conflicts_at_equal_revision(client, tmp_path, path):
+        async def run():
+            async with client as c:
+                old = (await c.post('/project/new', json={})).json()['document']
+                current = (await c.post('/project/new', json={})).json()['document']
+                payload = {'project_id': old['id'], 'base_revision': old['revision']}
+                if path == '/commands':
+                    payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+                if path == '/recipes/apply':
+                    saved = await c.post('/recipes', json={'name': 'Identity regression',
+                        'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                    assert saved.status_code == 200, saved.text
+                    payload['id'] = saved.json()['id']
+                before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                          for p in tmp_path.rglob('*') if p.is_file()}
+                response = await c.post(path, json=payload)
+                assert response.status_code == 409, response.text
+                assert response.json()['document'] == current
+                assert (await c.get('/state')).json()['document'] == current
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+                payload.pop('project_id')
+                missing = await c.post(path, json=payload)
+                assert missing.status_code == 400, missing.text
+                assert 'project_id' in missing.json()['detail']
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+>       asyncio.run(run())
+
+tests/test_api.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            old = (await c.post('/project/new', json={})).json()['document']
+            current = (await c.post('/project/new', json={})).json()['document']
+            payload = {'project_id': old['id'], 'base_revision': old['revision']}
+            if path == '/commands':
+                payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+            if path == '/recipes/apply':
+                saved = await c.post('/recipes', json={'name': 'Identity regression',
+                    'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                assert saved.status_code == 200, saved.text
+                payload['id'] = saved.json()['id']
+            before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                      for p in tmp_path.rglob('*') if p.is_file()}
+            response = await c.post(path, json=payload)
+>           assert response.status_code == 409, response.text
+E           AssertionError: {"detail":"project_id must be explicit nonempty text"}
+E           assert 400 == 409
+E            +  where 400 = <Response [400 Bad Request]>.status_code
+
+tests/test_api.py:58: AssertionError
+_ test_http_stale_project_identity_conflicts_at_equal_revision[/history/redo] __
+
+client = <httpx.AsyncClient object at 0x7f6d28958a50>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-66/test_http_stale_project_identi2')
+path = '/history/redo'
+
+    @pytest.mark.parametrize('path', ['/commands', '/history/undo', '/history/redo', '/recipes/apply'])
+    def test_http_stale_project_identity_conflicts_at_equal_revision(client, tmp_path, path):
+        async def run():
+            async with client as c:
+                old = (await c.post('/project/new', json={})).json()['document']
+                current = (await c.post('/project/new', json={})).json()['document']
+                payload = {'project_id': old['id'], 'base_revision': old['revision']}
+                if path == '/commands':
+                    payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+                if path == '/recipes/apply':
+                    saved = await c.post('/recipes', json={'name': 'Identity regression',
+                        'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                    assert saved.status_code == 200, saved.text
+                    payload['id'] = saved.json()['id']
+                before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                          for p in tmp_path.rglob('*') if p.is_file()}
+                response = await c.post(path, json=payload)
+                assert response.status_code == 409, response.text
+                assert response.json()['document'] == current
+                assert (await c.get('/state')).json()['document'] == current
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+                payload.pop('project_id')
+                missing = await c.post(path, json=payload)
+                assert missing.status_code == 400, missing.text
+                assert 'project_id' in missing.json()['detail']
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+>       asyncio.run(run())
+
+tests/test_api.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            old = (await c.post('/project/new', json={})).json()['document']
+            current = (await c.post('/project/new', json={})).json()['document']
+            payload = {'project_id': old['id'], 'base_revision': old['revision']}
+            if path == '/commands':
+                payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+            if path == '/recipes/apply':
+                saved = await c.post('/recipes', json={'name': 'Identity regression',
+                    'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                assert saved.status_code == 200, saved.text
+                payload['id'] = saved.json()['id']
+            before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                      for p in tmp_path.rglob('*') if p.is_file()}
+            response = await c.post(path, json=payload)
+>           assert response.status_code == 409, response.text
+E           AssertionError: {"detail":"project_id must be explicit nonempty text"}
+E           assert 400 == 409
+E            +  where 400 = <Response [400 Bad Request]>.status_code
+
+tests/test_api.py:58: AssertionError
+_ test_http_stale_project_identity_conflicts_at_equal_revision[/recipes/apply] _
+
+client = <httpx.AsyncClient object at 0x7f6d289196e0>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-66/test_http_stale_project_identi3')
+path = '/recipes/apply'
+
+    @pytest.mark.parametrize('path', ['/commands', '/history/undo', '/history/redo', '/recipes/apply'])
+    def test_http_stale_project_identity_conflicts_at_equal_revision(client, tmp_path, path):
+        async def run():
+            async with client as c:
+                old = (await c.post('/project/new', json={})).json()['document']
+                current = (await c.post('/project/new', json={})).json()['document']
+                payload = {'project_id': old['id'], 'base_revision': old['revision']}
+                if path == '/commands':
+                    payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+                if path == '/recipes/apply':
+                    saved = await c.post('/recipes', json={'name': 'Identity regression',
+                        'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                    assert saved.status_code == 200, saved.text
+                    payload['id'] = saved.json()['id']
+                before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                          for p in tmp_path.rglob('*') if p.is_file()}
+                response = await c.post(path, json=payload)
+                assert response.status_code == 409, response.text
+                assert response.json()['document'] == current
+                assert (await c.get('/state')).json()['document'] == current
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+                payload.pop('project_id')
+                missing = await c.post(path, json=payload)
+                assert missing.status_code == 400, missing.text
+                assert 'project_id' in missing.json()['detail']
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+>       asyncio.run(run())
+
+tests/test_api.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            old = (await c.post('/project/new', json={})).json()['document']
+            current = (await c.post('/project/new', json={})).json()['document']
+            payload = {'project_id': old['id'], 'base_revision': old['revision']}
+            if path == '/commands':
+                payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+            if path == '/recipes/apply':
+                saved = await c.post('/recipes', json={'name': 'Identity regression',
+                    'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                assert saved.status_code == 200, saved.text
+                payload['id'] = saved.json()['id']
+            before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                      for p in tmp_path.rglob('*') if p.is_file()}
+            response = await c.post(path, json=payload)
+>           assert response.status_code == 409, response.text
+E           AssertionError: {"detail":"project_id must be explicit nonempty text"}
+E           assert 400 == 409
+E            +  where 400 = <Response [400 Bad Request]>.status_code
+
+tests/test_api.py:58: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_http_stale_project_identity_conflicts_at_equal_revision[/commands]
+FAILED tests/test_api.py::test_http_stale_project_identity_conflicts_at_equal_revision[/history/undo]
+FAILED tests/test_api.py::test_http_stale_project_identity_conflicts_at_equal_revision[/history/redo]
+FAILED tests/test_api.py::test_http_stale_project_identity_conflicts_at_equal_revision[/recipes/apply]
+4 failed, 237 deselected in 3.72s
+FFF..............                                                        [100%]
+=================================== FAILURES ===================================
+___ test_http_stale_project_identity_conflicts_at_equal_revision[/commands] ____
+
+client = <httpx.AsyncClient object at 0x7fef3c01cc20>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-67/test_http_stale_project_identi0')
+path = '/commands'
+
+    @pytest.mark.parametrize('path', ['/commands', '/history/undo', '/history/redo', '/recipes/apply'])
+    def test_http_stale_project_identity_conflicts_at_equal_revision(client, tmp_path, path):
+        async def run():
+            async with client as c:
+                old = (await c.post('/project/new', json={})).json()['document']
+                current = (await c.post('/project/new', json={})).json()['document']
+                payload = {'project_id': old['id'], 'base_revision': old['revision']}
+                if path == '/commands':
+                    payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+                if path == '/recipes/apply':
+                    saved = await c.post('/recipes', json={'name': 'Identity regression',
+                        'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                    assert saved.status_code == 200, saved.text
+                    payload['id'] = saved.json()['id']
+                before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                          for p in tmp_path.rglob('*') if p.is_file()}
+                response = await c.post(path, json=payload)
+                assert response.status_code == 409, response.text
+                assert response.json()['document'] == current
+                assert (await c.get('/state')).json()['document'] == current
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+                payload.pop('project_id')
+                missing = await c.post(path, json=payload)
+                assert missing.status_code == 400, missing.text
+                assert 'project_id' in missing.json()['detail']
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+>       asyncio.run(run())
+
+tests/test_api.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            old = (await c.post('/project/new', json={})).json()['document']
+            current = (await c.post('/project/new', json={})).json()['document']
+            payload = {'project_id': old['id'], 'base_revision': old['revision']}
+            if path == '/commands':
+                payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+            if path == '/recipes/apply':
+                saved = await c.post('/recipes', json={'name': 'Identity regression',
+                    'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                assert saved.status_code == 200, saved.text
+                payload['id'] = saved.json()['id']
+            before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                      for p in tmp_path.rglob('*') if p.is_file()}
+            response = await c.post(path, json=payload)
+            assert response.status_code == 409, response.text
+            assert response.json()['document'] == current
+            assert (await c.get('/state')).json()['document'] == current
+>           assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                    for p in tmp_path.rglob('*') if p.is_file()} == before
+E           assert {'.projects.l...: null}', ...} == {'.projects.l...line": null}'}
+E             
+E             Omitting 4 identical items, use -vv to show
+E             Left contains 1 more item:
+E             {'.catalog.lock': b''}
+E             Use -v to get more diff
+
+tests/test_api.py:61: AssertionError
+_ test_http_stale_project_identity_conflicts_at_equal_revision[/history/undo] __
+
+client = <httpx.AsyncClient object at 0x7fef38a16c10>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-67/test_http_stale_project_identi1')
+path = '/history/undo'
+
+    @pytest.mark.parametrize('path', ['/commands', '/history/undo', '/history/redo', '/recipes/apply'])
+    def test_http_stale_project_identity_conflicts_at_equal_revision(client, tmp_path, path):
+        async def run():
+            async with client as c:
+                old = (await c.post('/project/new', json={})).json()['document']
+                current = (await c.post('/project/new', json={})).json()['document']
+                payload = {'project_id': old['id'], 'base_revision': old['revision']}
+                if path == '/commands':
+                    payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+                if path == '/recipes/apply':
+                    saved = await c.post('/recipes', json={'name': 'Identity regression',
+                        'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                    assert saved.status_code == 200, saved.text
+                    payload['id'] = saved.json()['id']
+                before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                          for p in tmp_path.rglob('*') if p.is_file()}
+                response = await c.post(path, json=payload)
+                assert response.status_code == 409, response.text
+                assert response.json()['document'] == current
+                assert (await c.get('/state')).json()['document'] == current
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+                payload.pop('project_id')
+                missing = await c.post(path, json=payload)
+                assert missing.status_code == 400, missing.text
+                assert 'project_id' in missing.json()['detail']
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+>       asyncio.run(run())
+
+tests/test_api.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            old = (await c.post('/project/new', json={})).json()['document']
+            current = (await c.post('/project/new', json={})).json()['document']
+            payload = {'project_id': old['id'], 'base_revision': old['revision']}
+            if path == '/commands':
+                payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+            if path == '/recipes/apply':
+                saved = await c.post('/recipes', json={'name': 'Identity regression',
+                    'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                assert saved.status_code == 200, saved.text
+                payload['id'] = saved.json()['id']
+            before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                      for p in tmp_path.rglob('*') if p.is_file()}
+            response = await c.post(path, json=payload)
+            assert response.status_code == 409, response.text
+            assert response.json()['document'] == current
+            assert (await c.get('/state')).json()['document'] == current
+>           assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                    for p in tmp_path.rglob('*') if p.is_file()} == before
+E           assert {'.projects.l...: null}', ...} == {'.projects.l...line": null}'}
+E             
+E             Omitting 4 identical items, use -vv to show
+E             Left contains 1 more item:
+E             {'.catalog.lock': b''}
+E             Use -v to get more diff
+
+tests/test_api.py:61: AssertionError
+_ test_http_stale_project_identity_conflicts_at_equal_revision[/history/redo] __
+
+client = <httpx.AsyncClient object at 0x7fef2bff8a50>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-67/test_http_stale_project_identi2')
+path = '/history/redo'
+
+    @pytest.mark.parametrize('path', ['/commands', '/history/undo', '/history/redo', '/recipes/apply'])
+    def test_http_stale_project_identity_conflicts_at_equal_revision(client, tmp_path, path):
+        async def run():
+            async with client as c:
+                old = (await c.post('/project/new', json={})).json()['document']
+                current = (await c.post('/project/new', json={})).json()['document']
+                payload = {'project_id': old['id'], 'base_revision': old['revision']}
+                if path == '/commands':
+                    payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+                if path == '/recipes/apply':
+                    saved = await c.post('/recipes', json={'name': 'Identity regression',
+                        'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                    assert saved.status_code == 200, saved.text
+                    payload['id'] = saved.json()['id']
+                before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                          for p in tmp_path.rglob('*') if p.is_file()}
+                response = await c.post(path, json=payload)
+                assert response.status_code == 409, response.text
+                assert response.json()['document'] == current
+                assert (await c.get('/state')).json()['document'] == current
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+                payload.pop('project_id')
+                missing = await c.post(path, json=payload)
+                assert missing.status_code == 400, missing.text
+                assert 'project_id' in missing.json()['detail']
+                assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                        for p in tmp_path.rglob('*') if p.is_file()} == before
+>       asyncio.run(run())
+
+tests/test_api.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            old = (await c.post('/project/new', json={})).json()['document']
+            current = (await c.post('/project/new', json={})).json()['document']
+            payload = {'project_id': old['id'], 'base_revision': old['revision']}
+            if path == '/commands':
+                payload['commands'] = [{'type': 'add_node', 'tool': 'builtin/pixelate@1'}]
+            if path == '/recipes/apply':
+                saved = await c.post('/recipes', json={'name': 'Identity regression',
+                    'stack': [{'uid': 'n', 'tool': 'builtin/pixelate@1'}], 'exposed': []})
+                assert saved.status_code == 200, saved.text
+                payload['id'] = saved.json()['id']
+            before = {str(p.relative_to(tmp_path)): p.read_bytes()
+                      for p in tmp_path.rglob('*') if p.is_file()}
+            response = await c.post(path, json=payload)
+            assert response.status_code == 409, response.text
+            assert response.json()['document'] == current
+            assert (await c.get('/state')).json()['document'] == current
+>           assert {str(p.relative_to(tmp_path)): p.read_bytes()
+                    for p in tmp_path.rglob('*') if p.is_file()} == before
+E           assert {'.projects.l...: null}', ...} == {'.projects.l...line": null}'}
+E             
+E             Omitting 4 identical items, use -vv to show
+E             Left contains 1 more item:
+E             {'.catalog.lock': b''}
+E             Use -v to get more diff
+
+tests/test_api.py:61: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_http_stale_project_identity_conflicts_at_equal_revision[/commands]
+FAILED tests/test_api.py::test_http_stale_project_identity_conflicts_at_equal_revision[/history/undo]
+FAILED tests/test_api.py::test_http_stale_project_identity_conflicts_at_equal_revision[/history/redo]
+3 failed, 14 passed, 224 deselected in 8.93s
+✖ command channel binds /commands identity and revision to one document snapshot (8.022873ms)
+✖ command channel binds /history/undo identity and revision to one document snapshot (3.133924ms)
+✖ command channel binds /history/redo identity and revision to one document snapshot (2.017334ms)
+✖ command channel binds /recipes/apply identity and revision to one document snapshot (2.023964ms)
+✖ equal-revision different-project HTTP409 refreshes identity and rejects queued edits without retry (5.207454ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 736.802501
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:227:2
+✖ command channel binds /commands identity and revision to one document snapshot (8.022873ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'snapshot-1'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:234:33)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'snapshot-1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:227:2
+✖ command channel binds /history/undo identity and revision to one document snapshot (3.133924ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'untrusted-override'
+  - 'snapshot-1'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:234:33)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'untrusted-override',
+    expected: 'snapshot-1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:227:2
+✖ command channel binds /history/redo identity and revision to one document snapshot (2.017334ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'untrusted-override'
+  - 'snapshot-1'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:234:33)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'untrusted-override',
+    expected: 'snapshot-1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:227:2
+✖ command channel binds /recipes/apply identity and revision to one document snapshot (2.023964ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'untrusted-override'
+  - 'snapshot-1'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:234:33)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'untrusted-override',
+    expected: 'snapshot-1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:238:1
+✖ equal-revision different-project HTTP409 refreshes identity and rejects queued edits without retry (5.207454ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        base_revision: 0,
+  +     project_id: undefined
+  -     project_id: 'old'
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:249:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { project_id: undefined, base_revision: 0 } ],
+    expected: [ { project_id: 'old', base_revision: 0 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+........................................................................ [ 29%]
+........................................................................ [ 59%]
+........................................................................ [ 89%]
+.........................                                                [100%]
+=============================== warnings summary ===============================
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_catalog_readers_wait_for_in_flight_mutation_transaction
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+  /home/destino/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/multiprocessing/popen_fork.py:76: DeprecationWarning: This process (pid=456911) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+241 passed, 8 warnings in 37.77s
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (7.654739ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (3.044878ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (4.189158ms)
+✔ detached service answers request while page is inactive and deduplicates id (9.305916ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (1.117617ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (9.658846ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (41.502072ms)
+✔ P1 entry wires manual studio and real diagnostic runner into permanent service (6.476873ms)
+✔ measures independent source and previous RGB differences; missing is null not fake zero (1.73901ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (24.772993ms)
+✔ project render is serialized and explicit preview limit reaches core (3.605152ms)
+✔ background request loads catalogue and honestly marks a source-less fixture (1.416274ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (1.979801ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (2.217144ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (1.886923ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (1.05084ms)
+✔ diagnostics persist the supplied actual runner output with build provenance (0.822831ms)
+✔ page preview proactively uploads ready PNG while comparison never changes cache (0.937932ms)
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (340.887782ms)
+✔ before comparison renders are excluded from project history metrics (70.845486ms)
+✔ numeric conversion never silently rounds invalid integer input (1.125399ms)
+✔ same-revision polling cannot cancel an in-flight client export (69.703113ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (61.386601ms)
+✔ a new revision invalidates exports and clears an obsolete export task (81.347768ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.33709ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (772.879199ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (164.377049ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (837.194261ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (132.555848ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.544389ms)
+✔ oversized and cancelled imports never upload or change source (1.453021ms)
+✔ manifest controls preserve all five parameter types and enum values (0.754763ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (0.965656ms)
+✔ command channel binds /commands identity and revision to one document snapshot (0.763045ms)
+✔ command channel binds /history/undo identity and revision to one document snapshot (0.777399ms)
+✔ command channel binds /history/redo identity and revision to one document snapshot (0.710746ms)
+✔ command channel binds /recipes/apply identity and revision to one document snapshot (0.609121ms)
+✔ equal-revision different-project HTTP409 refreshes identity and rejects queued edits without retry (1.098274ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.068817ms)
+✔ project creation and reproducible seed are available without any agent (137.178821ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3676.321122
+........................................................................ [ 28%]
+........................................................................ [ 57%]
+........................................................................ [ 86%]
+.................................                                        [100%]
+=============================== warnings summary ===============================
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_catalog_readers_wait_for_in_flight_mutation_transaction
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+  /home/destino/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/multiprocessing/popen_fork.py:76: DeprecationWarning: This process (pid=458582) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+249 passed, 8 warnings in 44.15s
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (4.972231ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (3.3992ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (3.839018ms)
+✔ detached service answers request while page is inactive and deduplicates id (8.756819ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (0.993313ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (7.355678ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (55.118604ms)
+✔ P1 entry wires manual studio and real diagnostic runner into permanent service (7.087533ms)
+✔ measures independent source and previous RGB differences; missing is null not fake zero (2.118227ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (21.292798ms)
+✔ project render is serialized and explicit preview limit reaches core (3.645409ms)
+✔ background request loads catalogue and honestly marks a source-less fixture (1.638643ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (2.21941ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (1.239122ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (1.656965ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (0.86497ms)
+✔ diagnostics persist the supplied actual runner output with build provenance (0.705579ms)
+✔ page preview proactively uploads ready PNG while comparison never changes cache (0.85402ms)
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (344.68227ms)
+✔ before comparison renders are excluded from project history metrics (75.332206ms)
+✔ numeric conversion never silently rounds invalid integer input (1.198352ms)
+✔ same-revision polling cannot cancel an in-flight client export (67.576028ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (59.87252ms)
+✔ a new revision invalidates exports and clears an obsolete export task (80.818497ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.355189ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (776.236663ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (162.216009ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (853.862408ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (148.490978ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.348061ms)
+✔ oversized and cancelled imports never upload or change source (1.439629ms)
+✔ manifest controls preserve all five parameter types and enum values (0.795869ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.023273ms)
+✔ command channel binds /commands identity and revision to one document snapshot (0.740167ms)
+✔ command channel binds /history/undo identity and revision to one document snapshot (0.763415ms)
+✔ command channel binds /history/redo identity and revision to one document snapshot (0.710944ms)
+✔ command channel binds /recipes/apply identity and revision to one document snapshot (0.641586ms)
+✔ equal-revision different-project HTTP409 refreshes identity and rejects queued edits without retry (1.192688ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.064722ms)
+✔ project creation and reproducible seed are available without any agent (139.169543ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3728.256078

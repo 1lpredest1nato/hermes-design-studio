@@ -1,0 +1,25 @@
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (351.675673ms)
+✔ before comparison renders are excluded from project history metrics (70.018252ms)
+✔ numeric conversion never silently rounds invalid integer input (0.905403ms)
+✔ same-revision polling cannot cancel an in-flight client export (79.836353ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (58.155454ms)
+✔ a new revision invalidates exports and clears an obsolete export task (68.454498ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.152689ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (782.985455ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (157.561072ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (848.031162ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (145.004276ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (1.346647ms)
+✔ oversized and cancelled imports never upload or change source (1.770122ms)
+✔ manifest controls preserve all five parameter types and enum values (0.911589ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.160514ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (0.951294ms)
+✔ project creation and reproducible seed are available without any agent (142.218044ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3449.839133

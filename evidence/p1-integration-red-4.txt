@@ -1,0 +1,26 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_preview_cache_never_confuses_equal_revisions_of_different_projects ____
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-34/test_preview_cache_never_confu0')
+
+    def test_preview_cache_never_confuses_equal_revisions_of_different_projects(tmp_path):
+        import base64
+        from studio_core.bridge import Store
+        png = base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aX1cAAAAASUVORK5CYII=')
+        current = {'format':1,'id':'old','revision':0,'source':None,'stack':[],'seed':1,'timeline':None}
+        store = Store(tmp_path, document_provider=lambda: dict(current))
+        old = store.request('preview')
+        current['id'] = 'new'
+        new = store.cache_preview(png,0,{'project_id':'new'})
+        store.respond(old['request_id'],png,{'project_id':'forged'})
+>       assert store.state()['latest']['project_id'] == 'new'
+E       AssertionError: assert 'forged' == 'new'
+E         
+E         - new
+E         + forged
+
+tests/test_integration.py:63: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_integration.py::test_preview_cache_never_confuses_equal_revisions_of_different_projects
+1 failed, 153 deselected in 0.65s

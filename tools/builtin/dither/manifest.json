@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "id": "builtin/dither",
+  "version": 1,
+  "name": "Ordered Dither",
+  "description": "Bayer 2/4/8 ordered dither: 2–8 grayscale levels or exactly two palette colors. Grayscale levels are ignored in palette mode.",
+  "kind": "shader",
+  "params": [
+    {
+      "name": "matrix",
+      "type": "enum",
+      "default": "4",
+      "label": "Matrix",
+      "options": [
+        "2",
+        "4",
+        "8"
+      ]
+    },
+    {
+      "name": "levels",
+      "type": "int",
+      "default": 4,
+      "label": "Levels",
+      "min": 2,
+      "max": 8
+    },
+    {
+      "name": "use_palette",
+      "type": "bool",
+      "default": false,
+      "label": "Use Palette"
+    },
+    {
+      "name": "dark",
+      "type": "color",
+      "default": "#171c29",
+      "label": "Dark"
+    },
+    {
+      "name": "light",
+      "type": "color",
+      "default": "#f4e4b5",
+      "label": "Light"
+    }
+  ],
+  "shader": "shader.frag",
+  "provenance": {
+    "author": "builtin",
+    "created": "2026-11-11",
+    "from_prompt": "Original Hermes Design Studio implementation"
+  },
+  "license": "MIT",
+  "examples": [
+    {
+      "params": {
+        "matrix": "4",
+        "levels": 4,
+        "use_palette": false,
+        "dark": "#171c29",
+        "light": "#f4e4b5"
+      }
+    }
+  ]
+}

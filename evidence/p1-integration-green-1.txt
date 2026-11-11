@@ -1,0 +1,60 @@
+.                                                                        [100%]
+1 passed, 35 deselected in 0.14s
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (6.870342ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (2.778443ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (4.281965ms)
+✔ detached service answers request while page is inactive and deduplicates id (6.05217ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (3.201301ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (11.626114ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (42.251606ms)
+✔ manifest controls preserve all five parameter types and enum values (13.393028ms)
+✖ command channel serializes backend revisions, rate limits, and merges only pending gestures (4.756096ms)
+✖ revision conflicts refresh the authoritative document and never silently retry (2.980764ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 243.346781
+
+✖ failing tests:
+
+test at tests/p1-ui.test.mjs:20:1
+✖ command channel serializes backend revisions, rate limits, and merges only pending gestures (4.756096ms)
+  AssertionError [ERR_ASSERTION]: command transport missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:21:34)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/p1-ui.test.mjs:34:1
+✖ revision conflicts refresh the authoritative document and never silently retry (2.980764ms)
+  AssertionError [ERR_ASSERTION]: command transport missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-ui.test.mjs:35:34)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

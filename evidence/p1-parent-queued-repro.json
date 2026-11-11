@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "calls": [
+    {
+      "path": "/project/new",
+      "body": {
+        "project_id": "old-project",
+        "base_revision": 0
+      }
+    }
+  ],
+  "rejected": {
+    "status": 409,
+    "message": "HTTP 409 project identity conflict"
+  },
+  "conflicts": 1
+}

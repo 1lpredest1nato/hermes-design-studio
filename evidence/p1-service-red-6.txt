@@ -1,0 +1,35 @@
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (18.095062ms)
+✔ project render is serialized and explicit preview limit reaches core (2.619745ms)
+✔ background request loads catalogue and reports actual project not fixture (3.050544ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (2.079727ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (1.993767ms)
+✖ manual draft check uses the shared request and actual draft shader with supplied params (2.122204ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 138.215869
+
+✖ failing tests:
+
+test at tests/p1-service.test.mjs:79:1
+✖ manual draft check uses the shared request and actual draft shader with supplied params (2.122204ms)
+  AssertionError [ERR_ASSERTION]: manual check service missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:88:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

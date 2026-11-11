@@ -1,0 +1,18 @@
+✔ detached service answers request while page is inactive and deduplicates id (8.934015ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (0.800126ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (6.654192ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (21.653492ms)
+✔ project render is serialized and explicit preview limit reaches core (2.076194ms)
+✔ background request loads catalogue and reports actual project not fixture (2.139274ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (1.884684ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (1.329134ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (1.206479ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (0.897187ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 133.321615

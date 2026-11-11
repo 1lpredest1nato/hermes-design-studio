@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "id": "builtin/gradient_map",
+  "version": 1,
+  "name": "Gradient Map",
+  "description": "Map brightness to two or three colors, interpolated in linear light.",
+  "kind": "shader",
+  "params": [
+    {
+      "name": "dark",
+      "type": "color",
+      "default": "#14283f",
+      "label": "Dark"
+    },
+    {
+      "name": "middle",
+      "type": "color",
+      "default": "#cf7543",
+      "label": "Middle"
+    },
+    {
+      "name": "light",
+      "type": "color",
+      "default": "#f6e6b9",
+      "label": "Light"
+    },
+    {
+      "name": "three_colors",
+      "type": "bool",
+      "default": false,
+      "label": "Three Colors"
+    }
+  ],
+  "shader": "shader.frag",
+  "provenance": {
+    "author": "builtin",
+    "created": "2026-11-11",
+    "from_prompt": "Original Hermes Design Studio implementation"
+  },
+  "license": "MIT",
+  "examples": [
+    {
+      "params": {
+        "dark": "#14283f",
+        "middle": "#cf7543",
+        "light": "#f6e6b9",
+        "three_colors": false
+      }
+    }
+  ]
+}

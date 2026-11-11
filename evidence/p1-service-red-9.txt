@@ -1,0 +1,36 @@
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (19.3972ms)
+✔ project render is serialized and explicit preview limit reaches core (3.535676ms)
+✔ background request loads catalogue and reports actual project not fixture (2.311018ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (1.920222ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (1.69251ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (1.991961ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (0.970102ms)
+✔ diagnostics persist the supplied actual runner output with build provenance (0.693753ms)
+✖ page preview proactively uploads ready PNG while comparison never changes cache (2.824504ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 145.427667
+
+✖ failing tests:
+
+test at tests/p1-service.test.mjs:124:1
+✖ page preview proactively uploads ready PNG while comparison never changes cache (2.824504ms)
+  AssertionError [ERR_ASSERTION]: ready page frame must update cached preview exactly once
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:132:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

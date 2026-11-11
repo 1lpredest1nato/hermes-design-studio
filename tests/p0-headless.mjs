@@ -26,7 +26,8 @@ try {
   return {evidence_scope:'secondary standalone Chromium software-WebGL, no SDK/gateway transport',detached_canvas:!canvas.isConnected,pixels,signature,metrics:frame.metrics,disposedError,probe_png_bytes:probe.size,probe_sha256:sha256};
  });
  assert.equal(result.detached_canvas,true);assert.deepEqual(result.signature,[137,80,78,71,13,10,26,10]);
- const expected=[64,64,64,255,191,64,64,255,64,191,64,255,191,191,64,255];
+ // P1 exposes top-down RGBA (matching the PNG), unlike P0 raw bottom-up readPixels.
+ const expected=[64,191,64,255,191,191,64,255,64,64,64,255,191,64,64,255];
  assert.ok(result.pixels.every((v,i)=>Math.abs(v-expected[i])<=1));assert.match(result.disposedError,/disposed/);
  assert.ok(result.probe_png_bytes>=20*1024*1024);
  console.log(JSON.stringify(result,null,2));

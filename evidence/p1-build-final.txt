@@ -1,0 +1,6 @@
+npm notice run npx
+npm notice run 'esbuild' hermes/plugin.jsx --bundle --format=esm --jsx=automatic --external:@hermes/plugin-sdk --external:react --external:react/jsx-runtime --outfile=desktop/plugin.js --metafile=evidence/esbuild-meta-p1.json
+
+  desktop/plugin.js  111.2kb
+
+⚡ Done in 11ms

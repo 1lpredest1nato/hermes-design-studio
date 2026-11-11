@@ -1,0 +1,32 @@
+{
+  "format": 1,
+  "id": "builtin/pixelate",
+  "version": 1,
+  "name": "Pixelate",
+  "description": "Snap image samples to the center of square pixel blocks.",
+  "kind": "shader",
+  "params": [
+    {
+      "name": "size",
+      "type": "int",
+      "min": 1,
+      "max": 128,
+      "default": 8,
+      "label": "Block size (px)"
+    }
+  ],
+  "shader": "shader.frag",
+  "provenance": {
+    "author": "builtin",
+    "created": "2026-11-11",
+    "from_prompt": "Original Hermes Design Studio implementation"
+  },
+  "license": "MIT",
+  "examples": [
+    {
+      "params": {
+        "size": 8
+      }
+    }
+  ]
+}

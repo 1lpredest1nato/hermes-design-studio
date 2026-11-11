@@ -1,0 +1,75 @@
+........................................................................ [ 28%]
+........................................................................ [ 56%]
+........................................................................ [ 85%]
+.....................................                                    [100%]
+=============================== warnings summary ===============================
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_bridge.py::test_first_response_wins_across_processes
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_cross_process_approval_is_single_use_and_keeps_version_one
+tests/test_catalog.py::test_catalog_readers_wait_for_in_flight_mutation_transaction
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_cross_process_writers_get_one_commit_and_one_conflict
+tests/test_projects.py::test_global_journal_recovers_process_death_before_project_materialization
+  /home/destino/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/multiprocessing/popen_fork.py:76: DeprecationWarning: This process (pid=477515) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+253 passed, 8 warnings in 67.38s (0:01:07)
+✔ Desktop adapter declares permanent SDK query mount, both pages and user-only download (6.786827ms)
+✔ RGBA metrics independently measure black/white contrast, clipping and detail (3.245305ms)
+✔ renderer refuses unavailable WebGL2 rather than silently substituting Canvas2D (2.986005ms)
+✔ detached service answers request while page is inactive and deduplicates id (7.872185ms)
+✔ plugin unload during PNG encoding disposes GPU and prevents every POST continuation (1.367171ms)
+✔ plugin unload while response IPC is pending never submits follow-up report (12.469904ms)
+✔ chunk uploader sends sequential 4MiB pieces and verifies backend full SHA (44.198446ms)
+✔ human approval sends the exact displayed successful check fingerprints (962.680135ms)
+✔ approval stays disabled after replacement (721.29237ms)
+✔ approval stays disabled after wrong-receipt (723.992386ms)
+✔ approval stays disabled after approval-conflict (717.101809ms)
+✔ P1 entry wires manual studio and real diagnostic runner into permanent service (9.281503ms)
+✔ measures independent source and previous RGB differences; missing is null not fake zero (2.618063ms)
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (19.738957ms)
+✔ project render is serialized and explicit preview limit reaches core (3.614745ms)
+✔ background request loads catalogue and honestly marks a source-less fixture (1.995386ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (2.913955ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (2.042525ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (2.125228ms)
+✔ draft check sends editor fingerprints and displays only the durable validated entry (1.860601ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (1.656354ms)
+✔ diagnostics persist the supplied actual runner output with build provenance (1.508074ms)
+✔ dispose closes a bitmap decoded after unload without render or post (15.802733ms)
+✔ page preview proactively uploads ready PNG while comparison never changes cache (1.836138ms)
+✔ manual studio renders useful empty states, sends backend add, and retires route keybinds (334.626213ms)
+✔ before comparison renders are excluded from project history metrics (77.779127ms)
+✔ numeric conversion never silently rounds invalid integer input (0.910997ms)
+✔ same-revision polling cannot cancel an in-flight client export (68.433916ms)
+✔ Native colors depend only on SDK ui tokens and Minimal persists without touching host DOM (61.60316ms)
+✔ a new revision invalidates exports and clears an obsolete export task (83.76782ms)
+✔ gesture backlog keeps only the latest pending payload without altering backend documents (1.298018ms)
+✔ draft failure keeps exact compiler line diagnostics and prevents approval (780.422683ms)
+✔ recipe saving sends the selected stack and explicit exposed descriptors through the API (164.803918ms)
+✔ manual shader editor checks both fixtures after debounce and approves only on a human click (837.762876ms)
+✔ file input drives real chunk transport and full-resolution export is client download only (136.720917ms)
+✔ image import shows the decoded file before PNG chunk upload and sets backend source (3.438296ms)
+✔ oversized and cancelled imports never upload or change source (2.174123ms)
+✔ manifest controls preserve all five parameter types and enum values (1.229513ms)
+✔ command channel serializes backend revisions, rate limits, and merges only pending gestures (1.650409ms)
+✔ command channel binds /commands identity and revision to one document snapshot (1.306536ms)
+✔ command channel binds /history/undo identity and revision to one document snapshot (1.492212ms)
+✔ command channel binds /history/redo identity and revision to one document snapshot (0.970881ms)
+✔ command channel binds /recipes/apply identity and revision to one document snapshot (0.826126ms)
+✔ equal-revision different-project HTTP409 refreshes identity and rejects queued edits without retry (1.508366ms)
+✔ queued New project rejects old-project seed and pending edits without posting or retrying (1.896788ms)
+✔ throttled job rejects a project switch during its wait without a POST (1.460459ms)
+✔ same gesture across project identities cannot replace an earlier queued payload (2.007525ms)
+✔ revision conflicts refresh the authoritative document and never silently retry (1.528726ms)
+✔ project creation and reproducible seed are available without any agent (160.128919ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4212.840395

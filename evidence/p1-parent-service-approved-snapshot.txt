@@ -1,0 +1,118 @@
+%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/commands",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/preview/cache?revision=2&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A01.699Z%22%2C%22kind%22%3A%22preview%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22ui%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.6631604248366036%2C%22std_luma%22%3A0.19633250118047174%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.03676840276694254%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%2377ff88%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%2377ffcc%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%237733ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%238855ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%23887755%22%2C%22fraction%22%3A0.041666666666666664%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.33037513616557734%2C%22difference_previous%22%3A0.18513071895424837%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/request",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=0ccce7575a4d499d97f790be54667994&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A01.877Z%22%2C%22request_id%22%3A%220ccce7575a4d499d97f790be54667994%22%2C%22kind%22%3A%22export%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.6631604248366036%2C%22std_luma%22%3A0.19633250118047174%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.03676840276694254%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%2377ff88%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%2377ffcc%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%237733ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%238855ff%22%2C%22fraction%22%3A0.041666666666666664%7D%2C%7B%22hex%22%3A%22%23887755%22%2C%22fraction%22%3A0.041666666666666664%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.33037513616557734%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=0ccce7575a4d499d97f790be54667994",
+      "status": 200
+    },
+    {
+      "path": "/drafts",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=a6b86adbe8a34f2eb6739cf548980025&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A02.073Z%22%2C%22request_id%22%3A%22a6b86adbe8a34f2eb6739cf548980025%22%2C%22kind%22%3A%22check%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A64%2C%22height%22%3A48%2C%22metrics%22%3A%7B%22width%22%3A64%2C%22height%22%3A48%2C%22mean_luma%22%3A0.5000000000000003%2C%22std_luma%22%3A0.22599268715989268%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0.390625%2C%22detail_density%22%3A0.15999605554688917%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%23ffffff%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ffddbb%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ffbb77%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ee8822%22%2C%22fraction%22%3A0.0078125%7D%2C%7B%22hex%22%3A%22%23ee66ee%22%2C%22fraction%22%3A0.0078125%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.5019607843137255%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Afalse%2C%22u_time%22%3A0%2C%22shader_sha%22%3A%22af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567%22%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=a6b86adbe8a34f2eb6739cf548980025",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/response?id=075a807881ca48b781b1e8fae607dc71&meta=%7B%22run_id%22%3A%2236289a45-3b27-413d-8e30-771ab3c69bc2%22%2C%22build%22%3A%22P1-secondary-full-service%22%2C%22page_active%22%3Afalse%2C%22detached_canvas%22%3Atrue%2C%22at%22%3A%222026-11-11T17%3A37%3A02.376Z%22%2C%22request_id%22%3A%22075a807881ca48b781b1e8fae607dc71%22%2C%22kind%22%3A%22check%22%2C%22revision%22%3A2%2C%22project_id%22%3A%224ecb1280df2d4bfbbb67f7f0aead85df%22%2C%22via%22%3A%22manual%22%2C%22width%22%3A640%2C%22height%22%3A400%2C%22metrics%22%3A%7B%22width%22%3A640%2C%22height%22%3A400%2C%22mean_luma%22%3A0.5179792156862743%2C%22std_luma%22%3A0.21537692648661197%2C%22shadow_clipping_pct%22%3A0%2C%22highlight_clipping_pct%22%3A0%2C%22detail_density%22%3A0.0010622514482542835%2C%22dominant_colors%22%3A%5B%7B%22hex%22%3A%22%23bb22bb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%234422bb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%23bbddbb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%2344ddbb%22%2C%22fraction%22%3A0.0041640625%7D%2C%7B%22hex%22%3A%22%23ee22bb%22%2C%22fraction%22%3A0.0040625%7D%5D%2C%22nearly_uniform%22%3Afalse%2C%22difference_source%22%3A0.49930882352941175%2C%22difference_previous%22%3Anull%2C%22metrics_scope%22%3A%22sRGB%20uncomposited%20RGB%3B%20differences%20mean%20absolute%20RGB%20%2F255%3B%20unavailable%20or%20mismatched%20comparison%20is%20null%22%7D%2C%22fixture%22%3Atrue%2C%22u_time%22%3A0%2C%22shader_sha%22%3A%22af70e53962393559922d6d478ae41a3ca6a82f0184da9344c2f3d1a2acd01567%22%7D",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=075a807881ca48b781b1e8fae607dc71",
+      "status": 200
+    },
+    {
+      "path": "/drafts",
+      "status": 200
+    },
+    {
+      "path": "/drafts/check",
+      "status": 200
+    },
+    {
+      "path": "/render/error?id=cfda2b21689a4c5aa16eab4bcda64d59",
+      "status": 200
+    },
+    {
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "path": "/render/result?id=cfda2b21689a4c5aa16eab4bcda64d59",
+      "status": 200
+    },
+    {
+      "path": "/catalog",
+      "status": 200
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200
+    }
+  ],
+  "browser_version": "155.0.8059.84",
+  "uncaught_errors": []
+}
+
+
+Actual HTTP service/GPU integration and exported PNG: PASS (secondary, not Desktop).

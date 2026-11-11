@@ -1,0 +1,37 @@
+✔ asset transport reads bounded base64 chunks, verifies full content hash and aborts (14.599907ms)
+✔ project render is serialized and explicit preview limit reaches core (2.293861ms)
+✔ background request loads catalogue and reports actual project not fixture (1.85328ms)
+✔ cache keys include project identity and metrics compare previous revision not repeated frame (1.461719ms)
+✔ compiler errors finish checks as errors once instead of leaving requests pending (1.035412ms)
+✔ manual draft check uses the shared request and actual draft shader with supplied params (1.38067ms)
+✔ library export uses full-resolution renderer request and returns backend receipt (0.905109ms)
+✖ diagnostics persist the supplied actual runner output with build provenance (1.374428ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 112.424795
+
+✖ failing tests:
+
+test at tests/p1-service.test.mjs:111:1
+✖ diagnostics persist the supplied actual runner output with build provenance (1.374428ms)
+  AssertionError [ERR_ASSERTION]: diagnostic service missing
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///home/destino/projects/hermes-design-studio/tests/p1-service.test.mjs:117:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

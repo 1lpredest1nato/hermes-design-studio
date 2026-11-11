@@ -1,0 +1,247 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_application_composes_durable_authoritative_state _____________
+
+root = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-38/test_application_composes_dura0')
+
+    def application(root):
+        try:
+>           from studio_core.application import Application
+E           ModuleNotFoundError: No module named 'studio_core.application'
+
+tests/test_api.py:22: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-38/test_application_composes_dura0')
+
+    def test_application_composes_durable_authoritative_state(tmp_path):
+>       app = application(tmp_path)
+              ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_api.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-38/test_application_composes_dura0')
+
+    def application(root):
+        try:
+            from studio_core.application import Application
+        except ImportError:
+>           pytest.fail('P1 Application composition is missing')
+E           Failed: P1 Application composition is missing
+
+tests/test_api.py:24: Failed
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_application_composes_durable_authoritative_state
+1 failed, 206 deselected in 0.48s
+
+GREEN composition
+.                                                                        [100%]
+1 passed, 206 deselected in 1.27s
+
+RED HTTP project lifecycle
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_http_project_command_history_and_conflict ________________
+
+client = <httpx.AsyncClient object at 0x7f01d9049550>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-41/test_http_project_command_hist0')
+
+    def test_http_project_command_history_and_conflict(client, tmp_path):
+        async def run():
+            async with client as c:
+                initial = (await c.get('/state')).json()
+                assert 'catalog' in initial, 'P1 state lacks catalog'
+                created = await c.post('/project/new', json={})
+                assert created.status_code == 200, created.text
+                doc = created.json()['document']
+                assert doc['id'] != initial['document']['id']
+                catalog = (await c.get('/catalog')).json()
+                tool = catalog['tools'][0]['ref']
+                changed = await c.post('/commands', json={'base_revision': 0, 'commands': [
+                    {'type': 'add_node', 'tool': tool, 'uid': 'node1'}], 'gesture_id': 'drag'})
+                assert changed.status_code == 200, changed.text
+                envelope = changed.json()
+                assert envelope['document']['stack'][0]['tool'] == tool
+                conflict = await c.post('/commands', json={'base_revision': 0, 'commands': [
+                    {'type': 'set_seed', 'seed': 4}]})
+                assert conflict.status_code == 409, conflict.text
+                assert conflict.json()['document'] == envelope['document']
+                undone = await c.post('/history/undo', json={'base_revision': 1})
+                assert undone.status_code == 200, undone.text
+                assert undone.json()['document']['stack'] == []
+                redone = await c.post('/history/redo', json={'base_revision': 2})
+                assert redone.status_code == 200, redone.text
+                assert redone.json()['document']['stack'][0]['tool'] == tool
+                stale = await c.post('/history/undo', json={'base_revision': 1})
+                assert stale.status_code == 409
+                assert stale.json()['document']['revision'] == 3
+                req = (await c.post('/render/request', json={'kind': 'preview'})).json()
+                assert req['document'] == redone.json()['document']
+                records = [json.loads(line) for line in (tmp_path / 'commands.jsonl').read_text().splitlines()]
+                assert all(record['source'] == 'ui' for record in records)
+>       asyncio.run(run())
+
+tests/test_api.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            initial = (await c.get('/state')).json()
+>           assert 'catalog' in initial, 'P1 state lacks catalog'
+E           AssertionError: P1 state lacks catalog
+E           assert 'catalog' in {'document': {'format': 1, 'id': '94e10daa3aae4f7b8767e889bac9be09', 'revision': 0, 'source': None, ...}, 'pending': [], 'latest': None}
+
+tests/test_api.py:45: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_http_project_command_history_and_conflict - As...
+1 failed, 207 deselected in 0.92s
+
+GREEN HTTP project lifecycle + full Python regression
+........................................................................ [ 34%]
+........................................................................ [ 68%]
+................................................................FF.      [100%]
+=================================== FAILURES ===================================
+_____ test_new_project_fsyncs_project_directory_before_publishing_pointer ______
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-42/test_new_project_fsyncs_projec0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f5c4e9f6be0>
+
+    def test_new_project_fsyncs_project_directory_before_publishing_pointer(tmp_path, monkeypatch):
+        projects = store(tmp_path)
+        synced = []
+        real_fsync = os.fsync
+        def recording_fsync(fd):
+            synced.append(os.fstat(fd).st_ino)
+            return real_fsync(fd)
+        monkeypatch.setattr(os, "fsync", recording_fsync)
+        projects.new()
+>       assert (tmp_path / "projects").stat().st_ino in synced
+E       AssertionError: assert 1082310 in [1082312, 1082311, 1082318, 1082307]
+E        +  where 1082310 = os.stat_result(st_mode=16877, st_ino=1082310, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=64, st_atime=1794415442, st_mtime=1794415442, st_ctime=1794415442).st_ino
+E        +    where os.stat_result(st_mode=16877, st_ino=1082310, st_dev=57, st_nlink=1, st_uid=1000, st_gid=1000, st_size=64, st_atime=1794415442, st_mtime=1794415442, st_ctime=1794415442) = stat()
+E        +      where stat = (PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-42/test_new_project_fsyncs_projec0') / 'projects').stat
+
+tests/test_projects.py:441: AssertionError
+______ test_malformed_format_one_pointer_raises_readable_validation_error ______
+
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-42/test_malformed_format_one_poin0')
+
+    def test_malformed_format_one_pointer_raises_readable_validation_error(tmp_path):
+        projects = store(tmp_path)
+        projects.new()
+        pointer = tmp_path / "current-project.json"
+        pointer.write_text('{"format": 1}')
+        with pytest.raises(ValueError, match="pointer"):
+>           projects.get()
+
+tests/test_projects.py:450: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+studio_core/projects.py:323: in get
+    with self._locked():
+               ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <studio_core.projects.ProjectStore object at 0x7f5c4d8dd670>
+
+    
+    def _load(self):
+        pointer = self._safe(self.root / 'current-project.json')
+        if not pointer.exists():
+>           return self._new()
+                     ^^^^^^^^^^
+E           KeyError: 'id'
+
+studio_core/projects.py:329: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_projects.py::test_new_project_fsyncs_project_directory_before_publishing_pointer
+FAILED tests/test_projects.py::test_malformed_format_one_pointer_raises_readable_validation_error
+2 failed, 209 passed in 46.19s
+
+RED draft success lifecycle
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_http_draft_check_png_approval_and_delete _________________
+
+client = <httpx.AsyncClient object at 0x7f29e706a7b0>
+tmp_path = PosixPath('/home/destino/.hermes/cache/scratch/pytest-of-destino/pytest-43/test_http_draft_check_png_appr0')
+
+    def test_http_draft_check_png_approval_and_delete(client, tmp_path):
+        async def run():
+            async with client as c:
+                draft_response = await c.post('/drafts', json={'name': 'Custom Identity', 'description': 'test',
+                                                              'params': [], 'shader': SHADER})
+                assert draft_response.status_code == 200, draft_response.text
+                draft = draft_response.json()
+                ident = draft['manifest']['id']
+                assert (await c.post('/drafts/approve', json={'id': ident})).status_code == 400
+                check = await c.post('/drafts/check', json={'id': ident, 'fixture': True, 'params': {}})
+                assert check.status_code == 200, check.text
+                request = check.json()
+                rid = request['request_id']
+                assert request['entry'] == draft
+                assert request['draft_id'] == request['id'] == ident
+                assert request['shader_sha'] == hashlib.sha256(SHADER.encode()).hexdigest()
+                assert request['fixture'] is True and request['params'] == {}
+                assert request['document'] == (await c.get('/state')).json()['document']
+                assert (await c.get('/render/result', params={'id': rid})).json() == {'pending': True}
+                forged = {'draft_id': 'user/some-other-tool', 'shader_sha': '0'*64, 'ok': False}
+                result = await c.post('/render/response', params={'id': rid, 'meta': json.dumps(forged)},
+                                      files={'file': ('check.png', PNG, 'image/png')})
+                assert result.status_code == 200, result.text
+                assert (await c.get('/render/result', params={'id': rid})).json() == result.json()
+                stored = (await c.get('/catalog')).json()['drafts'][0]
+                assert stored['check']['result']['ok'] is True
+                assert stored['check']['shader_sha'] == request['shader_sha']
+                approved = await c.post('/drafts/approve', json={'id': ident})
+                assert approved.status_code == 200, approved.text
+                assert approved.json()['status'] == 'approved'
+                assert not (await c.get('/catalog')).json()['drafts']
+                assert application(tmp_path).catalog.resolve(approved.json()['ref']) == approved.json()
+                await c.post('/drafts', json={'name': 'Delete Me', 'description': '', 'params': [], 'shader': SHADER})
+                deleted = await c.delete('/drafts', params={'id': 'user/delete-me'})
+                assert deleted.status_code == 200, deleted.text
+                assert not (await c.get('/catalog')).json()['drafts']
+>       asyncio.run(run())
+
+tests/test_api.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:205: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py:128: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py:720: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def run():
+        async with client as c:
+            draft_response = await c.post('/drafts', json={'name': 'Custom Identity', 'description': 'test',
+                                                          'params': [], 'shader': SHADER})
+>           assert draft_response.status_code == 200, draft_response.text
+E           AssertionError: {"detail":"Not Found"}
+E           assert 404 == 200
+E            +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_api.py:82: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_http_draft_check_png_approval_and_delete - Ass...
+1 failed, 211 deselected in 0.59s
+
+GREEN draft success lifecycle
+...                                                                      [100%]
+3 passed, 209 deselected in 4.50s
