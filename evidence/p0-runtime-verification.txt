@@ -1,0 +1,29 @@
+{
+  "pass": true,
+  "session_id": "20261111_191301_ea4a4b",
+  "request_id": "64434194c10f4c59b30030bf191a2e80",
+  "page_active": false,
+  "upload_bytes": 24673192,
+  "files": [
+    {
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+      "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+      "bytes": 6927,
+      "dimensions": [
+        640,
+        400
+      ],
+      "pillow_verify_and_load": true
+    },
+    {
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+      "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+      "bytes": 24673192,
+      "dimensions": [
+        2560,
+        2400
+      ],
+      "pillow_verify_and_load": true
+    }
+  ]
+}

@@ -77,3 +77,18 @@ Validation passed.
 
 `git diff --cached --check` отметил trailing whitespace в необработанных логах тестов/CLI и пустые строки EOF; это не падение тестов. Исходные stdout доказательств не переписывались ради косметики. Бинарные payloads в staging отсутствуют; `git status --short` после checkpoint commit пуст.
 
+## P0 — закрыта после реального клиентского прогона (19:16 МСК)
+
+`PYTHONDONTWRITEBYTECODE=1 python tests/verify_p0_runtime.py` — **exit 0, pass:true**. Скрипт независимо связал read-only историю сессии, request/response JSON, отчёт Desktop и реальные файлы. Полные доказательства: `evidence/p0-runtime-verification.{json,txt}`, снимок `evidence/p0-client-report.json`.
+
+- Новый session id **20261111_191301_ea4a4b**. User message **5069**: `Вызови design_studio_preview и покажи результат`; настоящий call **5072**, результат **5073**, call id **call_f8b05ae177f949988023c4ef391c8daf**.
+- request id **64434194c10f4c59b30030bf191a2e80** совпал в tool result, `requests/`, `responses/` и `report.renders`. Run id **a9733829-9260-4d68-8f3b-b93e5b7f84a3**. Реальный service render: **page_active:false**, **detached_canvas:true**, `via:poll`, `revision:0`, `stale:false`; ответ при закрытой странице доказан.
+- Превью **640×400**, **6927 байт**, SHA **fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d**. Pillow verify + load прошли. Текстовые метрики сохранены в настоящем tool result; скриншот пользователя показывает изображение, не только текст. Это P0 fixture, не обработка пользовательского изображения.
+- **Настоящий клиентский ctx.rest upload:** **24 673 192 байт**, 6 chunks, PNG **2560×2400**; SHA **c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f** совпал с самостоятельно пересчитанным SHA файла в `plugin-data/hermes-design-studio/assets/`. Pillow verify + load прошли. Поле `upload_probe.status:complete`, `sha256_match:true`.
+- **Save as:** `save_as.dialog_verified:true`, `evidence:explicit-user-confirmation`; человек подтвердил системный диалог в UI и написал, что выполнил шаги. Агент не нажимал подтверждение за человека.
+- Клиентский плагин успешно загружен (скриншоты пользователя + точный build id). Перезапуск Desktop выполнил человек; агент ничего не перезапускал. P0 закрыта до 19:20.
+
+## P1 — начало 19:16 МСК; отсечка 21:15
+
+Переходим к командам/ревизиям, полноценному renderer со стеком, 7 встроенным инструментам, ручному авторингу и диагностике. P0 код остаётся исходной контрольной точкой, а не доказательством P1-функций.
+

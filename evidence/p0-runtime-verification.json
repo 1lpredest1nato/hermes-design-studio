@@ -1,0 +1,276 @@
+{
+  "pass": true,
+  "scope": "actual client Desktop + fresh agent session, independently correlated",
+  "session": {
+    "id": "20261111_191301_ea4a4b",
+    "model": "gpt-6.1-sol",
+    "started_at": 1794413581.5000083,
+    "parent_session_id": null
+  },
+  "messages": [
+    {
+      "id": 5069,
+      "role": "user",
+      "content": "Вызови design_studio_preview и покажи результат",
+      "tool_calls": null,
+      "tool_name": null,
+      "tool_call_id": null,
+      "timestamp": 1794413581.5438852
+    },
+    {
+      "id": 5072,
+      "role": "assistant",
+      "content": "",
+      "tool_calls": "[{\"id\": \"call_f8b05ae177f949988023c4ef391c8daf\", \"call_id\": \"call_f8b05ae177f949988023c4ef391c8daf\", \"response_item_id\": \"fc_00d8c280161fd5e5016af49414be8887d2b2a62ca5718ff87b\", \"type\": \"function\", \"function\": {\"name\": \"tool_call\", \"arguments\": \"{\\\"calls\\\":[{\\\"name\\\":\\\"design_studio_preview\\\",\\\"arguments\\\":{}}]}\"}}]",
+      "tool_name": null,
+      "tool_call_id": null,
+      "timestamp": 1794413589.4134758
+    },
+    {
+      "id": 5073,
+      "role": "tool",
+      "content": "{\"at\": \"2026-11-11T16:13:11.341Z\", \"build\": \"design-studio-p0-20261111-detached-1\", \"created_at\": 1794413591.518888, \"detached_canvas\": true, \"fixture\": true, \"height\": 400, \"kind\": \"preview\", \"metrics\": {\"detail_density\": 0.0010622514482542837, \"difference_previous\": null, \"difference_source\": null, \"dominant_colors\": [{\"fraction\": 0.0041640625, \"hex\": \"#442244\"}, {\"fraction\": 0.0041640625, \"hex\": \"#992244\"}, {\"fraction\": 0.0041640625, \"hex\": \"#44bb44\"}, {\"fraction\": 0.0041640625, \"hex\": \"#99bb44\"}, {\"fraction\": 0.0040625, \"hex\": \"#112244\"}], \"height\": 400, \"highlight_clipping_pct\": 0, \"mean_luma\": 0.4818651088235246, \"metrics_scope\": \"P0 fixture; differences not measured\", \"nearly_uniform\": false, \"shadow_clipping_pct\": 0, \"std_luma\": 0.21531945507246275, \"width\": 640}, \"page_active\": false, \"path\": \"/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png\", \"request_id\": \"64434194c10f4c59b30030bf191a2e80\", \"requested_revision\": 0, \"revision\": 0, \"run_id\": \"a9733829-9260-4d68-8f3b-b93e5b7f84a3\", \"sha256\": \"fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d\", \"stale\": false, \"u_time\": 0, \"via\": \"poll\", \"width\": 640}\nIf useful, call vision_analyze with this server PNG path; an auxiliary vision model may be available.\n[screenshot]",
+      "tool_calls": null,
+      "tool_name": "design_studio_preview",
+      "tool_call_id": "call_f8b05ae177f949988023c4ef391c8daf",
+      "timestamp": 1794413591.6008985
+    },
+    {
+      "id": 5074,
+      "role": "assistant",
+      "content": "Результат `design_studio_preview` — тестовое изображение (`fixture: true`), 640×400, не устаревшее (`stale: false`).\n\nMEDIA:/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+      "tool_calls": null,
+      "tool_name": null,
+      "tool_call_id": null,
+      "timestamp": 1794413596.751217
+    }
+  ],
+  "request": {
+    "max_size": 1600,
+    "kind": "preview",
+    "document": {
+      "format": 1,
+      "id": "p0",
+      "revision": 0,
+      "source": null,
+      "stack": [],
+      "seed": 1234,
+      "timeline": null
+    },
+    "created_at": 1794413589.4983435,
+    "request_id": "64434194c10f4c59b30030bf191a2e80"
+  },
+  "render": {
+    "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+    "build": "design-studio-p0-20261111-detached-1",
+    "page_active": false,
+    "detached_canvas": true,
+    "at": "2026-11-11T16:13:11.341Z",
+    "request_id": "64434194c10f4c59b30030bf191a2e80",
+    "kind": "preview",
+    "revision": 0,
+    "via": "poll",
+    "width": 640,
+    "height": 400,
+    "metrics": {
+      "width": 640,
+      "height": 400,
+      "mean_luma": 0.4818651088235246,
+      "std_luma": 0.21531945507246275,
+      "shadow_clipping_pct": 0,
+      "highlight_clipping_pct": 0,
+      "detail_density": 0.0010622514482542837,
+      "dominant_colors": [
+        {
+          "hex": "#442244",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#992244",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#44bb44",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#99bb44",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#112244",
+          "fraction": 0.0040625
+        }
+      ],
+      "nearly_uniform": false,
+      "difference_source": null,
+      "difference_previous": null,
+      "metrics_scope": "P0 fixture; differences not measured"
+    },
+    "fixture": true,
+    "u_time": 0,
+    "receipt": {
+      "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+      "build": "design-studio-p0-20261111-detached-1",
+      "page_active": false,
+      "detached_canvas": true,
+      "at": "2026-11-11T16:13:11.341Z",
+      "request_id": "64434194c10f4c59b30030bf191a2e80",
+      "kind": "preview",
+      "revision": 0,
+      "via": "poll",
+      "width": 640,
+      "height": 400,
+      "metrics": {
+        "width": 640,
+        "height": 400,
+        "mean_luma": 0.4818651088235246,
+        "std_luma": 0.21531945507246275,
+        "shadow_clipping_pct": 0,
+        "highlight_clipping_pct": 0,
+        "detail_density": 0.0010622514482542837,
+        "dominant_colors": [
+          {
+            "hex": "#442244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#992244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#44bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#99bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#112244",
+            "fraction": 0.0040625
+          }
+        ],
+        "nearly_uniform": false,
+        "difference_source": null,
+        "difference_previous": null,
+        "metrics_scope": "P0 fixture; differences not measured"
+      },
+      "fixture": true,
+      "u_time": 0,
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+      "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+      "created_at": 1794413591.518888
+    },
+    "png_bytes": 6927
+  },
+  "preview_summary": {
+    "at": "2026-11-11T16:13:11.341Z",
+    "build": "design-studio-p0-20261111-detached-1",
+    "created_at": 1794413591.518888,
+    "detached_canvas": true,
+    "fixture": true,
+    "height": 400,
+    "kind": "preview",
+    "metrics": {
+      "detail_density": 0.0010622514482542837,
+      "difference_previous": null,
+      "difference_source": null,
+      "dominant_colors": [
+        {
+          "fraction": 0.0041640625,
+          "hex": "#442244"
+        },
+        {
+          "fraction": 0.0041640625,
+          "hex": "#992244"
+        },
+        {
+          "fraction": 0.0041640625,
+          "hex": "#44bb44"
+        },
+        {
+          "fraction": 0.0041640625,
+          "hex": "#99bb44"
+        },
+        {
+          "fraction": 0.0040625,
+          "hex": "#112244"
+        }
+      ],
+      "height": 400,
+      "highlight_clipping_pct": 0,
+      "mean_luma": 0.4818651088235246,
+      "metrics_scope": "P0 fixture; differences not measured",
+      "nearly_uniform": false,
+      "shadow_clipping_pct": 0,
+      "std_luma": 0.21531945507246275,
+      "width": 640
+    },
+    "page_active": false,
+    "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+    "request_id": "64434194c10f4c59b30030bf191a2e80",
+    "requested_revision": 0,
+    "revision": 0,
+    "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+    "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+    "stale": false,
+    "u_time": 0,
+    "via": "poll",
+    "width": 640
+  },
+  "upload": {
+    "label": "generated-high-entropy-PNG",
+    "status": "complete",
+    "id": "edb88006cf214f38a68d635c590e56a5",
+    "index": 5,
+    "total": 6,
+    "bytes_received": 24673192,
+    "bytes_total": 24673192,
+    "receipt": {
+      "complete": true,
+      "id": "edb88006cf214f38a68d635c590e56a5",
+      "index": 4,
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+      "asset": "assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+      "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+      "width": 2560,
+      "height": 2400,
+      "w": 2560,
+      "h": 2400
+    },
+    "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+    "sha256_match": true,
+    "bytes": 24673192,
+    "actual_png_bytes": 24673192,
+    "at_least_20MiB": true
+  },
+  "save_as": {
+    "clicked": true,
+    "dialog_verified": true,
+    "method": "plugin-owned-anchor-download",
+    "evidence": "explicit-user-confirmation"
+  },
+  "files": [
+    {
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+      "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+      "bytes": 6927,
+      "dimensions": [
+        640,
+        400
+      ],
+      "pillow_verify_and_load": true
+    },
+    {
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+      "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+      "bytes": 24673192,
+      "dimensions": [
+        2560,
+        2400
+      ],
+      "pillow_verify_and_load": true
+    }
+  ]
+}

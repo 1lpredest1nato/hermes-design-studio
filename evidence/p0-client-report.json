@@ -1,0 +1,714 @@
+{
+  "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+  "build": "design-studio-p0-20261111-detached-1",
+  "page_active": false,
+  "detached_canvas": true,
+  "at": "2026-11-11T16:13:11.526Z",
+  "service": {
+    "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+    "build": "design-studio-p0-20261111-detached-1",
+    "page_active": false,
+    "detached_canvas": true,
+    "at": "2026-11-11T16:13:11.341Z",
+    "request_id": "64434194c10f4c59b30030bf191a2e80",
+    "kind": "preview",
+    "revision": 0,
+    "via": "poll",
+    "width": 640,
+    "height": 400,
+    "metrics": {
+      "width": 640,
+      "height": 400,
+      "mean_luma": 0.4818651088235246,
+      "std_luma": 0.21531945507246275,
+      "shadow_clipping_pct": 0,
+      "highlight_clipping_pct": 0,
+      "detail_density": 0.0010622514482542837,
+      "dominant_colors": [
+        {
+          "hex": "#442244",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#992244",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#44bb44",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#99bb44",
+          "fraction": 0.0041640625
+        },
+        {
+          "hex": "#112244",
+          "fraction": 0.0040625
+        }
+      ],
+      "nearly_uniform": false,
+      "difference_source": null,
+      "difference_previous": null,
+      "metrics_scope": "P0 fixture; differences not measured"
+    },
+    "fixture": true,
+    "u_time": 0,
+    "receipt": {
+      "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+      "build": "design-studio-p0-20261111-detached-1",
+      "page_active": false,
+      "detached_canvas": true,
+      "at": "2026-11-11T16:13:11.341Z",
+      "kind": "preview",
+      "revision": 0,
+      "via": "poll",
+      "width": 640,
+      "height": 400,
+      "metrics": {
+        "width": 640,
+        "height": 400,
+        "mean_luma": 0.4818651088235246,
+        "std_luma": 0.21531945507246275,
+        "shadow_clipping_pct": 0,
+        "highlight_clipping_pct": 0,
+        "detail_density": 0.0010622514482542837,
+        "dominant_colors": [
+          {
+            "hex": "#442244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#992244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#44bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#99bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#112244",
+            "fraction": 0.0040625
+          }
+        ],
+        "nearly_uniform": false,
+        "difference_source": null,
+        "difference_previous": null,
+        "metrics_scope": "P0 fixture; differences not measured"
+      },
+      "fixture": true,
+      "u_time": 0,
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+      "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+      "created_at": 1794413591.518888,
+      "request_id": "64434194c10f4c59b30030bf191a2e80"
+    },
+    "png_bytes": 6927
+  },
+  "renders": {
+    "cache-0": {
+      "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+      "build": "design-studio-p0-20261111-detached-1",
+      "page_active": false,
+      "detached_canvas": true,
+      "at": "2026-11-11T16:09:11.443Z",
+      "request_id": null,
+      "kind": "preview",
+      "revision": 0,
+      "via": "poll",
+      "width": 640,
+      "height": 400,
+      "metrics": {
+        "width": 640,
+        "height": 400,
+        "mean_luma": 0.4818651088235246,
+        "std_luma": 0.21531945507246275,
+        "shadow_clipping_pct": 0,
+        "highlight_clipping_pct": 0,
+        "detail_density": 0.0010622514482542837,
+        "dominant_colors": [
+          {
+            "hex": "#442244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#992244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#44bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#99bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#112244",
+            "fraction": 0.0040625
+          }
+        ],
+        "nearly_uniform": false,
+        "difference_source": null,
+        "difference_previous": null,
+        "metrics_scope": "P0 fixture; differences not measured"
+      },
+      "fixture": true,
+      "u_time": 0,
+      "receipt": {
+        "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+        "build": "design-studio-p0-20261111-detached-1",
+        "page_active": false,
+        "detached_canvas": true,
+        "at": "2026-11-11T16:09:11.443Z",
+        "kind": "preview",
+        "revision": 0,
+        "via": "poll",
+        "width": 640,
+        "height": 400,
+        "metrics": {
+          "width": 640,
+          "height": 400,
+          "mean_luma": 0.4818651088235246,
+          "std_luma": 0.21531945507246275,
+          "shadow_clipping_pct": 0,
+          "highlight_clipping_pct": 0,
+          "detail_density": 0.0010622514482542837,
+          "dominant_colors": [
+            {
+              "hex": "#442244",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#992244",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#44bb44",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#99bb44",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#112244",
+              "fraction": 0.0040625
+            }
+          ],
+          "nearly_uniform": false,
+          "difference_source": null,
+          "difference_previous": null,
+          "metrics_scope": "P0 fixture; differences not measured"
+        },
+        "fixture": true,
+        "u_time": 0,
+        "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+        "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+        "created_at": 1794413351.8631074
+      },
+      "png_bytes": 6927
+    },
+    "64434194c10f4c59b30030bf191a2e80": {
+      "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+      "build": "design-studio-p0-20261111-detached-1",
+      "page_active": false,
+      "detached_canvas": true,
+      "at": "2026-11-11T16:13:11.341Z",
+      "request_id": "64434194c10f4c59b30030bf191a2e80",
+      "kind": "preview",
+      "revision": 0,
+      "via": "poll",
+      "width": 640,
+      "height": 400,
+      "metrics": {
+        "width": 640,
+        "height": 400,
+        "mean_luma": 0.4818651088235246,
+        "std_luma": 0.21531945507246275,
+        "shadow_clipping_pct": 0,
+        "highlight_clipping_pct": 0,
+        "detail_density": 0.0010622514482542837,
+        "dominant_colors": [
+          {
+            "hex": "#442244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#992244",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#44bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#99bb44",
+            "fraction": 0.0041640625
+          },
+          {
+            "hex": "#112244",
+            "fraction": 0.0040625
+          }
+        ],
+        "nearly_uniform": false,
+        "difference_source": null,
+        "difference_previous": null,
+        "metrics_scope": "P0 fixture; differences not measured"
+      },
+      "fixture": true,
+      "u_time": 0,
+      "receipt": {
+        "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+        "build": "design-studio-p0-20261111-detached-1",
+        "page_active": false,
+        "detached_canvas": true,
+        "at": "2026-11-11T16:13:11.341Z",
+        "request_id": "64434194c10f4c59b30030bf191a2e80",
+        "kind": "preview",
+        "revision": 0,
+        "via": "poll",
+        "width": 640,
+        "height": 400,
+        "metrics": {
+          "width": 640,
+          "height": 400,
+          "mean_luma": 0.4818651088235246,
+          "std_luma": 0.21531945507246275,
+          "shadow_clipping_pct": 0,
+          "highlight_clipping_pct": 0,
+          "detail_density": 0.0010622514482542837,
+          "dominant_colors": [
+            {
+              "hex": "#442244",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#992244",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#44bb44",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#99bb44",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#112244",
+              "fraction": 0.0040625
+            }
+          ],
+          "nearly_uniform": false,
+          "difference_source": null,
+          "difference_previous": null,
+          "metrics_scope": "P0 fixture; differences not measured"
+        },
+        "fixture": true,
+        "u_time": 0,
+        "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+        "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+        "created_at": 1794413591.518888
+      },
+      "png_bytes": 6927
+    }
+  },
+  "runs": {
+    "a9733829-9260-4d68-8f3b-b93e5b7f84a3": {
+      "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+      "build": "design-studio-p0-20261111-detached-1",
+      "page_active": false,
+      "detached_canvas": true,
+      "at": "2026-11-11T16:13:11.526Z",
+      "service": {
+        "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+        "build": "design-studio-p0-20261111-detached-1",
+        "page_active": false,
+        "detached_canvas": true,
+        "at": "2026-11-11T16:13:11.341Z",
+        "request_id": "64434194c10f4c59b30030bf191a2e80",
+        "kind": "preview",
+        "revision": 0,
+        "via": "poll",
+        "width": 640,
+        "height": 400,
+        "metrics": {
+          "width": 640,
+          "height": 400,
+          "mean_luma": 0.4818651088235246,
+          "std_luma": 0.21531945507246275,
+          "shadow_clipping_pct": 0,
+          "highlight_clipping_pct": 0,
+          "detail_density": 0.0010622514482542837,
+          "dominant_colors": [
+            {
+              "hex": "#442244",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#992244",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#44bb44",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#99bb44",
+              "fraction": 0.0041640625
+            },
+            {
+              "hex": "#112244",
+              "fraction": 0.0040625
+            }
+          ],
+          "nearly_uniform": false,
+          "difference_source": null,
+          "difference_previous": null,
+          "metrics_scope": "P0 fixture; differences not measured"
+        },
+        "fixture": true,
+        "u_time": 0,
+        "receipt": {
+          "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+          "build": "design-studio-p0-20261111-detached-1",
+          "page_active": false,
+          "detached_canvas": true,
+          "at": "2026-11-11T16:13:11.341Z",
+          "kind": "preview",
+          "revision": 0,
+          "via": "poll",
+          "width": 640,
+          "height": 400,
+          "metrics": {
+            "width": 640,
+            "height": 400,
+            "mean_luma": 0.4818651088235246,
+            "std_luma": 0.21531945507246275,
+            "shadow_clipping_pct": 0,
+            "highlight_clipping_pct": 0,
+            "detail_density": 0.0010622514482542837,
+            "dominant_colors": [
+              {
+                "hex": "#442244",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#992244",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#44bb44",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#99bb44",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#112244",
+                "fraction": 0.0040625
+              }
+            ],
+            "nearly_uniform": false,
+            "difference_source": null,
+            "difference_previous": null,
+            "metrics_scope": "P0 fixture; differences not measured"
+          },
+          "fixture": true,
+          "u_time": 0,
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+          "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+          "created_at": 1794413591.518888,
+          "request_id": "64434194c10f4c59b30030bf191a2e80"
+        },
+        "png_bytes": 6927
+      },
+      "renders": {
+        "cache-0": {
+          "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+          "build": "design-studio-p0-20261111-detached-1",
+          "page_active": false,
+          "detached_canvas": true,
+          "at": "2026-11-11T16:09:11.443Z",
+          "request_id": null,
+          "kind": "preview",
+          "revision": 0,
+          "via": "poll",
+          "width": 640,
+          "height": 400,
+          "metrics": {
+            "width": 640,
+            "height": 400,
+            "mean_luma": 0.4818651088235246,
+            "std_luma": 0.21531945507246275,
+            "shadow_clipping_pct": 0,
+            "highlight_clipping_pct": 0,
+            "detail_density": 0.0010622514482542837,
+            "dominant_colors": [
+              {
+                "hex": "#442244",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#992244",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#44bb44",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#99bb44",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#112244",
+                "fraction": 0.0040625
+              }
+            ],
+            "nearly_uniform": false,
+            "difference_source": null,
+            "difference_previous": null,
+            "metrics_scope": "P0 fixture; differences not measured"
+          },
+          "fixture": true,
+          "u_time": 0,
+          "receipt": {
+            "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+            "build": "design-studio-p0-20261111-detached-1",
+            "page_active": false,
+            "detached_canvas": true,
+            "at": "2026-11-11T16:09:11.443Z",
+            "kind": "preview",
+            "revision": 0,
+            "via": "poll",
+            "width": 640,
+            "height": 400,
+            "metrics": {
+              "width": 640,
+              "height": 400,
+              "mean_luma": 0.4818651088235246,
+              "std_luma": 0.21531945507246275,
+              "shadow_clipping_pct": 0,
+              "highlight_clipping_pct": 0,
+              "detail_density": 0.0010622514482542837,
+              "dominant_colors": [
+                {
+                  "hex": "#442244",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#992244",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#44bb44",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#99bb44",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#112244",
+                  "fraction": 0.0040625
+                }
+              ],
+              "nearly_uniform": false,
+              "difference_source": null,
+              "difference_previous": null,
+              "metrics_scope": "P0 fixture; differences not measured"
+            },
+            "fixture": true,
+            "u_time": 0,
+            "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+            "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+            "created_at": 1794413351.8631074
+          },
+          "png_bytes": 6927
+        },
+        "64434194c10f4c59b30030bf191a2e80": {
+          "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+          "build": "design-studio-p0-20261111-detached-1",
+          "page_active": false,
+          "detached_canvas": true,
+          "at": "2026-11-11T16:13:11.341Z",
+          "request_id": "64434194c10f4c59b30030bf191a2e80",
+          "kind": "preview",
+          "revision": 0,
+          "via": "poll",
+          "width": 640,
+          "height": 400,
+          "metrics": {
+            "width": 640,
+            "height": 400,
+            "mean_luma": 0.4818651088235246,
+            "std_luma": 0.21531945507246275,
+            "shadow_clipping_pct": 0,
+            "highlight_clipping_pct": 0,
+            "detail_density": 0.0010622514482542837,
+            "dominant_colors": [
+              {
+                "hex": "#442244",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#992244",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#44bb44",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#99bb44",
+                "fraction": 0.0041640625
+              },
+              {
+                "hex": "#112244",
+                "fraction": 0.0040625
+              }
+            ],
+            "nearly_uniform": false,
+            "difference_source": null,
+            "difference_previous": null,
+            "metrics_scope": "P0 fixture; differences not measured"
+          },
+          "fixture": true,
+          "u_time": 0,
+          "receipt": {
+            "run_id": "a9733829-9260-4d68-8f3b-b93e5b7f84a3",
+            "build": "design-studio-p0-20261111-detached-1",
+            "page_active": false,
+            "detached_canvas": true,
+            "at": "2026-11-11T16:13:11.341Z",
+            "request_id": "64434194c10f4c59b30030bf191a2e80",
+            "kind": "preview",
+            "revision": 0,
+            "via": "poll",
+            "width": 640,
+            "height": 400,
+            "metrics": {
+              "width": 640,
+              "height": 400,
+              "mean_luma": 0.4818651088235246,
+              "std_luma": 0.21531945507246275,
+              "shadow_clipping_pct": 0,
+              "highlight_clipping_pct": 0,
+              "detail_density": 0.0010622514482542837,
+              "dominant_colors": [
+                {
+                  "hex": "#442244",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#992244",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#44bb44",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#99bb44",
+                  "fraction": 0.0041640625
+                },
+                {
+                  "hex": "#112244",
+                  "fraction": 0.0040625
+                }
+              ],
+              "nearly_uniform": false,
+              "difference_source": null,
+              "difference_previous": null,
+              "metrics_scope": "P0 fixture; differences not measured"
+            },
+            "fixture": true,
+            "u_time": 0,
+            "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/previews/fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d.png",
+            "sha256": "fe12518aeed1040038c0084b8006b00bbec199cfbe8513591645e2f1c2bd4a7d",
+            "created_at": 1794413591.518888
+          },
+          "png_bytes": 6927
+        }
+      },
+      "page": {
+        "active": false,
+        "route": "/design-studio"
+      },
+      "upload_probe": {
+        "label": "generated-high-entropy-PNG",
+        "status": "complete",
+        "id": "edb88006cf214f38a68d635c590e56a5",
+        "index": 5,
+        "total": 6,
+        "bytes_received": 24673192,
+        "bytes_total": 24673192,
+        "receipt": {
+          "complete": true,
+          "id": "edb88006cf214f38a68d635c590e56a5",
+          "index": 4,
+          "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+          "asset": "assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+          "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+          "width": 2560,
+          "height": 2400,
+          "w": 2560,
+          "h": 2400
+        },
+        "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+        "sha256_match": true,
+        "bytes": 24673192,
+        "actual_png_bytes": 24673192,
+        "at_least_20MiB": true
+      },
+      "save_as": {
+        "clicked": true,
+        "dialog_verified": true,
+        "method": "plugin-owned-anchor-download",
+        "evidence": "explicit-user-confirmation"
+      }
+    }
+  },
+  "page": {
+    "active": false,
+    "route": "/design-studio"
+  },
+  "upload_probe": {
+    "label": "generated-high-entropy-PNG",
+    "status": "complete",
+    "id": "edb88006cf214f38a68d635c590e56a5",
+    "index": 5,
+    "total": 6,
+    "bytes_received": 24673192,
+    "bytes_total": 24673192,
+    "receipt": {
+      "complete": true,
+      "id": "edb88006cf214f38a68d635c590e56a5",
+      "index": 4,
+      "path": "/home/destino/.hermes/plugin-data/hermes-design-studio/assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+      "asset": "assets/c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f.png",
+      "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+      "width": 2560,
+      "height": 2400,
+      "w": 2560,
+      "h": 2400
+    },
+    "sha256": "c2fc8edcd364dabccd135eab826454fbba954abee6324cf0aea45aa2281f767f",
+    "sha256_match": true,
+    "bytes": 24673192,
+    "actual_png_bytes": 24673192,
+    "at_least_20MiB": true
+  },
+  "save_as": {
+    "clicked": true,
+    "dialog_verified": true,
+    "method": "plugin-owned-anchor-download",
+    "evidence": "explicit-user-confirmation"
+  }
+}
